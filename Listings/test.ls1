@@ -1,0 +1,2357 @@
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\test.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\test.src PR(.\Listings\test.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\test.SRC generated from: test.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE test.c COMPACT OPTIMIZE(9,SPEED) BROW
+                             SE DEBUG OBJECTEXTEND PRINT(.\Listings\test.lst) TABS(2) SRC(.\Objects\test.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    TEST
+                       8     
+  00A0                 9     DS_CE   BIT     0A0H.0
+  0080                10     P0      DATA    080H
+  0090                11     P1      DATA    090H
+  00A0                12     P2      DATA    0A0H
+  00B0                13     P3      DATA    0B0H
+  00C0                14     XICON   DATA    0C0H
+  00B4                15     T0      BIT     0B0H.4
+  00D6                16     AC      BIT     0D0H.6
+  00E8                17     P4      DATA    0E8H
+  00B5                18     T1      BIT     0B0H.5
+  00E6                19     ISP_TRIG        DATA    0E6H
+  0090                20     T2      BIT     090H.0
+  00AF                21     EA      BIT     0A8H.7
+  00AE                22     EC      BIT     0A8H.6
+  009F                23     FE      BIT     098H.7
+  00A8                24     IE      DATA    0A8H
+  00A1                25     DS_IO   BIT     0A0H.1
+  00CE                26     EXF2    BIT     0C8H.6
+  00B7                27     RD      BIT     0B0H.7
+  00AC                28     ES      BIT     0A8H.4
+  00B8                29     IP      DATA    0B8H
+  00B1                30     KEY0    BIT     0B0H.1
+  00B0                31     KEY1    BIT     0B0H.0
+  0098                32     RI      BIT     098H.0
+  0095                33     BZ      BIT     090H.5
+  00B2                34     KEY2    BIT     0B0H.2
+  00B2                35     INT0    BIT     0B0H.2
+  00D7                36     CY      BIT     0D0H.7
+  00B3                37     KEY3    BIT     0B0H.3
+  0099                38     TI      BIT     098H.1
+  00B3                39     INT1    BIT     0B0H.3
+  00CB                40     RCAP2H  DATA    0CBH
+  00E5                41     ISP_CMD DATA    0E5H
+  00BC                42     PS      BIT     0B8H.4
+  0081                43     SP      DATA    081H
+  0091                44     T2EX    BIT     090H.1
+  00D2                45     OV      BIT     0D0H.2
+  00A2                46     DS_SCLK BIT     0A0H.2
+  00CA                47     RCAP2L  DATA    0CAH
+  00C9                48     C_T2    BIT     0C8H.1
+  00B6                49     WR      BIT     0B0H.6
+  00CD                50     RCLK    BIT     0C8H.5
+  00CC                51     TCLK    BIT     0C8H.4
+  00B7                52     TEMP_IO BIT     0B0H.7
+  0080                53     P00     BIT     080H.0
+  0099                54     SBUF    DATA    099H
+  0087                55     PCON    DATA    087H
+  0090                56     P10     BIT     090H.0
+  0081                57     P01     BIT     080H.1
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     2
+
+  00A0                58     P20     BIT     0A0H.0
+  0091                59     P11     BIT     090H.1
+  0082                60     P02     BIT     080H.2
+  00E3                61     ISP_ADDRH       DATA    0E3H
+  00B0                62     P30     BIT     0B0H.0
+  00A1                63     P21     BIT     0A0H.1
+  0092                64     P12     BIT     090H.2
+  0083                65     P03     BIT     080H.3
+  0098                66     SCON    DATA    098H
+  00B1                67     P31     BIT     0B0H.1
+  00A2                68     P22     BIT     0A0H.2
+  0093                69     P13     BIT     090H.3
+  0084                70     P04     BIT     080H.4
+  00E8                71     P40     BIT     0E8H.0
+  0089                72     TMOD    DATA    089H
+  0088                73     TCON    DATA    088H
+  00B2                74     P32     BIT     0B0H.2
+  00A3                75     P23     BIT     0A0H.3
+  0094                76     P14     BIT     090H.4
+  0085                77     P05     BIT     080H.5
+  00E9                78     P41     BIT     0E8H.1
+  00B3                79     P33     BIT     0B0H.3
+  00A4                80     P24     BIT     0A0H.4
+  0095                81     P15     BIT     090H.5
+  0086                82     P06     BIT     080H.6
+  00E4                83     ISP_ADDRL       DATA    0E4H
+  00EA                84     P42     BIT     0E8H.2
+  00B4                85     P34     BIT     0B0H.4
+  00A5                86     P25     BIT     0A0H.5
+  0096                87     P16     BIT     090H.6
+  0087                88     P07     BIT     080H.7
+  00EB                89     P43     BIT     0E8H.3
+  00B5                90     P35     BIT     0B0H.5
+  00A6                91     P26     BIT     0A0H.6
+  0097                92     P17     BIT     090H.7
+  00EC                93     P44     BIT     0E8H.4
+  00B6                94     P36     BIT     0B0H.6
+  00A7                95     P27     BIT     0A0H.7
+  00ED                96     P45     BIT     0E8H.5
+  00B7                97     P37     BIT     0B0H.7
+  00EE                98     P46     BIT     0E8H.6
+  0089                99     IE0     BIT     088H.1
+  008B               100     IE1     BIT     088H.3
+  008E               101     AUXR    DATA    08EH
+  00F0               102     B       DATA    0F0H
+  00C8               103     CP_RL2  BIT     0C8H.0
+  00E0               104     ACC     DATA    0E0H
+  00A9               105     ET0     BIT     0A8H.1
+  00AB               106     ET1     BIT     0A8H.3
+  008D               107     TF0     BIT     088H.5
+  00AD               108     ET2     BIT     0A8H.5
+  008F               109     TF1     BIT     088H.7
+  00CF               110     TF2     BIT     0C8H.7
+  009A               111     RB8     BIT     098H.2
+  008C               112     TH0     DATA    08CH
+  00A8               113     EX0     BIT     0A8H.0
+  0088               114     IT0     BIT     088H.0
+  008D               115     TH1     DATA    08DH
+  009B               116     TB8     BIT     098H.3
+  00AA               117     EX1     BIT     0A8H.2
+  008A               118     IT1     BIT     088H.2
+  00CD               119     TH2     DATA    0CDH
+  00D0               120     P       BIT     0D0H.0
+  009F               121     SM0     BIT     098H.7
+  008A               122     TL0     DATA    08AH
+  009E               123     SM1     BIT     098H.6
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     3
+
+  008B               124     TL1     DATA    08BH
+  009D               125     SM2     BIT     098H.5
+  00CC               126     TL2     DATA    0CCH
+  00B9               127     PT0     BIT     0B8H.1
+  00BB               128     PT1     BIT     0B8H.3
+  00D3               129     RS0     BIT     0D0H.3
+  00E7               130     ISP_CONTR       DATA    0E7H
+  00BD               131     PT2     BIT     0B8H.5
+  008C               132     TR0     BIT     088H.4
+  00D4               133     RS1     BIT     0D0H.4
+  008E               134     TR1     BIT     088H.6
+  00CA               135     TR2     BIT     0C8H.2
+  00B8               136     PX0     BIT     0B8H.0
+  00E1               137     WDT_CONTR       DATA    0E1H
+  00A3               138     DHT_IO  BIT     0A0H.3
+  00A7               139     LCD_RS  BIT     0A0H.7
+  00BA               140     PX1     BIT     0B8H.2
+  0083               141     DPH     DATA    083H
+  00A6               142     LCD_RW  BIT     0A0H.6
+  0082               143     DPL     DATA    082H
+  00B7               144     IPH     DATA    0B7H
+  00CB               145     EXEN2   BIT     0C8H.3
+  009C               146     REN     BIT     098H.4
+  00C9               147     T2MOD   DATA    0C9H
+  00C8               148     T2CON   DATA    0C8H
+  00E2               149     ISP_DATA        DATA    0E2H
+  00B9               150     SADEN   DATA    0B9H
+  00B0               151     RXD     BIT     0B0H.0
+  00A9               152     SADDR   DATA    0A9H
+  00B1               153     TXD     BIT     0B0H.1
+  00A2               154     AUXR1   DATA    0A2H
+  00D5               155     F0      BIT     0D0H.5
+  00A5               156     LCD_E   BIT     0A0H.5
+  00D0               157     PSW     DATA    0D0H
+                     158     ?PR?test_BZ?TEST     SEGMENT CODE 
+                     159     ?PD?test_BZ?TEST     SEGMENT XDATA INPAGE OVERLAYABLE 
+                     160     ?PR?test_buttons?TEST                    SEGMENT CODE 
+                     161     ?PD?test_buttons?TEST                    SEGMENT XDATA INPAGE OVERLAYABLE 
+                     162     ?PR?test_display_temps?TEST              SEGMENT CODE 
+                     163     ?PD?test_display_temps?TEST              SEGMENT XDATA INPAGE OVERLAYABLE 
+                     164     ?PR?test_lcd12864_displayPM1?TEST        SEGMENT CODE 
+                     165     ?PD?test_lcd12864_displayPM1?TEST        SEGMENT XDATA INPAGE OVERLAYABLE 
+                     166     ?PR?test_lcd12864_displayPM0?TEST        SEGMENT CODE 
+                     167     ?PR?test_ds1302?TEST SEGMENT CODE 
+                     168     ?PD?test_ds1302?TEST SEGMENT XDATA INPAGE OVERLAYABLE 
+                     169     ?PR?test_dht?TEST    SEGMENT CODE 
+                     170     ?PD?test_dht?TEST    SEGMENT XDATA INPAGE OVERLAYABLE 
+                     171     ?C_INITSEG           SEGMENT CODE 
+                     172     ?CO?TEST             SEGMENT CODE 
+                     173     ?PD?TEST             SEGMENT XDATA INPAGE 
+                     174     ?PR?TEST             SEGMENT CODE 
+                     175             EXTRN   CODE (lcd_clr_DDram)
+                     176             EXTRN   XDATA (ds_dat_time)
+                     177             EXTRN   XDATA (temp_data_Decimal_r)
+                     178             EXTRN   CODE (_lcd_Draw_PM)
+                     179             EXTRN   XDATA (?_lcd_Draw_PM?BYTE)
+                     180             EXTRN   XDATA (error)
+                     181             EXTRN   XDATA (Dht_error)
+                     182             EXTRN   DATA (Double_Press_counter)
+                     183             EXTRN   CODE (d_100ms)
+                     184             EXTRN   XDATA (Dht_RhData)
+                     185             EXTRN   CODE (_lcd_wcmd)
+                     186             EXTRN   CODE (lcd_clr_GD)
+                     187             EXTRN   CODE (Ds18b20_ChangTemp)
+                     188             EXTRN   CODE (_lcd_wdat)
+                     189             EXTRN   XDATA (temp_data_sign)
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     4
+
+                     190             EXTRN   CODE (lcd_init)
+                     191             EXTRN   CODE (dht_rdat)
+                     192             EXTRN   CODE (Ds18b20_rTemp)
+                     193             EXTRN   DATA (Instruction_code_key)
+                     194             EXTRN   CODE (recognition_key)
+                     195             EXTRN   CODE (zhu)
+                     196             EXTRN   CODE (Ds18b20_Init)
+                     197             EXTRN   CODE (temp_data_collation)
+                     198             EXTRN   XDATA (temp_data_Integer)
+                     199             EXTRN   CODE (d_1s)
+                     200             EXTRN   CODE (Ds1302_Read_time)
+                     201             EXTRN   CODE (_d_n_ms)
+                     202             EXTRN   CODE (?C?UIDIV)
+                     203             PUBLIC  ver_key
+                     204             PUBLIC  c?
+                     205             PUBLIC  BZ_Forbiddenbit
+                     206             PUBLIC  time_clock
+                     207             PUBLIC  init_ds_dat_time
+                     208             PUBLIC  test_key_ver_0
+                     209             PUBLIC  test_ds1302_ver_0
+                     210             PUBLIC  test_dht
+                     211             PUBLIC  test_ds1302
+                     212             PUBLIC  test_lcd12864_displayPM0
+                     213             PUBLIC  test_lcd12864_displayPM1
+                     214             PUBLIC  test_display_temps
+                     215             PUBLIC  test_buttons
+                     216             PUBLIC  test_BZ
+                     217     
+----                 218             RSEG  ?PD?test_lcd12864_displayPM1?TEST
+0000                 219     ?test_lcd12864_displayPM1?BYTE:
+0000                 220               i?344:   DS   2
+0002                 221             ORG  2
+0002                 222               j?345:   DS   2
+                     223     
+----                 224             RSEG  ?PD?test_display_temps?TEST
+0000                 225     ?test_display_temps?BYTE:
+0000                 226               i?243:   DS   2
+                     227     
+----                 228             RSEG  ?PD?test_buttons?TEST
+0000                 229     ?test_buttons?BYTE:
+0000                 230               i?141:   DS   2
+0002                 231             ORG  2
+0002                 232               j?142:   DS   2
+                     233     
+----                 234             RSEG  ?PD?test_BZ?TEST
+0000                 235     ?test_BZ?BYTE:
+0000                 236               n?040:   DS   2
+                     237     
+----                 238             RSEG  ?PD?test_ds1302?TEST
+0000                 239     ?test_ds1302?BYTE:
+0000                 240               i?546:   DS   1
+                     241     
+----                 242             RSEG  ?PD?test_dht?TEST
+0000                 243     ?test_dht?BYTE:
+0000                 244               k?647:   DS   1
+0001                 245             ORG  1
+0001                 246               i?648:   DS   1
+                     247     
+----                 248             RSEG  ?PD?TEST
+0000                 249     init_ds_dat_time:   DS   7
+0007                 250          time_clock:   DS   1
+0008                 251     BZ_Forbiddenbit:   DS   4
+000C                 252                  c?:   DS   3
+000F                 253             ver_key:   DS   32
+                     254     
+----                 255             RSEG  ?CO?TEST
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     5
+
+0000                 256     test_ds1302_ver_0:
+0000 6C63642E        257             DB  'l' ,'c' ,'d' ,'.' ,'t' ,'e' ,'s' ,'t' ,':' ,'v' 
+0004 74657374                
+0008 3A76                    
+000A 65727369        258             DB  'e' ,'r' ,'s' ,'i' ,'o' ,'n' ,' ' ,'1' ,'.' ,'0' 
+000E 6F6E2031                
+0012 2E30                    
+0014 00              259             DB  000H
+                     260     
+                     261     
+0015                 262     test_key_ver_0:
+0015 6B65792E        263             DB  'k' ,'e' ,'y' ,'.' ,'t' ,'e' ,'s' ,'t' ,':' ,' ' 
+0019 74657374                
+001D 3A20                    
+001F 20766572        264             DB  ' ' ,'v' ,'e' ,'r' ,' ' ,'0' ,'d' ,'a' ,'t' ,'a' 
+0023 20306461                
+0027 7461                    
+0029 3A202020        265             DB  ':' ,' ' ,' ' ,' ' ,'2' ,'0' ,'2' ,'0' ,'/' ,'2' 
+002D 32303230                
+0031 2F32                    
+0033 2F3700          266             DB  '/' ,'7' ,000H
+                     267     
+                     268     
+                     269     
+----                 270             RSEG  ?C_INITSEG
+0000 83              271             DB      083H
+0001 00       F      272             DB      LOW (c?)
+0002 A1E600          273             DB  0A1H,0E6H,000H
+                     274     
+                     275     
+0005 87              276             DB      087H
+0006 00       F      277             DB      LOW (init_ds_dat_time)
+0007 00              278             DB      000H
+0008 00              279             DB      000H
+0009 00              280             DB      000H
+000A 23              281             DB      023H
+000B 01              282             DB      001H
+000C 04              283             DB      004H
+000D 20              284             DB      020H
+                     285     
+000E 81              286             DB      081H
+000F 00       F      287             DB      LOW (time_clock)
+0010 00              288             DB      000H
+                     289     
+0011 A0              290             DB      0A0H
+0012 20              291             DB      020H
+0013 00       F      292             DB      LOW (ver_key)
+0014 6B657930        293             DB  'k' ,'e' ,'y' ,'0' ,000H
+0018 00                      
+                     294     
+0019 000000          295             DB  000H,000H,000H
+                     296     
+001C 6B657931        297             DB  'k' ,'e' ,'y' ,'1' ,000H
+0020 00                      
+                     298     
+0021 000000          299             DB  000H,000H,000H
+                     300     
+0024 6B657932        301             DB  'k' ,'e' ,'y' ,'2' ,000H
+0028 00                      
+                     302     
+0029 000000          303             DB  000H,000H,000H
+                     304     
+002C 6B657933        305             DB  'k' ,'e' ,'y' ,'3' ,000H
+0030 00                      
+                     306     
+0031 000000          307             DB  000H,000H,000H
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     6
+
+                     308     
+                     309     
+0034 84              310             DB      084H
+0035 00       F      311             DB      LOW (BZ_Forbiddenbit)
+0036 00              312             DB      000H
+0037 000000          313             DB  000H,000H,000H
+                     314     
+                     315     
+                     316     ; #include "test.h"
+                     317     ; #include "habit.h"
+                     318     ; #include "lcd.h"
+                     319     ; #include "temps.h"
+                     320     ; #include "bmp.h"
+                     321     ; #include "ds1302.h"
+                     322     ; #include "button.h"
+                     323     ; #include "dht11.h"
+                     324     ; /****temp******/
+                     325     ; uchar c[]={"℃"};
+                     326     ; 
+                     327     ; /****DS1302****/
+                     328     ; uchar init_ds_dat_time[7]={0x00,0x00,0x00,0x23,0x01,0x04,0x20};
+                     329     ; uchar code test_ds1302_ver_0[]={"lcd.test:version 1.0"};
+                     330     ; uchar time_clock=0;
+                     331     ; 
+                     332     ; /****key*******/
+                     333     ; //uchar code test_key_ver_0[]={"key0~3.test:version 0"};
+                     334     ; uchar code test_key_ver_0[]={"key.test:  ver 0data:   2020/2/7"};
+                     335     ; uchar ver_key[4][8]={"key0","key1","key2","key3"};
+                     336     ; 
+                     337     ; /****BZ********/
+                     338     ; sbit BZ=P1^5;
+                     339     ; uchar BZ_Forbiddenbit[4]=0;
+                     340     ; 
+                     341     
+----                 342             RSEG  ?PR?TEST
+0000                 343     Com006A:
+0000                 344     L?0107:
+                     345             USING   0
+0000 7D64            346             MOV     R5,#064H
+0002                 347     L?0108:
+0002 E2              348             MOVX    A,@R0
+0003 FE              349             MOV     R6,A
+0004 08              350             INC     R0
+0005 E2              351             MOVX    A,@R0
+0006 FF              352             MOV     R7,A
+0007 7C00            353             MOV     R4,#00H
+0009                 354     L?0109:
+0009 120000   F      355             LCALL   ?C?UIDIV
+000C                 356     L?0110:
+000C 7C00            357             MOV     R4,#00H
+000E 7D0A            358             MOV     R5,#0AH
+0010 120000   F      359             LCALL   ?C?UIDIV
+0013 ED              360             MOV     A,R5
+0014 2430            361             ADD     A,#030H
+0016 FF              362             MOV     R7,A
+0017 22              363             RET     
+0018                 364     L?0115:
+                     365             USING   0
+0018                 366     L?0116:
+0018 7800     F      367             MOV     R0,#LOW (i?141+01H)
+001A                 368     L?0117:
+001A E2              369             MOVX    A,@R0
+001B 2401            370             ADD     A,#01H
+001D F2              371             MOVX    @R0,A
+001E 18              372             DEC     R0
+001F E2              373             MOVX    A,@R0
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     7
+
+0020 3400            374             ADDC    A,#00H
+0022 F2              375             MOVX    @R0,A
+0023 22              376             RET     
+0024                 377     L?0118:
+                     378             USING   0
+0024 75F00A          379             MOV     B,#0AH
+0027                 380     L?0119:
+0027 E2              381             MOVX    A,@R0
+0028 84              382             DIV     AB
+0029                 383     L?0120:
+0029 75F00A          384             MOV     B,#0AH
+002C 84              385             DIV     AB
+002D E5F0            386             MOV     A,B
+002F 2430            387             ADD     A,#030H
+0031 FF              388             MOV     R7,A
+0032 22              389             RET     
+0033                 390     L?0127:
+                     391             USING   0
+0033 7800     F      392             MOV     R0,#LOW (i?141)
+0035 08              393             INC     R0
+0036 E2              394             MOVX    A,@R0
+0037 25E0            395             ADD     A,ACC
+0039 2400     F      396             ADD     A,#LOW (Double_Press_counter)
+003B F8              397             MOV     R0,A
+003C E6              398             MOV     A,@R0
+003D FE              399             MOV     R6,A
+003E 08              400             INC     R0
+003F E6              401             MOV     A,@R0
+0040 D3              402             SETB    C
+0041 940A            403             SUBB    A,#0AH
+0043 EE              404             MOV     A,R6
+0044 9400            405             SUBB    A,#00H
+0046 22              406             RET     
+0047                 407     L?0129:
+                     408             USING   0
+0047                 409     L?0130:
+0047 7800     F      410             MOV     R0,#LOW (j?345)
+0049 08              411             INC     R0
+004A E2              412             MOVX    A,@R0
+004B FF              413             MOV     R7,A
+004C 7800     F      414             MOV     R0,#LOW (i?344)
+004E 08              415             INC     R0
+004F E2              416             MOVX    A,@R0
+0050 2F              417             ADD     A,R7
+0051 22              418             RET     
+0052                 419     L?0132:
+                     420             USING   0
+0052 7800     F      421             MOV     R0,#LOW (i?141)
+0054                 422     L?0133:
+0054 E2              423             MOVX    A,@R0
+0055 FE              424             MOV     R6,A
+0056 08              425             INC     R0
+0057 E2              426             MOVX    A,@R0
+0058 FF              427             MOV     R7,A
+0059 C3              428             CLR     C
+005A 22              429             RET     
+005B                 430     L?0135:
+                     431             USING   0
+005B E2              432             MOVX    A,@R0
+005C FE              433             MOV     R6,A
+005D 08              434             INC     R0
+005E E2              435             MOVX    A,@R0
+005F FF              436             MOV     R7,A
+0060 120000   F      437             LCALL   ?C?UIDIV
+0063 EF              438             MOV     A,R7
+0064 2430            439             ADD     A,#030H
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     8
+
+0066 FF              440             MOV     R7,A
+0067 22              441             RET     
+0068                 442     L?0136:
+                     443             USING   0
+0068 D3              444             SETB    C
+0069 7800     F      445             MOV     R0,#LOW (n?040+01H)
+006B E2              446             MOVX    A,@R0
+006C 9400            447             SUBB    A,#00H
+006E 18              448             DEC     R0
+006F E2              449             MOVX    A,@R0
+0070 9400            450             SUBB    A,#00H
+0072 22              451             RET     
+0073                 452     L?0137:
+                     453             USING   0
+0073 08              454             INC     R0
+0074 E2              455             MOVX    A,@R0
+0075 24FF            456             ADD     A,#0FFH
+0077 F2              457             MOVX    @R0,A
+0078 18              458             DEC     R0
+0079 E2              459             MOVX    A,@R0
+007A 34FF            460             ADDC    A,#0FFH
+007C F2              461             MOVX    @R0,A
+007D 22              462             RET     
+007E                 463     L?0138:
+                     464             USING   0
+007E 7800     F      465             MOV     R0,#LOW (n?040+01H)
+0080 E2              466             MOVX    A,@R0
+0081 94E8            467             SUBB    A,#0E8H
+0083 18              468             DEC     R0
+0084 E2              469             MOVX    A,@R0
+0085 9403            470             SUBB    A,#03H
+0087 22              471             RET     
+0088                 472     L?0139:
+                     473             USING   0
+0088 7800     F      474             MOV     R0,#LOW (n?040)
+008A 7403            475             MOV     A,#03H
+008C F2              476             MOVX    @R0,A
+008D 08              477             INC     R0
+008E 74E8            478             MOV     A,#0E8H
+0090 F2              479             MOVX    @R0,A
+0091 22              480             RET     
+                     481     ; END OF Com006A
+                     482     
+                     483     ; void test_BZ()
+                     484     
+----                 485             RSEG  ?PR?test_BZ?TEST
+0000                 486     test_BZ:
+                     487             USING   0
+                     488                             ; SOURCE LINE # 26
+                     489     ; {
+                     490                             ; SOURCE LINE # 27
+                     491     ;       uint n=1;
+                     492                             ; SOURCE LINE # 28
+0000 7800     F      493             MOV     R0,#LOW (n?040)
+0002 E4              494             CLR     A
+0003 F2              495             MOVX    @R0,A
+0004 08              496             INC     R0
+0005 04              497             INC     A
+0006 F2              498             MOVX    @R0,A
+                     499     ;       lcd_init();
+                     500                             ; SOURCE LINE # 29
+0007 120000   F      501             LCALL   lcd_init
+000A                 502     ?C0001:
+                     503     ;       while(1)
+                     504                             ; SOURCE LINE # 30
+                     505     ;       {
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE     9
+
+                     506                             ; SOURCE LINE # 31
+                     507     ;               recognition_key();lcd_wcmd(0x80);lcd_wdat((n/1000)+48);lcd_wdat((n/100)%10+
+                             48);lcd_wdat((n/10)%10+48);lcd_wdat(n%10+48);
+                     508                             ; SOURCE LINE # 32
+000A 120000   F      509             LCALL   recognition_key
+000D 7F80            510             MOV     R7,#080H
+000F 120000   F      511             LCALL   _lcd_wcmd
+0012 7800     F      512             MOV     R0,#LOW (n?040)
+0014 7C03            513             MOV     R4,#03H
+0016 7DE8            514             MOV     R5,#0E8H
+0018 120000   F      515             LCALL   L?0135
+001B 120000   F      516             LCALL   _lcd_wdat
+001E 7800     F      517             MOV     R0,#LOW (n?040)
+0020 120000   F      518             LCALL   L?0107
+0023 120000   F      519             LCALL   _lcd_wdat
+0026 7800     F      520             MOV     R0,#LOW (n?040)
+0028 7D0A            521             MOV     R5,#0AH
+002A 120000   F      522             LCALL   L?0108
+002D 120000   F      523             LCALL   _lcd_wdat
+0030 7800     F      524             MOV     R0,#LOW (n?040)
+0032 E2              525             MOVX    A,@R0
+0033 FE              526             MOV     R6,A
+0034 08              527             INC     R0
+0035 E2              528             MOVX    A,@R0
+0036 FF              529             MOV     R7,A
+0037 120000   F      530             LCALL   L?0110
+003A 120000   F      531             LCALL   _lcd_wdat
+                     532     ;               if(Instruction_code_key[0]==0x80&&BZ_Forbiddenbit[0]==0){if(n<1000)n++;else
+                              n=0;BZ_Forbiddenbit[0]=1;}
+                     533                             ; SOURCE LINE # 33
+003D AF00     F      534             MOV     R7,Instruction_code_key
+003F 7E00            535             MOV     R6,#00H
+0041 EF              536             MOV     A,R7
+0042 6480            537             XRL     A,#080H
+0044 701E            538             JNZ     ?C0003
+0046 7800     F      539             MOV     R0,#LOW (BZ_Forbiddenbit)
+0048 E2              540             MOVX    A,@R0
+0049 7019            541             JNZ     ?C0003
+004B C3              542             CLR     C
+004C 120000   F      543             LCALL   L?0138
+004F 5006            544             JNC     ?C0004
+0051 08              545             INC     R0
+0052 120000   F      546             LCALL   L?0117
+0055 8006            547             SJMP    ?C0005
+0057                 548     ?C0004:
+0057 E4              549             CLR     A
+0058 7800     F      550             MOV     R0,#LOW (n?040)
+005A F2              551             MOVX    @R0,A
+005B 08              552             INC     R0
+005C F2              553             MOVX    @R0,A
+005D                 554     ?C0005:
+005D 7800     F      555             MOV     R0,#LOW (BZ_Forbiddenbit)
+005F 7401            556             MOV     A,#01H
+0061 F2              557             MOVX    @R0,A
+0062 802B            558             SJMP    ?C0006
+0064                 559     ?C0003:
+                     560     ;               else {BZ_Forbiddenbit[0]=0;if(Instruction_code_key[0]==0x82&&Double_Press_c
+                             ounter[0]>10){if(n<1000)n++;else n=0;Double_Press_counter[0]=0;}}
+                     561                             ; SOURCE LINE # 34
+0064 E4              562             CLR     A
+0065 7800     F      563             MOV     R0,#LOW (BZ_Forbiddenbit)
+0067 F2              564             MOVX    @R0,A
+0068 EF              565             MOV     A,R7
+0069 6482            566             XRL     A,#082H
+006B 4E              567             ORL     A,R6
+006C 7021            568             JNZ     ?C0006
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    10
+
+006E D3              569             SETB    C
+006F E500     F      570             MOV     A,Double_Press_counter+01H
+0071 940A            571             SUBB    A,#0AH
+0073 E500     F      572             MOV     A,Double_Press_counter
+0075 9400            573             SUBB    A,#00H
+0077 4016            574             JC      ?C0006
+0079 120000   F      575             LCALL   L?0138
+007C 5006            576             JNC     ?C0008
+007E 08              577             INC     R0
+007F 120000   F      578             LCALL   L?0117
+0082 8006            579             SJMP    ?C0009
+0084                 580     ?C0008:
+0084 E4              581             CLR     A
+0085 7800     F      582             MOV     R0,#LOW (n?040)
+0087 F2              583             MOVX    @R0,A
+0088 08              584             INC     R0
+0089 F2              585             MOVX    @R0,A
+008A                 586     ?C0009:
+008A E4              587             CLR     A
+008B F500     F      588             MOV     Double_Press_counter,A
+008D F500     F      589             MOV     Double_Press_counter+01H,A
+008F                 590     ?C0006:
+                     591     ;               if(Instruction_code_key[1]==0x80&&BZ_Forbiddenbit[1]==0){if(n>0)n--;else n=
+                             1000;BZ_Forbiddenbit[1]=1;}
+                     592                             ; SOURCE LINE # 35
+008F AF00     F      593             MOV     R7,Instruction_code_key+01H
+0091 7E00            594             MOV     R6,#00H
+0093 EF              595             MOV     A,R7
+0094 6480            596             XRL     A,#080H
+0096 7019            597             JNZ     ?C0010
+0098 7800     F      598             MOV     R0,#LOW (BZ_Forbiddenbit+01H)
+009A E2              599             MOVX    A,@R0
+009B 7014            600             JNZ     ?C0010
+009D 120000   F      601             LCALL   L?0136
+00A0 4005            602             JC      ?C0011
+00A2 120000   F      603             LCALL   L?0137
+00A5 8003            604             SJMP    ?C0012
+00A7                 605     ?C0011:
+00A7 120000   F      606             LCALL   L?0139
+00AA                 607     ?C0012:
+00AA 7800     F      608             MOV     R0,#LOW (BZ_Forbiddenbit+01H)
+00AC 7401            609             MOV     A,#01H
+00AE F2              610             MOVX    @R0,A
+00AF 8027            611             SJMP    ?C0013
+00B1                 612     ?C0010:
+                     613     ;               else {BZ_Forbiddenbit[1]=0;if(Instruction_code_key[1]==0x82&&Double_Press_c
+                             ounter[1]>10){if(n>0)n--;else n=1000;Double_Press_counter[1]=0;}}
+                     614                             ; SOURCE LINE # 36
+00B1 E4              615             CLR     A
+00B2 7800     F      616             MOV     R0,#LOW (BZ_Forbiddenbit+01H)
+00B4 F2              617             MOVX    @R0,A
+00B5 EF              618             MOV     A,R7
+00B6 6482            619             XRL     A,#082H
+00B8 4E              620             ORL     A,R6
+00B9 701D            621             JNZ     ?C0013
+00BB D3              622             SETB    C
+00BC E500     F      623             MOV     A,Double_Press_counter+03H
+00BE 940A            624             SUBB    A,#0AH
+00C0 E500     F      625             MOV     A,Double_Press_counter+02H
+00C2 9400            626             SUBB    A,#00H
+00C4 4012            627             JC      ?C0013
+00C6 120000   F      628             LCALL   L?0136
+00C9 4005            629             JC      ?C0015
+00CB 120000   F      630             LCALL   L?0137
+00CE 8003            631             SJMP    ?C0016
+00D0                 632     ?C0015:
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    11
+
+00D0 120000   F      633             LCALL   L?0139
+00D3                 634     ?C0016:
+00D3 E4              635             CLR     A
+00D4 F500     F      636             MOV     Double_Press_counter+02H,A
+00D6 F500     F      637             MOV     Double_Press_counter+03H,A
+00D8                 638     ?C0013:
+                     639     ;               BZ=1;d_n_ms(n);BZ=0;
+                     640                             ; SOURCE LINE # 37
+00D8 D295            641             SETB    BZ
+00DA 7800     F      642             MOV     R0,#LOW (n?040)
+00DC E2              643             MOVX    A,@R0
+00DD FE              644             MOV     R6,A
+00DE 08              645             INC     R0
+00DF E2              646             MOVX    A,@R0
+00E0 FF              647             MOV     R7,A
+00E1 120000   F      648             LCALL   _d_n_ms
+00E4 C295            649             CLR     BZ
+                     650     ;       }
+                     651                             ; SOURCE LINE # 38
+00E6 020000   F      652             LJMP    ?C0001
+                     653     ; END OF test_BZ
+                     654     
+                     655     ; }
+                     656     ; void test_buttons()
+                     657     
+----                 658             RSEG  ?PR?test_buttons?TEST
+0000                 659     test_buttons:
+                     660             USING   0
+                     661                             ; SOURCE LINE # 40
+                     662     ; {
+                     663                             ; SOURCE LINE # 41
+                     664     ;       uint i,j;
+                     665     ;       lcd_init();
+                     666                             ; SOURCE LINE # 43
+0000 120000   F      667             LCALL   lcd_init
+                     668     ;       //while(1)test_display_temps();
+                     669     ;       lcd_wcmd(0x80);
+                     670                             ; SOURCE LINE # 45
+0003 7F80            671             MOV     R7,#080H
+0005 120000   F      672             LCALL   _lcd_wcmd
+                     673     ;       for(i=0;i<16;i++)
+                     674                             ; SOURCE LINE # 46
+0008 E4              675             CLR     A
+0009 7800     F      676             MOV     R0,#LOW (i?141)
+000B F2              677             MOVX    @R0,A
+000C 08              678             INC     R0
+000D F2              679             MOVX    @R0,A
+000E                 680     ?C0018:
+000E 120000   F      681             LCALL   L?0132
+0011 9410            682             SUBB    A,#010H
+0013 EE              683             MOV     A,R6
+0014 9400            684             SUBB    A,#00H
+0016 5008            685             JNC     ?C0019
+                     686     ;       {
+                     687                             ; SOURCE LINE # 47
+                     688     ;               lcd_wdat(test_key_ver_0[i]);
+                     689                             ; SOURCE LINE # 48
+0018 120000   F      690             LCALL   L?0131
+                     691     ;       }
+                     692                             ; SOURCE LINE # 49
+001B 120000   F      693             LCALL   L?0115
+001E 80EE            694             SJMP    ?C0018
+0020                 695     ?C0019:
+                     696     ;       lcd_wcmd(0x90);
+                     697                             ; SOURCE LINE # 50
+0020 7F90            698             MOV     R7,#090H
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    12
+
+0022 120000   F      699             LCALL   _lcd_wcmd
+                     700     ;       for(;i<32;i++)
+                     701                             ; SOURCE LINE # 51
+0025                 702     ?C0021:
+0025 120000   F      703             LCALL   L?0132
+0028 9420            704             SUBB    A,#020H
+002A EE              705             MOV     A,R6
+002B 9400            706             SUBB    A,#00H
+002D 5008            707             JNC     ?C0024
+                     708     ;       {
+                     709                             ; SOURCE LINE # 52
+                     710     ;               lcd_wdat(test_key_ver_0[i]);
+                     711                             ; SOURCE LINE # 53
+002F 120000   F      712             LCALL   L?0131
+                     713     ;       }
+                     714                             ; SOURCE LINE # 54
+0032 120000   F      715             LCALL   L?0115
+0035 80EE            716             SJMP    ?C0021
+0037                 717     ?C0024:
+                     718     ;       
+                     719     ;       while(1)
+                     720                             ; SOURCE LINE # 56
+                     721     ;       {
+                     722                             ; SOURCE LINE # 57
+                     723     ;               
+                     724     ;               //DS_IO=0;
+                     725     ;               //test_display_temps();
+                     726     ;               recognition_key();
+                     727                             ; SOURCE LINE # 61
+0037 120000   F      728             LCALL   recognition_key
+                     729     ;               for(i=0;i<4;i++)
+                     730                             ; SOURCE LINE # 62
+003A E4              731             CLR     A
+003B 7800     F      732             MOV     R0,#LOW (i?141)
+003D F2              733             MOVX    @R0,A
+003E 08              734             INC     R0
+003F F2              735             MOVX    @R0,A
+0040                 736     ?C0026:
+                     737     ;               {
+                     738                             ; SOURCE LINE # 63
+                     739     ;                       lcd_wcmd((0x88+i*4)*(i<2)+(0x98+(i-2)*4)*(i>=2));
+                     740                             ; SOURCE LINE # 64
+0040 7800     F      741             MOV     R0,#LOW (i?141)
+0042 E2              742             MOVX    A,@R0
+0043 FE              743             MOV     R6,A
+0044 08              744             INC     R0
+0045 E2              745             MOVX    A,@R0
+0046 FF              746             MOV     R7,A
+0047 FD              747             MOV     R5,A
+0048 25E0            748             ADD     A,ACC
+004A 25E0            749             ADD     A,ACC
+004C 2490            750             ADD     A,#090H
+004E FC              751             MOV     R4,A
+004F C3              752             CLR     C
+0050 EF              753             MOV     A,R7
+0051 9402            754             SUBB    A,#02H
+0053 EE              755             MOV     A,R6
+0054 9400            756             SUBB    A,#00H
+0056 4004            757             JC      ?C0029
+0058 7F01            758             MOV     R7,#01H
+005A 8002            759             SJMP    ?C0030
+005C                 760     ?C0029:
+005C 7F00            761             MOV     R7,#00H
+005E                 762     ?C0030:
+005E EC              763             MOV     A,R4
+005F 8FF0            764             MOV     B,R7
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    13
+
+0061 A4              765             MUL     AB
+0062 FF              766             MOV     R7,A
+0063 ED              767             MOV     A,R5
+0064 25E0            768             ADD     A,ACC
+0066 25E0            769             ADD     A,ACC
+0068 2488            770             ADD     A,#088H
+006A FE              771             MOV     R6,A
+006B C3              772             CLR     C
+006C 7800     F      773             MOV     R0,#LOW (i?141+01H)
+006E E2              774             MOVX    A,@R0
+006F 9402            775             SUBB    A,#02H
+0071 18              776             DEC     R0
+0072 E2              777             MOVX    A,@R0
+0073 9400            778             SUBB    A,#00H
+0075 5004            779             JNC     ?C0031
+0077 7D01            780             MOV     R5,#01H
+0079 8002            781             SJMP    ?C0032
+007B                 782     ?C0031:
+007B 7D00            783             MOV     R5,#00H
+007D                 784     ?C0032:
+007D EE              785             MOV     A,R6
+007E 8DF0            786             MOV     B,R5
+0080 A4              787             MUL     AB
+0081 2F              788             ADD     A,R7
+0082 FF              789             MOV     R7,A
+0083 120000   F      790             LCALL   _lcd_wcmd
+                     791     ;                       for(j=0;j<4;j++)
+                     792                             ; SOURCE LINE # 65
+0086 E4              793             CLR     A
+0087 7800     F      794             MOV     R0,#LOW (j?142)
+0089 F2              795             MOVX    @R0,A
+008A 08              796             INC     R0
+008B F2              797             MOVX    @R0,A
+008C                 798     ?C0033:
+008C 7800     F      799             MOV     R0,#LOW (j?142)
+008E 120000   F      800             LCALL   L?0133
+0091 9404            801             SUBB    A,#04H
+0093 EE              802             MOV     A,R6
+0094 9400            803             SUBB    A,#00H
+0096 5018            804             JNC     ?C0034
+                     805     ;                               lcd_wdat(ver_key[i][j]);
+                     806                             ; SOURCE LINE # 66
+0098 7800     F      807             MOV     R0,#LOW (i?141)
+009A 08              808             INC     R0
+009B E2              809             MOVX    A,@R0
+009C 75F008          810             MOV     B,#08H
+009F A4              811             MUL     AB
+00A0 2400     F      812             ADD     A,#LOW (ver_key)
+00A2 2F              813             ADD     A,R7
+00A3 F8              814             MOV     R0,A
+00A4 E2              815             MOVX    A,@R0
+00A5 FF              816             MOV     R7,A
+00A6 120000   F      817             LCALL   _lcd_wdat
+00A9 7800     F      818             MOV     R0,#LOW (j?142+01H)
+00AB 120000   F      819             LCALL   L?0117
+00AE 80DC            820             SJMP    ?C0033
+00B0                 821     ?C0034:
+                     822     ;                       lcd_wdat(' ');
+                     823                             ; SOURCE LINE # 67
+00B0 7F20            824             MOV     R7,#020H
+00B2 120000   F      825             LCALL   _lcd_wdat
+                     826     ;                       switch(Instruction_code_key[i])
+                     827                             ; SOURCE LINE # 68
+00B5 7800     F      828             MOV     R0,#LOW (i?141)
+00B7 08              829             INC     R0
+00B8 E2              830             MOVX    A,@R0
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    14
+
+00B9 2400     F      831             ADD     A,#LOW (Instruction_code_key)
+00BB F8              832             MOV     R0,A
+00BC E6              833             MOV     A,@R0
+00BD 247F            834             ADD     A,#07FH
+00BF 600C            835             JZ      ?C0038
+00C1 14              836             DEC     A
+00C2 600B            837             JZ      ?C0039
+00C4 14              838             DEC     A
+00C5 6015            839             JZ      ?C0042
+00C7 2403            840             ADD     A,#03H
+00C9 701E            841             JNZ     ?C0045
+                     842     ;                       {
+                     843                             ; SOURCE LINE # 69
+                     844     ;                               case 0x80:lcd_wdat('0');break;
+                     845                             ; SOURCE LINE # 70
+00CB                 846     ?C0037:
+00CB 800B            847             SJMP    ?C0093
+                     848     ;                               case 0x81:lcd_wdat('1');break;
+                     849                             ; SOURCE LINE # 71
+00CD                 850     ?C0038:
+00CD 8016            851             SJMP    ?C0094
+                     852     ;                               case 0x82:if(Double_Press_counter[i]>10)lcd_wdat('2');else 
+                             lcd_wdat('0');break;
+                     853                             ; SOURCE LINE # 72
+00CF                 854     ?C0039:
+00CF 120000   F      855             LCALL   L?0127
+00D2 4004            856             JC      ?C0040
+00D4 7F32            857             MOV     R7,#032H
+00D6 8013            858             SJMP    ?C0098
+00D8                 859     ?C0040:
+00D8                 860     ?C0093:
+00D8 7F30            861             MOV     R7,#030H
+00DA                 862     ?C0095:
+00DA 800F            863             SJMP    ?C0098
+                     864     ;                               case 0x83:if(Double_Press_counter[i]>10)lcd_wdat('3');else 
+                             lcd_wdat('1');break;
+                     865                             ; SOURCE LINE # 73
+00DC                 866     ?C0042:
+00DC 120000   F      867             LCALL   L?0127
+00DF 4004            868             JC      ?C0043
+00E1 7F33            869             MOV     R7,#033H
+00E3                 870     ?C0096:
+00E3 8006            871             SJMP    ?C0098
+00E5                 872     ?C0043:
+00E5                 873     ?C0094:
+00E5 7F31            874             MOV     R7,#031H
+00E7                 875     ?C0097:
+00E7 8002            876             SJMP    ?C0098
+                     877     ;                               default  :lcd_wdat('4');break;
+                     878                             ; SOURCE LINE # 74
+00E9                 879     ?C0045:
+00E9 7F34            880             MOV     R7,#034H
+00EB                 881     ?C0098:
+00EB 120000   F      882             LCALL   _lcd_wdat
+                     883     ;                       }
+                     884                             ; SOURCE LINE # 75
+00EE                 885     ?C0036:
+                     886     ;                       lcd_wdat(' ');lcd_wdat(' ');
+                     887                             ; SOURCE LINE # 76
+00EE 7F20            888             MOV     R7,#020H
+00F0 120000   F      889             LCALL   _lcd_wdat
+00F3 7F20            890             MOV     R7,#020H
+00F5 120000   F      891             LCALL   _lcd_wdat
+                     892     ;               }
+                     893                             ; SOURCE LINE # 77
+00F8 120000   F      894             LCALL   L?0116
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    15
+
+00FB C3              895             CLR     C
+00FC 08              896             INC     R0
+00FD E2              897             MOVX    A,@R0
+00FE 9404            898             SUBB    A,#04H
+0100 18              899             DEC     R0
+0101 E2              900             MOVX    A,@R0
+0102 9400            901             SUBB    A,#00H
+0104 5003            902             JNC     $ + 5H
+0106 020000   F      903             LJMP    ?C0026
+0109                 904     ?C0027:
+                     905     ;               d_100ms();
+                     906                             ; SOURCE LINE # 78
+0109 120000   F      907             LCALL   d_100ms
+                     908     ;       } 
+                     909                             ; SOURCE LINE # 79
+010C 020000   F      910             LJMP    ?C0024
+                     911     ; }
+                     912                             ; SOURCE LINE # 80
+010F                 913     L?0131:
+010F 7400     F      914             MOV     A,#LOW (test_key_ver_0)
+0111 2F              915             ADD     A,R7
+0112 F582            916             MOV     DPL,A
+0114 7400     F      917             MOV     A,#HIGH (test_key_ver_0)
+0116 3E              918             ADDC    A,R6
+0117 F583            919             MOV     DPH,A
+0119 E4              920             CLR     A
+011A 93              921             MOVC    A,@A+DPTR
+011B FF              922             MOV     R7,A
+011C 120000   F      923             LCALL   _lcd_wdat
+011F 22              924             RET     
+                     925     ; END OF test_buttons
+                     926     
+                     927     ; 
+                     928     ; void test_display_temps()
+                     929     
+----                 930             RSEG  ?PR?test_display_temps?TEST
+0000                 931     test_display_temps:
+                     932             USING   0
+                     933                             ; SOURCE LINE # 82
+                     934     ; {
+                     935                             ; SOURCE LINE # 83
+                     936     ;       uint i=0;
+                     937                             ; SOURCE LINE # 84
+0000 E4              938             CLR     A
+0001 7800     F      939             MOV     R0,#LOW (i?243)
+0003 F2              940             MOVX    @R0,A
+0004 08              941             INC     R0
+0005 F2              942             MOVX    @R0,A
+                     943     ;       lcd_init();
+                     944                             ; SOURCE LINE # 85
+0006 120000   F      945             LCALL   lcd_init
+0009                 946     ?C0047:
+                     947     ;       while(1)
+                     948                             ; SOURCE LINE # 86
+                     949     ;       {
+                     950                             ; SOURCE LINE # 87
+                     951     ;               Ds18b20_ChangTemp();
+                     952                             ; SOURCE LINE # 88
+0009 120000   F      953             LCALL   Ds18b20_ChangTemp
+                     954     ;               d_100ms();
+                     955                             ; SOURCE LINE # 89
+000C 120000   F      956             LCALL   d_100ms
+                     957     ;               Ds18b20_rTemp();
+                     958                             ; SOURCE LINE # 90
+000F 120000   F      959             LCALL   Ds18b20_rTemp
+                     960     ;               
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    16
+
+                     961     ;               temp_data_collation();
+                     962                             ; SOURCE LINE # 92
+0012 120000   F      963             LCALL   temp_data_collation
+                     964     ;               //LCD_cmd_functionSet_Basic;//使用基本指令集
+                     965     ;               lcd_wcmd(0x80);
+                     966                             ; SOURCE LINE # 94
+0015 7F80            967             MOV     R7,#080H
+0017 120000   F      968             LCALL   _lcd_wcmd
+                     969     ;               /*      if(temp_data_sign)lcd_wdat('-');
+                     970     ;               lcd_wdat((uchar)(temp_data_Integer/100%10+48));
+                     971     ;               lcd_wdat(temp_data_Integer/10%10+48);
+                     972     ;               lcd_wdat(temp_data_Integer%10+48);
+                     973     ;               lcd_wdat('.');
+                     974     ;               lcd_wdat((temp_data_Decimal_r/100)+48);
+                     975     ;               lcd_wdat((temp_data_Decimal_r/10%10)+48);
+                     976     ;               lcd_wdat(c[0]);lcd_wdat(c[1]);
+                     977     ;               lcd_wdat(' ');
+                     978     ;               if(temp_data_sign)lcd_wdat('-');
+                     979     ;               if(temp_data_Integer/100%10)lcd_wdat((uchar)(temp_data_Integer/100%10+48));
+                             */
+                     980     ;               lcd_wdat(temp_data_Integer/10%10+48);
+                     981                             ; SOURCE LINE # 106
+001A 7800     F      982             MOV     R0,#LOW (temp_data_Integer)
+001C 120000   F      983             LCALL   L?0118
+001F 120000   F      984             LCALL   _lcd_wdat
+                     985     ;               lcd_wdat(temp_data_Integer%10+48);
+                     986                             ; SOURCE LINE # 107
+0022 7800     F      987             MOV     R0,#LOW (temp_data_Integer)
+0024 E2              988             MOVX    A,@R0
+0025 120000   F      989             LCALL   L?0120
+0028 120000   F      990             LCALL   _lcd_wdat
+                     991     ;               lcd_wdat('.');
+                     992                             ; SOURCE LINE # 108
+002B 7F2E            993             MOV     R7,#02EH
+002D 120000   F      994             LCALL   _lcd_wdat
+                     995     ;               lcd_wdat((temp_data_Decimal_r/10%10)+48);
+                     996                             ; SOURCE LINE # 109
+0030 7800     F      997             MOV     R0,#LOW (temp_data_Decimal_r)
+0032 120000   F      998             LCALL   L?0118
+0035 120000   F      999             LCALL   _lcd_wdat
+                    1000     ;               lcd_wdat((temp_data_Decimal_r%10)+48);
+                    1001                             ; SOURCE LINE # 110
+0038 7800     F     1002             MOV     R0,#LOW (temp_data_Decimal_r)
+003A E2             1003             MOVX    A,@R0
+003B 120000   F     1004             LCALL   L?0120
+003E 120000   F     1005             LCALL   _lcd_wdat
+                    1006     ;               if(!temp_data_sign)lcd_wdat(' ');
+                    1007                             ; SOURCE LINE # 111
+0041 7800     F     1008             MOV     R0,#LOW (temp_data_sign)
+0043 E2             1009             MOVX    A,@R0
+0044 7005           1010             JNZ     ?C0049
+0046 7F20           1011             MOV     R7,#020H
+0048 120000   F     1012             LCALL   _lcd_wdat
+004B                1013     ?C0049:
+                    1014     ;               if(!(temp_data_Integer/100%10))lcd_wdat(' ');   
+                    1015                             ; SOURCE LINE # 112
+004B 7800     F     1016             MOV     R0,#LOW (temp_data_Integer)
+004D E2             1017             MOVX    A,@R0
+004E 75F064         1018             MOV     B,#064H
+0051 84             1019             DIV     AB
+0052 75F00A         1020             MOV     B,#0AH
+0055 84             1021             DIV     AB
+0056 E5F0           1022             MOV     A,B
+0058 7005           1023             JNZ     ?C0050
+005A 7F20           1024             MOV     R7,#020H
+005C 120000   F     1025             LCALL   _lcd_wdat
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    17
+
+005F                1026     ?C0050:
+                    1027     ;               
+                    1028     ;               lcd_wcmd(0x88);
+                    1029                             ; SOURCE LINE # 114
+005F 7F88           1030             MOV     R7,#088H
+0061 120000   F     1031             LCALL   _lcd_wcmd
+                    1032     ;               lcd_wdat(i/10000+48);
+                    1033                             ; SOURCE LINE # 115
+0064 7800     F     1034             MOV     R0,#LOW (i?243)
+0066 7C27           1035             MOV     R4,#027H
+0068 7D10           1036             MOV     R5,#010H
+006A 120000   F     1037             LCALL   L?0135
+                    1038     ;               lcd_wdat(i/1000%10+48); 
+                    1039                             ; SOURCE LINE # 116
+006D 120000   F     1040             LCALL   L?0126
+0070 7C03           1041             MOV     R4,#03H
+0072 7DE8           1042             MOV     R5,#0E8H
+0074 120000   F     1043             LCALL   L?0109
+0077 120000   F     1044             LCALL   _lcd_wdat
+                    1045     ;               lcd_wdat(i/100%10+48);  
+                    1046                             ; SOURCE LINE # 117
+007A 7800     F     1047             MOV     R0,#LOW (i?243)
+007C 120000   F     1048             LCALL   L?0107
+                    1049     ;               lcd_wdat(i/10%10+48);   
+                    1050                             ; SOURCE LINE # 118
+007F 120000   F     1051             LCALL   L?0126
+0082 7C00           1052             MOV     R4,#00H
+0084 7D0A           1053             MOV     R5,#0AH
+0086 120000   F     1054             LCALL   L?0109
+0089 120000   F     1055             LCALL   _lcd_wdat
+                    1056     ;               lcd_wdat(i%10+48);      
+                    1057                             ; SOURCE LINE # 119
+008C 7800     F     1058             MOV     R0,#LOW (i?243)
+008E E2             1059             MOVX    A,@R0
+008F FE             1060             MOV     R6,A
+0090 08             1061             INC     R0
+0091 E2             1062             MOVX    A,@R0
+0092 FF             1063             MOV     R7,A
+0093 120000   F     1064             LCALL   L?0110
+0096 120000   F     1065             LCALL   _lcd_wdat
+                    1066     ;               i++;
+                    1067                             ; SOURCE LINE # 120
+0099 7800     F     1068             MOV     R0,#LOW (i?243+01H)
+009B 120000   F     1069             LCALL   L?0117
+                    1070     ;               lcd_wcmd(0x8f);
+                    1071                             ; SOURCE LINE # 121
+009E 7F8F           1072             MOV     R7,#08FH
+00A0 120000   F     1073             LCALL   _lcd_wcmd
+                    1074     ;               lcd_wdat(error+48);
+                    1075                             ; SOURCE LINE # 122
+00A3 7800     F     1076             MOV     R0,#LOW (error)
+00A5 E2             1077             MOVX    A,@R0
+00A6 2430           1078             ADD     A,#030H
+00A8 FF             1079             MOV     R7,A
+00A9 120000   F     1080             LCALL   _lcd_wdat
+                    1081     ;               //lcd_wcmd(0x98);
+                    1082     ;               /*for(j=0;j<8;j++)
+                    1083     ;               {
+                    1084     ;                       lcd_wdat((uchar)(bit)((temp_High<<j)&0x80)+48);
+                    1085     ;               }
+                    1086     ;               for(j=0;j<8;j++)
+                    1087     ;               {
+                    1088     ;                       lcd_wdat((uchar)(bit)((temp_Low<<j)&0x80)+48);
+                    1089     ;               }*/
+                    1090     ; }
+                    1091                             ; SOURCE LINE # 132
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    18
+
+00AC 020000   F     1092             LJMP    ?C0047
+                    1093     ;       
+                    1094     ; }
+                    1095                             ; SOURCE LINE # 134
+00AF                1096     L?0126:
+00AF 120000   F     1097             LCALL   _lcd_wdat
+00B2 7800     F     1098             MOV     R0,#LOW (i?243)
+00B4 E2             1099             MOVX    A,@R0
+00B5 FE             1100             MOV     R6,A
+00B6 08             1101             INC     R0
+00B7 E2             1102             MOVX    A,@R0
+00B8 FF             1103             MOV     R7,A
+00B9 22             1104             RET     
+                    1105     ; END OF test_display_temps
+                    1106     
+                    1107     ; void test_lcd12864_displayPM1()
+                    1108     
+----                1109             RSEG  ?PR?test_lcd12864_displayPM1?TEST
+0000                1110     test_lcd12864_displayPM1:
+                    1111             USING   0
+                    1112                             ; SOURCE LINE # 135
+                    1113     ; {
+                    1114                             ; SOURCE LINE # 136
+                    1115     ;               uint i,j;
+                    1116     ;       lcd_wcmd(0x30);
+                    1117                             ; SOURCE LINE # 138
+0000 7F30           1118             MOV     R7,#030H
+0002 120000   F     1119             LCALL   _lcd_wcmd
+                    1120     ; for(i=0;i<1;i++)
+                    1121                             ; SOURCE LINE # 139
+0005 E4             1122             CLR     A
+0006 7800     F     1123             MOV     R0,#LOW (i?344)
+0008 F2             1124             MOVX    @R0,A
+0009 08             1125             INC     R0
+000A F2             1126             MOVX    @R0,A
+000B                1127     ?C0052:
+                    1128     ;               {
+                    1129                             ; SOURCE LINE # 140
+                    1130     ;                       lcd_wcmd(0x80);
+                    1131                             ; SOURCE LINE # 141
+000B 7F80           1132             MOV     R7,#080H
+000D 120000   F     1133             LCALL   _lcd_wcmd
+                    1134     ;                       for(j=0;j<64;j++)
+                    1135                             ; SOURCE LINE # 142
+0010 E4             1136             CLR     A
+0011 7800     F     1137             MOV     R0,#LOW (j?345)
+0013 F2             1138             MOVX    @R0,A
+0014 08             1139             INC     R0
+0015 F2             1140             MOVX    @R0,A
+0016                1141     ?C0055:
+0016 7800     F     1142             MOV     R0,#LOW (j?345)
+0018 120000   F     1143             LCALL   L?0133
+001B 9440           1144             SUBB    A,#040H
+001D EE             1145             MOV     A,R6
+001E 9400           1146             SUBB    A,#00H
+0020 503D           1147             JNC     ?C0054
+                    1148     ;                       {
+                    1149                             ; SOURCE LINE # 143
+                    1150     ;                               switch(j/16)
+                    1151                             ; SOURCE LINE # 144
+0022 EE             1152             MOV     A,R6
+0023 C4             1153             SWAP    A
+0024 F8             1154             MOV     R0,A
+0025 54F0           1155             ANL     A,#0F0H
+0027 C8             1156             XCH     A,R0
+0028 68             1157             XRL     A,R0
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    19
+
+0029 FE             1158             MOV     R6,A
+002A EF             1159             MOV     A,R7
+002B C4             1160             SWAP    A
+002C 540F           1161             ANL     A,#0FH
+002E 48             1162             ORL     A,R0
+002F FF             1163             MOV     R7,A
+0030 EE             1164             MOV     A,R6
+0031 7025           1165             JNZ     ?C0057
+0033 EF             1166             MOV     A,R7
+0034 14             1167             DEC     A
+0035 600C           1168             JZ      ?C0060
+0037 14             1169             DEC     A
+0038 6010           1170             JZ      ?C0061
+003A 14             1171             DEC     A
+003B 6004           1172             JZ      ?C0059
+003D 2403           1173             ADD     A,#03H
+003F 7017           1174             JNZ     ?C0057
+                    1175     ;                               {
+                    1176                             ; SOURCE LINE # 145
+                    1177     ;                                       case 0:lcd_wdat(i+j);break;     
+                    1178                             ; SOURCE LINE # 146
+0041                1179     ?C0059:
+0041 800E           1180             SJMP    ?C0099
+                    1181     ;                                       case 1:lcd_wdat(i+j+16);break;
+                    1182                             ; SOURCE LINE # 147
+0043                1183     ?C0060:
+0043 120000   F     1184             LCALL   L?0129
+0046 2410           1185             ADD     A,#010H
+0048 800A           1186             SJMP    ?C0101
+                    1187     ;                                       case 2:lcd_wdat(i+j-16);break;
+                    1188                             ; SOURCE LINE # 148
+004A                1189     ?C0061:
+004A 120000   F     1190             LCALL   L?0129
+004D 24F0           1191             ADD     A,#0F0H
+004F                1192     ?C0100:
+004F 8003           1193             SJMP    ?C0101
+                    1194     ;                                       case 3:lcd_wdat(i+j);break;
+                    1195                             ; SOURCE LINE # 149
+0051                1196     ?C0099:
+0051 120000   F     1197             LCALL   L?0130
+0054                1198     ?C0101:
+0054 FF             1199             MOV     R7,A
+0055 120000   F     1200             LCALL   _lcd_wdat
+                    1201     ;                               }
+                    1202                             ; SOURCE LINE # 150
+                    1203     ;                       }
+                    1204                             ; SOURCE LINE # 151
+0058                1205     ?C0057:
+0058 7800     F     1206             MOV     R0,#LOW (j?345+01H)
+005A 120000   F     1207             LCALL   L?0117
+005D 80B7           1208             SJMP    ?C0055
+                    1209     ;               }
+                    1210                             ; SOURCE LINE # 152
+005F                1211     ?C0054:
+005F 7800     F     1212             MOV     R0,#LOW (i?344+01H)
+0061 120000   F     1213             LCALL   L?0117
+0064 C3             1214             CLR     C
+0065 08             1215             INC     R0
+0066 E2             1216             MOVX    A,@R0
+0067 9401           1217             SUBB    A,#01H
+0069 18             1218             DEC     R0
+006A E2             1219             MOVX    A,@R0
+006B 9400           1220             SUBB    A,#00H
+006D 409C           1221             JC      ?C0052
+                    1222     ; }
+                    1223                             ; SOURCE LINE # 153
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    20
+
+006F                1224     ?C0063:
+006F 22             1225             RET     
+                    1226     ; END OF test_lcd12864_displayPM1
+                    1227     
+                    1228     ; void test_lcd12864_displayPM0()
+                    1229     
+----                1230             RSEG  ?PR?test_lcd12864_displayPM0?TEST
+0000                1231     test_lcd12864_displayPM0:
+                    1232             USING   0
+                    1233                             ; SOURCE LINE # 154
+                    1234     ; {
+                    1235                             ; SOURCE LINE # 155
+                    1236     ; 
+                    1237     ;       lcd_init();
+                    1238                             ; SOURCE LINE # 157
+0000 120000   F     1239             LCALL   lcd_init
+0003                1240     ?C0064:
+                    1241     ; 
+                    1242     ;       while(1)
+                    1243                             ; SOURCE LINE # 159
+                    1244     ;       {
+                    1245                             ; SOURCE LINE # 160
+                    1246     ;               
+                    1247     ;               test_lcd12864_displayPM1();
+                    1248                             ; SOURCE LINE # 162
+0003 120000   F     1249             LCALL   test_lcd12864_displayPM1
+                    1250     ;               d_1s();
+                    1251                             ; SOURCE LINE # 163
+0006 120000   F     1252             LCALL   d_1s
+                    1253     ;               lcd_Draw_PM(0,0,16,63,zhu);
+                    1254                             ; SOURCE LINE # 164
+0009 7800     F     1255             MOV     R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+000B 743F           1256             MOV     A,#03FH
+000D F2             1257             MOVX    @R0,A
+000E 08             1258             INC     R0
+000F 74FF           1259             MOV     A,#0FFH
+0011 F2             1260             MOVX    @R0,A
+0012 08             1261             INC     R0
+0013 7400     F     1262             MOV     A,#HIGH (zhu)
+0015 F2             1263             MOVX    @R0,A
+0016 08             1264             INC     R0
+0017 7400     F     1265             MOV     A,#LOW (zhu)
+0019 F2             1266             MOVX    @R0,A
+001A 7B10           1267             MOV     R3,#010H
+001C E4             1268             CLR     A
+001D FD             1269             MOV     R5,A
+001E FF             1270             MOV     R7,A
+001F 120000   F     1271             LCALL   _lcd_Draw_PM
+                    1272     ;               lcd_wcmd(0x36);
+                    1273                             ; SOURCE LINE # 165
+0022 7F36           1274             MOV     R7,#036H
+0024 120000   F     1275             LCALL   _lcd_wcmd
+                    1276     ;               d_1s();
+                    1277                             ; SOURCE LINE # 166
+0027 120000   F     1278             LCALL   d_1s
+                    1279     ;               lcd_clr_DDram();lcd_wcmd(0x36);
+                    1280                             ; SOURCE LINE # 167
+002A 120000   F     1281             LCALL   lcd_clr_DDram
+002D 7F36           1282             MOV     R7,#036H
+002F 120000   F     1283             LCALL   _lcd_wcmd
+                    1284     ;               d_1s();
+                    1285                             ; SOURCE LINE # 168
+0032 120000   F     1286             LCALL   d_1s
+                    1287     ;               lcd_clr_GD();
+                    1288                             ; SOURCE LINE # 169
+0035 120000   F     1289             LCALL   lcd_clr_GD
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    21
+
+                    1290     ;               d_1s();
+                    1291                             ; SOURCE LINE # 170
+0038 120000   F     1292             LCALL   d_1s
+                    1293     ;       }
+                    1294                             ; SOURCE LINE # 171
+003B 80C6           1295             SJMP    ?C0064
+                    1296     ; END OF test_lcd12864_displayPM0
+                    1297     
+                    1298     ; }
+                    1299     ; 
+                    1300     ; void test_ds1302()
+                    1301     
+----                1302             RSEG  ?PR?test_ds1302?TEST
+0000                1303     test_ds1302:
+                    1304             USING   0
+                    1305                             ; SOURCE LINE # 174
+                    1306     ; {
+                    1307                             ; SOURCE LINE # 175
+                    1308     ;       uchar i;
+                    1309     ;       lcd_init();
+                    1310                             ; SOURCE LINE # 177
+0000 120000   F     1311             LCALL   lcd_init
+                    1312     ;       
+                    1313     ;       lcd_wcmd(0x88);
+                    1314                             ; SOURCE LINE # 179
+0003 7F88           1315             MOV     R7,#088H
+0005 120000   F     1316             LCALL   _lcd_wcmd
+                    1317     ;       for(i=0;i<9;i++)lcd_wdat(test_ds1302_ver_0[i]);
+                    1318                             ; SOURCE LINE # 180
+0008 E4             1319             CLR     A
+0009 7800     F     1320             MOV     R0,#LOW (i?546)
+000B F2             1321             MOVX    @R0,A
+000C                1322     ?C0067:
+000C 7800     F     1323             MOV     R0,#LOW (i?546)
+000E E2             1324             MOVX    A,@R0
+000F FF             1325             MOV     R7,A
+0010 C3             1326             CLR     C
+0011 9409           1327             SUBB    A,#09H
+0013 7480           1328             MOV     A,#080H
+0015 9480           1329             SUBB    A,#080H
+0017 5005           1330             JNC     ?C0068
+0019 120000   F     1331             LCALL   L?0134
+001C 80EE           1332             SJMP    ?C0067
+001E                1333     ?C0068:
+                    1334     ;       lcd_wcmd(0x98+2);
+                    1335                             ; SOURCE LINE # 181
+001E 7F9A           1336             MOV     R7,#09AH
+0020 120000   F     1337             LCALL   _lcd_wcmd
+                    1338     ;       for(;i<21;i++)lcd_wdat(test_ds1302_ver_0[i]);
+                    1339                             ; SOURCE LINE # 182
+0023                1340     ?C0070:
+0023 7800     F     1341             MOV     R0,#LOW (i?546)
+0025 E2             1342             MOVX    A,@R0
+0026 FF             1343             MOV     R7,A
+0027 C3             1344             CLR     C
+0028 9415           1345             SUBB    A,#015H
+002A 7480           1346             MOV     A,#080H
+002C 9480           1347             SUBB    A,#080H
+002E 5005           1348             JNC     ?C0071
+0030 120000   F     1349             LCALL   L?0134
+0033 80EE           1350             SJMP    ?C0070
+0035                1351     ?C0071:
+                    1352     ;       
+                    1353     ;       for(i=0;i<7;i++)ds_dat_time[i]=init_ds_dat_time[i];
+                    1354                             ; SOURCE LINE # 184
+0035 E4             1355             CLR     A
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    22
+
+0036 7800     F     1356             MOV     R0,#LOW (i?546)
+0038 F2             1357             MOVX    @R0,A
+0039                1358     ?C0073:
+0039 7800     F     1359             MOV     R0,#LOW (i?546)
+003B E2             1360             MOVX    A,@R0
+003C C3             1361             CLR     C
+003D 9407           1362             SUBB    A,#07H
+003F 7480           1363             MOV     A,#080H
+0041 9480           1364             SUBB    A,#080H
+0043 5014           1365             JNC     ?C0076
+0045 E2             1366             MOVX    A,@R0
+0046 FF             1367             MOV     R7,A
+0047 2400     F     1368             ADD     A,#LOW (init_ds_dat_time)
+0049 F8             1369             MOV     R0,A
+004A E2             1370             MOVX    A,@R0
+004B FE             1371             MOV     R6,A
+004C 7400     F     1372             MOV     A,#LOW (ds_dat_time)
+004E 2F             1373             ADD     A,R7
+004F F8             1374             MOV     R0,A
+0050 EE             1375             MOV     A,R6
+0051 F2             1376             MOVX    @R0,A
+0052 7800     F     1377             MOV     R0,#LOW (i?546)
+0054 E2             1378             MOVX    A,@R0
+0055 04             1379             INC     A
+0056 F2             1380             MOVX    @R0,A
+0057 80E0           1381             SJMP    ?C0073
+0059                1382     ?C0076:
+                    1383     ;       //Ds1302_Set_time();
+                    1384     ; 
+                    1385     ;       
+                    1386     ; 
+                    1387     ;       while(1)
+                    1388                             ; SOURCE LINE # 189
+                    1389     ;       {
+                    1390                             ; SOURCE LINE # 190
+                    1391     ;               Ds1302_Read_time();
+                    1392                             ; SOURCE LINE # 191
+0059 120000   F     1393             LCALL   Ds1302_Read_time
+                    1394     ;               
+                    1395     ;               lcd_wcmd(0x80);
+                    1396                             ; SOURCE LINE # 193
+005C 7F80           1397             MOV     R7,#080H
+005E 120000   F     1398             LCALL   _lcd_wcmd
+                    1399     ;               lcd_wdat((ds_dat_time[2]>>4)+48);lcd_wdat((ds_dat_time[2]&0x0f)+48);//时
+                    1400                             ; SOURCE LINE # 194
+0061 7800     F     1401             MOV     R0,#LOW (ds_dat_time+02H)
+0063 120000   F     1402             LCALL   L?0112
+0066 7800     F     1403             MOV     R0,#LOW (ds_dat_time+02H)
+0068 120000   F     1404             LCALL   L?0114
+                    1405     ;               lcd_wdat('/');
+                    1406                             ; SOURCE LINE # 195
+006B 7F2F           1407             MOV     R7,#02FH
+006D 120000   F     1408             LCALL   _lcd_wdat
+                    1409     ;               lcd_wdat((ds_dat_time[1]>>4)+48);lcd_wdat((ds_dat_time[1]&0x0f)+48);//分
+                    1410                             ; SOURCE LINE # 196
+0070 7800     F     1411             MOV     R0,#LOW (ds_dat_time+01H)
+0072 120000   F     1412             LCALL   L?0112
+0075 7800     F     1413             MOV     R0,#LOW (ds_dat_time+01H)
+0077 120000   F     1414             LCALL   L?0114
+                    1415     ;               lcd_wdat('/');
+                    1416                             ; SOURCE LINE # 197
+007A 7F2F           1417             MOV     R7,#02FH
+007C 120000   F     1418             LCALL   _lcd_wdat
+                    1419     ;               lcd_wdat(((ds_dat_time[0])>>4)+48);lcd_wdat((ds_dat_time[0]&0x0f)+48);//秒
+                    1420                             ; SOURCE LINE # 198
+007F 7800     F     1421             MOV     R0,#LOW (ds_dat_time)
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    23
+
+0081 120000   F     1422             LCALL   L?0121
+0084 7800     F     1423             MOV     R0,#LOW (ds_dat_time)
+0086 120000   F     1424             LCALL   L?0122
+                    1425     ;               lcd_wcmd(0x90);
+                    1426                             ; SOURCE LINE # 199
+0089 7F90           1427             MOV     R7,#090H
+008B 120000   F     1428             LCALL   _lcd_wcmd
+                    1429     ;               lcd_wdat((ds_dat_time[6]>>4)+48);lcd_wdat((ds_dat_time[6]&0x0f)+48);//年
+                    1430                             ; SOURCE LINE # 200
+008E 7800     F     1431             MOV     R0,#LOW (ds_dat_time+06H)
+0090 120000   F     1432             LCALL   L?0121
+0093 7800     F     1433             MOV     R0,#LOW (ds_dat_time+06H)
+0095 120000   F     1434             LCALL   L?0122
+                    1435     ;               lcd_wdat('/');
+                    1436                             ; SOURCE LINE # 201
+0098 7F2F           1437             MOV     R7,#02FH
+009A 120000   F     1438             LCALL   _lcd_wdat
+                    1439     ;               lcd_wdat((ds_dat_time[4]>>4)+48);lcd_wdat((ds_dat_time[4]&0x0f)+48);//月
+                    1440                             ; SOURCE LINE # 202
+009D 7800     F     1441             MOV     R0,#LOW (ds_dat_time+04H)
+009F 120000   F     1442             LCALL   L?0124
+00A2 7800     F     1443             MOV     R0,#LOW (ds_dat_time+04H)
+00A4 120000   F     1444             LCALL   L?0128
+                    1445     ;               lcd_wdat('/');
+                    1446                             ; SOURCE LINE # 203
+00A7 7F2F           1447             MOV     R7,#02FH
+00A9 120000   F     1448             LCALL   _lcd_wdat
+                    1449     ;               lcd_wdat((ds_dat_time[3]>>4)+48);lcd_wdat((ds_dat_time[3]&0x0f)+48);//日
+                    1450                             ; SOURCE LINE # 204
+00AC 7800     F     1451             MOV     R0,#LOW (ds_dat_time+03H)
+00AE 120000   F     1452             LCALL   L?0124
+00B1 7800     F     1453             MOV     R0,#LOW (ds_dat_time+03H)
+00B3 120000   F     1454             LCALL   L?0128
+                    1455     ;               lcd_wcmd(0x96);lcd_wdat(0xD6);lcd_wdat(0xDC);
+                    1456                             ; SOURCE LINE # 205
+00B6 7F96           1457             MOV     R7,#096H
+00B8 120000   F     1458             LCALL   _lcd_wcmd
+00BB 7FD6           1459             MOV     R7,#0D6H
+00BD 120000   F     1460             LCALL   _lcd_wdat
+00C0 7FDC           1461             MOV     R7,#0DCH
+00C2 120000   F     1462             LCALL   _lcd_wdat
+                    1463     ;               lcd_wdat((ds_dat_time[5]>>16)+48);lcd_wdat((ds_dat_time[5]&0x0f)+48);//周
+                    1464                             ; SOURCE LINE # 206
+00C5 7800     F     1465             MOV     R0,#LOW (ds_dat_time+05H)
+00C7 E4             1466             CLR     A
+00C8 2430           1467             ADD     A,#030H
+00CA FF             1468             MOV     R7,A
+00CB 120000   F     1469             LCALL   _lcd_wdat
+00CE 7800     F     1470             MOV     R0,#LOW (ds_dat_time+05H)
+00D0 E2             1471             MOVX    A,@R0
+00D1 540F           1472             ANL     A,#0FH
+00D3 2430           1473             ADD     A,#030H
+00D5 FF             1474             MOV     R7,A
+00D6 120000   F     1475             LCALL   _lcd_wdat
+                    1476     ;               //d_100ms();
+                    1477     ; 
+                    1478     ;       }
+                    1479                             ; SOURCE LINE # 209
+00D9 020000   F     1480             LJMP    ?C0076
+                    1481     ; /**/
+                    1482     ; }
+                    1483                             ; SOURCE LINE # 211
+00DC                1484     L?0112:
+00DC E2             1485             MOVX    A,@R0
+00DD C4             1486             SWAP    A
+00DE 540F           1487             ANL     A,#0FH
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    24
+
+00E0 2430           1488             ADD     A,#030H
+00E2 FF             1489             MOV     R7,A
+00E3 120000   F     1490             LCALL   _lcd_wdat
+00E6 22             1491             RET     
+00E7                1492     L?0114:
+00E7 E2             1493             MOVX    A,@R0
+00E8 540F           1494             ANL     A,#0FH
+00EA 2430           1495             ADD     A,#030H
+00EC FF             1496             MOV     R7,A
+00ED 120000   F     1497             LCALL   _lcd_wdat
+00F0 22             1498             RET     
+00F1                1499     L?0121:
+00F1 E2             1500             MOVX    A,@R0
+00F2 C4             1501             SWAP    A
+00F3 540F           1502             ANL     A,#0FH
+00F5 2430           1503             ADD     A,#030H
+00F7 FF             1504             MOV     R7,A
+00F8 120000   F     1505             LCALL   _lcd_wdat
+00FB 22             1506             RET     
+00FC                1507     L?0122:
+00FC E2             1508             MOVX    A,@R0
+00FD 540F           1509             ANL     A,#0FH
+00FF 2430           1510             ADD     A,#030H
+0101 FF             1511             MOV     R7,A
+0102 120000   F     1512             LCALL   _lcd_wdat
+0105 22             1513             RET     
+0106                1514     L?0124:
+0106 E2             1515             MOVX    A,@R0
+0107 C4             1516             SWAP    A
+0108 540F           1517             ANL     A,#0FH
+010A 2430           1518             ADD     A,#030H
+010C FF             1519             MOV     R7,A
+010D 120000   F     1520             LCALL   _lcd_wdat
+0110 22             1521             RET     
+0111                1522     L?0128:
+0111 E2             1523             MOVX    A,@R0
+0112 540F           1524             ANL     A,#0FH
+0114 2430           1525             ADD     A,#030H
+0116 FF             1526             MOV     R7,A
+0117 120000   F     1527             LCALL   _lcd_wdat
+011A 22             1528             RET     
+011B                1529     L?0134:
+011B EF             1530             MOV     A,R7
+011C 900000   F     1531             MOV     DPTR,#test_ds1302_ver_0
+011F 93             1532             MOVC    A,@A+DPTR
+0120 FF             1533             MOV     R7,A
+0121 120000   F     1534             LCALL   _lcd_wdat
+0124 7800     F     1535             MOV     R0,#LOW (i?546)
+0126 E2             1536             MOVX    A,@R0
+0127 04             1537             INC     A
+0128 F2             1538             MOVX    @R0,A
+0129 22             1539             RET     
+                    1540     ; END OF test_ds1302
+                    1541     
+                    1542     ; 
+                    1543     ; void test_dht()//
+                    1544     
+----                1545             RSEG  ?PR?test_dht?TEST
+0000                1546     test_dht:
+                    1547             USING   0
+                    1548                             ; SOURCE LINE # 213
+                    1549     ; {
+                    1550                             ; SOURCE LINE # 214
+                    1551     ;       uchar k=0;
+                    1552                             ; SOURCE LINE # 215
+0000 E4             1553             CLR     A
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    25
+
+0001 7800     F     1554             MOV     R0,#LOW (k?647)
+0003 F2             1555             MOVX    @R0,A
+                    1556     ;       uchar i;
+                    1557     ;       lcd_init();
+                    1558                             ; SOURCE LINE # 217
+0004 120000   F     1559             LCALL   lcd_init
+                    1560     ;       Ds18b20_Init();
+                    1561                             ; SOURCE LINE # 218
+0007 120000   F     1562             LCALL   Ds18b20_Init
+                    1563     ;       for(;;)
+                    1564                             ; SOURCE LINE # 219
+000A                1565     ?C0079:
+                    1566     ;       {
+                    1567                             ; SOURCE LINE # 220
+                    1568     ;               Ds18b20_ChangTemp();
+                    1569                             ; SOURCE LINE # 221
+000A 120000   F     1570             LCALL   Ds18b20_ChangTemp
+                    1571     ;               d_1s();
+                    1572                             ; SOURCE LINE # 222
+000D 120000   F     1573             LCALL   d_1s
+                    1574     ;               Ds18b20_rTemp();
+                    1575                             ; SOURCE LINE # 223
+0010 120000   F     1576             LCALL   Ds18b20_rTemp
+                    1577     ;               
+                    1578     ;               temp_data_collation();
+                    1579                             ; SOURCE LINE # 225
+0013 120000   F     1580             LCALL   temp_data_collation
+                    1581     ;               lcd_wcmd(0x94);
+                    1582                             ; SOURCE LINE # 226
+0016 7F94           1583             MOV     R7,#094H
+0018 120000   F     1584             LCALL   _lcd_wcmd
+                    1585     ;               if(temp_data_sign)lcd_wdat('-');
+                    1586                             ; SOURCE LINE # 227
+001B 7800     F     1587             MOV     R0,#LOW (temp_data_sign)
+001D E2             1588             MOVX    A,@R0
+001E 6005           1589             JZ      ?C0081
+0020 7F2D           1590             MOV     R7,#02DH
+0022 120000   F     1591             LCALL   _lcd_wdat
+0025                1592     ?C0081:
+                    1593     ;               lcd_wdat((uchar)(temp_data_Integer/100%10+48));
+                    1594                             ; SOURCE LINE # 228
+0025 7800     F     1595             MOV     R0,#LOW (temp_data_Integer)
+0027 75F064         1596             MOV     B,#064H
+002A 120000   F     1597             LCALL   L?0119
+002D 120000   F     1598             LCALL   _lcd_wdat
+                    1599     ;               lcd_wdat(temp_data_Integer/10%10+48);
+                    1600                             ; SOURCE LINE # 229
+0030 7800     F     1601             MOV     R0,#LOW (temp_data_Integer)
+0032 120000   F     1602             LCALL   L?0103
+                    1603     ;               lcd_wdat(temp_data_Integer%10+48);
+                    1604                             ; SOURCE LINE # 230
+0035 7800     F     1605             MOV     R0,#LOW (temp_data_Integer)
+0037 120000   F     1606             LCALL   L?0111
+                    1607     ;               lcd_wdat('.');
+                    1608                             ; SOURCE LINE # 231
+003A 7F2E           1609             MOV     R7,#02EH
+003C 120000   F     1610             LCALL   _lcd_wdat
+                    1611     ;               lcd_wdat((temp_data_Decimal_r/10)+48);
+                    1612                             ; SOURCE LINE # 232
+003F 7800     F     1613             MOV     R0,#LOW (temp_data_Decimal_r)
+0041 E2             1614             MOVX    A,@R0
+0042 75F00A         1615             MOV     B,#0AH
+0045 84             1616             DIV     AB
+0046 120000   F     1617             LCALL   L?0140
+                    1618     ;               lcd_wdat((temp_data_Decimal_r%10)+48);
+                    1619                             ; SOURCE LINE # 233
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    26
+
+0049 7800     F     1620             MOV     R0,#LOW (temp_data_Decimal_r)
+004B 120000   F     1621             LCALL   L?0111
+                    1622     ;               
+                    1623     ;               dht_rdat();
+                    1624                             ; SOURCE LINE # 235
+004E 120000   F     1625             LCALL   dht_rdat
+                    1626     ;               lcd_wcmd(0x80);
+                    1627                             ; SOURCE LINE # 236
+0051 7F80           1628             MOV     R7,#080H
+0053 120000   F     1629             LCALL   _lcd_wcmd
+                    1630     ;               lcd_wdat(Dht_RhData[0]/100+48);
+                    1631                             ; SOURCE LINE # 237
+0056 7800     F     1632             MOV     R0,#LOW (Dht_RhData)
+0058 120000   F     1633             LCALL   L?0123
+                    1634     ;               lcd_wdat(Dht_RhData[0]/10%10+48);
+                    1635                             ; SOURCE LINE # 238
+005B 7800     F     1636             MOV     R0,#LOW (Dht_RhData)
+005D 120000   F     1637             LCALL   L?0103
+                    1638     ;               lcd_wdat(Dht_RhData[0]%10+48);
+                    1639                             ; SOURCE LINE # 239
+0060 7800     F     1640             MOV     R0,#LOW (Dht_RhData)
+0062 120000   F     1641             LCALL   L?0113
+                    1642     ;               lcd_wdat('.');
+                    1643                             ; SOURCE LINE # 240
+0065 7F2E           1644             MOV     R7,#02EH
+0067 120000   F     1645             LCALL   _lcd_wdat
+                    1646     ;               if(Dht_RhData[1]/100>0)lcd_wdat(Dht_RhData[1]/100+48);
+                    1647                             ; SOURCE LINE # 241
+006A 7800     F     1648             MOV     R0,#LOW (Dht_RhData+01H)
+006C E2             1649             MOVX    A,@R0
+006D 75F064         1650             MOV     B,#064H
+0070 84             1651             DIV     AB
+0071 FF             1652             MOV     R7,A
+0072 D3             1653             SETB    C
+0073 9400           1654             SUBB    A,#00H
+0075 7480           1655             MOV     A,#080H
+0077 9480           1656             SUBB    A,#080H
+0079 4004           1657             JC      ?C0082
+007B EF             1658             MOV     A,R7
+007C 120000   F     1659             LCALL   L?0140
+007F                1660     ?C0082:
+                    1661     ;               lcd_wdat(Dht_RhData[1]/10%10+48);
+                    1662                             ; SOURCE LINE # 242
+007F 7800     F     1663             MOV     R0,#LOW (Dht_RhData+01H)
+0081 120000   F     1664             LCALL   L?0104
+                    1665     ;               lcd_wdat(Dht_RhData[1]%10+48);
+                    1666                             ; SOURCE LINE # 243
+0084 7800     F     1667             MOV     R0,#LOW (Dht_RhData+01H)
+0086 120000   F     1668             LCALL   L?0113
+                    1669     ;               lcd_wcmd(0x84);
+                    1670                             ; SOURCE LINE # 244
+0089 7F84           1671             MOV     R7,#084H
+008B 120000   F     1672             LCALL   _lcd_wcmd
+                    1673     ;               lcd_wdat(Dht_RhData[2]/100+48);
+                    1674                             ; SOURCE LINE # 245
+008E 7800     F     1675             MOV     R0,#LOW (Dht_RhData+02H)
+0090 120000   F     1676             LCALL   L?0123
+                    1677     ;               lcd_wdat(Dht_RhData[2]/10%10+48);
+                    1678                             ; SOURCE LINE # 246
+0093 7800     F     1679             MOV     R0,#LOW (Dht_RhData+02H)
+0095 120000   F     1680             LCALL   L?0104
+                    1681     ;               lcd_wdat(Dht_RhData[2]%10+48);
+                    1682                             ; SOURCE LINE # 247
+0098 7800     F     1683             MOV     R0,#LOW (Dht_RhData+02H)
+009A E2             1684             MOVX    A,@R0
+009B 120000   F     1685             LCALL   L?0120
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    27
+
+009E 120000   F     1686             LCALL   _lcd_wdat
+                    1687     ;               lcd_wdat('.');
+                    1688                             ; SOURCE LINE # 248
+00A1 7F2E           1689             MOV     R7,#02EH
+00A3 120000   F     1690             LCALL   _lcd_wdat
+                    1691     ;               if(Dht_RhData[3]/100>0)lcd_wdat(Dht_RhData[1]/100+48);
+                    1692                             ; SOURCE LINE # 249
+00A6 7800     F     1693             MOV     R0,#LOW (Dht_RhData+03H)
+00A8 E2             1694             MOVX    A,@R0
+00A9 75F064         1695             MOV     B,#064H
+00AC 84             1696             DIV     AB
+00AD D3             1697             SETB    C
+00AE 9400           1698             SUBB    A,#00H
+00B0 7480           1699             MOV     A,#080H
+00B2 9480           1700             SUBB    A,#080H
+00B4 4005           1701             JC      ?C0083
+00B6 7800     F     1702             MOV     R0,#LOW (Dht_RhData+01H)
+00B8 120000   F     1703             LCALL   L?0125
+00BB                1704     ?C0083:
+                    1705     ;               lcd_wdat(Dht_RhData[3]/10%10+48);
+                    1706                             ; SOURCE LINE # 250
+00BB 7800     F     1707             MOV     R0,#LOW (Dht_RhData+03H)
+00BD 120000   F     1708             LCALL   L?0105
+                    1709     ;               lcd_wdat(Dht_RhData[3]%10+48);
+                    1710                             ; SOURCE LINE # 251
+00C0 7800     F     1711             MOV     R0,#LOW (Dht_RhData+03H)
+00C2 E2             1712             MOVX    A,@R0
+00C3 120000   F     1713             LCALL   L?0120
+00C6 120000   F     1714             LCALL   _lcd_wdat
+                    1715     ;               /*m=(uint)Dht_RhData[1];
+                    1716     ;               m=m*39;
+                    1717     ;               lcd_wdat(m/10000+48);
+                    1718     ;               lcd_wdat(m/1000%10+48);*/
+                    1719     ;               lcd_wcmd(0x90);
+                    1720                             ; SOURCE LINE # 256
+00C9 7F90           1721             MOV     R7,#090H
+00CB 120000   F     1722             LCALL   _lcd_wcmd
+                    1723     ;               lcd_wdat(Dht_error/100+48);
+                    1724                             ; SOURCE LINE # 257
+00CE 7800     F     1725             MOV     R0,#LOW (Dht_error)
+00D0 120000   F     1726             LCALL   L?0125
+                    1727     ;               lcd_wdat(Dht_error/10%10+48);
+                    1728                             ; SOURCE LINE # 258
+00D3 7800     F     1729             MOV     R0,#LOW (Dht_error)
+00D5 120000   F     1730             LCALL   L?0105
+                    1731     ;               lcd_wdat(Dht_error%10+48);
+                    1732                             ; SOURCE LINE # 259
+00D8 7800     F     1733             MOV     R0,#LOW (Dht_error)
+00DA E2             1734             MOVX    A,@R0
+00DB 120000   F     1735             LCALL   L?0120
+00DE 120000   F     1736             LCALL   _lcd_wdat
+                    1737     ;               lcd_wcmd(0x88);
+                    1738                             ; SOURCE LINE # 260
+00E1 7F88           1739             MOV     R7,#088H
+00E3 120000   F     1740             LCALL   _lcd_wcmd
+                    1741     ;               for(i=0;i<7;i++)lcd_wdat(((Dht_RhData[4]>>(7-i))&0x01)+48);
+                    1742                             ; SOURCE LINE # 261
+00E6 E4             1743             CLR     A
+00E7 7800     F     1744             MOV     R0,#LOW (i?648)
+00E9 F2             1745             MOVX    @R0,A
+00EA                1746     ?C0084:
+00EA 7800     F     1747             MOV     R0,#LOW (i?648)
+00EC E2             1748             MOVX    A,@R0
+00ED FF             1749             MOV     R7,A
+00EE C3             1750             CLR     C
+00EF 9407           1751             SUBB    A,#07H
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    28
+
+00F1 7480           1752             MOV     A,#080H
+00F3 9480           1753             SUBB    A,#080H
+00F5 5021           1754             JNC     ?C0085
+00F7 C3             1755             CLR     C
+00F8 7407           1756             MOV     A,#07H
+00FA 9F             1757             SUBB    A,R7
+00FB FF             1758             MOV     R7,A
+00FC 7800     F     1759             MOV     R0,#LOW (Dht_RhData+04H)
+00FE E2             1760             MOVX    A,@R0
+00FF FE             1761             MOV     R6,A
+0100 A807           1762             MOV     R0,AR7
+0102 08             1763             INC     R0
+0103 8002           1764             SJMP    ?C0091
+0105                1765     ?C0090:
+0105 C3             1766             CLR     C
+0106 13             1767             RRC     A
+0107                1768     ?C0091:
+0107 D8FC           1769             DJNZ    R0,?C0090
+0109 5401           1770             ANL     A,#01H
+010B 2430           1771             ADD     A,#030H
+010D FF             1772             MOV     R7,A
+010E 120000   F     1773             LCALL   _lcd_wdat
+0111 7800     F     1774             MOV     R0,#LOW (i?648)
+0113 E2             1775             MOVX    A,@R0
+0114 04             1776             INC     A
+0115 F2             1777             MOVX    @R0,A
+0116 80D2           1778             SJMP    ?C0084
+0118                1779     ?C0085:
+                    1780     ;               lcd_wcmd(0x98);
+                    1781                             ; SOURCE LINE # 262
+0118 7F98           1782             MOV     R7,#098H
+011A 120000   F     1783             LCALL   _lcd_wcmd
+                    1784     ;               if((Dht_RhData[3]+Dht_RhData[2]+Dht_RhData[1]+Dht_RhData[0])==Dht_RhData[4]
+                             )lcd_wdat('0');
+                    1785                             ; SOURCE LINE # 263
+011D 7800     F     1786             MOV     R0,#LOW (Dht_RhData+02H)
+011F E2             1787             MOVX    A,@R0
+0120 FF             1788             MOV     R7,A
+0121 08             1789             INC     R0
+0122 E2             1790             MOVX    A,@R0
+0123 2F             1791             ADD     A,R7
+0124 FF             1792             MOV     R7,A
+0125 E4             1793             CLR     A
+0126 33             1794             RLC     A
+0127 FE             1795             MOV     R6,A
+0128 7800     F     1796             MOV     R0,#LOW (Dht_RhData+01H)
+012A E2             1797             MOVX    A,@R0
+012B 7C00           1798             MOV     R4,#00H
+012D 2F             1799             ADD     A,R7
+012E FF             1800             MOV     R7,A
+012F EC             1801             MOV     A,R4
+0130 3E             1802             ADDC    A,R6
+0131 FE             1803             MOV     R6,A
+0132 18             1804             DEC     R0
+0133 E2             1805             MOVX    A,@R0
+0134 2F             1806             ADD     A,R7
+0135 FF             1807             MOV     R7,A
+0136 EC             1808             MOV     A,R4
+0137 3E             1809             ADDC    A,R6
+0138 FE             1810             MOV     R6,A
+0139 7800     F     1811             MOV     R0,#LOW (Dht_RhData+04H)
+013B E2             1812             MOVX    A,@R0
+013C B50708         1813             CJNE    A,AR7,?C0087
+013F EC             1814             MOV     A,R4
+0140 B50604         1815             CJNE    A,AR6,?C0087
+0143 7F30           1816             MOV     R7,#030H
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    29
+
+0145 8002           1817             SJMP    ?C0102
+0147                1818     ?C0087:
+                    1819     ;               else lcd_wdat('1');
+                    1820                             ; SOURCE LINE # 264
+0147 7F31           1821             MOV     R7,#031H
+0149                1822     ?C0102:
+0149 120000   F     1823             LCALL   _lcd_wdat
+014C                1824     ?C0088:
+                    1825     ;               d_1s();//d_1s();
+                    1826                             ; SOURCE LINE # 265
+014C 120000   F     1827             LCALL   d_1s
+                    1828     ;       }
+                    1829                             ; SOURCE LINE # 266
+014F 020000   F     1830             LJMP    ?C0079
+                    1831     ; }
+                    1832                             ; SOURCE LINE # 267
+0152                1833     L?0103:
+0152 E2             1834             MOVX    A,@R0
+0153 75F00A         1835             MOV     B,#0AH
+0156 84             1836             DIV     AB
+0157 75F00A         1837             MOV     B,#0AH
+015A 84             1838             DIV     AB
+015B E5F0           1839             MOV     A,B
+015D 2430           1840             ADD     A,#030H
+015F FF             1841             MOV     R7,A
+0160 120000   F     1842             LCALL   _lcd_wdat
+0163 22             1843             RET     
+0164                1844     L?0104:
+0164 E2             1845             MOVX    A,@R0
+0165 75F00A         1846             MOV     B,#0AH
+0168 84             1847             DIV     AB
+0169 75F00A         1848             MOV     B,#0AH
+016C 84             1849             DIV     AB
+016D E5F0           1850             MOV     A,B
+016F 2430           1851             ADD     A,#030H
+0171 FF             1852             MOV     R7,A
+0172 120000   F     1853             LCALL   _lcd_wdat
+0175 22             1854             RET     
+0176                1855     L?0105:
+0176 E2             1856             MOVX    A,@R0
+0177 75F00A         1857             MOV     B,#0AH
+017A 84             1858             DIV     AB
+017B 75F00A         1859             MOV     B,#0AH
+017E 84             1860             DIV     AB
+017F E5F0           1861             MOV     A,B
+0181 2430           1862             ADD     A,#030H
+0183 FF             1863             MOV     R7,A
+0184 120000   F     1864             LCALL   _lcd_wdat
+0187 22             1865             RET     
+0188                1866     L?0111:
+0188 E2             1867             MOVX    A,@R0
+0189 75F00A         1868             MOV     B,#0AH
+018C 84             1869             DIV     AB
+018D E5F0           1870             MOV     A,B
+018F 2430           1871             ADD     A,#030H
+0191 FF             1872             MOV     R7,A
+0192 120000   F     1873             LCALL   _lcd_wdat
+0195 22             1874             RET     
+0196                1875     L?0113:
+0196 E2             1876             MOVX    A,@R0
+0197 75F00A         1877             MOV     B,#0AH
+019A 84             1878             DIV     AB
+019B E5F0           1879             MOV     A,B
+019D 2430           1880             ADD     A,#030H
+019F FF             1881             MOV     R7,A
+01A0 120000   F     1882             LCALL   _lcd_wdat
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    30
+
+01A3 22             1883             RET     
+01A4                1884     L?0123:
+01A4 E2             1885             MOVX    A,@R0
+01A5 75F064         1886             MOV     B,#064H
+01A8 84             1887             DIV     AB
+01A9 2430           1888             ADD     A,#030H
+01AB FF             1889             MOV     R7,A
+01AC 120000   F     1890             LCALL   _lcd_wdat
+01AF 22             1891             RET     
+01B0                1892     L?0125:
+01B0 E2             1893             MOVX    A,@R0
+01B1 75F064         1894             MOV     B,#064H
+01B4 84             1895             DIV     AB
+01B5 2430           1896             ADD     A,#030H
+01B7 FF             1897             MOV     R7,A
+01B8 120000   F     1898             LCALL   _lcd_wdat
+01BB 22             1899             RET     
+01BC                1900     L?0140:
+01BC 2430           1901             ADD     A,#030H
+01BE FF             1902             MOV     R7,A
+01BF 120000   F     1903             LCALL   _lcd_wdat
+01C2 22             1904             RET     
+                    1905     ; END OF test_dht
+                    1906     
+                    1907             END
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    31
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                            T Y P E  V A L U E   ATTRIBUTES
+
+?C0001. . . . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?TEST_BZ?TEST
+?C0003. . . . . . . . . . . . . .  C ADDR   0064H   R   SEG=?PR?TEST_BZ?TEST
+?C0004. . . . . . . . . . . . . .  C ADDR   0057H   R   SEG=?PR?TEST_BZ?TEST
+?C0005. . . . . . . . . . . . . .  C ADDR   005DH   R   SEG=?PR?TEST_BZ?TEST
+?C0006. . . . . . . . . . . . . .  C ADDR   008FH   R   SEG=?PR?TEST_BZ?TEST
+?C0008. . . . . . . . . . . . . .  C ADDR   0084H   R   SEG=?PR?TEST_BZ?TEST
+?C0009. . . . . . . . . . . . . .  C ADDR   008AH   R   SEG=?PR?TEST_BZ?TEST
+?C0010. . . . . . . . . . . . . .  C ADDR   00B1H   R   SEG=?PR?TEST_BZ?TEST
+?C0011. . . . . . . . . . . . . .  C ADDR   00A7H   R   SEG=?PR?TEST_BZ?TEST
+?C0012. . . . . . . . . . . . . .  C ADDR   00AAH   R   SEG=?PR?TEST_BZ?TEST
+?C0013. . . . . . . . . . . . . .  C ADDR   00D8H   R   SEG=?PR?TEST_BZ?TEST
+?C0015. . . . . . . . . . . . . .  C ADDR   00D0H   R   SEG=?PR?TEST_BZ?TEST
+?C0016. . . . . . . . . . . . . .  C ADDR   00D3H   R   SEG=?PR?TEST_BZ?TEST
+?C0018. . . . . . . . . . . . . .  C ADDR   000EH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0019. . . . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0021. . . . . . . . . . . . . .  C ADDR   0025H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0024. . . . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0026. . . . . . . . . . . . . .  C ADDR   0040H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0027. . . . . . . . . . . . . .  C ADDR   0109H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0029. . . . . . . . . . . . . .  C ADDR   005CH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0030. . . . . . . . . . . . . .  C ADDR   005EH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0031. . . . . . . . . . . . . .  C ADDR   007BH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0032. . . . . . . . . . . . . .  C ADDR   007DH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0033. . . . . . . . . . . . . .  C ADDR   008CH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0034. . . . . . . . . . . . . .  C ADDR   00B0H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0036. . . . . . . . . . . . . .  C ADDR   00EEH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0037. . . . . . . . . . . . . .  C ADDR   00CBH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0038. . . . . . . . . . . . . .  C ADDR   00CDH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0039. . . . . . . . . . . . . .  C ADDR   00CFH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0040. . . . . . . . . . . . . .  C ADDR   00D8H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0042. . . . . . . . . . . . . .  C ADDR   00DCH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0043. . . . . . . . . . . . . .  C ADDR   00E5H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0045. . . . . . . . . . . . . .  C ADDR   00E9H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0047. . . . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?TEST_DISPLAY_TEMPS?TEST
+?C0049. . . . . . . . . . . . . .  C ADDR   004BH   R   SEG=?PR?TEST_DISPLAY_TEMPS?TEST
+?C0050. . . . . . . . . . . . . .  C ADDR   005FH   R   SEG=?PR?TEST_DISPLAY_TEMPS?TEST
+?C0052. . . . . . . . . . . . . .  C ADDR   000BH   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0054. . . . . . . . . . . . . .  C ADDR   005FH   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0055. . . . . . . . . . . . . .  C ADDR   0016H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0057. . . . . . . . . . . . . .  C ADDR   0058H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0059. . . . . . . . . . . . . .  C ADDR   0041H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0060. . . . . . . . . . . . . .  C ADDR   0043H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0061. . . . . . . . . . . . . .  C ADDR   004AH   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0063. . . . . . . . . . . . . .  C ADDR   006FH   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0064. . . . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM0?TEST
+?C0067. . . . . . . . . . . . . .  C ADDR   000CH   R   SEG=?PR?TEST_DS1302?TEST
+?C0068. . . . . . . . . . . . . .  C ADDR   001EH   R   SEG=?PR?TEST_DS1302?TEST
+?C0070. . . . . . . . . . . . . .  C ADDR   0023H   R   SEG=?PR?TEST_DS1302?TEST
+?C0071. . . . . . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?TEST_DS1302?TEST
+?C0073. . . . . . . . . . . . . .  C ADDR   0039H   R   SEG=?PR?TEST_DS1302?TEST
+?C0076. . . . . . . . . . . . . .  C ADDR   0059H   R   SEG=?PR?TEST_DS1302?TEST
+?C0079. . . . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?TEST_DHT?TEST
+?C0081. . . . . . . . . . . . . .  C ADDR   0025H   R   SEG=?PR?TEST_DHT?TEST
+?C0082. . . . . . . . . . . . . .  C ADDR   007FH   R   SEG=?PR?TEST_DHT?TEST
+?C0083. . . . . . . . . . . . . .  C ADDR   00BBH   R   SEG=?PR?TEST_DHT?TEST
+?C0084. . . . . . . . . . . . . .  C ADDR   00EAH   R   SEG=?PR?TEST_DHT?TEST
+?C0085. . . . . . . . . . . . . .  C ADDR   0118H   R   SEG=?PR?TEST_DHT?TEST
+?C0087. . . . . . . . . . . . . .  C ADDR   0147H   R   SEG=?PR?TEST_DHT?TEST
+?C0088. . . . . . . . . . . . . .  C ADDR   014CH   R   SEG=?PR?TEST_DHT?TEST
+?C0090. . . . . . . . . . . . . .  C ADDR   0105H   R   SEG=?PR?TEST_DHT?TEST
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    32
+
+?C0091. . . . . . . . . . . . . .  C ADDR   0107H   R   SEG=?PR?TEST_DHT?TEST
+?C0093. . . . . . . . . . . . . .  C ADDR   00D8H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0094. . . . . . . . . . . . . .  C ADDR   00E5H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0095. . . . . . . . . . . . . .  C ADDR   00DAH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0096. . . . . . . . . . . . . .  C ADDR   00E3H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0097. . . . . . . . . . . . . .  C ADDR   00E7H   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0098. . . . . . . . . . . . . .  C ADDR   00EBH   R   SEG=?PR?TEST_BUTTONS?TEST
+?C0099. . . . . . . . . . . . . .  C ADDR   0051H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0100. . . . . . . . . . . . . .  C ADDR   004FH   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0101. . . . . . . . . . . . . .  C ADDR   0054H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+?C0102. . . . . . . . . . . . . .  C ADDR   0149H   R   SEG=?PR?TEST_DHT?TEST
+?C?UIDIV. . . . . . . . . . . . .  C ADDR   -----       EXT
+?CO?TEST. . . . . . . . . . . . .  C SEG    0036H       REL=UNIT
+?C_INITSEG. . . . . . . . . . . .  C SEG    003AH       REL=UNIT
+?PD?TEST. . . . . . . . . . . . .  X SEG    002FH       REL=INPAGE
+?PD?TEST_BUTTONS?TEST . . . . . .  X SEG    0004H       REL=INPAGE
+?PD?TEST_BZ?TEST. . . . . . . . .  X SEG    0002H       REL=INPAGE
+?PD?TEST_DHT?TEST . . . . . . . .  X SEG    0002H       REL=INPAGE
+?PD?TEST_DISPLAY_TEMPS?TEST . . .  X SEG    0002H       REL=INPAGE
+?PD?TEST_DS1302?TEST. . . . . . .  X SEG    0001H       REL=INPAGE
+?PD?TEST_LCD12864_DISPLAYPM1?TEST  X SEG    0004H       REL=INPAGE
+?PR?TEST. . . . . . . . . . . . .  C SEG    0092H       REL=UNIT
+?PR?TEST_BUTTONS?TEST . . . . . .  C SEG    0120H       REL=UNIT
+?PR?TEST_BZ?TEST. . . . . . . . .  C SEG    00E9H       REL=UNIT
+?PR?TEST_DHT?TEST . . . . . . . .  C SEG    01C3H       REL=UNIT
+?PR?TEST_DISPLAY_TEMPS?TEST . . .  C SEG    00BAH       REL=UNIT
+?PR?TEST_DS1302?TEST. . . . . . .  C SEG    012AH       REL=UNIT
+?PR?TEST_LCD12864_DISPLAYPM0?TEST  C SEG    003DH       REL=UNIT
+?PR?TEST_LCD12864_DISPLAYPM1?TEST  C SEG    0070H       REL=UNIT
+?TEST_BUTTONS?BYTE. . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_BUTTONS?TEST
+?TEST_BZ?BYTE . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_BZ?TEST
+?TEST_DHT?BYTE. . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DHT?TEST
+?TEST_DISPLAY_TEMPS?BYTE. . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DISPLAY_TEMPS?TEST
+?TEST_DS1302?BYTE . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DS1302?TEST
+?TEST_LCD12864_DISPLAYPM1?BYTE. .  X ADDR   0000H   R   SEG=?PD?TEST_LCD12864_DISPLAYPM1?TEST
+?_LCD_DRAW_PM?BYTE. . . . . . . .  X ADDR   -----       EXT
+AC. . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AR6 . . . . . . . . . . . . . . .  D ADDR   0006H   A   
+AR7 . . . . . . . . . . . . . . .  D ADDR   0007H   A   
+AUXR. . . . . . . . . . . . . . .  D ADDR   008EH   A   
+AUXR1 . . . . . . . . . . . . . .  D ADDR   00A2H   A   
+B . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BZ. . . . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+BZ_FORBIDDENBIT . . . . . . . . .  X ADDR   0008H   R   SEG=?PD?TEST
+C?. . . . . . . . . . . . . . . .  X ADDR   000CH   R   SEG=?PD?TEST
+COM006A . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST
+CP_RL2. . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CY. . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2. . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+DHT_ERROR . . . . . . . . . . . .  X ADDR   -----       EXT
+DHT_IO. . . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+DHT_RDAT. . . . . . . . . . . . .  C ADDR   -----       EXT
+DHT_RHDATA. . . . . . . . . . . .  X ADDR   -----       EXT
+DOUBLE_PRESS_COUNTER. . . . . . .  D ADDR   -----       EXT
+DPH . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+DS1302_READ_TIME. . . . . . . . .  C ADDR   -----       EXT
+DS18B20_CHANGTEMP . . . . . . . .  C ADDR   -----       EXT
+DS18B20_INIT. . . . . . . . . . .  C ADDR   -----       EXT
+DS18B20_RTEMP . . . . . . . . . .  C ADDR   -----       EXT
+DS_CE . . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+DS_DAT_TIME . . . . . . . . . . .  X ADDR   -----       EXT
+DS_IO . . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+DS_SCLK . . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+D_100MS . . . . . . . . . . . . .  C ADDR   -----       EXT
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    33
+
+D_1S. . . . . . . . . . . . . . .  C ADDR   -----       EXT
+EA. . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EC. . . . . . . . . . . . . . . .  B ADDR   00A8H.6 A   
+ERROR . . . . . . . . . . . . . .  X ADDR   -----       EXT
+ES. . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+FE. . . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+I?141 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_BUTTONS?TEST
+I?243 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DISPLAY_TEMPS?TEST
+I?344 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_LCD12864_DISPLAYPM1?TEST
+I?546 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DS1302?TEST
+I?648 . . . . . . . . . . . . . .  X ADDR   0001H   R   SEG=?PD?TEST_DHT?TEST
+IE. . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INIT_DS_DAT_TIME. . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST
+INSTRUCTION_CODE_KEY. . . . . . .  D ADDR   -----       EXT
+INT0. . . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+INT1. . . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+IP. . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IPH . . . . . . . . . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH . . . . . . . . . . . .  D ADDR   00E3H   A   
+ISP_ADDRL . . . . . . . . . . . .  D ADDR   00E4H   A   
+ISP_CMD . . . . . . . . . . . . .  D ADDR   00E5H   A   
+ISP_CONTR . . . . . . . . . . . .  D ADDR   00E7H   A   
+ISP_DATA. . . . . . . . . . . . .  D ADDR   00E2H   A   
+ISP_TRIG. . . . . . . . . . . . .  D ADDR   00E6H   A   
+IT0 . . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+J?142 . . . . . . . . . . . . . .  X ADDR   0002H   R   SEG=?PD?TEST_BUTTONS?TEST
+J?345 . . . . . . . . . . . . . .  X ADDR   0002H   R   SEG=?PD?TEST_LCD12864_DISPLAYPM1?TEST
+K?647 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_DHT?TEST
+KEY0. . . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+KEY1. . . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+KEY2. . . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+KEY3. . . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+L?0103. . . . . . . . . . . . . .  C ADDR   0152H   R   SEG=?PR?TEST_DHT?TEST
+L?0104. . . . . . . . . . . . . .  C ADDR   0164H   R   SEG=?PR?TEST_DHT?TEST
+L?0105. . . . . . . . . . . . . .  C ADDR   0176H   R   SEG=?PR?TEST_DHT?TEST
+L?0107. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST
+L?0108. . . . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?TEST
+L?0109. . . . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?TEST
+L?0110. . . . . . . . . . . . . .  C ADDR   000CH   R   SEG=?PR?TEST
+L?0111. . . . . . . . . . . . . .  C ADDR   0188H   R   SEG=?PR?TEST_DHT?TEST
+L?0112. . . . . . . . . . . . . .  C ADDR   00DCH   R   SEG=?PR?TEST_DS1302?TEST
+L?0113. . . . . . . . . . . . . .  C ADDR   0196H   R   SEG=?PR?TEST_DHT?TEST
+L?0114. . . . . . . . . . . . . .  C ADDR   00E7H   R   SEG=?PR?TEST_DS1302?TEST
+L?0115. . . . . . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?TEST
+L?0116. . . . . . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?TEST
+L?0117. . . . . . . . . . . . . .  C ADDR   001AH   R   SEG=?PR?TEST
+L?0118. . . . . . . . . . . . . .  C ADDR   0024H   R   SEG=?PR?TEST
+L?0119. . . . . . . . . . . . . .  C ADDR   0027H   R   SEG=?PR?TEST
+L?0120. . . . . . . . . . . . . .  C ADDR   0029H   R   SEG=?PR?TEST
+L?0121. . . . . . . . . . . . . .  C ADDR   00F1H   R   SEG=?PR?TEST_DS1302?TEST
+L?0122. . . . . . . . . . . . . .  C ADDR   00FCH   R   SEG=?PR?TEST_DS1302?TEST
+L?0123. . . . . . . . . . . . . .  C ADDR   01A4H   R   SEG=?PR?TEST_DHT?TEST
+L?0124. . . . . . . . . . . . . .  C ADDR   0106H   R   SEG=?PR?TEST_DS1302?TEST
+L?0125. . . . . . . . . . . . . .  C ADDR   01B0H   R   SEG=?PR?TEST_DHT?TEST
+L?0126. . . . . . . . . . . . . .  C ADDR   00AFH   R   SEG=?PR?TEST_DISPLAY_TEMPS?TEST
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    34
+
+L?0127. . . . . . . . . . . . . .  C ADDR   0033H   R   SEG=?PR?TEST
+L?0128. . . . . . . . . . . . . .  C ADDR   0111H   R   SEG=?PR?TEST_DS1302?TEST
+L?0129. . . . . . . . . . . . . .  C ADDR   0047H   R   SEG=?PR?TEST
+L?0130. . . . . . . . . . . . . .  C ADDR   0047H   R   SEG=?PR?TEST
+L?0131. . . . . . . . . . . . . .  C ADDR   010FH   R   SEG=?PR?TEST_BUTTONS?TEST
+L?0132. . . . . . . . . . . . . .  C ADDR   0052H   R   SEG=?PR?TEST
+L?0133. . . . . . . . . . . . . .  C ADDR   0054H   R   SEG=?PR?TEST
+L?0134. . . . . . . . . . . . . .  C ADDR   011BH   R   SEG=?PR?TEST_DS1302?TEST
+L?0135. . . . . . . . . . . . . .  C ADDR   005BH   R   SEG=?PR?TEST
+L?0136. . . . . . . . . . . . . .  C ADDR   0068H   R   SEG=?PR?TEST
+L?0137. . . . . . . . . . . . . .  C ADDR   0073H   R   SEG=?PR?TEST
+L?0138. . . . . . . . . . . . . .  C ADDR   007EH   R   SEG=?PR?TEST
+L?0139. . . . . . . . . . . . . .  C ADDR   0088H   R   SEG=?PR?TEST
+L?0140. . . . . . . . . . . . . .  C ADDR   01BCH   R   SEG=?PR?TEST_DHT?TEST
+LCD_CLR_DDRAM . . . . . . . . . .  C ADDR   -----       EXT
+LCD_CLR_GD. . . . . . . . . . . .  C ADDR   -----       EXT
+LCD_E . . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+LCD_INIT. . . . . . . . . . . . .  C ADDR   -----       EXT
+LCD_RS. . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+LCD_RW. . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+N?040 . . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEST_BZ?TEST
+OV. . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P1. . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P2. . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P3. . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P4. . . . . . . . . . . . . . . .  D ADDR   00E8H   A   
+P40 . . . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+P41 . . . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+P42 . . . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+P43 . . . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+P44 . . . . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+P45 . . . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    35
+
+P46 . . . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+PCON. . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS. . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2 . . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0 . . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8 . . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCLK. . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+RD. . . . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+RECOGNITION_KEY . . . . . . . . .  C ADDR   -----       EXT
+REN . . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI. . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RXD . . . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+SADDR . . . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADEN . . . . . . . . . . . . . .  D ADDR   00B9H   A   
+SBUF. . . . . . . . . . . . . . .  D ADDR   0099H   A   
+SCON. . . . . . . . . . . . . . .  D ADDR   0098H   A   
+SM0 . . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2 . . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+T0. . . . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+T1. . . . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+T2. . . . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+T2CON . . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T2EX. . . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+T2MOD . . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8 . . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK. . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMP_DATA_COLLATION . . . . . . .  C ADDR   -----       EXT
+TEMP_DATA_DECIMAL_R . . . . . . .  X ADDR   -----       EXT
+TEMP_DATA_INTEGER . . . . . . . .  X ADDR   -----       EXT
+TEMP_DATA_SIGN. . . . . . . . . .  X ADDR   -----       EXT
+TEMP_IO . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+TEST. . . . . . . . . . . . . . .  N NUMB   -----       
+TEST_BUTTONS. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST_BUTTONS?TEST
+TEST_BZ . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST_BZ?TEST
+TEST_DHT. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST_DHT?TEST
+TEST_DISPLAY_TEMPS. . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST_DISPLAY_TEMPS?TEST
+TEST_DS1302 . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEST_DS1302?TEST
+TEST_DS1302_VER_0 . . . . . . . .  C ADDR   0000H   R   SEG=?CO?TEST
+TEST_KEY_VER_0. . . . . . . . . .  C ADDR   0015H   R   SEG=?CO?TEST
+TEST_LCD12864_DISPLAYPM0. . . . .  C ADDR   0000H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM0?TEST
+TEST_LCD12864_DISPLAYPM1. . . . .  C ADDR   0000H   R   SEG=?PR?TEST_LCD12864_DISPLAYPM1?TEST
+TF0 . . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TIME_CLOCK. . . . . . . . . . . .  X ADDR   0007H   R   SEG=?PD?TEST
+TL0 . . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+A51 MACRO ASSEMBLER  TEST                                                                 03/24/2020 10:35:01 PAGE    36
+
+TR2 . . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD . . . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+VER_KEY . . . . . . . . . . . . .  X ADDR   000FH   R   SEG=?PD?TEST
+WDT_CONTR . . . . . . . . . . . .  D ADDR   00E1H   A   
+WR. . . . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+XICON . . . . . . . . . . . . . .  D ADDR   00C0H   A   
+ZHU . . . . . . . . . . . . . . .  C ADDR   -----       EXT
+_D_N_MS . . . . . . . . . . . . .  C ADDR   -----       EXT
+_LCD_DRAW_PM. . . . . . . . . . .  C ADDR   -----       EXT
+_LCD_WCMD . . . . . . . . . . . .  C ADDR   -----       EXT
+_LCD_WDAT . . . . . . . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

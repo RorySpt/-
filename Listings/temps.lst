@@ -1,0 +1,160 @@
+C51 COMPILER V9.60.0.0   TEMPS                                                             05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TEMPS
+OBJECT MODULE PLACED IN .\Objects\temps.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE temps.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBU
+                    -G PRINT(.\Listings\temps.lst) TABS(2) OBJECT(.\Objects\temps.obj)
+
+line level    source
+
+   1          #include "temps.h"
+   2          
+   3          uchar temp_High;
+   4          uchar temp_Low;
+   5          uchar temp_data_sign;//1∏∫£¨0’˝
+   6          uchar temp_data_Integer;
+   7          //uchar temp_data_Decimal;//∑˚∫≈Œª‘⁄◊Ó∏ﬂŒª£¨–° ˝Œª‘⁄∫ÛÀƒŒª°£
+   8          uchar temp_data_Decimal_r;
+   9          uchar error;
+  10          
+  11          uchar Ds18b20_Init()
+  12          {
+  13   1        uchar i;
+  14   1        TEMP_IO = 0;       //Ω´◊‹œﬂ¿≠µÕ480us~960us
+  15   1        i = 90; 
+  16   1        while(i--);//—” ±642us
+  17   1        TEMP_IO = 1;      //»ª∫Û¿≠∏ﬂ◊‹œﬂ£¨»Áπ˚DS18B20◊ˆ≥ˆ∑¥”¶ª·Ω´‘⁄15us~60us∫Û◊‹œﬂ¿≠µÕ
+  18   1        i = 0;
+  19   1        while(TEMP_IO)  //µ»¥˝DS18B20¿≠µÕ◊‹œﬂ
+  20   1        {
+  21   2          d_n_ms(1);
+  22   2          i++;
+  23   2          if(i>5)//µ»¥˝>5MS
+  24   2          {
+  25   3            return 0;//≥ı ºªØ ß∞‹
+  26   3          }
+  27   2        
+  28   2        }
+  29   1        error=1;
+  30   1        return 1;//≥ı ºªØ≥…π¶
+  31   1      }
+  32          
+  33          
+  34          void Ds18b20_wByte(uchar dat)
+  35          {
+  36   1        uint i, j;
+  37   1        for(j=0; j<8; j++)
+  38   1        {
+  39   2          TEMP_IO = 0;          //√ø–¥»Î“ªŒª ˝æ›÷Æ«∞œ»∞—◊‹œﬂ¿≠µÕ1us
+  40   2          i++;
+  41   2          TEMP_IO = dat & 0x01;  //»ª∫Û–¥»Î“ª∏ˆ ˝æ›£¨¥”◊ÓµÕŒªø™ º
+  42   2          i=6;
+  43   2          while(i--); //—” ±68us£¨≥÷–¯ ±º‰◊Ó…Ÿ60us
+  44   2          TEMP_IO = 1;  //»ª∫Û Õ∑≈◊‹œﬂ£¨÷¡…Ÿ1us∏¯◊‹œﬂª÷∏¥ ±º‰≤≈ƒ‹Ω”◊≈–¥»Îµ⁄∂˛∏ˆ ˝÷µ
+  45   2          dat >>= 1;
+  46   2        }
+  47   1      }
+  48          
+  49          uchar Ds18b20_rByte()
+  50          {
+  51   1        
+  52   1        uchar byte, bi;
+  53   1        uint i, j;  
+  54   1        for(j=8; j>0; j--)
+C51 COMPILER V9.60.0.0   TEMPS                                                             05/29/2020 16:57:56 PAGE 2   
+
+  55   1        {
+  56   2          TEMP_IO = 0;//œ»Ω´◊‹œﬂ¿≠µÕ1us
+  57   2          i++;
+  58   2          TEMP_IO = 1;//»ª∫Û Õ∑≈◊‹œﬂ
+  59   2          i++;
+  60   2          i++;//—” ±6usµ»¥˝ ˝æ›Œ»∂®
+  61   2          bi = TEMP_IO;  //∂¡»° ˝æ›£¨¥”◊ÓµÕŒªø™ º∂¡»°
+  62   2          /*Ω´byte◊Û“∆“ªŒª£¨»ª∫Û”Î…œ”““∆7Œª∫Ûµƒbi£¨◊¢“‚“∆∂Ø÷Æ∫Û“∆µÙƒ«Œª≤π0°£*/
+  63   2          byte = (byte >> 1) | (bi << 7);             
+  64   2          i = 4;    //∂¡»°ÕÍ÷Æ∫Ûµ»¥˝48us‘ŸΩ”◊≈∂¡»°œ¬“ª∏ˆ ˝
+  65   2          while(i--);
+  66   2        }       
+  67   1        return byte;
+  68   1      }
+  69          /*******************************************************************************
+  70          * ∫Ø  ˝ √˚         : Ds18b20ChangTemp
+  71          * ∫Ø ˝π¶ƒ‹       : »√18b20ø™ º◊™ªªŒ¬∂»
+  72          *  ‰    »Î         : Œﬁ
+  73          *  ‰    ≥ˆ         : Œﬁ
+  74          *******************************************************************************/
+  75          
+  76          void  Ds18b20_ChangTemp()
+  77          {
+  78   1        Ds18b20_Init();
+  79   1        {d_n_ms(1);
+  80   2        Ds18b20_wByte(0xcc);    //Ã¯π˝ROM≤Ÿ◊˜√¸¡Ó    
+  81   2        Ds18b20_wByte(0x44);      //Œ¬∂»◊™ªª√¸¡Ó
+  82   2        //d_n_ms(100);  //µ»¥˝◊™ªª≥…π¶£¨∂¯»Áπ˚ƒ„ «“ª÷±À¢◊≈µƒª∞£¨æÕ≤ª”√’‚∏ˆ—” ±¡À
+  83   2        }
+  84   1      }
+  85          
+  86          void  Ds18b20_rTempcom()
+  87          { 
+  88   1      
+  89   1        Ds18b20_Init();
+  90   1        d_n_ms(1);
+  91   1        Ds18b20_wByte(0xcc);   //Ã¯π˝ROM≤Ÿ◊˜√¸¡Ó
+  92   1        Ds18b20_wByte(0xbe);   //∑¢ÀÕ∂¡»°Œ¬∂»√¸¡Ó
+  93   1      }
+  94          /*******************************************************************************
+  95          * ∫Ø  ˝ √˚         : Ds18b20ReadTemp
+  96          * ∫Ø ˝π¶ƒ‹       : ∂¡»°Œ¬∂»
+  97          *  ‰    »Î         : Œﬁ
+  98          *  ‰    ≥ˆ         : Œﬁ
+  99          *******************************************************************************/
+ 100          
+ 101          void Ds18b20_rTemp()
+ 102          {
+ 103   1      
+ 104   1        //Ds18b20_ChangTemp();        //œ»–¥»Î◊™ªª√¸¡Ó
+ 105   1        Ds18b20_rTempcom();     //»ª∫Ûµ»¥˝◊™ªªÕÍ∫Û∑¢ÀÕ∂¡»°Œ¬∂»√¸¡Ó
+ 106   1        temp_Low = Ds18b20_rByte();   //∂¡»°Œ¬∂»÷µπ≤16Œª£¨œ»∂¡µÕ◊÷Ω⁄
+ 107   1        temp_High = Ds18b20_rByte();    //‘Ÿ∂¡∏ﬂ◊÷Ω⁄
+ 108   1      }
+ 109          
+ 110          void temp_data_collation()
+ 111          {
+ 112   1          if(temp_High&0xf0){
+ 113   2            temp_data_Integer=~((temp_Low>>4)+(temp_High<<4))+1;//∏∫ ˝≤π¬Î»°∑¥º”“ªµ√æ¯∂‘÷µµƒ‘≠¬Î
+ 114   2            temp_data_Decimal_r=6*(0x10-(temp_Low&0x0f))+(0x10-(temp_Low&0x0f))/4;
+ 115   2            temp_data_sign=1;
+ 116   2          }
+C51 COMPILER V9.60.0.0   TEMPS                                                             05/29/2020 16:57:56 PAGE 3   
+
+ 117   1          else
+ 118   1          {
+ 119   2            temp_data_Integer=(temp_Low>>4)|(temp_High<<4);
+ 120   2            temp_data_Decimal_r=6*(temp_Low&0x0f)+(temp_Low&0x0f)/4;//–° ˝ÀƒŒª£¨ µº  ˝÷µ”√∑÷ ˝±Ì æ”¶∏√ «dec/16(2^4=
+             -16)£¨1/16=0.0625,”√nŒª ÆΩ¯÷∆’˚ ˝±Ì ææÕ «(dec/16)*10^n,”√º∆À„ª˙¿¥À„≤Ω÷Ë «dec*0.0625*10^n,’‚¿Ôn»°∂˛£¨Ω·π˚“≤æÕ «”√16Ω¯÷∆’˚ 
+             -˝±Ì æµƒ¡ΩŒª ÆΩ¯÷∆–° ˝
+ 121   2            temp_data_sign=0;
+ 122   2          }
+ 123   1          if(temp_data_Decimal_r%10>4)temp_data_Decimal_r=temp_data_Decimal_r/10+1;//Àƒ…·ŒÂ»Î£¨±£¡Ù“ªŒª–° ˝
+ 124   1          else temp_data_Decimal_r/=10;
+ 125   1      }
+ 126          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    398    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      6       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,962 @@
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\temps.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\temps.src PR(.\Listings\temps.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\temps.SRC generated from: temps.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE temps.c COMPACT OPTIMIZE(9,SPEED) BRO
+                             WSE DEBUG OBJECTEXTEND PRINT(.\Listings\temps.lst) TABS(2) SRC(.\Objects\temps.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    TEMPS
+                       8     
+  0080                 9     P0      DATA    080H
+  0090                10     P1      DATA    090H
+  00A0                11     P2      DATA    0A0H
+  00B0                12     P3      DATA    0B0H
+  00C0                13     XICON   DATA    0C0H
+  00B4                14     T0      BIT     0B0H.4
+  00D6                15     AC      BIT     0D0H.6
+  00E8                16     P4      DATA    0E8H
+  00B5                17     T1      BIT     0B0H.5
+  00E6                18     ISP_TRIG        DATA    0E6H
+  0090                19     T2      BIT     090H.0
+  00AF                20     EA      BIT     0A8H.7
+  00AE                21     EC      BIT     0A8H.6
+  009F                22     FE      BIT     098H.7
+  00A8                23     IE      DATA    0A8H
+  00CE                24     EXF2    BIT     0C8H.6
+  00B7                25     RD      BIT     0B0H.7
+  00AC                26     ES      BIT     0A8H.4
+  00B8                27     IP      DATA    0B8H
+  0098                28     RI      BIT     098H.0
+  00B2                29     INT0    BIT     0B0H.2
+  00D7                30     CY      BIT     0D0H.7
+  0099                31     TI      BIT     098H.1
+  00B3                32     INT1    BIT     0B0H.3
+  00CB                33     RCAP2H  DATA    0CBH
+  00E5                34     ISP_CMD DATA    0E5H
+  00BC                35     PS      BIT     0B8H.4
+  0081                36     SP      DATA    081H
+  0091                37     T2EX    BIT     090H.1
+  00D2                38     OV      BIT     0D0H.2
+  00CA                39     RCAP2L  DATA    0CAH
+  00C9                40     C_T2    BIT     0C8H.1
+  00B6                41     WR      BIT     0B0H.6
+  00CD                42     RCLK    BIT     0C8H.5
+  00CC                43     TCLK    BIT     0C8H.4
+  00B7                44     TEMP_IO BIT     0B0H.7
+  0080                45     P00     BIT     080H.0
+  0099                46     SBUF    DATA    099H
+  0087                47     PCON    DATA    087H
+  0090                48     P10     BIT     090H.0
+  0081                49     P01     BIT     080H.1
+  00A0                50     P20     BIT     0A0H.0
+  0091                51     P11     BIT     090H.1
+  0082                52     P02     BIT     080H.2
+  00E3                53     ISP_ADDRH       DATA    0E3H
+  00B0                54     P30     BIT     0B0H.0
+  00A1                55     P21     BIT     0A0H.1
+  0092                56     P12     BIT     090H.2
+  0083                57     P03     BIT     080H.3
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     2
+
+  0098                58     SCON    DATA    098H
+  00B1                59     P31     BIT     0B0H.1
+  00A2                60     P22     BIT     0A0H.2
+  0093                61     P13     BIT     090H.3
+  0084                62     P04     BIT     080H.4
+  00E8                63     P40     BIT     0E8H.0
+  0089                64     TMOD    DATA    089H
+  0088                65     TCON    DATA    088H
+  00B2                66     P32     BIT     0B0H.2
+  00A3                67     P23     BIT     0A0H.3
+  0094                68     P14     BIT     090H.4
+  0085                69     P05     BIT     080H.5
+  00E9                70     P41     BIT     0E8H.1
+  00B3                71     P33     BIT     0B0H.3
+  00A4                72     P24     BIT     0A0H.4
+  0095                73     P15     BIT     090H.5
+  0086                74     P06     BIT     080H.6
+  00E4                75     ISP_ADDRL       DATA    0E4H
+  00EA                76     P42     BIT     0E8H.2
+  00B4                77     P34     BIT     0B0H.4
+  00A5                78     P25     BIT     0A0H.5
+  0096                79     P16     BIT     090H.6
+  0087                80     P07     BIT     080H.7
+  00EB                81     P43     BIT     0E8H.3
+  00B5                82     P35     BIT     0B0H.5
+  00A6                83     P26     BIT     0A0H.6
+  0097                84     P17     BIT     090H.7
+  00EC                85     P44     BIT     0E8H.4
+  00B6                86     P36     BIT     0B0H.6
+  00A7                87     P27     BIT     0A0H.7
+  00ED                88     P45     BIT     0E8H.5
+  00B7                89     P37     BIT     0B0H.7
+  00EE                90     P46     BIT     0E8H.6
+  0089                91     IE0     BIT     088H.1
+  008B                92     IE1     BIT     088H.3
+  008E                93     AUXR    DATA    08EH
+  00F0                94     B       DATA    0F0H
+  00C8                95     CP_RL2  BIT     0C8H.0
+  00E0                96     ACC     DATA    0E0H
+  00A9                97     ET0     BIT     0A8H.1
+  00AB                98     ET1     BIT     0A8H.3
+  008D                99     TF0     BIT     088H.5
+  00AD               100     ET2     BIT     0A8H.5
+  008F               101     TF1     BIT     088H.7
+  00CF               102     TF2     BIT     0C8H.7
+  009A               103     RB8     BIT     098H.2
+  008C               104     TH0     DATA    08CH
+  00A8               105     EX0     BIT     0A8H.0
+  0088               106     IT0     BIT     088H.0
+  008D               107     TH1     DATA    08DH
+  009B               108     TB8     BIT     098H.3
+  00AA               109     EX1     BIT     0A8H.2
+  008A               110     IT1     BIT     088H.2
+  00CD               111     TH2     DATA    0CDH
+  00D0               112     P       BIT     0D0H.0
+  009F               113     SM0     BIT     098H.7
+  008A               114     TL0     DATA    08AH
+  009E               115     SM1     BIT     098H.6
+  008B               116     TL1     DATA    08BH
+  009D               117     SM2     BIT     098H.5
+  00CC               118     TL2     DATA    0CCH
+  00B9               119     PT0     BIT     0B8H.1
+  00BB               120     PT1     BIT     0B8H.3
+  00D3               121     RS0     BIT     0D0H.3
+  00E7               122     ISP_CONTR       DATA    0E7H
+  00BD               123     PT2     BIT     0B8H.5
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     3
+
+  008C               124     TR0     BIT     088H.4
+  00D4               125     RS1     BIT     0D0H.4
+  008E               126     TR1     BIT     088H.6
+  00CA               127     TR2     BIT     0C8H.2
+  00B8               128     PX0     BIT     0B8H.0
+  00E1               129     WDT_CONTR       DATA    0E1H
+  00BA               130     PX1     BIT     0B8H.2
+  0083               131     DPH     DATA    083H
+  0082               132     DPL     DATA    082H
+  00B7               133     IPH     DATA    0B7H
+  00CB               134     EXEN2   BIT     0C8H.3
+  009C               135     REN     BIT     098H.4
+  00C9               136     T2MOD   DATA    0C9H
+  00C8               137     T2CON   DATA    0C8H
+  00E2               138     ISP_DATA        DATA    0E2H
+  00B9               139     SADEN   DATA    0B9H
+  00B0               140     RXD     BIT     0B0H.0
+  00A9               141     SADDR   DATA    0A9H
+  00B1               142     TXD     BIT     0B0H.1
+  00A2               143     AUXR1   DATA    0A2H
+  00D5               144     F0      BIT     0D0H.5
+  00D0               145     PSW     DATA    0D0H
+                     146     ?PR?Ds18b20_Init?TEMPS                   SEGMENT CODE 
+                     147     ?PD?Ds18b20_Init?TEMPS                   SEGMENT XDATA INPAGE OVERLAYABLE 
+                     148     ?PR?_Ds18b20_wByte?TEMPS                 SEGMENT CODE 
+                     149     ?PD?_Ds18b20_wByte?TEMPS                 SEGMENT XDATA INPAGE OVERLAYABLE 
+                     150     ?PR?Ds18b20_rByte?TEMPS                  SEGMENT CODE 
+                     151     ?PR?Ds18b20_ChangTemp?TEMPS              SEGMENT CODE 
+                     152     ?PR?Ds18b20_rTempcom?TEMPS               SEGMENT CODE 
+                     153     ?PR?Ds18b20_rTemp?TEMPS                  SEGMENT CODE 
+                     154     ?PR?temp_data_collation?TEMPS            SEGMENT CODE 
+                     155     ?PD?TEMPS            SEGMENT XDATA INPAGE 
+                     156     ?PR?TEMPS            SEGMENT CODE 
+                     157             EXTRN   CODE (_d_n_ms)
+                     158             PUBLIC  temp_data_Integer
+                     159             PUBLIC  temp_Low
+                     160             PUBLIC  temp_data_sign
+                     161             PUBLIC  error
+                     162             PUBLIC  temp_data_Decimal_r
+                     163             PUBLIC  temp_High
+                     164             PUBLIC  temp_data_collation
+                     165             PUBLIC  Ds18b20_rTemp
+                     166             PUBLIC  Ds18b20_rTempcom
+                     167             PUBLIC  Ds18b20_ChangTemp
+                     168             PUBLIC  Ds18b20_rByte
+                     169             PUBLIC  _Ds18b20_wByte
+                     170             PUBLIC  Ds18b20_Init
+                     171     
+----                 172             RSEG  ?PD?_Ds18b20_wByte?TEMPS
+0000                 173     ?_Ds18b20_wByte?BYTE:
+0000                 174               i?142:   DS   2
+                     175     
+----                 176             RSEG  ?PD?Ds18b20_Init?TEMPS
+0000                 177     ?Ds18b20_Init?BYTE:
+0000                 178               i?040:   DS   1
+                     179     
+----                 180             RSEG  ?PD?TEMPS
+0000                 181           temp_High:   DS   1
+0001                 182     temp_data_Decimal_r:   DS   1
+0002                 183               error:   DS   1
+0003                 184      temp_data_sign:   DS   1
+0004                 185            temp_Low:   DS   1
+0005                 186     temp_data_Integer:   DS   1
+                     187     ; #include "temps.h"
+                     188     ; 
+                     189     ; uchar temp_High;
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     4
+
+                     190     ; uchar temp_Low;
+                     191     ; uchar temp_data_sign;//1∏∫£¨0’
+                     192     ; uchar temp_data_Integer;
+                     193     ; //uchar temp_data_Decimal;//∑˚∫≈Œª‘⁄◊Ó∏ﬂŒª£¨–° Œª‘⁄∫ÛÀƒŒª°£
+                     194     ; uchar temp_data_Decimal_r;
+                     195     ; uchar error;
+                     196     ; 
+                     197     
+----                 198             RSEG  ?PR?TEMPS
+0000                 199     Com0022:
+0000                 200     L?0035:
+                     201             USING   0
+0000 C4              202             SWAP    A
+0001 54F0            203             ANL     A,#0F0H
+0003 FF              204             MOV     R7,A
+0004 7800     F      205             MOV     R0,#LOW (temp_Low)
+0006 E2              206             MOVX    A,@R0
+0007 FE              207             MOV     R6,A
+0008 C4              208             SWAP    A
+0009 540F            209             ANL     A,#0FH
+000B 22              210             RET     
+                     211     ; END OF Com0022
+                     212     
+                     213     ; uchar Ds18b20_Init()
+                     214     
+----                 215             RSEG  ?PR?Ds18b20_Init?TEMPS
+0000                 216     Ds18b20_Init:
+                     217             USING   0
+                     218                             ; SOURCE LINE # 11
+                     219     ; {
+                     220                             ; SOURCE LINE # 12
+                     221     ;       uchar i;
+                     222     ;       TEMP_IO = 0;                     //Ω´◊‹œﬂ¿≠µÕ480us~960us
+                     223                             ; SOURCE LINE # 14
+0000 C2B7            224             CLR     TEMP_IO
+                     225     ;       i = 90; 
+                     226                             ; SOURCE LINE # 15
+0002 7800     F      227             MOV     R0,#LOW (i?040)
+0004 745A            228             MOV     A,#05AH
+0006 F2              229             MOVX    @R0,A
+0007                 230     ?C0001:
+                     231     ;       while(i--);//—” ±642us
+                     232                             ; SOURCE LINE # 16
+0007 7800     F      233             MOV     R0,#LOW (i?040)
+0009 E2              234             MOVX    A,@R0
+000A FF              235             MOV     R7,A
+000B 14              236             DEC     A
+000C F2              237             MOVX    @R0,A
+000D EF              238             MOV     A,R7
+000E 70F7            239             JNZ     ?C0001
+                     240     ;       TEMP_IO = 1;                    //»ª∫Û¿≠∏ﬂ◊‹œﬂ£¨»Áπ˚DS18B20◊ˆ≥ˆ∑¥”¶ª·Ω´‘⁄15us~60us∫
+                             Û◊‹œﬂ¿≠µÕ
+                     241                             ; SOURCE LINE # 17
+0010 D2B7            242             SETB    TEMP_IO
+                     243     ;       i = 0;
+                     244                             ; SOURCE LINE # 18
+0012 F2              245             MOVX    @R0,A
+0013                 246     ?C0003:
+                     247     ;       while(TEMP_IO)  //µ»¥DS18B20¿≠µÕ◊‹œﬂ
+                     248                             ; SOURCE LINE # 19
+0013 30B719          249             JNB     TEMP_IO,?C0004
+                     250     ;       {
+                     251                             ; SOURCE LINE # 20
+                     252     ;               d_n_ms(1);
+                     253                             ; SOURCE LINE # 21
+0016 7F01            254             MOV     R7,#01H
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     5
+
+0018 7E00            255             MOV     R6,#00H
+001A 120000   F      256             LCALL   _d_n_ms
+                     257     ;               i++;
+                     258                             ; SOURCE LINE # 22
+001D 7800     F      259             MOV     R0,#LOW (i?040)
+001F E2              260             MOVX    A,@R0
+0020 04              261             INC     A
+0021 F2              262             MOVX    @R0,A
+                     263     ;               if(i>5)//µ»¥>5MS
+                     264                             ; SOURCE LINE # 23
+0022 E2              265             MOVX    A,@R0
+0023 D3              266             SETB    C
+0024 9405            267             SUBB    A,#05H
+0026 7480            268             MOV     A,#080H
+0028 9480            269             SUBB    A,#080H
+002A 40E7            270             JC      ?C0003
+                     271     ;               {
+                     272                             ; SOURCE LINE # 24
+                     273     ;                       return 0;//≥ı ºªØ ß∞‹
+                     274                             ; SOURCE LINE # 25
+002C 7F00            275             MOV     R7,#00H
+002E 22              276             RET     
+                     277     ;               }
+                     278                             ; SOURCE LINE # 26
+                     279     ;       
+                     280     ;       }
+                     281                             ; SOURCE LINE # 28
+002F                 282     ?C0004:
+                     283     ;       error=1;
+                     284                             ; SOURCE LINE # 29
+002F 7800     F      285             MOV     R0,#LOW (error)
+0031 7401            286             MOV     A,#01H
+0033 F2              287             MOVX    @R0,A
+                     288     ;       return 1;//≥ı ºªØ≥…π¶
+                     289                             ; SOURCE LINE # 30
+0034 FF              290             MOV     R7,A
+                     291     ; }
+                     292                             ; SOURCE LINE # 31
+0035                 293     ?C0006:
+0035 22              294             RET     
+                     295     ; END OF Ds18b20_Init
+                     296     
+                     297     ; 
+                     298     ; 
+                     299     ; void Ds18b20_wByte(uchar dat)
+                     300     
+----                 301             RSEG  ?PR?_Ds18b20_wByte?TEMPS
+0000                 302     _Ds18b20_wByte:
+                     303             USING   0
+                     304                             ; SOURCE LINE # 34
+                     305     ;---- Variable 'dat?141' assigned to Register 'R7' ----
+                     306     ; {
+                     307                             ; SOURCE LINE # 35
+                     308     ;       uint i, j;
+                     309     ;       for(j=0; j<8; j++)
+                     310                             ; SOURCE LINE # 37
+                     311     ;---- Variable 'j?143' assigned to Register 'R2/R3' ----
+0000 E4              312             CLR     A
+0001 FB              313             MOV     R3,A
+0002 FA              314             MOV     R2,A
+0003                 315     ?C0007:
+                     316     ;       {
+                     317                             ; SOURCE LINE # 38
+                     318     ;               TEMP_IO = 0;              //√ø–¥»Î“ªŒª æ›÷Æ«∞œ»∞—◊‹œﬂ¿≠µÕ1us
+                     319                             ; SOURCE LINE # 39
+0003 C2B7            320             CLR     TEMP_IO
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     6
+
+                     321     ;               i++;
+                     322                             ; SOURCE LINE # 40
+0005 7800     F      323             MOV     R0,#LOW (i?142+01H)
+0007 E2              324             MOVX    A,@R0
+0008 2401            325             ADD     A,#01H
+000A F2              326             MOVX    @R0,A
+000B 18              327             DEC     R0
+000C E2              328             MOVX    A,@R0
+000D 3400            329             ADDC    A,#00H
+000F F2              330             MOVX    @R0,A
+                     331     ;               TEMP_IO = dat & 0x01;  //»ª∫Û–¥»Î“ª∏ˆ æ›£¨¥”◊ÓµÕŒªø™ º
+                     332                             ; SOURCE LINE # 41
+0010 EF              333             MOV     A,R7
+0011 13              334             RRC     A
+0012 92B7            335             MOV     TEMP_IO,C
+                     336     ;               i=6;
+                     337                             ; SOURCE LINE # 42
+0014 E4              338             CLR     A
+0015 F2              339             MOVX    @R0,A
+0016 08              340             INC     R0
+0017 7406            341             MOV     A,#06H
+0019 F2              342             MOVX    @R0,A
+001A                 343     ?C0010:
+                     344     ;               while(i--); //—” ±68us£¨≥÷–¯ ±º‰◊Ó…Ÿ60us
+                     345                             ; SOURCE LINE # 43
+001A 7800     F      346             MOV     R0,#LOW (i?142)
+001C 08              347             INC     R0
+001D E2              348             MOVX    A,@R0
+001E FD              349             MOV     R5,A
+001F 24FF            350             ADD     A,#0FFH
+0021 F2              351             MOVX    @R0,A
+0022 18              352             DEC     R0
+0023 E2              353             MOVX    A,@R0
+0024 FC              354             MOV     R4,A
+0025 34FF            355             ADDC    A,#0FFH
+0027 F2              356             MOVX    @R0,A
+0028 ED              357             MOV     A,R5
+0029 4C              358             ORL     A,R4
+002A 70EE            359             JNZ     ?C0010
+                     360     ;               TEMP_IO = 1;    //»ª∫Û Õ∑≈◊‹œﬂ£¨÷¡…Ÿ1us∏¯◊‹œﬂª÷∏¥ ±º‰≤≈ƒ‹Ω”◊≈–¥»Îµ⁄∂˛∏ˆ ÷µ
+                     361                             ; SOURCE LINE # 44
+002C D2B7            362             SETB    TEMP_IO
+                     363     ;               dat >>= 1;
+                     364                             ; SOURCE LINE # 45
+002E EF              365             MOV     A,R7
+002F C3              366             CLR     C
+0030 13              367             RRC     A
+0031 FF              368             MOV     R7,A
+                     369     ;       }
+                     370                             ; SOURCE LINE # 46
+0032 0B              371             INC     R3
+0033 BB0001          372             CJNE    R3,#00H,?C0027
+0036 0A              373             INC     R2
+0037                 374     ?C0027:
+0037 EB              375             MOV     A,R3
+0038 6408            376             XRL     A,#08H
+003A 4A              377             ORL     A,R2
+003B 70C6            378             JNZ     ?C0007
+                     379     ; }
+                     380                             ; SOURCE LINE # 47
+003D                 381     ?C0012:
+003D 22              382             RET     
+                     383     ; END OF _Ds18b20_wByte
+                     384     
+                     385     ; 
+                     386     ; uchar Ds18b20_rByte()
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     7
+
+                     387     
+----                 388             RSEG  ?PR?Ds18b20_rByte?TEMPS
+0000                 389     Ds18b20_rByte:
+                     390             USING   0
+                     391                             ; SOURCE LINE # 49
+                     392     ;---- Variable 'i?246' assigned to Register 'R6/R7' ----
+                     393     ;---- Variable 'byte?244' assigned to Register 'R1' ----
+                     394     ; {
+                     395                             ; SOURCE LINE # 50
+                     396     ;       
+                     397     ;       uchar byte, bi;
+                     398     ;       uint i, j;      
+                     399     ;       for(j=8; j>0; j--)
+                     400                             ; SOURCE LINE # 54
+                     401     ;---- Variable 'j?247' assigned to Register 'R4/R5' ----
+0000 7D08            402             MOV     R5,#08H
+0002 7C00            403             MOV     R4,#00H
+0004                 404     ?C0013:
+                     405     ;       {
+                     406                             ; SOURCE LINE # 55
+                     407     ;               TEMP_IO = 0;//œ»Ω´◊‹œﬂ¿≠µÕ1us
+                     408                             ; SOURCE LINE # 56
+0004 C2B7            409             CLR     TEMP_IO
+                     410     ;               i++;
+                     411                             ; SOURCE LINE # 57
+0006 0F              412             INC     R7
+0007 BF0000          413             CJNE    R7,#00H,?C0028
+000A                 414     ?C0028:
+                     415     ;               TEMP_IO = 1;//»ª∫Û Õ∑≈◊‹œﬂ
+                     416                             ; SOURCE LINE # 58
+000A D2B7            417             SETB    TEMP_IO
+                     418     ;               i++;
+                     419                             ; SOURCE LINE # 59
+000C 0F              420             INC     R7
+000D BF0000          421             CJNE    R7,#00H,?C0029
+0010                 422     ?C0029:
+                     423     ;               i++;//—” ±6usµ»¥ æ›Œ»∂®
+                     424                             ; SOURCE LINE # 60
+0010 0F              425             INC     R7
+0011 BF0000          426             CJNE    R7,#00H,?C0030
+0014                 427     ?C0030:
+                     428     ;               bi = TEMP_IO;    //∂¡»° æ›£¨¥”◊ÓµÕŒªø™ º∂¡»°
+                     429                             ; SOURCE LINE # 61
+0014 A2B7            430             MOV     C,TEMP_IO
+0016 E4              431             CLR     A
+0017 33              432             RLC     A
+                     433     ;---- Variable 'bi?245' assigned to Register 'R3' ----
+                     434     ;               /*Ω´byte◊Û“∆“ªŒª£¨»ª∫Û”Î…œ”““∆7Œª∫Ûµƒbi£¨◊¢“‚“∆∂Ø÷Æ∫Û“∆µÙƒ«Œª≤π0°£*/
+                     435     ;               byte = (byte >> 1) | (bi << 7);                                           
+                     436                             ; SOURCE LINE # 63
+0018 C4              437             SWAP    A
+0019 33              438             RLC     A
+001A 33              439             RLC     A
+001B 33              440             RLC     A
+001C 5480            441             ANL     A,#080H
+001E FB              442             MOV     R3,A
+001F E9              443             MOV     A,R1
+0020 C3              444             CLR     C
+0021 13              445             RRC     A
+0022 4B              446             ORL     A,R3
+0023 F9              447             MOV     R1,A
+                     448     ;               i = 4;          //∂¡»°ÕÍ÷Æ∫Ûµ»¥48us‘ŸΩ”◊≈∂¡»°œ¬“ª∏ˆ 
+                     449                             ; SOURCE LINE # 64
+0024 7E00            450             MOV     R6,#00H
+0026 7F04            451             MOV     R7,#04H
+0028                 452     ?C0016:
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     8
+
+                     453     ;               while(i--);
+                     454                             ; SOURCE LINE # 65
+0028 EF              455             MOV     A,R7
+0029 1F              456             DEC     R7
+002A AA06            457             MOV     R2,AR6
+002C 7001            458             JNZ     ?C0031
+002E 1E              459             DEC     R6
+002F                 460     ?C0031:
+002F 4A              461             ORL     A,R2
+0030 70F6            462             JNZ     ?C0016
+                     463     ;       }                               
+                     464                             ; SOURCE LINE # 66
+0032 ED              465             MOV     A,R5
+0033 1D              466             DEC     R5
+0034 7001            467             JNZ     ?C0032
+0036 1C              468             DEC     R4
+0037                 469     ?C0032:
+0037 ED              470             MOV     A,R5
+0038 4C              471             ORL     A,R4
+0039 70C9            472             JNZ     ?C0013
+003B                 473     ?C0014:
+                     474     ;       return byte;
+                     475                             ; SOURCE LINE # 67
+003B AF01            476             MOV     R7,AR1
+                     477     ; }
+                     478                             ; SOURCE LINE # 68
+003D 22              479             RET     
+                     480     ; END OF Ds18b20_rByte
+                     481     
+                     482     ; /*******************************************************************************
+                     483     ; * ∫Ø   √˚         : Ds18b20ChangTemp
+                     484     ; * ∫Ø π¶ƒ‹                : »√18b20ø™ º◊™ªªŒ¬∂»
+                     485     ; *  ‰    »Î         : Œﬁ
+                     486     ; *  ‰    ≥ˆ         : Œﬁ
+                     487     ; *******************************************************************************/
+                     488     ; 
+                     489     ; void  Ds18b20_ChangTemp()
+                     490     
+----                 491             RSEG  ?PR?Ds18b20_ChangTemp?TEMPS
+0000                 492     Ds18b20_ChangTemp:
+                     493             USING   0
+                     494                             ; SOURCE LINE # 76
+                     495     ; {
+                     496                             ; SOURCE LINE # 77
+                     497     ;       Ds18b20_Init();
+                     498                             ; SOURCE LINE # 78
+0000 120000   F      499             LCALL   Ds18b20_Init
+                     500     ;       {d_n_ms(1);
+                     501                             ; SOURCE LINE # 79
+0003 7F01            502             MOV     R7,#01H
+0005 7E00            503             MOV     R6,#00H
+0007 120000   F      504             LCALL   _d_n_ms
+                     505     ;       Ds18b20_wByte(0xcc);            //Ã¯πROM≤Ÿ◊˜√¸¡Ó                 
+                     506                             ; SOURCE LINE # 80
+000A 7FCC            507             MOV     R7,#0CCH
+000C 120000   F      508             LCALL   _Ds18b20_wByte
+                     509     ;       Ds18b20_wByte(0x44);        //Œ¬∂»◊™ªª√¸¡Ó
+                     510                             ; SOURCE LINE # 81
+000F 7F44            511             MOV     R7,#044H
+0011 020000   F      512             LJMP    _Ds18b20_wByte
+                     513     ; END OF Ds18b20_ChangTemp
+                     514     
+                     515     ;       //d_n_ms(100);  //µ»¥◊™ªª≥…π¶£¨∂¯»Áπ˚ƒ„ «“ª÷±À¢◊≈µƒª∞£¨æÕ≤ª”√’‚∏ˆ—” ±¡À
+                     516     ;       }
+                     517     ; }
+                     518     ; 
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE     9
+
+                     519     ; void  Ds18b20_rTempcom()
+                     520     
+----                 521             RSEG  ?PR?Ds18b20_rTempcom?TEMPS
+0000                 522     Ds18b20_rTempcom:
+                     523             USING   0
+                     524                             ; SOURCE LINE # 86
+                     525     ; {     
+                     526                             ; SOURCE LINE # 87
+                     527     ; 
+                     528     ;       Ds18b20_Init();
+                     529                             ; SOURCE LINE # 89
+0000 120000   F      530             LCALL   Ds18b20_Init
+                     531     ;       d_n_ms(1);
+                     532                             ; SOURCE LINE # 90
+0003 7F01            533             MOV     R7,#01H
+0005 7E00            534             MOV     R6,#00H
+0007 120000   F      535             LCALL   _d_n_ms
+                     536     ;       Ds18b20_wByte(0xcc);     //Ã¯πROM≤Ÿ◊˜√¸¡Ó
+                     537                             ; SOURCE LINE # 91
+000A 7FCC            538             MOV     R7,#0CCH
+000C 120000   F      539             LCALL   _Ds18b20_wByte
+                     540     ;       Ds18b20_wByte(0xbe);     //∑¢ÀÕ∂¡»°Œ¬∂»√¸¡Ó
+                     541                             ; SOURCE LINE # 92
+000F 7FBE            542             MOV     R7,#0BEH
+0011 020000   F      543             LJMP    _Ds18b20_wByte
+                     544     ; END OF Ds18b20_rTempcom
+                     545     
+                     546     ; }
+                     547     ; /*******************************************************************************
+                     548     ; * ∫Ø   √˚         : Ds18b20ReadTemp
+                     549     ; * ∫Ø π¶ƒ‹                : ∂¡»°Œ¬∂»
+                     550     ; *  ‰    »Î         : Œﬁ
+                     551     ; *  ‰    ≥ˆ         : Œﬁ
+                     552     ; *******************************************************************************/
+                     553     ; 
+                     554     ; void Ds18b20_rTemp()
+                     555     
+----                 556             RSEG  ?PR?Ds18b20_rTemp?TEMPS
+0000                 557     Ds18b20_rTemp:
+                     558             USING   0
+                     559                             ; SOURCE LINE # 101
+                     560     ; {
+                     561                             ; SOURCE LINE # 102
+                     562     ; 
+                     563     ;       //Ds18b20_ChangTemp();                          //œ»–¥»Î◊™ªª√¸¡Ó
+                     564     ;       Ds18b20_rTempcom();                     //»ª∫Ûµ»¥◊™ªªÕÍ∫Û∑¢ÀÕ∂¡»°Œ¬∂»√¸¡Ó
+                     565                             ; SOURCE LINE # 105
+0000 120000   F      566             LCALL   Ds18b20_rTempcom
+                     567     ;       temp_Low = Ds18b20_rByte();             //∂¡»°Œ¬∂»÷µπ≤16Œª£¨œ»∂¡µÕ◊÷Ω⁄
+                     568                             ; SOURCE LINE # 106
+0003 120000   F      569             LCALL   Ds18b20_rByte
+0006 7800     F      570             MOV     R0,#LOW (temp_Low)
+0008 EF              571             MOV     A,R7
+0009 F2              572             MOVX    @R0,A
+                     573     ;       temp_High = Ds18b20_rByte();            //‘Ÿ∂¡∏ﬂ◊÷Ω⁄
+                     574                             ; SOURCE LINE # 107
+000A 120000   F      575             LCALL   Ds18b20_rByte
+000D 7800     F      576             MOV     R0,#LOW (temp_High)
+000F EF              577             MOV     A,R7
+0010 F2              578             MOVX    @R0,A
+                     579     ; }
+                     580                             ; SOURCE LINE # 108
+0011 22              581             RET     
+                     582     ; END OF Ds18b20_rTemp
+                     583     
+                     584     ; 
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    10
+
+                     585     ; void temp_data_collation()
+                     586     
+----                 587             RSEG  ?PR?temp_data_collation?TEMPS
+0000                 588     temp_data_collation:
+                     589             USING   0
+                     590                             ; SOURCE LINE # 110
+                     591     ; {
+                     592                             ; SOURCE LINE # 111
+                     593     ;               if(temp_High&0xf0){
+                     594                             ; SOURCE LINE # 112
+0000 7800     F      595             MOV     R0,#LOW (temp_High)
+0002 E2              596             MOVX    A,@R0
+0003 FF              597             MOV     R7,A
+0004 54F0            598             ANL     A,#0F0H
+0006 6035            599             JZ      ?C0022
+                     600     ;                       temp_data_Integer=~((temp_Low>>4)+(temp_High<<4))+1;
+                     601                             ; SOURCE LINE # 113
+0008 EF              602             MOV     A,R7
+0009 120000   F      603             LCALL   L?0035
+000C 2F              604             ADD     A,R7
+000D F4              605             CPL     A
+000E 04              606             INC     A
+000F 08              607             INC     R0
+0010 F2              608             MOVX    @R0,A
+                     609     ;                       temp_data_Decimal_r=6*(0x10-(temp_Low&0x0f))+(0x10-(temp_Low&0x0f))
+                             /4;
+                     610                             ; SOURCE LINE # 114
+0011 EE              611             MOV     A,R6
+0012 540F            612             ANL     A,#0FH
+0014 FD              613             MOV     R5,A
+0015 FF              614             MOV     R7,A
+0016 C3              615             CLR     C
+0017 7410            616             MOV     A,#010H
+0019 9F              617             SUBB    A,R7
+001A FF              618             MOV     R7,A
+001B E4              619             CLR     A
+001C 9400            620             SUBB    A,#00H
+001E FE              621             MOV     R6,A
+001F EF              622             MOV     A,R7
+0020 7802            623             MOV     R0,#02H
+0022                 624     ?C0033:
+0022 CE              625             XCH     A,R6
+0023 C3              626             CLR     C
+0024 13              627             RRC     A
+0025 CE              628             XCH     A,R6
+0026 13              629             RRC     A
+0027 D8F9            630             DJNZ    R0,?C0033
+0029 FF              631             MOV     R7,A
+002A C3              632             CLR     C
+002B 7410            633             MOV     A,#010H
+002D 9D              634             SUBB    A,R5
+002E 75F006          635             MOV     B,#06H
+0031 A4              636             MUL     AB
+0032 2F              637             ADD     A,R7
+0033 7800     F      638             MOV     R0,#LOW (temp_data_Decimal_r)
+0035 F2              639             MOVX    @R0,A
+                     640     ;                       temp_data_sign=1;
+                     641                             ; SOURCE LINE # 115
+0036 7800     F      642             MOV     R0,#LOW (temp_data_sign)
+0038 7401            643             MOV     A,#01H
+003A F2              644             MOVX    @R0,A
+                     645     ;               }
+                     646                             ; SOURCE LINE # 116
+003B 801F            647             SJMP    ?C0023
+003D                 648     ?C0022:
+                     649     ;               else
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    11
+
+                     650     ;               {
+                     651                             ; SOURCE LINE # 118
+                     652     ;                       temp_data_Integer=(temp_Low>>4)|(temp_High<<4);
+                     653                             ; SOURCE LINE # 119
+003D 7800     F      654             MOV     R0,#LOW (temp_High)
+003F E2              655             MOVX    A,@R0
+0040 120000   F      656             LCALL   L?0035
+0043 4F              657             ORL     A,R7
+0044 08              658             INC     R0
+0045 F2              659             MOVX    @R0,A
+                     660     ;                       temp_data_Decimal_r=6*(temp_Low&0x0f)+(temp_Low&0x0f)/4;
+                     661                             ; SOURCE LINE # 120
+0046 EE              662             MOV     A,R6
+0047 540F            663             ANL     A,#0FH
+0049 FF              664             MOV     R7,A
+004A 13              665             RRC     A
+004B 13              666             RRC     A
+004C 543F            667             ANL     A,#03FH
+004E FE              668             MOV     R6,A
+004F EF              669             MOV     A,R7
+0050 75F006          670             MOV     B,#06H
+0053 A4              671             MUL     AB
+0054 2E              672             ADD     A,R6
+0055 7800     F      673             MOV     R0,#LOW (temp_data_Decimal_r)
+0057 F2              674             MOVX    @R0,A
+                     675     ;                       temp_data_sign=0;
+                     676                             ; SOURCE LINE # 121
+0058 E4              677             CLR     A
+0059 7800     F      678             MOV     R0,#LOW (temp_data_sign)
+005B F2              679             MOVX    @R0,A
+                     680     ;               }
+                     681                             ; SOURCE LINE # 122
+005C                 682     ?C0023:
+                     683     ;               if(temp_data_Decimal_r%10>4)temp_data_Decimal_r=temp_data_Decimal_r/10+1;
+                     684                             ; SOURCE LINE # 123
+005C 7800     F      685             MOV     R0,#LOW (temp_data_Decimal_r)
+005E E2              686             MOVX    A,@R0
+005F FF              687             MOV     R7,A
+0060 75F00A          688             MOV     B,#0AH
+0063 84              689             DIV     AB
+0064 E5F0            690             MOV     A,B
+0066 D3              691             SETB    C
+0067 9404            692             SUBB    A,#04H
+0069 7480            693             MOV     A,#080H
+006B 9480            694             SUBB    A,#080H
+006D 4008            695             JC      ?C0024
+006F EF              696             MOV     A,R7
+0070 75F00A          697             MOV     B,#0AH
+0073 84              698             DIV     AB
+0074 04              699             INC     A
+0075 F2              700             MOVX    @R0,A
+0076 22              701             RET     
+0077                 702     ?C0024:
+                     703     ;               else temp_data_Decimal_r/=10;
+                     704                             ; SOURCE LINE # 124
+0077 7800     F      705             MOV     R0,#LOW (temp_data_Decimal_r)
+0079 E2              706             MOVX    A,@R0
+007A 75F00A          707             MOV     B,#0AH
+007D 84              708             DIV     AB
+007E F2              709             MOVX    @R0,A
+                     710     ; }
+                     711                             ; SOURCE LINE # 125
+007F                 712     ?C0026:
+007F 22              713             RET     
+                     714     ; END OF temp_data_collation
+                     715     
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    12
+
+                     716             END
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    13
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                        T Y P E  V A L U E   ATTRIBUTES
+
+?C0001. . . . . . . . . . . .  C ADDR   0007H   R   SEG=?PR?DS18B20_INIT?TEMPS
+?C0003. . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?DS18B20_INIT?TEMPS
+?C0004. . . . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?DS18B20_INIT?TEMPS
+?C0006. . . . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?DS18B20_INIT?TEMPS
+?C0007. . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?_DS18B20_WBYTE?TEMPS
+?C0010. . . . . . . . . . . .  C ADDR   001AH   R   SEG=?PR?_DS18B20_WBYTE?TEMPS
+?C0012. . . . . . . . . . . .  C ADDR   003DH   R   SEG=?PR?_DS18B20_WBYTE?TEMPS
+?C0013. . . . . . . . . . . .  C ADDR   0004H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0014. . . . . . . . . . . .  C ADDR   003BH   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0016. . . . . . . . . . . .  C ADDR   0028H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0022. . . . . . . . . . . .  C ADDR   003DH   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+?C0023. . . . . . . . . . . .  C ADDR   005CH   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+?C0024. . . . . . . . . . . .  C ADDR   0077H   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+?C0026. . . . . . . . . . . .  C ADDR   007FH   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+?C0027. . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?_DS18B20_WBYTE?TEMPS
+?C0028. . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0029. . . . . . . . . . . .  C ADDR   0010H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0030. . . . . . . . . . . .  C ADDR   0014H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0031. . . . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0032. . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+?C0033. . . . . . . . . . . .  C ADDR   0022H   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+?DS18B20_INIT?BYTE. . . . . .  X ADDR   0000H   R   SEG=?PD?DS18B20_INIT?TEMPS
+?PD?DS18B20_INIT?TEMPS. . . .  X SEG    0001H       REL=INPAGE
+?PD?TEMPS . . . . . . . . . .  X SEG    0006H       REL=INPAGE
+?PD?_DS18B20_WBYTE?TEMPS. . .  X SEG    0002H       REL=INPAGE
+?PR?DS18B20_CHANGTEMP?TEMPS .  C SEG    0014H       REL=UNIT
+?PR?DS18B20_INIT?TEMPS. . . .  C SEG    0036H       REL=UNIT
+?PR?DS18B20_RBYTE?TEMPS . . .  C SEG    003EH       REL=UNIT
+?PR?DS18B20_RTEMP?TEMPS . . .  C SEG    0012H       REL=UNIT
+?PR?DS18B20_RTEMPCOM?TEMPS. .  C SEG    0014H       REL=UNIT
+?PR?TEMPS . . . . . . . . . .  C SEG    000CH       REL=UNIT
+?PR?TEMP_DATA_COLLATION?TEMPS  C SEG    0080H       REL=UNIT
+?PR?_DS18B20_WBYTE?TEMPS. . .  C SEG    003EH       REL=UNIT
+?_DS18B20_WBYTE?BYTE. . . . .  X ADDR   0000H   R   SEG=?PD?_DS18B20_WBYTE?TEMPS
+AC. . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AR1 . . . . . . . . . . . . .  D ADDR   0001H   A   
+AR6 . . . . . . . . . . . . .  D ADDR   0006H   A   
+AUXR. . . . . . . . . . . . .  D ADDR   008EH   A   
+AUXR1 . . . . . . . . . . . .  D ADDR   00A2H   A   
+B . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+COM0022 . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEMPS
+CP_RL2. . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CY. . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2. . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+DPH . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . .  D ADDR   0082H   A   
+DS18B20_CHANGTEMP . . . . . .  C ADDR   0000H   R   SEG=?PR?DS18B20_CHANGTEMP?TEMPS
+DS18B20_INIT. . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS18B20_INIT?TEMPS
+DS18B20_RBYTE . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS18B20_RBYTE?TEMPS
+DS18B20_RTEMP . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS18B20_RTEMP?TEMPS
+DS18B20_RTEMPCOM. . . . . . .  C ADDR   0000H   R   SEG=?PR?DS18B20_RTEMPCOM?TEMPS
+EA. . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EC. . . . . . . . . . . . . .  B ADDR   00A8H.6 A   
+ERROR . . . . . . . . . . . .  X ADDR   0002H   R   SEG=?PD?TEMPS
+ES. . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    14
+
+EX1 . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+FE. . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+I?040 . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?DS18B20_INIT?TEMPS
+I?142 . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?_DS18B20_WBYTE?TEMPS
+IE. . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INT0. . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+INT1. . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+IP. . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IPH . . . . . . . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH . . . . . . . . . .  D ADDR   00E3H   A   
+ISP_ADDRL . . . . . . . . . .  D ADDR   00E4H   A   
+ISP_CMD . . . . . . . . . . .  D ADDR   00E5H   A   
+ISP_CONTR . . . . . . . . . .  D ADDR   00E7H   A   
+ISP_DATA. . . . . . . . . . .  D ADDR   00E2H   A   
+ISP_TRIG. . . . . . . . . . .  D ADDR   00E6H   A   
+IT0 . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+L?0035. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?TEMPS
+OV. . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P1. . . . . . . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P2. . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P3. . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P4. . . . . . . . . . . . . .  D ADDR   00E8H   A   
+P40 . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+P41 . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+P42 . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+P43 . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    15
+
+P44 . . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+P45 . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+P46 . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+PCON. . . . . . . . . . . . .  D ADDR   0087H   A   
+PS. . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2 . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0 . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8 . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . .  D ADDR   00CAH   A   
+RCLK. . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+RD. . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+REN . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI. . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RXD . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+SADDR . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADEN . . . . . . . . . . . .  D ADDR   00B9H   A   
+SBUF. . . . . . . . . . . . .  D ADDR   0099H   A   
+SCON. . . . . . . . . . . . .  D ADDR   0098H   A   
+SM0 . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2 . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . .  D ADDR   0081H   A   
+T0. . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+T1. . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+T2. . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+T2CON . . . . . . . . . . . .  D ADDR   00C8H   A   
+T2EX. . . . . . . . . . . . .  B ADDR   0090H.1 A   
+T2MOD . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8 . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK. . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMPS . . . . . . . . . . . .  N NUMB   -----       
+TEMP_DATA_COLLATION . . . . .  C ADDR   0000H   R   SEG=?PR?TEMP_DATA_COLLATION?TEMPS
+TEMP_DATA_DECIMAL_R . . . . .  X ADDR   0001H   R   SEG=?PD?TEMPS
+TEMP_DATA_INTEGER . . . . . .  X ADDR   0005H   R   SEG=?PD?TEMPS
+TEMP_DATA_SIGN. . . . . . . .  X ADDR   0003H   R   SEG=?PD?TEMPS
+TEMP_HIGH . . . . . . . . . .  X ADDR   0000H   R   SEG=?PD?TEMPS
+TEMP_IO . . . . . . . . . . .  B ADDR   00B0H.7 A   
+TEMP_LOW. . . . . . . . . . .  X ADDR   0004H   R   SEG=?PD?TEMPS
+TF0 . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+WDT_CONTR . . . . . . . . . .  D ADDR   00E1H   A   
+WR. . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+XICON . . . . . . . . . . . .  D ADDR   00C0H   A   
+_DS18B20_WBYTE. . . . . . . .  C ADDR   0000H   R   SEG=?PR?_DS18B20_WBYTE?TEMPS
+_D_N_MS . . . . . . . . . . .  C ADDR   -----       EXT
+A51 MACRO ASSEMBLER  TEMPS                                                                03/24/2020 10:35:03 PAGE    16
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

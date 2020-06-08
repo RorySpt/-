@@ -1,0 +1,384 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\main.src PR(.\Listings\main.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\main.SRC generated from: main.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE main.c COMPACT OPTIMIZE(9,SPEED) BROW
+                             SE DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) SRC(.\Objects\main.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    MAIN
+                       8     
+  00A0                 9     DS_CE   BIT     0A0H.0
+  0080                10     P0      DATA    080H
+  0090                11     P1      DATA    090H
+  00A0                12     P2      DATA    0A0H
+  00B0                13     P3      DATA    0B0H
+  00C0                14     XICON   DATA    0C0H
+  00B4                15     T0      BIT     0B0H.4
+  00D6                16     AC      BIT     0D0H.6
+  00E8                17     P4      DATA    0E8H
+  00B5                18     T1      BIT     0B0H.5
+  00E6                19     ISP_TRIG        DATA    0E6H
+  0090                20     T2      BIT     090H.0
+  00AF                21     EA      BIT     0A8H.7
+  00AE                22     EC      BIT     0A8H.6
+  009F                23     FE      BIT     098H.7
+  00A8                24     IE      DATA    0A8H
+  00A1                25     DS_IO   BIT     0A0H.1
+  00CE                26     EXF2    BIT     0C8H.6
+  00B7                27     RD      BIT     0B0H.7
+  00AC                28     ES      BIT     0A8H.4
+  00B8                29     IP      DATA    0B8H
+  00B1                30     KEY0    BIT     0B0H.1
+  00B0                31     KEY1    BIT     0B0H.0
+  0098                32     RI      BIT     098H.0
+  00B2                33     KEY2    BIT     0B0H.2
+  00B2                34     INT0    BIT     0B0H.2
+  00D7                35     CY      BIT     0D0H.7
+  00B3                36     KEY3    BIT     0B0H.3
+  0099                37     TI      BIT     098H.1
+  00B3                38     INT1    BIT     0B0H.3
+  00CB                39     RCAP2H  DATA    0CBH
+  00E5                40     ISP_CMD DATA    0E5H
+  00BC                41     PS      BIT     0B8H.4
+  0081                42     SP      DATA    081H
+  0091                43     T2EX    BIT     090H.1
+  00D2                44     OV      BIT     0D0H.2
+  00A2                45     DS_SCLK BIT     0A0H.2
+  00CA                46     RCAP2L  DATA    0CAH
+  00C9                47     C_T2    BIT     0C8H.1
+  00B6                48     WR      BIT     0B0H.6
+  00CD                49     RCLK    BIT     0C8H.5
+  00CC                50     TCLK    BIT     0C8H.4
+  00B7                51     TEMP_IO BIT     0B0H.7
+  0080                52     P00     BIT     080H.0
+  0099                53     SBUF    DATA    099H
+  0087                54     PCON    DATA    087H
+  0090                55     P10     BIT     090H.0
+  0081                56     P01     BIT     080H.1
+  00A0                57     P20     BIT     0A0H.0
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     2
+
+  0091                58     P11     BIT     090H.1
+  0082                59     P02     BIT     080H.2
+  00E3                60     ISP_ADDRH       DATA    0E3H
+  00B0                61     P30     BIT     0B0H.0
+  00A1                62     P21     BIT     0A0H.1
+  0092                63     P12     BIT     090H.2
+  0083                64     P03     BIT     080H.3
+  0098                65     SCON    DATA    098H
+  00B1                66     P31     BIT     0B0H.1
+  00A2                67     P22     BIT     0A0H.2
+  0093                68     P13     BIT     090H.3
+  0084                69     P04     BIT     080H.4
+  00E8                70     P40     BIT     0E8H.0
+  0089                71     TMOD    DATA    089H
+  0088                72     TCON    DATA    088H
+  00B2                73     P32     BIT     0B0H.2
+  00A3                74     P23     BIT     0A0H.3
+  0094                75     P14     BIT     090H.4
+  0085                76     P05     BIT     080H.5
+  00E9                77     P41     BIT     0E8H.1
+  00B3                78     P33     BIT     0B0H.3
+  00A4                79     P24     BIT     0A0H.4
+  0095                80     P15     BIT     090H.5
+  0086                81     P06     BIT     080H.6
+  00E4                82     ISP_ADDRL       DATA    0E4H
+  00EA                83     P42     BIT     0E8H.2
+  00B4                84     P34     BIT     0B0H.4
+  00A5                85     P25     BIT     0A0H.5
+  0096                86     P16     BIT     090H.6
+  0087                87     P07     BIT     080H.7
+  00EB                88     P43     BIT     0E8H.3
+  00B5                89     P35     BIT     0B0H.5
+  00A6                90     P26     BIT     0A0H.6
+  0097                91     P17     BIT     090H.7
+  00EC                92     P44     BIT     0E8H.4
+  00B6                93     P36     BIT     0B0H.6
+  00A7                94     P27     BIT     0A0H.7
+  00ED                95     P45     BIT     0E8H.5
+  00B7                96     P37     BIT     0B0H.7
+  00EE                97     P46     BIT     0E8H.6
+  0089                98     IE0     BIT     088H.1
+  008B                99     IE1     BIT     088H.3
+  008E               100     AUXR    DATA    08EH
+  00F0               101     B       DATA    0F0H
+  00C8               102     CP_RL2  BIT     0C8H.0
+  00E0               103     ACC     DATA    0E0H
+  00A9               104     ET0     BIT     0A8H.1
+  00AB               105     ET1     BIT     0A8H.3
+  008D               106     TF0     BIT     088H.5
+  00AD               107     ET2     BIT     0A8H.5
+  008F               108     TF1     BIT     088H.7
+  00CF               109     TF2     BIT     0C8H.7
+  009A               110     RB8     BIT     098H.2
+  008C               111     TH0     DATA    08CH
+  00A8               112     EX0     BIT     0A8H.0
+  0088               113     IT0     BIT     088H.0
+  008D               114     TH1     DATA    08DH
+  009B               115     TB8     BIT     098H.3
+  00AA               116     EX1     BIT     0A8H.2
+  008A               117     IT1     BIT     088H.2
+  00CD               118     TH2     DATA    0CDH
+  00D0               119     P       BIT     0D0H.0
+  009F               120     SM0     BIT     098H.7
+  008A               121     TL0     DATA    08AH
+  009E               122     SM1     BIT     098H.6
+  008B               123     TL1     DATA    08BH
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     3
+
+  009D               124     SM2     BIT     098H.5
+  00CC               125     TL2     DATA    0CCH
+  00B9               126     PT0     BIT     0B8H.1
+  00BB               127     PT1     BIT     0B8H.3
+  00D3               128     RS0     BIT     0D0H.3
+  00E7               129     ISP_CONTR       DATA    0E7H
+  00BD               130     PT2     BIT     0B8H.5
+  008C               131     TR0     BIT     088H.4
+  00D4               132     RS1     BIT     0D0H.4
+  008E               133     TR1     BIT     088H.6
+  00CA               134     TR2     BIT     0C8H.2
+  00B8               135     PX0     BIT     0B8H.0
+  00E1               136     WDT_CONTR       DATA    0E1H
+  00A3               137     DHT_IO  BIT     0A0H.3
+  00A7               138     LCD_RS  BIT     0A0H.7
+  00BA               139     PX1     BIT     0B8H.2
+  0083               140     DPH     DATA    083H
+  00A6               141     LCD_RW  BIT     0A0H.6
+  0082               142     DPL     DATA    082H
+  00B7               143     IPH     DATA    0B7H
+  00CB               144     EXEN2   BIT     0C8H.3
+  009C               145     REN     BIT     098H.4
+  00C9               146     T2MOD   DATA    0C9H
+  00C8               147     T2CON   DATA    0C8H
+  00E2               148     ISP_DATA        DATA    0E2H
+  00B9               149     SADEN   DATA    0B9H
+  00B0               150     RXD     BIT     0B0H.0
+  00A9               151     SADDR   DATA    0A9H
+  00B1               152     TXD     BIT     0B0H.1
+  00A2               153     AUXR1   DATA    0A2H
+  00D5               154     F0      BIT     0D0H.5
+  00A5               155     LCD_E   BIT     0A0H.5
+  00D0               156     PSW     DATA    0D0H
+                     157     ?PR?main?MAIN        SEGMENT CODE 
+                     158             EXTRN   CODE (rot_taskSchedule)
+                     159             EXTRN   CODE (rot_init)
+                     160             EXTRN   CODE (?C_STARTUP)
+                     161             PUBLIC  main
+                     162     ; #include <STC89C5xRC.H>
+                     163     ; #include "lcd.h"
+                     164     ; #include "habit.h"
+                     165     ; #include "delay.h"
+                     166     ; #include "bmp.h"
+                     167     ; #include "temps.h"
+                     168     ; #include "test.h"
+                     169     ; #include "ds1302.h"
+                     170     ; #include "button.h"
+                     171     ; #include "dht11.h"
+                     172     ; #include "rot.h"
+                     173     ; #include "zk.h"
+                     174     ; 
+                     175     ; void main()
+                     176     
+----                 177             RSEG  ?PR?main?MAIN
+0000                 178     main:
+                     179             USING   0
+                     180                             ; SOURCE LINE # 14
+                     181     ; {
+                     182                             ; SOURCE LINE # 15
+                     183     ;       //uchar i;
+                     184     ;       //while(1)test_lcd12864_displayPM0();
+                     185     ;       //while(1){P0=0x00;}
+                     186     ;       
+                     187     ;       //d_1s();d_1s();P0=0x0f;d_1s();d_1s();}
+                     188     ;       rot_init();while(1)rot_taskSchedule();
+                     189                             ; SOURCE LINE # 21
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     4
+
+0000 120000   F      190             LCALL   rot_init
+0003                 191     ?C0001:
+0003 120000   F      192             LCALL   rot_taskSchedule
+0006 80FB            193             SJMP    ?C0001
+                     194     ; END OF main
+                     195     
+                     196             END
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?C0001 . . . . . .  C ADDR   0003H   R   SEG=?PR?MAIN?MAIN
+?C_STARTUP . . . .  C ADDR   -----       EXT
+?PR?MAIN?MAIN. . .  C SEG    0008H       REL=UNIT
+AC . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+AUXR . . . . . . .  D ADDR   008EH   A   
+AUXR1. . . . . . .  D ADDR   00A2H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CP_RL2 . . . . . .  B ADDR   00C8H.0 A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2 . . . . . . .  B ADDR   00C8H.1 A   
+DHT_IO . . . . . .  B ADDR   00A0H.3 A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+DS_CE. . . . . . .  B ADDR   00A0H.0 A   
+DS_IO. . . . . . .  B ADDR   00A0H.1 A   
+DS_SCLK. . . . . .  B ADDR   00A0H.2 A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EC . . . . . . . .  B ADDR   00A8H.6 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+FE . . . . . . . .  B ADDR   0098H.7 A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . .  B ADDR   0088H.3 A   
+INT0 . . . . . . .  B ADDR   00B0H.2 A   
+INT1 . . . . . . .  B ADDR   00B0H.3 A   
+IP . . . . . . . .  D ADDR   00B8H   A   
+IPH. . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH. . . . .  D ADDR   00E3H   A   
+ISP_ADDRL. . . . .  D ADDR   00E4H   A   
+ISP_CMD. . . . . .  D ADDR   00E5H   A   
+ISP_CONTR. . . . .  D ADDR   00E7H   A   
+ISP_DATA . . . . .  D ADDR   00E2H   A   
+ISP_TRIG . . . . .  D ADDR   00E6H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+KEY0 . . . . . . .  B ADDR   00B0H.1 A   
+KEY1 . . . . . . .  B ADDR   00B0H.0 A   
+KEY2 . . . . . . .  B ADDR   00B0H.2 A   
+KEY3 . . . . . . .  B ADDR   00B0H.3 A   
+LCD_E. . . . . . .  B ADDR   00A0H.5 A   
+LCD_RS . . . . . .  B ADDR   00A0H.7 A   
+LCD_RW . . . . . .  B ADDR   00A0H.6 A   
+MAIN . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?MAIN
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P00. . . . . . . .  B ADDR   0080H.0 A   
+P01. . . . . . . .  B ADDR   0080H.1 A   
+P02. . . . . . . .  B ADDR   0080H.2 A   
+P03. . . . . . . .  B ADDR   0080H.3 A   
+P04. . . . . . . .  B ADDR   0080H.4 A   
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     6
+
+P05. . . . . . . .  B ADDR   0080H.5 A   
+P06. . . . . . . .  B ADDR   0080H.6 A   
+P07. . . . . . . .  B ADDR   0080H.7 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P10. . . . . . . .  B ADDR   0090H.0 A   
+P11. . . . . . . .  B ADDR   0090H.1 A   
+P12. . . . . . . .  B ADDR   0090H.2 A   
+P13. . . . . . . .  B ADDR   0090H.3 A   
+P14. . . . . . . .  B ADDR   0090H.4 A   
+P15. . . . . . . .  B ADDR   0090H.5 A   
+P16. . . . . . . .  B ADDR   0090H.6 A   
+P17. . . . . . . .  B ADDR   0090H.7 A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P20. . . . . . . .  B ADDR   00A0H.0 A   
+P21. . . . . . . .  B ADDR   00A0H.1 A   
+P22. . . . . . . .  B ADDR   00A0H.2 A   
+P23. . . . . . . .  B ADDR   00A0H.3 A   
+P24. . . . . . . .  B ADDR   00A0H.4 A   
+P25. . . . . . . .  B ADDR   00A0H.5 A   
+P26. . . . . . . .  B ADDR   00A0H.6 A   
+P27. . . . . . . .  B ADDR   00A0H.7 A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+P30. . . . . . . .  B ADDR   00B0H.0 A   
+P31. . . . . . . .  B ADDR   00B0H.1 A   
+P32. . . . . . . .  B ADDR   00B0H.2 A   
+P33. . . . . . . .  B ADDR   00B0H.3 A   
+P34. . . . . . . .  B ADDR   00B0H.4 A   
+P35. . . . . . . .  B ADDR   00B0H.5 A   
+P36. . . . . . . .  B ADDR   00B0H.6 A   
+P37. . . . . . . .  B ADDR   00B0H.7 A   
+P4 . . . . . . . .  D ADDR   00E8H   A   
+P40. . . . . . . .  B ADDR   00E8H.0 A   
+P41. . . . . . . .  B ADDR   00E8H.1 A   
+P42. . . . . . . .  B ADDR   00E8H.2 A   
+P43. . . . . . . .  B ADDR   00E8H.3 A   
+P44. . . . . . . .  B ADDR   00E8H.4 A   
+P45. . . . . . . .  B ADDR   00E8H.5 A   
+P46. . . . . . . .  B ADDR   00E8H.6 A   
+PCON . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . .  D ADDR   00CAH   A   
+RCLK . . . . . . .  B ADDR   00C8H.5 A   
+RD . . . . . . . .  B ADDR   00B0H.7 A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+ROT_INIT . . . . .  C ADDR   -----       EXT
+ROT_TASKSCHEDULE .  C ADDR   -----       EXT
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . .  B ADDR   00B0H.0 A   
+SADDR. . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+A51 MACRO ASSEMBLER  MAIN                                                                 03/24/2020 10:35:00 PAGE     7
+
+T0 . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+T2 . . . . . . . .  B ADDR   0090H.0 A   
+T2CON. . . . . . .  D ADDR   00C8H   A   
+T2EX . . . . . . .  B ADDR   0090H.1 A   
+T2MOD. . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TEMP_IO. . . . . .  B ADDR   00B0H.7 A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . .  D ADDR   00CDH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . .  D ADDR   00CCH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . .  B ADDR   00C8H.2 A   
+TXD. . . . . . . .  B ADDR   00B0H.1 A   
+WDT_CONTR. . . . .  D ADDR   00E1H   A   
+WR . . . . . . . .  B ADDR   00B0H.6 A   
+XICON. . . . . . .  D ADDR   00C0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

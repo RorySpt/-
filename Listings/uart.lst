@@ -1,0 +1,205 @@
+C51 COMPILER V9.60.0.0   UART                                                              05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN .\Objects\uart.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE uart.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBUG
+                    - PRINT(.\Listings\uart.lst) TABS(2) OBJECT(.\Objects\uart.obj)
+
+line level    source
+
+   1          #include "Uart.h "
+   2          #include "Jq8900.h"
+   3          uchar *Ti_Str=0;
+   4          uchar Ti_Len=0;
+   5          uchar Ti_datLen=0;
+   6          uchar TiBUSY=0;
+   7          uchar Send_buffer_Str;
+   8          uchar xdata Send_buffer[40];//发送缓冲池
+   9          
+  10          uchar RiStr=0;
+  11          uchar Ri_len=0;
+  12          uchar RiBUSY=0;
+  13          uchar xdata Receive_buffer[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};//接收缓冲池
+  14          uchar UartError=0;
+  15          
+  16          extern uchar Jq_SmartCorrection_Sec;
+  17          void UartPutStr ( uchar *Uc_Str,uchar Uc_Len )
+  18          {
+  19   1        SBUF=Send_buffer[0];
+  20   1        Ti_Str=Uc_Str+1;  //传递指针
+  21   1        Ti_Len=Uc_Len-1;
+  22   1        ES=1;           //开串口中断
+  23   1        //TI=1;           //触发中断.发送第一个数据
+  24   1      
+  25   1      }
+  26          
+  27          uchar Uart_JqDataValidation()
+  28          {
+  29   1        uchar i;
+  30   1        uchar CheckValue=0;
+  31   1        if(Receive_buffer[2]<6){for(i=0;i<(Receive_buffer[2]+3);i++)CheckValue+=Receive_buffer[i];UartError|=0x04
+             -;}
+  32   1        else {UartError|=0x40;return 0;}//防止溢出
+  33   1        if(Receive_buffer[Receive_buffer[2]+3]==CheckValue){UartError|=0x08;return 1;}
+  34   1        else {UartError|=0x80;return 0;}
+  35   1      }
+  36          
+  37          void Uart_DataSearch()//索检有用数据
+  38          {
+  39   1        if(Uart_JqDataValidation())//屏蔽，无法通过
+  40   1        {
+  41   2          switch(Receive_buffer[1])
+  42   2          {
+  43   3            case 0x01:{RiPlaybackStatus=Receive_buffer[3];break;}//查询播放状态
+  44   3            case 0x24:
+  45   3            {
+  46   4              RiTotalTrackTlaybackTime[0]=Receive_buffer[3];
+  47   4              RiTotalTrackTlaybackTime[1]=Receive_buffer[4];
+  48   4              RiTotalTrackTlaybackTime[2]=Receive_buffer[5];
+  49   4              break;
+  50   4            }//曲目播放总时间
+  51   3            case 0x25:
+  52   3            {
+  53   4              RiCurrentPlayingTime[0]=Receive_buffer[3];
+C51 COMPILER V9.60.0.0   UART                                                              05/29/2020 16:57:56 PAGE 2   
+
+  54   4              RiCurrentPlayingTime[1]=Receive_buffer[4];
+  55   4              RiCurrentPlayingTime[2]=Receive_buffer[5];
+  56   4              Jq_SmartCorrection_Sec=Receive_buffer[5];
+  57   4              break;
+  58   4            }//当前播放时间
+  59   3            case 0x0C:
+  60   3            {
+  61   4              RiTotalTrack=((uint)Receive_buffer[3]<<8);
+  62   4              RiTotalTrack|=(uint)Receive_buffer[4];
+  63   4              break;
+  64   4            }//总曲目
+  65   3            case 0x0D:
+  66   3            {
+  67   4              RiCurrentTrack=(((uint)Receive_buffer[3])<<8);
+  68   4              RiCurrentTrack|=(uint)Receive_buffer[4];
+  69   4              break;
+  70   4            }//当前曲目
+  71   3            default :break;
+  72   3          }
+  73   2        }
+  74   1      //  switch(RiStr)
+  75   1      //    {
+  76   1      //      case 0:if(SBUF==0xAA)RiBUSY=1;else {RiStr=0;RiBUSY=0;}break;//检错
+  77   1      //      case 1:
+  78   1      //      {
+  79   1      //        switch(SBUF)
+  80   1      //        {
+  81   1      //          case 0x01:{Receive_buffer_num=0;break;}//查询播放状态
+  82   1      //          case 0x24:{Receive_buffer_num=1;break;}//曲目播放总时间
+  83   1      //          case 0x25:{Receive_buffer_num=2;break;}//当前播放时间
+  84   1      //          case 0x1E:{Receive_buffer_num=3;break;}//歌曲名称
+  85   1      //          case 0x11:{Receive_buffer_num=4;break;}//文件夹首曲曲目
+  86   1      //          case 0x12:{Receive_buffer_num=5;break;}//文件目录总曲目
+  87   1      //          case 0x0C:{Receive_buffer_num=6;break;}//总曲目
+  88   1      //          case 0x0D:{Receive_buffer_num=7;break;}//当前曲目
+  89   1      //          default  :RiStr=0;break;
+  90   1      //        }
+  91   1      //        break;
+  92   1      //      }
+  93   1      //      case 2:{Ri_len=SBUF;Ti_datLen=Ri_len;break;}
+  94   1      //      case 3:{if(Ri_len){Receive_buffer[Receive_buffer_num][0]=SBUF;Ri_len--;}break;}
+  95   1      //      case 4:{if(Ri_len){Receive_buffer[Receive_buffer_num][1]=SBUF;Ri_len--;}break;}
+  96   1      //      case 5:{if(Ri_len){Receive_buffer[Receive_buffer_num][2]=SBUF;Ri_len--;}break;}
+  97   1      //      case 6:{if(Ri_len){Receive_buffer[Receive_buffer_num][3]=SBUF;Ri_len--;}break;}
+  98   1      //      default  :break;
+  99   1      //    }
+ 100   1      }
+ 101          
+ 102          void Uart_TRX_ISR ( void ) interrupt 4
+ 103          {
+ 104   1        if(TI)
+ 105   1        {
+ 106   2          TI=0;
+ 107   2          if(Ti_Len){SBUF=*Ti_Str;Ti_Str++;Ti_Len--;TiBUSY=1;}//*Ti_Str的下一个数据=0xAA时结束
+ 108   2          else TiBUSY=0;
+ 109   2        }
+ 110   1        
+ 111   1        if ( RI )
+ 112   1        {
+ 113   2          RI  = 0;
+ 114   2          if(SBUF==0xAA){RiBUSY=1;RiStr=0;UartError|=0x02;}//else {UartError|=0x20;return;}
+ 115   2      //    if(RiBUSY==0)
+C51 COMPILER V9.60.0.0   UART                                                              05/29/2020 16:57:56 PAGE 3   
+
+ 116   2      //    {
+ 117   2      //      RiStr=0;
+ 118   2      //      if(SBUF==0xAA){RiBUSY=1;UartError|=0x02;}else {UartError|=0x20;return;}//第一位是起始位才开始接收，如
+             -果第一个数据不是起始位丢弃
+ 119   2      //    }
+ 120   2          if(RiBUSY)
+ 121   2          {
+ 122   3          Receive_buffer[RiStr++]=SBUF;
+ 123   3          if(RiStr>2)if(Receive_buffer[2]<6){if(RiStr>(Receive_buffer[2]+3)){RiBUSY=0;RiStr=0;Uart_DataSearch();}}
+             -//接收结束，进行数据索检
+ 124   3                     else {RiBUSY=0;RiStr=0;UartError|=0x10;return;}
+ 125   3          if(RiStr>10){RiBUSY=0;RiStr=0;UartError&=0xFE;return;}
+ 126   3          }
+ 127   2        }
+ 128   1          
+ 129   1          
+ 130   1          //if(n>2)if(n==Receive_buffer[Receive_buffer_num][2]+3+1){n=0;RiBUSY=0;}
+ 131   1          //Ri_Adr++;
+ 132   1      }
+ 133          
+ 134          /*****************************************************************************
+ 135           函 数 名  : UartInit
+ 136           功能描述  : 串口初使化
+ 137           输入参数  : void
+ 138           输出参数  : 无
+ 139           返 回 值  :
+ 140           调用函数  :
+ 141           被调函数  :
+ 142          
+ 143           修改历史      :
+ 144            1.日    期   : 2012年3月22日
+ 145              作    者   : Blueice
+ 146              修改内容   : 新生成函数
+ 147          
+ 148          *****************************************************************************/
+ 149          void Uart_Init ( void )
+ 150          {
+ 151   1      //    TMOD |= 0x20;
+ 152   1      //    SCON = 0x50;
+ 153   1      //   TL1 = 0xFA;    //设定定时初值
+ 154   1      //  TH1 = 0xFA;   //设定定时器重装值
+ 155   1      //    //PCON = 0x00;
+ 156   1      PCON &= 0x7F;   //波特率不倍速
+ 157   1        SCON = 0x50;    //8位数据,可变波特率
+ 158   1        AUXR &= 0xBF;   //定时器1时钟为Fosc/12,即12T
+ 159   1        AUXR &= 0xFE;   //串口1选择定时器1为波特率发生器
+ 160   1        TMOD &= 0x0F;   //清除定时器1模式位
+ 161   1        TMOD |= 0x20;   //设定定时器1为8位自动重装方式
+ 162   1        TL1 = 0xFA;   //设定定时初值
+ 163   1        TH1 = 0xFA;   //设定定时器重装值
+ 164   1          EA = 1;
+ 165   1          ET1=0;
+ 166   1          ES = 1;
+ 167   1          TR1 = 1;
+ 168   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    619    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     67    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.0.0   UART                                                              05/29/2020 16:57:56 PAGE 4   
+
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

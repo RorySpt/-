@@ -1,0 +1,104 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              05/29/2020 16:57:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE main.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBUG
+                    - PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <STC89C5xRC.H>
+   2          #include "lcd.h"
+   3          #include "habit.h"
+   4          #include "delay.h"
+   5          #include "bmp.h"
+   6          #include "temps.h"
+   7          #include "test.h"
+   8          #include "ds1302.h"
+   9          #include "button.h"
+  10          #include "dht11.h"
+  11          #include "rot.h"
+  12          #include "zk.h"
+  13          //#include "uart.h"
+  14          
+  15          //extern u8 data Dht_FLAG;
+  16          void main()
+  17          {
+  18   1        //uchar i;
+  19   1        //while(1)test_lcd12864_displayPM0();
+  20   1        //while(1){P0=0x00;}
+  21   1        
+  22   1        //d_1s();d_1s();P0=0x0f;d_1s();d_1s();}
+  23   1      //  Uart_Init();
+  24   1      //  
+  25   1      //while(1)  
+  26   1      //  {
+  27   1      //    
+  28   1      ////    //while(!RI);RI=0;
+  29   1      ////    SBUF=0xAA;
+  30   1      ////    while(!TI);TI=0;
+  31   1      ////    SBUF=0x06;
+  32   1      ////    while(!TI);TI=0;
+  33   1      ////    SBUF=0x00;
+  34   1      ////    while(!TI);TI=0;
+  35   1      ////    SBUF=0xB0;
+  36   1      ////    while(!TI);TI=0;
+  37   1      //    d_1s();
+  38   1      //    d_1s();
+  39   1      //    d_1s();
+  40   1      //  }
+  41   1      //  lcd_init();
+  42   1      //  lcd_clr_DDram ();
+  43   1      //  lcd_clr_GD ();
+  44   1      //  while(1)
+  45   1      //  {
+  46   1      //    while(!RI);RI=0;
+  47   1      //    lcd_wcmd(0x30);
+  48   1      //    lcd_wcmd(0x80);
+  49   1      //    lcd_wdat(SBUF/16+48);
+  50   1      //    lcd_wdat(SBUF%16+48);
+  51   1      //    SBUF=SBUF;
+  52   1      //    while(!TI);TI=0;
+  53   1      //    
+  54   1      //  }
+C51 COMPILER V9.60.0.0   MAIN                                                              05/29/2020 16:57:55 PAGE 2   
+
+  55   1      //while(DHT_IO&&Dht_FLAG++);
+  56   1      //while(1)test_dht();
+  57   1      rot_init();while(1)rot_taskSchedule();
+  58   1      
+  59   1      //      lcd_DrawLineX( 5,110, 6, 2 );//横线
+  60   1      //      lcd_DrawLineY( 52, 2,77, 2 );//竖线
+  61   1      //      lcd_DrawLineY( 54, 2,77, 2 );//竖线
+  62   1      //      lcd_DrawLineY( 58, 2,77, 2 );//竖线
+  63   1      //while(1);
+  64   1      //test_display_temps();
+  65   1      //  lcd_init();
+  66   1      //  lcd_wcmd(0x36);
+  67   1      //  while(1)
+  68   1      //  {
+  69   1      //  for(i=0;i<11;i++){lcd_Draw_PM(i,0,2,32,num16321[i]);d_1s();}
+  70   1      //  for(i=0;i<11;i++){lcd_Draw_PM(i,0,2,32,num16322[i]);d_1s();}
+  71   1      //  for(i=0;i<11;i++){lcd_Draw_PM(i,0,2,32,num16323[i]);d_1s();}
+  72   1      //  for(i=0;i<11;i++){lcd_Draw_PM(i,0,2,32,num16324[i]);d_1s();}
+  73   1      //  }
+  74   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      8    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
