@@ -1,0 +1,931 @@
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\ds1302.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\ds1302.src PR(.\Listings\ds1302.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\ds1302.SRC generated from: ds1302.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE ds1302.c COMPACT OPTIMIZE(9,SPEED) BR
+                             OWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ds1302.lst) TABS(2) SRC(.\Objects\ds1302.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    DS1302
+                       8     
+  00A0                 9     DS_CE   BIT     0A0H.0
+  0080                10     P0      DATA    080H
+  0090                11     P1      DATA    090H
+  00A0                12     P2      DATA    0A0H
+  00B0                13     P3      DATA    0B0H
+  00C0                14     XICON   DATA    0C0H
+  00B4                15     T0      BIT     0B0H.4
+  00D6                16     AC      BIT     0D0H.6
+  00E8                17     P4      DATA    0E8H
+  00B5                18     T1      BIT     0B0H.5
+  00E6                19     ISP_TRIG        DATA    0E6H
+  0090                20     T2      BIT     090H.0
+  00AF                21     EA      BIT     0A8H.7
+  00AE                22     EC      BIT     0A8H.6
+  009F                23     FE      BIT     098H.7
+  00A8                24     IE      DATA    0A8H
+  00A1                25     DS_IO   BIT     0A0H.1
+  00CE                26     EXF2    BIT     0C8H.6
+  00B7                27     RD      BIT     0B0H.7
+  00AC                28     ES      BIT     0A8H.4
+  00B8                29     IP      DATA    0B8H
+  0098                30     RI      BIT     098H.0
+  00B2                31     INT0    BIT     0B0H.2
+  00D7                32     CY      BIT     0D0H.7
+  0099                33     TI      BIT     098H.1
+  00B3                34     INT1    BIT     0B0H.3
+  00CB                35     RCAP2H  DATA    0CBH
+  00E5                36     ISP_CMD DATA    0E5H
+  00BC                37     PS      BIT     0B8H.4
+  0081                38     SP      DATA    081H
+  0091                39     T2EX    BIT     090H.1
+  00D2                40     OV      BIT     0D0H.2
+  00A2                41     DS_SCLK BIT     0A0H.2
+  00CA                42     RCAP2L  DATA    0CAH
+  00C9                43     C_T2    BIT     0C8H.1
+  00B6                44     WR      BIT     0B0H.6
+  00CD                45     RCLK    BIT     0C8H.5
+  00CC                46     TCLK    BIT     0C8H.4
+  0080                47     P00     BIT     080H.0
+  0099                48     SBUF    DATA    099H
+  0087                49     PCON    DATA    087H
+  0090                50     P10     BIT     090H.0
+  0081                51     P01     BIT     080H.1
+  00A0                52     P20     BIT     0A0H.0
+  0091                53     P11     BIT     090H.1
+  0082                54     P02     BIT     080H.2
+  00E3                55     ISP_ADDRH       DATA    0E3H
+  00B0                56     P30     BIT     0B0H.0
+  00A1                57     P21     BIT     0A0H.1
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     2
+
+  0092                58     P12     BIT     090H.2
+  0083                59     P03     BIT     080H.3
+  0098                60     SCON    DATA    098H
+  00B1                61     P31     BIT     0B0H.1
+  00A2                62     P22     BIT     0A0H.2
+  0093                63     P13     BIT     090H.3
+  0084                64     P04     BIT     080H.4
+  00E8                65     P40     BIT     0E8H.0
+  0089                66     TMOD    DATA    089H
+  0088                67     TCON    DATA    088H
+  00B2                68     P32     BIT     0B0H.2
+  00A3                69     P23     BIT     0A0H.3
+  0094                70     P14     BIT     090H.4
+  0085                71     P05     BIT     080H.5
+  00E9                72     P41     BIT     0E8H.1
+  00B3                73     P33     BIT     0B0H.3
+  00A4                74     P24     BIT     0A0H.4
+  0095                75     P15     BIT     090H.5
+  0086                76     P06     BIT     080H.6
+  00E4                77     ISP_ADDRL       DATA    0E4H
+  00EA                78     P42     BIT     0E8H.2
+  00B4                79     P34     BIT     0B0H.4
+  00A5                80     P25     BIT     0A0H.5
+  0096                81     P16     BIT     090H.6
+  0087                82     P07     BIT     080H.7
+  00EB                83     P43     BIT     0E8H.3
+  00B5                84     P35     BIT     0B0H.5
+  00A6                85     P26     BIT     0A0H.6
+  0097                86     P17     BIT     090H.7
+  00EC                87     P44     BIT     0E8H.4
+  00B6                88     P36     BIT     0B0H.6
+  00A7                89     P27     BIT     0A0H.7
+  00ED                90     P45     BIT     0E8H.5
+  00B7                91     P37     BIT     0B0H.7
+  00EE                92     P46     BIT     0E8H.6
+  0089                93     IE0     BIT     088H.1
+  008B                94     IE1     BIT     088H.3
+  008E                95     AUXR    DATA    08EH
+  00F0                96     B       DATA    0F0H
+  00C8                97     CP_RL2  BIT     0C8H.0
+  00E0                98     ACC     DATA    0E0H
+  00A9                99     ET0     BIT     0A8H.1
+  00AB               100     ET1     BIT     0A8H.3
+  008D               101     TF0     BIT     088H.5
+  00AD               102     ET2     BIT     0A8H.5
+  008F               103     TF1     BIT     088H.7
+  00CF               104     TF2     BIT     0C8H.7
+  009A               105     RB8     BIT     098H.2
+  008C               106     TH0     DATA    08CH
+  00A8               107     EX0     BIT     0A8H.0
+  0088               108     IT0     BIT     088H.0
+  008D               109     TH1     DATA    08DH
+  009B               110     TB8     BIT     098H.3
+  00AA               111     EX1     BIT     0A8H.2
+  008A               112     IT1     BIT     088H.2
+  00CD               113     TH2     DATA    0CDH
+  00D0               114     P       BIT     0D0H.0
+  009F               115     SM0     BIT     098H.7
+  008A               116     TL0     DATA    08AH
+  009E               117     SM1     BIT     098H.6
+  008B               118     TL1     DATA    08BH
+  009D               119     SM2     BIT     098H.5
+  00CC               120     TL2     DATA    0CCH
+  00B9               121     PT0     BIT     0B8H.1
+  00BB               122     PT1     BIT     0B8H.3
+  00D3               123     RS0     BIT     0D0H.3
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     3
+
+  00E7               124     ISP_CONTR       DATA    0E7H
+  00BD               125     PT2     BIT     0B8H.5
+  008C               126     TR0     BIT     088H.4
+  00D4               127     RS1     BIT     0D0H.4
+  008E               128     TR1     BIT     088H.6
+  00CA               129     TR2     BIT     0C8H.2
+  00B8               130     PX0     BIT     0B8H.0
+  00E1               131     WDT_CONTR       DATA    0E1H
+  00BA               132     PX1     BIT     0B8H.2
+  0083               133     DPH     DATA    083H
+  0082               134     DPL     DATA    082H
+  00B7               135     IPH     DATA    0B7H
+  00CB               136     EXEN2   BIT     0C8H.3
+  009C               137     REN     BIT     098H.4
+  00C9               138     T2MOD   DATA    0C9H
+  00C8               139     T2CON   DATA    0C8H
+  00E2               140     ISP_DATA        DATA    0E2H
+  00B9               141     SADEN   DATA    0B9H
+  00B0               142     RXD     BIT     0B0H.0
+  00A9               143     SADDR   DATA    0A9H
+  00B1               144     TXD     BIT     0B0H.1
+  00A2               145     AUXR1   DATA    0A2H
+  00D5               146     F0      BIT     0D0H.5
+  00D0               147     PSW     DATA    0D0H
+                     148     ?PR?_Ds1302_wByte?DS1302                 SEGMENT CODE 
+                     149     ?PR?_Ds1302_rByte?DS1302                 SEGMENT CODE 
+                     150     ?PR?Ds1302_init?DS1302                   SEGMENT CODE 
+                     151     ?PR?Ds1302_Set_time?DS1302               SEGMENT CODE 
+                     152     ?PR?Ds1302_Read_time?DS1302              SEGMENT CODE 
+                     153     ?PR?_Ds1302_time_Copy?DS1302             SEGMENT CODE 
+                     154     ?C_INITSEG           SEGMENT CODE 
+                     155     ?CO?DS1302           SEGMENT CODE 
+                     156     ?PD?DS1302           SEGMENT XDATA INPAGE 
+                     157     ?PR?DS1302           SEGMENT CODE 
+                     158             PUBLIC  ds_dat_time_set
+                     159             PUBLIC  ds_dat_time_set16
+                     160             PUBLIC  ds_dat_time
+                     161             PUBLIC  WRITE_RTC_ADDR
+                     162             PUBLIC  READ_RTC_ADDR
+                     163             PUBLIC  _Ds1302_time_Copy
+                     164             PUBLIC  Ds1302_Read_time
+                     165             PUBLIC  Ds1302_Set_time
+                     166             PUBLIC  Ds1302_init
+                     167             PUBLIC  _Ds1302_rByte
+                     168             PUBLIC  _Ds1302_wByte
+                     169     
+----                 170             RSEG  ?PD?DS1302
+0000                 171         ds_dat_time:   DS   7
+0007                 172     ds_dat_time_set16:   DS   7
+000E                 173     ds_dat_time_set:   DS   7
+                     174     
+----                 175             RSEG  ?CO?DS1302
+0000                 176     READ_RTC_ADDR:
+0000 81              177             DB      081H
+0001 83              178             DB      083H
+0002 85              179             DB      085H
+0003 87              180             DB      087H
+0004 89              181             DB      089H
+0005 8B              182             DB      08BH
+0006 8D              183             DB      08DH
+                     184     
+0007                 185     WRITE_RTC_ADDR:
+0007 80              186             DB      080H
+0008 82              187             DB      082H
+0009 84              188             DB      084H
+000A 86              189             DB      086H
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     4
+
+000B 88              190             DB      088H
+000C 8A              191             DB      08AH
+000D 8C              192             DB      08CH
+                     193     
+                     194     
+----                 195             RSEG  ?C_INITSEG
+0000 87              196             DB      087H
+0001 00       F      197             DB      LOW (ds_dat_time_set)
+0002 00              198             DB      000H
+0003 00              199             DB      000H
+0004 00              200             DB      000H
+0005 0A              201             DB      00AH
+0006 03              202             DB      003H
+0007 01              203             DB      001H
+0008 14              204             DB      014H
+                     205     
+0009 87              206             DB      087H
+000A 00       F      207             DB      LOW (ds_dat_time_set16)
+000B 00              208             DB      000H
+000C 00              209             DB      000H
+000D 00              210             DB      000H
+000E 00              211             DB      000H
+000F 00              212             DB      000H
+0010 00              213             DB      000H
+0011 00              214             DB      000H
+                     215     
+                     216     ; #include "ds1302.h"
+                     217     ; 
+                     218     ; uchar ds_dat_time[7];
+                     219     ; uchar ds_dat_time_set[7]={0,0,0,10,3,1,20};
+                     220     ; uchar ds_dat_time_set16[7]={0,0,0,0,0,0,0};
+                     221     ; //---DS1302–¥»Î∫Õ∂¡»° ±∑÷√Îµƒµÿ÷∑√¸¡Ó---//
+                     222     ; //---√Î∑÷ ±»’‘¬÷‹ƒÍ ◊ÓµÕŒª∂¡–¥Œª;-------//
+                     223     ; uchar code READ_RTC_ADDR[7] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d}; 
+                     224     ; uchar code WRITE_RTC_ADDR[7] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+                     225     ; 
+                     226     
+----                 227             RSEG  ?PR?DS1302
+0000                 228     Com001F:
+0000                 229     L?0032:
+                     230             USING   0
+0000 EE              231             MOV     A,R6
+0001                 232     L?0033:
+0001 C3              233             CLR     C
+0002 9408            234             SUBB    A,#08H
+0004 7480            235             MOV     A,#080H
+0006 9480            236             SUBB    A,#080H
+0008 22              237             RET     
+0009                 238     L?0034:
+                     239             USING   0
+0009 EC              240             MOV     A,R4
+000A                 241     L?0035:
+000A C3              242             CLR     C
+000B 9407            243             SUBB    A,#07H
+000D 7480            244             MOV     A,#080H
+000F 9480            245             SUBB    A,#080H
+0011 22              246             RET     
+0012                 247     L?0036:
+                     248             USING   0
+0012 EF              249             MOV     A,R7
+0013 13              250             RRC     A
+0014 92A1            251             MOV     DS_IO,C
+0016 EF              252             MOV     A,R7
+0017 C3              253             CLR     C
+0018 13              254             RRC     A
+0019 FF              255             MOV     R7,A
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     5
+
+001A D2A2            256             SETB    DS_SCLK
+001C 22              257             RET     
+                     258     ; END OF Com001F
+                     259     
+                     260     ; void Ds1302_wByte(uchar addr, uchar dat)
+                     261     
+----                 262             RSEG  ?PR?_Ds1302_wByte?DS1302
+0000                 263     _Ds1302_wByte:
+                     264             USING   0
+                     265                             ; SOURCE LINE # 11
+                     266     ;---- Variable 'dat?041' assigned to Register 'R5' ----
+                     267     ;---- Variable 'addr?040' assigned to Register 'R7' ----
+                     268     ; {
+                     269                             ; SOURCE LINE # 12
+                     270     ;       uchar n;
+                     271     ;       EA=0;
+                     272                             ; SOURCE LINE # 14
+0000 C2AF            273             CLR     EA
+                     274     ;       DS_CE = 0;              _nop_();
+                     275                             ; SOURCE LINE # 15
+0002 C2A0            276             CLR     DS_CE
+0004 00              277             NOP     
+                     278     ;       DS_SCLK = 0;    _nop_();
+                     279                             ; SOURCE LINE # 16
+0005 C2A2            280             CLR     DS_SCLK
+0007 00              281             NOP     
+                     282     ;       DS_CE = 1;              _nop_();
+                     283                             ; SOURCE LINE # 17
+0008 D2A0            284             SETB    DS_CE
+000A 00              285             NOP     
+                     286     ;       for (n=0; n<8; n++)                     //ø™ º¥´ÀÕ∞ÀŒªµÿ÷∑√¸¡Ó
+                     287                             ; SOURCE LINE # 18
+                     288     ;---- Variable 'n?042' assigned to Register 'R6' ----
+000B E4              289             CLR     A
+000C FE              290             MOV     R6,A
+000D                 291     ?C0001:
+000D 120000   F      292             LCALL   L?0032
+0010 500A            293             JNC     ?C0002
+                     294     ;       {
+                     295                             ; SOURCE LINE # 19
+                     296     ;               DS_IO = addr & 0x01;    // æ›¥”µÕŒªø™ º¥´ÀÕ
+                     297                             ; SOURCE LINE # 20
+                     298     ;               addr >>= 1;
+                     299                             ; SOURCE LINE # 21
+                     300     ;               DS_SCLK = 1;    _nop_();// æ›‘⁄…œ…—ÿ ±£¨DS1302∂¡»° æ›
+                     301                             ; SOURCE LINE # 22
+0012 120000   F      302             LCALL   L?0036
+0015 00              303             NOP     
+                     304     ;               DS_SCLK = 0;    _nop_();
+                     305                             ; SOURCE LINE # 23
+0016 C2A2            306             CLR     DS_SCLK
+0018 00              307             NOP     
+                     308     ;       }
+                     309                             ; SOURCE LINE # 24
+0019 0E              310             INC     R6
+001A 80F1            311             SJMP    ?C0001
+001C                 312     ?C0002:
+                     313     ;       for (n=0; n<8; n++)                     //–¥»Î8Œª æ›
+                     314                             ; SOURCE LINE # 25
+001C E4              315             CLR     A
+001D FE              316             MOV     R6,A
+001E                 317     ?C0004:
+001E 120000   F      318             LCALL   L?0032
+0021 5011            319             JNC     ?C0005
+                     320     ;       {
+                     321                             ; SOURCE LINE # 26
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     6
+
+                     322     ;               DS_IO = dat & 0x01;
+                     323                             ; SOURCE LINE # 27
+0023 ED              324             MOV     A,R5
+0024 13              325             RRC     A
+0025 92A1            326             MOV     DS_IO,C
+                     327     ;               dat >>= 1;
+                     328                             ; SOURCE LINE # 28
+0027 ED              329             MOV     A,R5
+0028 C3              330             CLR     C
+0029 13              331             RRC     A
+002A FD              332             MOV     R5,A
+                     333     ;               DS_SCLK = 1;    _nop_();// æ›‘⁄…œ…—ÿ ±£¨DS1302∂¡»° æ›           
+                     334                             ; SOURCE LINE # 29
+002B D2A2            335             SETB    DS_SCLK
+002D 00              336             NOP     
+                     337     ;               DS_SCLK = 0;    _nop_();                        
+                     338                             ; SOURCE LINE # 30
+002E C2A2            339             CLR     DS_SCLK
+0030 00              340             NOP     
+                     341     ;       }       
+                     342                             ; SOURCE LINE # 31
+0031 0E              343             INC     R6
+0032 80EA            344             SJMP    ?C0004
+0034                 345     ?C0005:
+                     346     ;                
+                     347     ;       DS_CE = 0;      _nop_();                //¥´ÀÕ æ›Ω· ¯
+                     348                             ; SOURCE LINE # 33
+0034 C2A0            349             CLR     DS_CE
+0036 00              350             NOP     
+                     351     ;       EA=1;
+                     352                             ; SOURCE LINE # 34
+0037 D2AF            353             SETB    EA
+                     354     ;       
+                     355     ; }
+                     356                             ; SOURCE LINE # 36
+0039 22              357             RET     
+                     358     ; END OF _Ds1302_wByte
+                     359     
+                     360     ; 
+                     361     ; uchar Ds1302_rByte(uchar addr)
+                     362     
+----                 363             RSEG  ?PR?_Ds1302_rByte?DS1302
+0000                 364     _Ds1302_rByte:
+                     365             USING   0
+                     366                             ; SOURCE LINE # 38
+                     367     ;---- Variable 'dat?145' assigned to Register 'R6' ----
+                     368     ;---- Variable 'addr?143' assigned to Register 'R7' ----
+                     369     ; {
+                     370                             ; SOURCE LINE # 39
+                     371     ;       uchar n,dat;
+                     372     ;       EA=0;
+                     373                             ; SOURCE LINE # 41
+0000 C2AF            374             CLR     EA
+                     375     ;       DS_CE = 0;              _nop_();
+                     376                             ; SOURCE LINE # 42
+0002 C2A0            377             CLR     DS_CE
+0004 00              378             NOP     
+                     379     ;       DS_SCLK = 0;    _nop_();
+                     380                             ; SOURCE LINE # 43
+0005 C2A2            381             CLR     DS_SCLK
+0007 00              382             NOP     
+                     383     ;       DS_CE = 1;              _nop_();
+                     384                             ; SOURCE LINE # 44
+0008 D2A0            385             SETB    DS_CE
+000A 00              386             NOP     
+                     387     ;       for (n=0; n<8; n++)             //¥´ÀÕµÿ÷∑
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     7
+
+                     388                             ; SOURCE LINE # 45
+                     389     ;---- Variable 'n?144' assigned to Register 'R5' ----
+000B E4              390             CLR     A
+000C FD              391             MOV     R5,A
+000D                 392     ?C0008:
+000D ED              393             MOV     A,R5
+000E 120000   F      394             LCALL   L?0033
+0011 500A            395             JNC     ?C0009
+                     396     ;       {
+                     397                             ; SOURCE LINE # 46
+                     398     ;               DS_IO = addr & 0x01;    
+                     399                             ; SOURCE LINE # 47
+                     400     ;               addr >>= 1;
+                     401                             ; SOURCE LINE # 48
+                     402     ;               DS_SCLK = 1;    _nop_();
+                     403                             ; SOURCE LINE # 49
+0013 120000   F      404             LCALL   L?0036
+0016 00              405             NOP     
+                     406     ;               DS_SCLK = 0;    _nop_();
+                     407                             ; SOURCE LINE # 50
+0017 C2A2            408             CLR     DS_SCLK
+0019 00              409             NOP     
+                     410     ;       }
+                     411                             ; SOURCE LINE # 51
+001A 0D              412             INC     R5
+001B 80F0            413             SJMP    ?C0008
+001D                 414     ?C0009:
+                     415     ;       for (n=0; n<8; n++)                     //∂¡»°8Œª æ›
+                     416                             ; SOURCE LINE # 52
+001D E4              417             CLR     A
+001E FD              418             MOV     R5,A
+001F                 419     ?C0011:
+001F ED              420             MOV     A,R5
+0020 120000   F      421             LCALL   L?0033
+0023 5019            422             JNC     ?C0012
+                     423     ;       {
+                     424                             ; SOURCE LINE # 53
+                     425     ;               dat=(dat>>1)|((uchar)DS_IO<<7);
+                     426                             ; SOURCE LINE # 54
+0025 A2A1            427             MOV     C,DS_IO
+0027 E4              428             CLR     A
+0028 33              429             RLC     A
+0029 C4              430             SWAP    A
+002A 33              431             RLC     A
+002B 33              432             RLC     A
+002C 33              433             RLC     A
+002D 5480            434             ANL     A,#080H
+002F FF              435             MOV     R7,A
+0030 EE              436             MOV     A,R6
+0031 C3              437             CLR     C
+0032 13              438             RRC     A
+0033 4F              439             ORL     A,R7
+0034 FE              440             MOV     R6,A
+                     441     ;               DS_SCLK = 1;    _nop_();// æ›‘⁄…œ…—ÿ ±£¨DS1302∂¡»° æ›           
+                     442                             ; SOURCE LINE # 55
+0035 D2A2            443             SETB    DS_SCLK
+0037 00              444             NOP     
+                     445     ;               DS_SCLK = 0;    _nop_();                        
+                     446                             ; SOURCE LINE # 56
+0038 C2A2            447             CLR     DS_SCLK
+003A 00              448             NOP     
+                     449     ;       }       
+                     450                             ; SOURCE LINE # 57
+003B 0D              451             INC     R5
+003C 80E1            452             SJMP    ?C0011
+003E                 453     ?C0012:
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     8
+
+                     454     ;                
+                     455     ;       DS_CE = 0;                      _nop_();                //¥´ÀÕ æ›Ω· ¯
+                     456                             ; SOURCE LINE # 59
+003E C2A0            457             CLR     DS_CE
+0040 00              458             NOP     
+                     459     ;       DS_SCLK = 1;            _nop_();
+                     460                             ; SOURCE LINE # 60
+0041 D2A2            461             SETB    DS_SCLK
+0043 00              462             NOP     
+                     463     ;       DS_IO = 0;                      _nop_();
+                     464                             ; SOURCE LINE # 61
+0044 C2A1            465             CLR     DS_IO
+0046 00              466             NOP     
+                     467     ;       DS_IO = 1;                      _nop_();
+                     468                             ; SOURCE LINE # 62
+0047 D2A1            469             SETB    DS_IO
+0049 00              470             NOP     
+                     471     ;       EA=1;
+                     472                             ; SOURCE LINE # 63
+004A D2AF            473             SETB    EA
+                     474     ;       return dat;     
+                     475                             ; SOURCE LINE # 64
+004C AF06            476             MOV     R7,AR6
+                     477     ;       
+                     478     ; }
+                     479                             ; SOURCE LINE # 66
+004E 22              480             RET     
+                     481     ; END OF _Ds1302_rByte
+                     482     
+                     483     ; void Ds1302_init() 
+                     484     
+----                 485             RSEG  ?PR?Ds1302_init?DS1302
+0000                 486     Ds1302_init:
+                     487                             ; SOURCE LINE # 67
+                     488     ; {
+                     489                             ; SOURCE LINE # 68
+                     490     ;       DS_CE=0;                        //RSTΩ≈÷√µÕ
+                     491                             ; SOURCE LINE # 69
+0000 C2A0            492             CLR     DS_CE
+                     493     ;       DS_SCLK=0;                      //SCKΩ≈÷√µÕ
+                     494                             ; SOURCE LINE # 70
+0002 C2A2            495             CLR     DS_SCLK
+                     496     ; }
+                     497                             ; SOURCE LINE # 71
+0004 22              498             RET     
+                     499     ; END OF Ds1302_init
+                     500     
+                     501     ; void Ds1302_Set_time()
+                     502     
+----                 503             RSEG  ?PR?Ds1302_Set_time?DS1302
+0000                 504     Ds1302_Set_time:
+                     505             USING   0
+                     506                             ; SOURCE LINE # 72
+                     507     ; {
+                     508                             ; SOURCE LINE # 73
+                     509     ;       uchar n;
+                     510     ;       Ds1302_wByte(0x8E,0X00);                 //Ω˚÷π–¥±£ª§£¨æÕ «πÿ±’–¥±£ª§π¶ƒ‹
+                     511                             ; SOURCE LINE # 75
+0000 E4              512             CLR     A
+0001 FD              513             MOV     R5,A
+0002 7F8E            514             MOV     R7,#08EH
+0004 120000   F      515             LCALL   _Ds1302_wByte
+                     516     ;       for (n=0; n<7; n++)//–¥»Î7∏ˆ◊÷Ω⁄µƒ ±÷”–≈∫≈£∫∑÷√Î ±»’‘¬÷‹ƒÍ
+                     517                             ; SOURCE LINE # 76
+                     518     ;---- Variable 'n?346' assigned to Register 'R4' ----
+0007 E4              519             CLR     A
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE     9
+
+0008 FC              520             MOV     R4,A
+0009                 521     ?C0016:
+0009 120000   F      522             LCALL   L?0034
+000C 5012            523             JNC     ?C0017
+                     524     ;       {
+                     525                             ; SOURCE LINE # 77
+                     526     ;               Ds1302_wByte(WRITE_RTC_ADDR[n],ds_dat_time_set[n]);     
+                     527                             ; SOURCE LINE # 78
+000E EC              528             MOV     A,R4
+000F 900000   F      529             MOV     DPTR,#WRITE_RTC_ADDR
+0012 93              530             MOVC    A,@A+DPTR
+0013 FF              531             MOV     R7,A
+0014 7400     F      532             MOV     A,#LOW (ds_dat_time_set)
+0016 2C              533             ADD     A,R4
+0017 F8              534             MOV     R0,A
+0018 E2              535             MOVX    A,@R0
+0019 FD              536             MOV     R5,A
+001A 120000   F      537             LCALL   _Ds1302_wByte
+                     538     ;       }
+                     539                             ; SOURCE LINE # 79
+001D 0C              540             INC     R4
+001E 80E9            541             SJMP    ?C0016
+0020                 542     ?C0017:
+                     543     ;       Ds1302_wByte(0x8E,0x80);                 //¥Úø™–¥±£ª§π¶ƒ‹
+                     544                             ; SOURCE LINE # 80
+0020 7D80            545             MOV     R5,#080H
+0022 7F8E            546             MOV     R7,#08EH
+0024 020000   F      547             LJMP    _Ds1302_wByte
+                     548     ; END OF Ds1302_Set_time
+                     549     
+                     550     ; }
+                     551     ; 
+                     552     ; void Ds1302_Read_time()
+                     553     
+----                 554             RSEG  ?PR?Ds1302_Read_time?DS1302
+0000                 555     Ds1302_Read_time:
+                     556             USING   0
+                     557                             ; SOURCE LINE # 83
+                     558     ; {
+                     559                             ; SOURCE LINE # 84
+                     560     ;       uchar n;
+                     561     ;       for (n=0; n<7; n++)//∂¡»°7∏ˆ◊÷Ω⁄µƒ ±÷”–≈∫≈£∫∑÷√Î ±»’‘¬÷‹ƒÍ
+                     562                             ; SOURCE LINE # 86
+                     563     ;---- Variable 'n?447' assigned to Register 'R4' ----
+0000 E4              564             CLR     A
+0001 FC              565             MOV     R4,A
+0002                 566     ?C0020:
+0002 120000   F      567             LCALL   L?0034
+0005 5012            568             JNC     ?C0023
+                     569     ;       {
+                     570                             ; SOURCE LINE # 87
+                     571     ;               ds_dat_time[n] = Ds1302_rByte(READ_RTC_ADDR[n]);
+                     572                             ; SOURCE LINE # 88
+0007 EC              573             MOV     A,R4
+0008 900000   F      574             MOV     DPTR,#READ_RTC_ADDR
+000B 93              575             MOVC    A,@A+DPTR
+000C FF              576             MOV     R7,A
+000D 120000   F      577             LCALL   _Ds1302_rByte
+0010 7400     F      578             MOV     A,#LOW (ds_dat_time)
+0012 2C              579             ADD     A,R4
+0013 F8              580             MOV     R0,A
+0014 EF              581             MOV     A,R7
+0015 F2              582             MOVX    @R0,A
+                     583     ;       }
+                     584                             ; SOURCE LINE # 89
+0016 0C              585             INC     R4
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE    10
+
+0017 80E9            586             SJMP    ?C0020
+                     587     ;       //Ds1302_tDat_BCD();
+                     588     ;               
+                     589     ; }
+                     590                             ; SOURCE LINE # 92
+0019                 591     ?C0023:
+0019 22              592             RET     
+                     593     ; END OF Ds1302_Read_time
+                     594     
+                     595     ; void Ds1302_time_Copy(uchar sign)//∏¥÷∆ ±º‰–≈œ¢
+                     596     
+----                 597             RSEG  ?PR?_Ds1302_time_Copy?DS1302
+0000                 598     _Ds1302_time_Copy:
+                     599             USING   0
+                     600                             ; SOURCE LINE # 93
+                     601     ;---- Variable 'sign?548' assigned to Register 'R7' ----
+                     602     ; {
+                     603                             ; SOURCE LINE # 94
+                     604     ;       uchar n;
+                     605     ;       for (n=0; n<7; n++)
+                     606                             ; SOURCE LINE # 96
+                     607     ;---- Variable 'n?549' assigned to Register 'R6' ----
+0000 E4              608             CLR     A
+0001 FE              609             MOV     R6,A
+0002                 610     ?C0024:
+0002 EE              611             MOV     A,R6
+0003 120000   F      612             LCALL   L?0035
+0006 5056            613             JNC     ?C0030
+                     614     ;       {
+                     615                             ; SOURCE LINE # 97
+                     616     ;               if(sign==0)ds_dat_time_set[n]=ds_dat_time[n];
+                     617                             ; SOURCE LINE # 98
+0008 EF              618             MOV     A,R7
+0009 FD              619             MOV     R5,A
+000A 7C00            620             MOV     R4,#00H
+000C 700C            621             JNZ     ?C0027
+000E 7400     F      622             MOV     A,#LOW (ds_dat_time)
+0010 2E              623             ADD     A,R6
+0011 F8              624             MOV     R0,A
+0012 E2              625             MOVX    A,@R0
+0013 FB              626             MOV     R3,A
+0014 7400     F      627             MOV     A,#LOW (ds_dat_time_set)
+0016 2E              628             ADD     A,R6
+0017 F8              629             MOV     R0,A
+0018 EB              630             MOV     A,R3
+0019 F2              631             MOVX    @R0,A
+001A                 632     ?C0027:
+                     633     ;               if(sign==1)ds_dat_time_set16[n]=(ds_dat_time_set[n]>>4)*10+(ds_dat_time_set
+                             [n]&0x0f);
+                     634                             ; SOURCE LINE # 99
+001A ED              635             MOV     A,R5
+001B 6401            636             XRL     A,#01H
+001D 4C              637             ORL     A,R4
+001E 7019            638             JNZ     ?C0028
+0020 7400     F      639             MOV     A,#LOW (ds_dat_time_set)
+0022 2E              640             ADD     A,R6
+0023 F8              641             MOV     R0,A
+0024 E2              642             MOVX    A,@R0
+0025 FD              643             MOV     R5,A
+0026 C4              644             SWAP    A
+0027 540F            645             ANL     A,#0FH
+0029 75F00A          646             MOV     B,#0AH
+002C A4              647             MUL     AB
+002D FC              648             MOV     R4,A
+002E ED              649             MOV     A,R5
+002F 540F            650             ANL     A,#0FH
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE    11
+
+0031 2C              651             ADD     A,R4
+0032 FD              652             MOV     R5,A
+0033 7400     F      653             MOV     A,#LOW (ds_dat_time_set16)
+0035 2E              654             ADD     A,R6
+0036 F8              655             MOV     R0,A
+0037 ED              656             MOV     A,R5
+0038 F2              657             MOVX    @R0,A
+0039                 658     ?C0028:
+                     659     ;               if(sign==2)ds_dat_time_set[n]=ds_dat_time_set16[n]/10*16+ds_dat_time_set16[
+                             n]%10;
+                     660                             ; SOURCE LINE # 100
+0039 EF              661             MOV     A,R7
+003A 6402            662             XRL     A,#02H
+003C 701D            663             JNZ     ?C0026
+003E 7400     F      664             MOV     A,#LOW (ds_dat_time_set16)
+0040 2E              665             ADD     A,R6
+0041 F8              666             MOV     R0,A
+0042 E2              667             MOVX    A,@R0
+0043 FD              668             MOV     R5,A
+0044 75F00A          669             MOV     B,#0AH
+0047 84              670             DIV     AB
+0048 C4              671             SWAP    A
+0049 54F0            672             ANL     A,#0F0H
+004B FC              673             MOV     R4,A
+004C ED              674             MOV     A,R5
+004D 75F00A          675             MOV     B,#0AH
+0050 84              676             DIV     AB
+0051 EC              677             MOV     A,R4
+0052 25F0            678             ADD     A,B
+0054 FD              679             MOV     R5,A
+0055 7400     F      680             MOV     A,#LOW (ds_dat_time_set)
+0057 2E              681             ADD     A,R6
+0058 F8              682             MOV     R0,A
+0059 ED              683             MOV     A,R5
+005A F2              684             MOVX    @R0,A
+                     685     ;       }
+                     686                             ; SOURCE LINE # 101
+005B                 687     ?C0026:
+005B 0E              688             INC     R6
+005C 80A4            689             SJMP    ?C0024
+                     690     ; }
+                     691                             ; SOURCE LINE # 102
+005E                 692     ?C0030:
+005E 22              693             RET     
+                     694     ; END OF _Ds1302_time_Copy
+                     695     
+                     696             END
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE    12
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                       T Y P E  V A L U E   ATTRIBUTES
+
+?C0001 . . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?_DS1302_WBYTE?DS1302
+?C0002 . . . . . . . . . . .  C ADDR   001CH   R   SEG=?PR?_DS1302_WBYTE?DS1302
+?C0004 . . . . . . . . . . .  C ADDR   001EH   R   SEG=?PR?_DS1302_WBYTE?DS1302
+?C0005 . . . . . . . . . . .  C ADDR   0034H   R   SEG=?PR?_DS1302_WBYTE?DS1302
+?C0008 . . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?_DS1302_RBYTE?DS1302
+?C0009 . . . . . . . . . . .  C ADDR   001DH   R   SEG=?PR?_DS1302_RBYTE?DS1302
+?C0011 . . . . . . . . . . .  C ADDR   001FH   R   SEG=?PR?_DS1302_RBYTE?DS1302
+?C0012 . . . . . . . . . . .  C ADDR   003EH   R   SEG=?PR?_DS1302_RBYTE?DS1302
+?C0016 . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?DS1302_SET_TIME?DS1302
+?C0017 . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?DS1302_SET_TIME?DS1302
+?C0020 . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?DS1302_READ_TIME?DS1302
+?C0023 . . . . . . . . . . .  C ADDR   0019H   R   SEG=?PR?DS1302_READ_TIME?DS1302
+?C0024 . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+?C0026 . . . . . . . . . . .  C ADDR   005BH   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+?C0027 . . . . . . . . . . .  C ADDR   001AH   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+?C0028 . . . . . . . . . . .  C ADDR   0039H   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+?C0030 . . . . . . . . . . .  C ADDR   005EH   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+?CO?DS1302 . . . . . . . . .  C SEG    000EH       REL=UNIT
+?C_INITSEG . . . . . . . . .  C SEG    0012H       REL=UNIT
+?PD?DS1302 . . . . . . . . .  X SEG    0015H       REL=INPAGE
+?PR?DS1302 . . . . . . . . .  C SEG    001DH       REL=UNIT
+?PR?DS1302_INIT?DS1302 . . .  C SEG    0005H       REL=UNIT
+?PR?DS1302_READ_TIME?DS1302.  C SEG    001AH       REL=UNIT
+?PR?DS1302_SET_TIME?DS1302 .  C SEG    0027H       REL=UNIT
+?PR?_DS1302_RBYTE?DS1302 . .  C SEG    004FH       REL=UNIT
+?PR?_DS1302_TIME_COPY?DS1302  C SEG    005FH       REL=UNIT
+?PR?_DS1302_WBYTE?DS1302 . .  C SEG    003AH       REL=UNIT
+AC . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . . . .  D ADDR   00E0H   A   
+AR6. . . . . . . . . . . . .  D ADDR   0006H   A   
+AUXR . . . . . . . . . . . .  D ADDR   008EH   A   
+AUXR1. . . . . . . . . . . .  D ADDR   00A2H   A   
+B. . . . . . . . . . . . . .  D ADDR   00F0H   A   
+COM001F. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS1302
+CP_RL2 . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CY . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2 . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+DPH. . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . . . . .  D ADDR   0082H   A   
+DS1302 . . . . . . . . . . .  N NUMB   -----       
+DS1302_INIT. . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS1302_INIT?DS1302
+DS1302_READ_TIME . . . . . .  C ADDR   0000H   R   SEG=?PR?DS1302_READ_TIME?DS1302
+DS1302_SET_TIME. . . . . . .  C ADDR   0000H   R   SEG=?PR?DS1302_SET_TIME?DS1302
+DS_CE. . . . . . . . . . . .  B ADDR   00A0H.0 A   
+DS_DAT_TIME. . . . . . . . .  X ADDR   0000H   R   SEG=?PD?DS1302
+DS_DAT_TIME_SET. . . . . . .  X ADDR   000EH   R   SEG=?PD?DS1302
+DS_DAT_TIME_SET16. . . . . .  X ADDR   0007H   R   SEG=?PD?DS1302
+DS_IO. . . . . . . . . . . .  B ADDR   00A0H.1 A   
+DS_SCLK. . . . . . . . . . .  B ADDR   00A0H.2 A   
+EA . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EC . . . . . . . . . . . . .  B ADDR   00A8H.6 A   
+ES . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE    13
+
+FE . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+IE . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INT0 . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+INT1 . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+IP . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IPH. . . . . . . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH. . . . . . . . . .  D ADDR   00E3H   A   
+ISP_ADDRL. . . . . . . . . .  D ADDR   00E4H   A   
+ISP_CMD. . . . . . . . . . .  D ADDR   00E5H   A   
+ISP_CONTR. . . . . . . . . .  D ADDR   00E7H   A   
+ISP_DATA . . . . . . . . . .  D ADDR   00E2H   A   
+ISP_TRIG . . . . . . . . . .  D ADDR   00E6H   A   
+IT0. . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . . . . .  B ADDR   0088H.2 A   
+L?0032 . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?DS1302
+L?0033 . . . . . . . . . . .  C ADDR   0001H   R   SEG=?PR?DS1302
+L?0034 . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?DS1302
+L?0035 . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?DS1302
+L?0036 . . . . . . . . . . .  C ADDR   0012H   R   SEG=?PR?DS1302
+OV . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . . . .  D ADDR   0080H   A   
+P00. . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01. . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02. . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03. . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04. . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05. . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06. . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07. . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P1 . . . . . . . . . . . . .  D ADDR   0090H   A   
+P10. . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11. . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12. . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13. . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14. . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15. . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16. . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17. . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P2 . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20. . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21. . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22. . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23. . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24. . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25. . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26. . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27. . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P3 . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P30. . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31. . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32. . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33. . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34. . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35. . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+P36. . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37. . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P4 . . . . . . . . . . . . .  D ADDR   00E8H   A   
+P40. . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+P41. . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+P42. . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+P43. . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+P44. . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+P45. . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+A51 MACRO ASSEMBLER  DS1302                                                               03/24/2020 10:35:02 PAGE    14
+
+P46. . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+PCON . . . . . . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . . . . . . .  D ADDR   00CAH   A   
+RCLK . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+RD . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+READ_RTC_ADDR. . . . . . . .  C ADDR   0000H   R   SEG=?CO?DS1302
+REN. . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+SADDR. . . . . . . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . . . . . . .  D ADDR   0081H   A   
+T0 . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+T2 . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+T2CON. . . . . . . . . . . .  D ADDR   00C8H   A   
+T2EX . . . . . . . . . . . .  B ADDR   0090H.1 A   
+T2MOD. . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD. . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+WDT_CONTR. . . . . . . . . .  D ADDR   00E1H   A   
+WR . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+WRITE_RTC_ADDR . . . . . . .  C ADDR   0007H   R   SEG=?CO?DS1302
+XICON. . . . . . . . . . . .  D ADDR   00C0H   A   
+_DS1302_RBYTE. . . . . . . .  C ADDR   0000H   R   SEG=?PR?_DS1302_RBYTE?DS1302
+_DS1302_TIME_COPY. . . . . .  C ADDR   0000H   R   SEG=?PR?_DS1302_TIME_COPY?DS1302
+_DS1302_WBYTE. . . . . . . .  C ADDR   0000H   R   SEG=?PR?_DS1302_WBYTE?DS1302
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

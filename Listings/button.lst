@@ -1,0 +1,640 @@
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE BUTTON
+OBJECT MODULE PLACED IN .\Objects\button.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE button.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEB
+                    -UG PRINT(.\Listings\button.lst) TABS(2) OBJECT(.\Objects\button.obj)
+
+line level    source
+
+   1          #include "button.h"
+   2          #include "ds1302.h"
+   3          #include "calendar.h"
+   4          #include "uart.h"
+   5          #include "jq8900.h"
+   6          #include "game.h"
+   7          //#define KEY(i) KEY##i
+   8          uchar data Command_key[4];//
+   9          uchar data Prestate_key[4];//°´¼üÇ°×´Ì¬
+  10          uchar data Curstatus_key[4];//°´¼üµ±Ç°×´Ì¬
+  11          uchar data Instruction_code_key[4];
+  12          uint data Double_Press_counter[4];//³¤°´¼ÆÊýÆ÷
+  13          uint data Double_Idle_counter[4];//¿ÕÏÐ¼ÆÊýÆ÷
+  14          //uint data Double_idle_counter[4];//¿ÕÏÐ±êÖ¾
+  15          
+  16          uchar DoubleClick_trigger[4]={0,0,0,0};
+  17          
+  18          uchar bdata Refill_sign;//Èç¹û°´¼üÌ§Æð£¬±êÖ¾Î»ÖÃ1£¬°´ÏÂÖÃÁã¡£¿ÉÒÔÓÃÓÚÍê³É¶Ì°´¡£
+  19          sbit Refill_sign_0=Refill_sign^0;
+  20          sbit Refill_sign_1=Refill_sign^1;
+  21          sbit Refill_sign_2=Refill_sign^2;
+  22          sbit Refill_sign_3=Refill_sign^3;
+  23          sbit Refill_sign_4=Refill_sign^4;
+  24          sbit Refill_sign_5=Refill_sign^5;
+  25          sbit Refill_sign_6=Refill_sign^6;
+  26          sbit Refill_sign_7=Refill_sign^7;
+  27          
+  28          #define button_BurstSpeed 4//°´¼üÁ¬·¢µÄËÙÂÊ£¬¼ÆËã¹«Ê½Îª°´¼ü£¬²ÉÑùÂÊ/button_BurstSpeed£¬Ä¬ÈÏ²ÉÑùÂÊÎª10´Î/Ãë
+             -¡£
+  29          
+  30          #define In                  (!Curstatus_key[0]) //È·ÈÏ´¥·¢ÖÐ
+  31          #define Back                (!Curstatus_key[1]) //·µ»Ø´¥·¢ÖÐ
+  32          #define Up                  (!Curstatus_key[2]) //ÉÏ´¥·¢ÖÐ
+  33          #define Down                (!Curstatus_key[3]) //ÏÂ´¥·¢ÖÐ
+  34          
+  35          #define goIn                (Instruction_code_key[0]==0x80)                 //È·ÈÏ¼üµ¥»÷
+  36          #define goBack              (Instruction_code_key[1]==0x80)                 //·µ»Ø¼üµ¥»÷
+  37          #define goUp                (Instruction_code_key[2]==0x80)                 //ÉÏ¼üµ¥»÷
+  38          #define goDown              (Instruction_code_key[3]==0x80)                 //ÏÂ¼üµ¥»÷
+  39          #define BurstGoin           ((Double_Press_counter[0]%button_BurstSpeed)==3)//È·ÈÏ¼üÁ¬·¢£¬ËÙ¶È5´ÎÃ¿Ãë
+  40          #define BurstGoback         ((Double_Press_counter[1]%button_BurstSpeed)==3)//·µ»Ø¼üÁ¬·¢
+  41          #define BurstGoup           ((Double_Press_counter[2]%button_BurstSpeed)==3)//ÉÏ¼üÁ¬·¢
+  42          #define BurstGodown         ((Double_Press_counter[3]%button_BurstSpeed)==3)//ÏÂ¼üÁ¬·¢
+  43          
+  44          #define DoubleClickIn       (DoubleClick(0))  //È·ÈÏË«»÷
+  45          #define DoubleClickBack     (DoubleClick(1))  
+  46          #define DoubleClickUp       (DoubleClick(2))  
+  47          #define DoubleClickDown     (DoubleClick(3))  
+  48            
+  49          extern uchar data menuCode;
+  50          uchar OptionCode[]={0,5,6};     //×Ó²Ëµ¥Ñ¡ÏîÂë£¬0Îª²Ëµ¥1£¬1Îª²Ëµ¥10£¬2Îª²Ëµ¥11.
+  51          uchar OptionCode_Max[]={6,5,4}; //×Ó²Ëµ¥Ñ¡ÏîÉÏÏÞ¡£0~n¡£
+  52          
+  53          extern uchar SwitchFlag[];      
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 2   
+
+  54          
+  55          
+  56          extern uchar Sensor_switch[2];
+  57          extern uint rot_taskFrequency[];
+  58          extern uint Sensor_display_switchingSpeed;
+  59          extern uint Sensor_display_switchingTimer;
+  60          uchar Change_sign=0;            //ÓÃÓÚ´¥·¢ÐÞ¸ÄÈ·ÈÏÑ¡Ïî      
+  61          
+  62          //uchar SoundPlay_sign=0;         
+  63          
+  64          //ÄÖÖÓ
+  65          #define TotalNumber_alarms 4    //ÄÖÖÓ¸öÊý
+  66          extern uchar AlarmClockNum;
+  67          //extern uchar AlarmClockNum_old=0;
+  68          extern uchar AlarmOptionSite;
+  69          //extern uchar AlarmOptionSite_old=0;
+  70          //extern uchar AlarmDataOptionSite_old=0;
+  71          extern uchar AlarmDat[TotalNumber_alarms][9];
+  72          //uchar Sensor_switch[2];
+  73          
+  74          extern uchar JqSoundOption;
+  75          extern uchar AlarmClockMusicSet[4];
+  76          extern uchar JqHourlyTimeSwitch;
+  77          #define AlarmClockMusicMax 30
+  78          extern uchar DsHourOld;
+  79          
+  80          extern uchar gameSpeed;
+  81          extern uchar gameSpeedSet;
+  82          uchar GreedySnakeMovementDirection_change;
+  83          
+  84          extern uchar moreMenuCode;
+  85          
+  86          extern uchar moreFunctionsOption;
+  87          
+  88          extern uchar gameSnakeOption;
+  89          extern uchar gameSnakeSetOption;
+  90          
+  91          uchar DoubleClick(uchar n)
+  92          {
+  93   1        switch(DoubleClick_trigger[n])
+  94   1        {
+  95   2          case 0:if((Instruction_code_key[n]==0x80)/*||(Double_Press_counter[n]<(button_BurstSpeed+12))*/)DoubleCl
+             -ick_trigger[n]=1;return 0;
+  96   2          case 1:if(Double_Press_counter[n]<(button_BurstSpeed+2)){if((Instruction_code_key[n]==0x81))DoubleClick_
+             -trigger[n]=2;}          else DoubleClick_trigger[n]=0;  return 0;
+  97   2          case 2:if(Double_Idle_counter[n] <(button_BurstSpeed+2)){if(Instruction_code_key[n]==0x80){DoubleClick_t
+             -rigger[n]=0;return 1;}}else DoubleClick_trigger[n]=0; return 0;
+  98   2          default :return 0;
+  99   2        }
+ 100   1      } 
+ 101          
+ 102          void control_Section()          //¿ØÖÆº¯Êý        
+ 103          {
+ 104   1        uchar n=0;
+ 105   1        switch(menuCode)
+ 106   1        {
+ 107   2          case 0: 
+ 108   2          { 
+ 109   3            if(goIn||goDown||goUp||goBack)
+ 110   3            {
+ 111   4              if(AlarmDat[0][0]>1){AlarmDat[0][0]-=2;}
+ 112   4              if(AlarmDat[1][0]>1){AlarmDat[1][0]-=2;}
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 3   
+
+ 113   4              if(AlarmDat[2][0]>1){AlarmDat[2][0]-=2;}
+ 114   4              if(AlarmDat[3][0]>1){AlarmDat[3][0]-=2;}
+ 115   4            }
+ 116   3            if(goIn&&(!goBack)) {menuCode=1;Refill_sign_0=0;} 
+ 117   3            if(goDown&&Refill_sign_3&&(!goBack))
+ 118   3            { 
+ 119   4              if(SwitchFlag[0]<2)SwitchFlag[0]++;else SwitchFlag[0]=0;
+ 120   4              if((Sensor_switch[0]==0)&&(SwitchFlag[0]==0))SwitchFlag[0]++;
+ 121   4              if((Sensor_switch[1]==0)&&(SwitchFlag[0]==1))SwitchFlag[0]++;
+ 122   4              Sensor_display_switchingTimer=Sensor_display_switchingSpeed;//ÖØ×°
+ 123   4              
+ 124   4            }
+ 125   3            if(goUp&&Refill_sign_2&&(!goDown)){if(SwitchFlag[1]<3)SwitchFlag[1]++;else SwitchFlag[1]=0;}
+ 126   3            if(goBack&&Refill_sign_1&&(!goDown))
+ 127   3              {
+ 128   4      //          Send_buffer[0]=0xAA;
+ 129   4      //          Send_buffer[1]=0x06;
+ 130   4      //          Send_buffer[2]=0x00;
+ 131   4      //          Send_buffer[3]=0xB0;
+ 132   4      //          UartPutStr(Send_buffer,4);
+ 133   4                Tell_theTime();
+ 134   4      //          //*JpAlarmMusic(n);
+ 135   4      //          if(n<4)n++;else n=0;*/
+ 136   4                
+ 137   4              }
+ 138   3              if(goBack&&goDown&&Refill_sign_3)
+ 139   3              {
+ 140   4                Tell_theData();
+ 141   4              }
+ 142   3              if(goBack&&goUp&&Refill_sign_3)JqPlayCmd(2);//JqPlaySpecifiedTrack(1);
+ 143   3              //if(goIn&&goBack)
+ 144   3            //if(goUp&Refill_sign_2){if(ds_dat_time_set[3]<29)ds_dat_time_set[3]++;else ds_dat_time_set[3]=0;Ds1302
+             -_Set_time();}
+ 145   3          break;}
+ 146   2          case 1:
+ 147   2          { if(goBack&Refill_sign_1){menuCode=0;Refill_sign_1=0;}
+ 148   3            if(goUp&Refill_sign_2){if(OptionCode[0]<OptionCode_Max[0])OptionCode[0]++;else OptionCode[0]=0;Refill_s
+             -ign_2=0;}
+ 149   3            if(goDown&Refill_sign_3){if(OptionCode[0]>0)OptionCode[0]--; else OptionCode[0]=OptionCode_Max[0];Refil
+             -l_sign_3=0;}
+ 150   3            if(goIn&Refill_sign_0){if(OptionCode[0]<7)menuCode=OptionCode[0]+10;else menuCode=10; Refill_sign_0=0;}
+ 151   3            break;
+ 152   3          }
+ 153   2          case 10:
+ 154   2          {
+ 155   3            if(goBack&Refill_sign_1){if(Change_sign==0)menuCode=1;if(Change_sign==1){menuCode=100;Change_sign=0;}}
+ 156   3            if(goIn&Refill_sign_0){if(OptionCode[1]<OptionCode_Max[1])OptionCode[1]++;else OptionCode[1]=0;}
+ 157   3            if(BurstGoup||(goUp&Refill_sign_2))
+ 158   3            {
+ 159   4              if(OptionCode[1]<6)Change_sign=1;
+ 160   4               Ds1302_time_Copy(1);
+ 161   4              switch(OptionCode[1])
+ 162   4              {
+ 163   5                case 3:{if(ds_dat_time_set16[6]<99)ds_dat_time_set16[6]++;else ds_dat_time_set16[6]=0;}break;
+ 164   5                case 4:{if(ds_dat_time_set16[4]<12)ds_dat_time_set16[4]++;else ds_dat_time_set16[4]=1;}break;
+ 165   5                case 5:{if(ds_dat_time_set16[3]<Calculate_Totaldays_Ofmonth(ds_dat_time_set16[6],ds_dat_time_set16[4]
+             -))ds_dat_time_set16[3]++;else ds_dat_time_set16[3]=1;}break;
+ 166   5                case 0:{if(ds_dat_time_set16[2]<23)ds_dat_time_set16[2]++;else ds_dat_time_set16[2]=0;}break;
+ 167   5                case 1:{if(ds_dat_time_set16[1]<59)ds_dat_time_set16[1]++;else ds_dat_time_set16[1]=0;}break;
+ 168   5                case 2:{if(ds_dat_time_set16[0]<59)ds_dat_time_set16[0]++;else ds_dat_time_set16[0]=0;}break;
+ 169   5              }
+ 170   4               Ds1302_time_Copy(2);
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 4   
+
+ 171   4            }
+ 172   3            if(BurstGodown||(goDown&Refill_sign_3))
+ 173   3            {
+ 174   4              if(OptionCode[1]<6)Change_sign=1;//È·±£µ±Option´¦ÔÚÕýÈ·µÄÖµÊ±´¥·¢
+ 175   4               Ds1302_time_Copy(1);
+ 176   4              switch(OptionCode[1])
+ 177   4              {
+ 178   5                case 3:{if(ds_dat_time_set16[6]>0)ds_dat_time_set16[6]--;else ds_dat_time_set16[6]=99;}break;
+ 179   5                case 4:{if(ds_dat_time_set16[4]>1)ds_dat_time_set16[4]--;else ds_dat_time_set16[4]=12;}break;
+ 180   5                case 5:{if(ds_dat_time_set16[3]>1)ds_dat_time_set16[3]--;else ds_dat_time_set16[3]=Calculate_Totalday
+             -s_Ofmonth(ds_dat_time_set16[6],ds_dat_time_set16[4]);}break;
+ 181   5                case 0:{if(ds_dat_time_set16[2]>0)ds_dat_time_set16[2]--;else ds_dat_time_set16[2]=23;}break;
+ 182   5                case 1:{if(ds_dat_time_set16[1]>0)ds_dat_time_set16[1]--;else ds_dat_time_set16[1]=59;}break;
+ 183   5                case 2:{if(ds_dat_time_set16[0]>0)ds_dat_time_set16[0]--;else ds_dat_time_set16[0]=59;}break;
+ 184   5              }
+ 185   4               Ds1302_time_Copy(2);
+ 186   4            }
+ 187   3            
+ 188   3            break;
+ 189   3          } 
+ 190   2          case 100:
+ 191   2          {
+ 192   3            if(goIn&Refill_sign_0){Ds1302_Set_time();DsHourOld=ds_dat_time[2];menuCode=1;}
+ 193   3            if(goBack&Refill_sign_1){menuCode=1;}
+ 194   3            break;
+ 195   3          }
+ 196   2          case 11:
+ 197   2          {
+ 198   3            if(goBack&Refill_sign_1){menuCode=1;OptionCode[2]=10;if(Sensor_display_switchingTimer>Sensor_display_sw
+             -itchingSpeed)Sensor_display_switchingTimer=Sensor_display_switchingSpeed;}
+ 199   3            if(goIn&Refill_sign_0){if(OptionCode[2]<OptionCode_Max[2])OptionCode[2]++;else OptionCode[2]=0;}
+ 200   3            if(OptionCode[2]>5)
+ 201   3            {
+ 202   4              if(goUp&&Refill_sign_2)JqSetLoopMode(4);//Ä¿Â¼Ñ­»·
+ 203   4              if(goDown&&Refill_sign_3)JqSetLoopMode(5);//Ä¿Â¼Ëæ»ú
+ 204   4            }
+ 205   3            if(BurstGoup||(goUp&Refill_sign_2))
+ 206   3            {
+ 207   4            switch(OptionCode[2])
+ 208   4              {
+ 209   5                case 0:if(Sensor_switch[0]<1)Sensor_switch[0]++;else Sensor_switch[0]=0;break;
+ 210   5                case 1:if(Sensor_switch[1]<1)Sensor_switch[1]++;else Sensor_switch[1]=0;break;
+ 211   5                case 2:if(rot_taskFrequency[0]<6000)rot_taskFrequency[0]+=100;else rot_taskFrequency[0]=100;break;
+ 212   5                case 3:if(rot_taskFrequency[1]<6000)rot_taskFrequency[1]+=100;else rot_taskFrequency[1]=100;break;
+ 213   5                case 4:if(Sensor_display_switchingSpeed<6000)Sensor_display_switchingSpeed+=100;else Sensor_display_s
+             -witchingSpeed=100;break;
+ 214   5              }
+ 215   4            }
+ 216   3            if(BurstGodown||(goDown&Refill_sign_3))
+ 217   3            switch(OptionCode[2])
+ 218   3              {
+ 219   4                case 0:if(Sensor_switch[0]>0)Sensor_switch[0]--;else Sensor_switch[0]=1;break;
+ 220   4                case 1:if(Sensor_switch[1]>0)Sensor_switch[1]--;else Sensor_switch[1]=1;break;
+ 221   4                case 2:if(rot_taskFrequency[0]>100)rot_taskFrequency[0]-=100;else rot_taskFrequency[0]=6000;break;
+ 222   4                case 3:if(rot_taskFrequency[1]>100)rot_taskFrequency[1]-=100;else rot_taskFrequency[1]=6000;break;
+ 223   4                case 4:if(Sensor_display_switchingSpeed>200)Sensor_display_switchingSpeed-=100;else Sensor_display_sw
+             -itchingSpeed=6000;break;
+ 224   4              }
+ 225   3            break;
+ 226   3          }
+ 227   2          case 12:
+ 228   2          {
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 5   
+
+ 229   3              if(AlarmOptionSite==0)
+ 230   3              {
+ 231   4                if(goBack&Refill_sign_1){menuCode=1;}
+ 232   4                if(goIn&&Refill_sign_0)if(AlarmClockNum<3)AlarmClockNum++;else AlarmClockNum=0;
+ 233   4                if((goUp&&Refill_sign_2||goDown&&Refill_sign_3)&&(AlarmClockNum<4)){Refill_sign_2=0;Refill_sign_3=0;A
+             -larmOptionSite++;}
+ 234   4                if(AlarmClockNum>4)
+ 235   4                {
+ 236   5                  if(goUp&&Refill_sign_2)JqSetLoopMode(1);//µ¥ÇúÑ­»·
+ 237   5                  if(goDown&&Refill_sign_3)JqSetLoopMode(2);//µ¥ÇúÍ£Ö¹
+ 238   5                }
+ 239   4              }
+ 240   3              if((AlarmOptionSite)>0)
+ 241   3              {
+ 242   4                if(goBack&&Refill_sign_1)AlarmOptionSite=0;
+ 243   4                if(goIn&&Refill_sign_0)
+ 244   4                { Refill_sign_0=0;
+ 245   5                  if(!AlarmDat[AlarmClockNum][8])if((AlarmOptionSite)<8)AlarmOptionSite++;else AlarmOptionSite=1;
+ 246   5                  if(AlarmDat[AlarmClockNum][8])if((AlarmOptionSite)<12)AlarmOptionSite++;else AlarmOptionSite=1;
+ 247   5                }
+ 248   4                if(goUp&&Refill_sign_2||BurstGoup)
+ 249   4                  switch(AlarmOptionSite)
+ 250   4                  {
+ 251   5                    case 1:if(goUp&&Refill_sign_2)AlarmDat[AlarmClockNum][0]=1-AlarmDat[AlarmClockNum][0];break;
+ 252   5                    case 2:if(AlarmDat[AlarmClockNum][1]<23)AlarmDat[AlarmClockNum][1]++;else AlarmDat[AlarmClockNum][1
+             -]=0;break;
+ 253   5                    case 3:if(AlarmDat[AlarmClockNum][2]<59)AlarmDat[AlarmClockNum][2]++;else AlarmDat[AlarmClockNum][2
+             -]=0;break;
+ 254   5                    case 4:if(AlarmDat[AlarmClockNum][3]<59)AlarmDat[AlarmClockNum][3]++;else AlarmDat[AlarmClockNum][3
+             -]=0;break;
+ 255   5                    case 5:if(goUp&&Refill_sign_2)AlarmDat[AlarmClockNum][8]=1-AlarmDat[AlarmClockNum][8];break;
+ 256   5                    case 6:
+ 257   5                    {
+ 258   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][4]<99)AlarmDat[AlarmClockNum][4]++;else 
+             -AlarmDat[AlarmClockNum][4]=0;
+ 259   6                      if(AlarmDat[AlarmClockNum][8])if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&0x80)==0)Alarm
+             -Dat[AlarmClockNum][7]|=0x80;else AlarmDat[AlarmClockNum][7]&=(0xff-0x80);
+ 260   6                      break;
+ 261   6                    }
+ 262   5                    case 7:
+ 263   5                    {
+ 264   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][5]<12)AlarmDat[AlarmClockNum][5]++;else 
+             -AlarmDat[AlarmClockNum][5]=1;
+ 265   6                      if(AlarmDat[AlarmClockNum][8])if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>1))==0)
+             -AlarmDat[AlarmClockNum][7]|=(0x80>>1);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>1));
+ 266   6                      break;
+ 267   6                    }
+ 268   5                    case 8:
+ 269   5                    { 
+ 270   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][6]<Calculate_Totaldays_Ofmonth(AlarmDat[
+             -AlarmClockNum][4],AlarmDat[AlarmClockNum][5]))AlarmDat[AlarmClockNum][6]++;else AlarmDat[AlarmClockNum][6]=1;
+ 271   6                      if(AlarmDat[AlarmClockNum][8])if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>2))==0)
+             -AlarmDat[AlarmClockNum][7]|=(0x80>>2);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>2));
+ 272   6                      break;
+ 273   6                    }
+ 274   5                    case 9:if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>3))==0)AlarmDat[AlarmClockNum][
+             -7]|=(0x80>>3);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>3));break;
+ 275   5                    case 10:if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>4))==0)AlarmDat[AlarmClockNum]
+             -[7]|=(0x80>>4);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>4));break;
+ 276   5                    case 11:if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>5))==0)AlarmDat[AlarmClockNum]
+             -[7]|=(0x80>>5);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>5));break;
+ 277   5                    case 12:if(goUp&&Refill_sign_2)if((AlarmDat[AlarmClockNum][7]&(0x80>>6))==0)AlarmDat[AlarmClockNum]
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 6   
+
+             -[7]|=(0x80>>6);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>6));break;
+ 278   5                  }
+ 279   4                  if(goDown&&Refill_sign_3||BurstGodown)
+ 280   4                  switch(AlarmOptionSite)
+ 281   4                  {
+ 282   5                    case 1:if(goDown&&Refill_sign_3)AlarmDat[AlarmClockNum][0]=1-AlarmDat[AlarmClockNum][0];break;
+ 283   5                    case 2:if(AlarmDat[AlarmClockNum][1]>0)AlarmDat[AlarmClockNum][1]--;else AlarmDat[AlarmClockNum][1]
+             -=23;break;
+ 284   5                    case 3:if(AlarmDat[AlarmClockNum][2]>0)AlarmDat[AlarmClockNum][2]--;else AlarmDat[AlarmClockNum][2]
+             -=59;break;
+ 285   5                    case 4:if(AlarmDat[AlarmClockNum][3]>0)AlarmDat[AlarmClockNum][3]--;else AlarmDat[AlarmClockNum][3]
+             -=59;break;
+ 286   5                    case 5:if(goDown&&Refill_sign_3)AlarmDat[AlarmClockNum][8]=1-AlarmDat[AlarmClockNum][8];break;
+ 287   5                    case 6:
+ 288   5                    {
+ 289   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][4]>0)AlarmDat[AlarmClockNum][4]--;else A
+             -larmDat[AlarmClockNum][4]=99;
+ 290   6                      if(AlarmDat[AlarmClockNum][8])if(goDown&&Refill_sign_3)AlarmOptionSite--;//if((AlarmDat[AlarmClock
+             -Num][7]&0x80)==0)AlarmDat[AlarmClockNum][7]|=0x80;else AlarmDat[AlarmClockNum][7]&=(0xff-0x80);
+ 291   6                      break;
+ 292   6                    }
+ 293   5                    case 7:
+ 294   5                    {
+ 295   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][5]>0)AlarmDat[AlarmClockNum][5]--;else A
+             -larmDat[AlarmClockNum][5]=12;
+ 296   6                      if(AlarmDat[AlarmClockNum][8])if(goDown&&Refill_sign_3)AlarmOptionSite--;//if((AlarmDat[AlarmClock
+             -Num][7]&(0x80>>1))==0)AlarmDat[AlarmClockNum][7]|=(0x80>>1);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>1));
+ 297   6                      break;
+ 298   6                    }
+ 299   5                    case 8:
+ 300   5                    { 
+ 301   6                      if(!AlarmDat[AlarmClockNum][8])if(AlarmDat[AlarmClockNum][6]>0)AlarmDat[AlarmClockNum][6]--;else A
+             -larmDat[AlarmClockNum][6]=Calculate_Totaldays_Ofmonth(AlarmDat[AlarmClockNum][4],AlarmDat[AlarmClockNum][5]);
+ 302   6                      if(AlarmDat[AlarmClockNum][8])if(goDown&&Refill_sign_3)AlarmOptionSite--;//if((AlarmDat[AlarmClock
+             -Num][7]&(0x80>>2))==0)AlarmDat[AlarmClockNum][7]|=(0x80>>2);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>2));
+ 303   6                      break;
+ 304   6                    }
+ 305   5                    case 9:AlarmOptionSite--;break;//if(goDown&&Refill_sign_3)if((AlarmDat[AlarmClockNum][7]&(0x80>>3))
+             -==0)AlarmDat[AlarmClockNum][7]|=(0x80>>3);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>3));break;
+ 306   5                    case 10:AlarmOptionSite--;break;//if(goDown&&Refill_sign_3)if((AlarmDat[AlarmClockNum][7]&(0x80>>4)
+             -)==0)AlarmDat[AlarmClockNum][7]|=(0x80>>4);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>4));break;
+ 307   5                    case 11:AlarmOptionSite--;break;//if(goDown&&Refill_sign_3)if((AlarmDat[AlarmClockNum][7]&(0x80>>5)
+             -)==0)AlarmDat[AlarmClockNum][7]|=(0x80>>5);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>5));break;
+ 308   5                    case 12:AlarmOptionSite--;break;//if(goDown&&Refill_sign_3)if((AlarmDat[AlarmClockNum][7]&(0x80>>6)
+             -)==0)AlarmDat[AlarmClockNum][7]|=(0x80>>6);else AlarmDat[AlarmClockNum][7]&=(0xff-(0x80>>6));break;
+ 309   5                  }
+ 310   4                  
+ 311   4              }
+ 312   3              break;
+ 313   3          }
+ 314   2          case 13:
+ 315   2          {
+ 316   3            if(DoubleClickBack&&(!In)&&(!Up)&&(!Down)){menuCode=1;JqPlayCmd(5);PS=0;}//Ë«»÷·µ»Ø¼üÍË³ö
+ 317   3            //if(goIn&&(!goBack)&&(!goDown)&&(!goUp)) {if(RiPlaybackStatus!=1)JqPlayCmd(0);else JqPlayCmd(1);}//È·È
+             -Ï¼ü²¥·Å»òÕßÔÝÍ£ 
+ 318   3            if(goIn&&(!Back)&&(!Up)&&(!Down)) {if(RiPlaybackStatus!=1)JqPlayCmd(0);else JqPlayCmd(1);}
+ 319   3      //      if(goUp&&(!goIn)&&(!goDown)&&(!goBack)){JqPlayCmd(1);}
+ 320   3      //      
+ 321   3      //      if(goDown&&(!goIn)&&(!goUp)){JqPlayCmd(2);}
+ 322   3      //      if(BurstGoin&&BurstGoup)JqPlaySpecifiedTrack(1);
+ 323   3      //      if(BurstGoback&&BurstGodown)JqPlaySpecifiedTrack(1);
+ 324   3            if(goUp&&(In))JqPlaySpecifiedTrack(1);//È·ÈÏ¼üºÍÉÏ¼üÍ¬Ê±°´ÏÂ»Ø¹öÇúÄ¿
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 7   
+
+ 325   3            //if(goDown&&goIn){JqPlayCmd(4);}
+ 326   3            
+ 327   3      //      if(goBack&&goIn){JqPlayCmd(7);}
+ 328   3      //      if(goUp&&goDown){JqPlayCmd(6);}
+ 329   3            if((goUp||BurstGoup)&&(!In))JqPlayCmd(4);//ÉÏ¼üÇúÄ¿¼Ó
+ 330   3            if(goDown||BurstGodown)JqPlayCmd(3);//ÏÂ¼üÇúÄ¿¼õ
+ 331   3            
+ 332   3            if((!Curstatus_key[1])&&(goUp||BurstGoup)){JqPlayCmd(6);}//{JqPlayCmd(4);}//·µ»Ø¼ü+ÉÏ¼üÒôÁ¿¼Ó
+ 333   3            if((!Curstatus_key[1])&&(goDown||BurstGodown)){JqPlayCmd(7);}//{JqPlayCmd(3);}//·µ»Ø¼ü+ÏÂ¼üÒôÁ¿¼õ
+ 334   3            if((!Curstatus_key[1])&&(goIn)){JqPlayCmd(2);}//·µ»Ø¼ü+È·ÈÏ¼üÍ£Ö¹²¥·Å
+ 335   3      //      if(BurstGoback&&BurstGoup||goBack&&goUp){JqPlayCmd(3);}
+ 336   3      //      if(BurstGoin&&BurstGodown||goDown&&goIn){JqPlayCmd(4);}
+ 337   3            break;
+ 338   3          }
+ 339   2          case 14:
+ 340   2          {
+ 341   3            if(goBack&&(!goIn)&&(!goDown)){menuCode=1;}
+ 342   3      
+ 343   3            if(goIn){if(JqSoundOption<4)JqSoundOption++;else JqSoundOption=0;}
+ 344   3            if(goUp)
+ 345   3              switch(JqSoundOption)
+ 346   3              {
+ 347   4                case 0:JqHourlyTimeSwitch=~JqHourlyTimeSwitch;break;
+ 348   4                case 1:if(AlarmClockMusicSet[0]<AlarmClockMusicMax)AlarmClockMusicSet[0]++;else AlarmClockMusicSet[0]
+             -=1;break;
+ 349   4                case 2:if(AlarmClockMusicSet[1]<AlarmClockMusicMax)AlarmClockMusicSet[1]++;else AlarmClockMusicSet[1]
+             -=1;break;
+ 350   4                case 3:if(AlarmClockMusicSet[2]<AlarmClockMusicMax)AlarmClockMusicSet[2]++;else AlarmClockMusicSet[2]
+             -=1;break;
+ 351   4                case 4:if(AlarmClockMusicSet[3]<AlarmClockMusicMax)AlarmClockMusicSet[3]++;else AlarmClockMusicSet[3]
+             -=1;break;
+ 352   4                default:break;
+ 353   4              }
+ 354   3            if(goDown)
+ 355   3              switch(JqSoundOption)
+ 356   3              {
+ 357   4                case 0:JqHourlyTimeSwitch=~JqHourlyTimeSwitch;break;
+ 358   4                case 1:if(AlarmClockMusicSet[0]>1)AlarmClockMusicSet[0]--;else AlarmClockMusicSet[0]=AlarmClockMusicM
+             -ax;break;
+ 359   4                case 2:if(AlarmClockMusicSet[1]>1)AlarmClockMusicSet[1]--;else AlarmClockMusicSet[1]=AlarmClockMusicM
+             -ax;break;
+ 360   4                case 3:if(AlarmClockMusicSet[2]>1)AlarmClockMusicSet[2]--;else AlarmClockMusicSet[2]=AlarmClockMusicM
+             -ax;break;
+ 361   4                case 4:if(AlarmClockMusicSet[3]>1)AlarmClockMusicSet[3]--;else AlarmClockMusicSet[3]=AlarmClockMusicM
+             -ax;break;
+ 362   4                default:break;
+ 363   4              }
+ 364   3            break;
+ 365   3          }
+ 366   2          case 15:
+ 367   2          {
+ 368   3            if(goBack&&(!goIn)&&(!goDown)){menuCode=1;}
+ 369   3            break;
+ 370   3          }
+ 371   2          case 16:
+ 372   2          {
+ 373   3            switch(moreMenuCode)
+ 374   3            {
+ 375   4              case 1:
+ 376   4              {
+ 377   5                if(goIn){moreMenuCode=10;}
+ 378   5                if(goBack){menuCode=1;}
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 8   
+
+ 379   5                break;
+ 380   5              }
+ 381   4              case 10:
+ 382   4              {
+ 383   5                if(goIn){moreMenuCode=100+gameSnakeOption;}
+ 384   5                if(goBack){moreMenuCode=1;}
+ 385   5                if(goUp){if(gameSnakeOption<3)gameSnakeOption++;else gameSnakeOption=0;}
+ 386   5                if(goDown){if(gameSnakeOption>0)gameSnakeOption--;else gameSnakeOption=3;}
+ 387   5                break;
+ 388   5              }
+ 389   4              case 100:
+ 390   4              {
+ 391   5                if(goBack/*&&(!goIn)&&(!goDown)*/){moreMenuCode=10;}
+ 392   5                GreedySnakeMovementDirection_change=GreedySnakeMovementDirection; 
+ 393   5      //        if(goUp)if(GreedySnakeMovementDirection>0)GreedySnakeMovementDirection--;else GreedySnakeMovementDir
+             -ection=3;
+ 394   5      //        if(goDown)if(GreedySnakeMovementDirection<3)GreedySnakeMovementDirection++;else GreedySnakeMovementD
+             -irection=0;
+ 395   5                if(goUp)if(GreedySnakeMovementDirection_change>0)GreedySnakeMovementDirection_change--;else GreedySna
+             -keMovementDirection_change=3;
+ 396   5                if(goDown)if(GreedySnakeMovementDirection_change<3)GreedySnakeMovementDirection_change++;else GreedyS
+             -nakeMovementDirection_change=0;
+ 397   5                //·ÀÖ¹»ØÍ·¡£
+ 398   5                if(greedySnakeHead[0]==greedySnakeBody[0][0])//×Ý×ø±êÏàµÈ
+ 399   5                //if(greedySnakeHead[1]>greedySnakeBody[1])
+ 400   5                if((GreedySnakeMovementDirection_change==1)||(GreedySnakeMovementDirection_change==3))GreedySnakeMove
+             -mentDirection=GreedySnakeMovementDirection_change;
+ 401   5                if(greedySnakeHead[1]==greedySnakeBody[0][1])//ºá×ø±êÏàµÈ
+ 402   5                if((GreedySnakeMovementDirection_change==0)||(GreedySnakeMovementDirection_change==2))GreedySnakeMove
+             -mentDirection=GreedySnakeMovementDirection_change;
+ 403   5              
+ 404   5                if(KEY0)gameSpeed=gameSpeedSet;else gameSpeed=0;
+ 405   5                break;
+ 406   5              }
+ 407   4              case 101:
+ 408   4              {
+ 409   5                if(goBack/*&&(!goIn)&&(!goDown)*/){moreMenuCode=10;}
+ 410   5                GreedySnakeMovementDirection_change=GreedySnakeMovementDirection; 
+ 411   5      //        if(goUp)if(GreedySnakeMovementDirection>0)GreedySnakeMovementDirection--;else GreedySnakeMovementDir
+             -ection=3;
+ 412   5      //        if(goDown)if(GreedySnakeMovementDirection<3)GreedySnakeMovementDirection++;else GreedySnakeMovementD
+             -irection=0;
+ 413   5                if(goUp)if(GreedySnakeMovementDirection_change>0)GreedySnakeMovementDirection_change--;else GreedySna
+             -keMovementDirection_change=3;
+ 414   5                if(goDown)if(GreedySnakeMovementDirection_change<3)GreedySnakeMovementDirection_change++;else GreedyS
+             -nakeMovementDirection_change=0;
+ 415   5                //·ÀÖ¹»ØÍ·¡£
+ 416   5                if(greedySnakeHead[0]==greedySnakeBody[0][0])//×Ý×ø±êÏàµÈ
+ 417   5                //if(greedySnakeHead[1]>greedySnakeBody[1])
+ 418   5                if((GreedySnakeMovementDirection_change==1)||(GreedySnakeMovementDirection_change==3))GreedySnakeMove
+             -mentDirection=GreedySnakeMovementDirection_change;
+ 419   5                if(greedySnakeHead[1]==greedySnakeBody[0][1])//ºá×ø±êÏàµÈ
+ 420   5                if((GreedySnakeMovementDirection_change==0)||(GreedySnakeMovementDirection_change==2))GreedySnakeMove
+             -mentDirection=GreedySnakeMovementDirection_change;
+ 421   5              
+ 422   5                if(KEY0)gameSpeed=gameSpeedSet;else gameSpeed=0;
+ 423   5                break;
+ 424   5              }
+ 425   4              case 102:{if(goBack){moreMenuCode=10;}break;}
+ 426   4              case 103:
+ 427   4              {
+ 428   5                if(goBack){moreMenuCode=10;}
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 9   
+
+ 429   5                if(goIn){if(gameSnakeSetOption>0)gameSnakeSetOption=0;else gameSnakeSetOption++;}
+ 430   5                if(goUp||BurstGoup)switch(gameSnakeSetOption)
+ 431   5                {
+ 432   6                  case 0:if(greedySnakeFeedUseNum<10)greedySnakeFeedUseNum++;else greedySnakeFeedUseNum=1;break;
+ 433   6                  case 1:if(gameSpeedSet>0)gameSpeedSet--;else gameSpeedSet=10;break;
+ 434   6                  default :break;
+ 435   6                }
+ 436   5                if(goDown||BurstGodown)switch(gameSnakeSetOption)
+ 437   5                {
+ 438   6                  case 0:if(greedySnakeFeedUseNum>1)greedySnakeFeedUseNum--;else greedySnakeFeedUseNum=10;break;
+ 439   6                  case 1:if(gameSpeedSet<10)gameSpeedSet++;else gameSpeedSet=0;break;
+ 440   6                  default :break;
+ 441   6                }
+ 442   5                break;
+ 443   5              }
+ 444   4              case 210:
+ 445   4              {
+ 446   5                if(goBack){moreMenuCode=10;rot_taskFrequency[4]=5;}
+ 447   5                if(goIn){moreMenuCode=100;}
+ 448   5                break;
+ 449   5              }
+ 450   4              case 211:
+ 451   4              {
+ 452   5                if(goBack){moreMenuCode=10;rot_taskFrequency[4]=5;}
+ 453   5                if(goIn){moreMenuCode=101;}
+ 454   5                break;
+ 455   5              }
+ 456   4            }
+ 457   3            break;
+ 458   3          }
+ 459   2          case 168:
+ 460   2          {
+ 461   3            if(goBack/*&&(!goIn)&&(!goDown)*/){menuCode=1;}
+ 462   3            GreedySnakeMovementDirection_change=GreedySnakeMovementDirection; 
+ 463   3      //      if(goUp)if(GreedySnakeMovementDirection>0)GreedySnakeMovementDirection--;else GreedySnakeMovementDire
+             -ction=3;
+ 464   3      //      if(goDown)if(GreedySnakeMovementDirection<3)GreedySnakeMovementDirection++;else GreedySnakeMovementDi
+             -rection=0;
+ 465   3            if(goUp)if(GreedySnakeMovementDirection_change>0)GreedySnakeMovementDirection_change--;else GreedySnake
+             -MovementDirection_change=3;
+ 466   3            if(goDown)if(GreedySnakeMovementDirection_change<3)GreedySnakeMovementDirection_change++;else GreedySna
+             -keMovementDirection_change=0;
+ 467   3            //·ÀÖ¹»ØÍ·¡£
+ 468   3            if(greedySnakeHead[0]==greedySnakeBody[0][0])//×Ý×ø±êÏàµÈ
+ 469   3              //if(greedySnakeHead[1]>greedySnakeBody[1])
+ 470   3              if((GreedySnakeMovementDirection_change==1)||(GreedySnakeMovementDirection_change==3))GreedySnakeMovem
+             -entDirection=GreedySnakeMovementDirection_change;
+ 471   3            if(greedySnakeHead[1]==greedySnakeBody[0][1])//ºá×ø±êÏàµÈ
+ 472   3              if((GreedySnakeMovementDirection_change==0)||(GreedySnakeMovementDirection_change==2))GreedySnakeMovem
+             -entDirection=GreedySnakeMovementDirection_change;
+ 473   3              
+ 474   3            if(KEY0)gameSpeed=gameSpeedSet;else gameSpeed=0;
+ 475   3            break;
+ 476   3          }
+ 477   2          case 169:
+ 478   2          {
+ 479   3            if(goBack){menuCode=1;rot_taskFrequency[4]=5;}
+ 480   3            if(goIn){menuCode=16;}
+ 481   3            break;
+ 482   3          }
+ 483   2          case 255:
+ 484   2          {
+C51 COMPILER V9.60.0.0   BUTTON                                                            05/29/2020 16:57:56 PAGE 10  
+
+ 485   3            if(goIn||goDown||goUp||goBack)menuCode=0;
+ 486   3            break;
+ 487   3          }
+ 488   2        }
+ 489   1      }
+ 490          void recognition_key()      //°´¼üÉ¨Ãèº¯Êý
+ 491          {
+ 492   1        uchar i;
+ 493   1        
+ 494   1        for(i=0;i<4;i++)
+ 495   1        {
+ 496   2          Curstatus_key[i]=(KEY0&(i==0)|KEY1&(i==1)|KEY2&(i==2)|KEY3&(i==3));
+ 497   2          if(Prestate_key[i]!=Curstatus_key[i])
+ 498   2          {
+ 499   3            if(Curstatus_key[i]==0)//0°´ÏÂ£¬1Ì§Æð
+ 500   3            {
+ 501   4              Instruction_code_key[i]=0x80;
+ 502   4            }
+ 503   3            else 
+ 504   3            {
+ 505   4              Instruction_code_key[i]=0x81;
+ 506   4              Refill_sign=0xff;
+ 507   4            }
+ 508   3              Double_Press_counter[i]=0;
+ 509   3              Double_Idle_counter[i]=0;
+ 510   3          }
+ 511   2          else //×´Ì¬±£³Ö
+ 512   2          {
+ 513   3            if(Curstatus_key[i]==0) 
+ 514   3            {if(Instruction_code_key[i]!=0x82){Instruction_code_key[i]=0x82;Double_Press_counter[i]=0;}
+ 515   4              else if(Double_Press_counter[i]<65535)Double_Press_counter[i]++;else Double_Press_counter[i]=100;}
+ 516   3            else 
+ 517   3            {if(Instruction_code_key[i]!=0x83){Instruction_code_key[i]=0x83;Double_Idle_counter[i]=0;}
+ 518   4              else if(Double_Idle_counter[i]<65535)Double_Idle_counter[i]++;else Double_Idle_counter[i]=100;
+ 519   4            //Double_Press_counter[i]=0;
+ 520   4            Refill_sign=0xff;
+ 521   4            }
+ 522   3          }
+ 523   2          Prestate_key[i]=Curstatus_key[i];
+ 524   2        }
+ 525   1        control_Section();
+ 526   1        
+ 527   1      }
+ 528          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   6041    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     12       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     33    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

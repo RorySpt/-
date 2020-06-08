@@ -1,0 +1,105 @@
+C51 COMPILER V9.60.0.0   DELAY                                                             05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\delay.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE delay.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBU
+                    -G PRINT(.\Listings\delay.lst) TABS(2) OBJECT(.\Objects\delay.obj)
+
+line level    source
+
+   1          #include "delay.h"
+   2          
+   3          void d_10us()
+   4          {
+   5   1        unsigned char i;
+   6   1      
+   7   1        _nop_();
+   8   1        i = 6;
+   9   1        while (--i);
+  10   1      }
+  11          void d_100us()
+  12          {
+  13   1        unsigned char i;
+  14   1      
+  15   1        _nop_();
+  16   1        i = 89;
+  17   1        while (--i);
+  18   1      }
+  19          void d_100ms()
+  20          {
+  21   1        unsigned char i, j, k;
+  22   1      
+  23   1        _nop_();
+  24   1        i = 2;
+  25   1        j = 103;
+  26   1        k = 147;
+  27   1        do
+  28   1        {
+  29   2          do
+  30   2          {
+  31   3            while (--k);
+  32   3          } while (--j);
+  33   2        } while (--i);
+  34   1      }
+  35          void d_1s()
+  36          {
+  37   1        unsigned char i, j, k;
+  38   1      
+  39   1        _nop_();
+  40   1        i = 15;
+  41   1        j = 2;
+  42   1        k = 235;
+  43   1        do
+  44   1        {
+  45   2          do
+  46   2          {
+  47   3            while (--k);
+  48   3          } while (--j);
+  49   2        } while (--i);
+  50   1      }
+  51          
+  52          void d_1ms()
+  53          {
+  54   1      unsigned char i, j;
+C51 COMPILER V9.60.0.0   DELAY                                                             05/29/2020 16:57:56 PAGE 2   
+
+  55   1      
+  56   1        _nop_();
+  57   1        i = 4;
+  58   1        j = 146;
+  59   1        do
+  60   1        {
+  61   2          while (--j);
+  62   2        } while (--i);
+  63   1      }
+  64          
+  65          void d_n_ms(uint n)
+  66          {
+  67   1        
+  68   1        while(n--)
+  69   1        {
+  70   2          d_1ms();
+  71   2        }
+  72   1        
+  73   1      }
+  74          
+  75            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     70    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,146 @@
+C51 COMPILER V9.60.0.0   GAME                                                              05/29/2020 16:57:57 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GAME
+OBJECT MODULE PLACED IN .\Objects\game.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE game.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBUG
+                    - PRINT(.\Listings\game.lst) TABS(2) OBJECT(.\Objects\game.obj)
+
+line level    source
+
+   1          #include "game.h"
+   2          #include <stdlib.h>
+   3          //**************************************
+   4          //游戏：贪吃蛇
+   5          //画布：22*14
+   6          //像素块：4*4
+   7          //**************************************
+   8          extern uint rot_timeBase;
+   9          #define FeedQuantity 10
+  10          
+  11          uchar greedySnakeBody[14*22][2];//蛇身，最长307
+  12          uchar greedySnakeFeedNum[FeedQuantity][2]=//食物
+  13          {
+  14            {0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},
+  15            {0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},{0xAA,0xAA},
+  16          };
+  17          uchar greedySnakeFeedUseNum=1;
+  18          uint greedySnakeBodyLength=2;//蛇身长度，初始2
+  19          uchar greedySnakeHead[2];//蛇头,YX
+  20          uchar GreedySnakeMovementDirection;//0~3:右下左上
+  21          
+  22          void greedySnake_feed_init()
+  23          {
+  24   1        uchar i;
+  25   1        for(i=0;i<greedySnakeFeedUseNum;i++)
+  26   1        {
+  27   2          greedySnakeFeedNum[i][0]=0xAA;
+  28   2          greedySnakeFeedNum[i][1]=0xAA;
+  29   2        }
+  30   1      }
+  31          void greedySnake_feed()
+  32          {
+  33   1        uint  i=0;
+  34   1        uchar j=0;
+  35   1        uchar y=1;
+  36   1        uchar n=0;
+  37   1        for(j=0;j<greedySnakeFeedUseNum;j++,y=1)
+  38   1        {
+  39   2          if((greedySnakeFeedNum[j][0]==0xAA)&&(greedySnakeFeedNum[j][1]==0xAA))
+  40   2            while(y)
+  41   2            {
+  42   3              greedySnakeFeedNum[j][0]=rand()%14;
+  43   3              greedySnakeFeedNum[j][1]=rand()%22;
+  44   3              y=0;
+  45   3              for(i=0;i<greedySnakeBodyLength;i++)
+  46   3              if(greedySnakeFeedNum[j][0]==greedySnakeBody[i][0])if(greedySnakeFeedNum[j][1]==greedySnakeBody[i][1])
+             -{y=1;break;}
+  47   3              if(y==0)if((greedySnakeFeedNum[j][0]==greedySnakeHead[0])&&(greedySnakeFeedNum[j][0]==greedySnakeHead[
+             -0]))y=1;
+  48   3              if(y==0)for(n=0;n<greedySnakeFeedUseNum;n++)
+  49   3                        if(j!=n)
+  50   3                          if(greedySnakeFeedNum[j][0]==greedySnakeFeedNum[n][0])
+  51   3                            if(greedySnakeFeedNum[j][1]==greedySnakeFeedNum[n][1])
+  52   3                            {y=1;break;}
+C51 COMPILER V9.60.0.0   GAME                                                              05/29/2020 16:57:57 PAGE 2   
+
+  53   3            }
+  54   2        }
+  55   1      }
+  56          uchar greedySnake_move(uchar mode)
+  57          {
+  58   1        uint i;
+  59   1      //  char movx,movy;
+  60   1      //  switch(GreedySnakeMovementDirection)
+  61   1      //  {
+  62   1      //    case 0:{if(greedySnakeHead[1]==21){return 255;}else {movx=1;movy=0;}}//墙
+  63   1      //    case 1:{if(greedySnakeHead[0]==13){return 255;}else {movx=0;movy=1;}}
+  64   1      //    case 2:{if(greedySnakeHead[1]==0){return 255;}else {movx=-1;movy=0;}}
+  65   1      //    case 3:{if(greedySnakeHead[0]==0){return 255;}else {movx=0;movy=-1;}}
+  66   1      //  }
+  67   1      //备用
+  68   1        uchar HeaderCacheX,HeaderCacheY;
+  69   1        if(mode==0)
+  70   1        switch(GreedySnakeMovementDirection)
+  71   1        {
+  72   2          case 0:{if(greedySnakeHead[1]==21){return 255;}else {HeaderCacheY=greedySnakeHead[0];HeaderCacheX=greedy
+             -SnakeHead[1]+1;}break;}//墙
+  73   2          case 1:{if(greedySnakeHead[0]==13){return 255;}else {HeaderCacheY=greedySnakeHead[0]+1;HeaderCacheX=gree
+             -dySnakeHead[1];}break;}
+  74   2          case 2:{if(greedySnakeHead[1]==0 ){return 255;}else {HeaderCacheY=greedySnakeHead[0];HeaderCacheX=greedy
+             -SnakeHead[1]-1;}break;}
+  75   2          case 3:{if(greedySnakeHead[0]==0 ){return 255;}else {HeaderCacheY=greedySnakeHead[0]-1;HeaderCacheX=gree
+             -dySnakeHead[1];}break;}
+  76   2        }
+  77   1        if(mode==1)
+  78   1          switch(GreedySnakeMovementDirection)
+  79   1        {
+  80   2          case 0:{if(greedySnakeHead[1]==21){HeaderCacheY=greedySnakeHead[0];HeaderCacheX=0;}else {HeaderCacheY=gr
+             -eedySnakeHead[0];HeaderCacheX=greedySnakeHead[1]+1;}break;}//墙
+  81   2          case 1:{if(greedySnakeHead[0]==13){HeaderCacheY=0;HeaderCacheX=greedySnakeHead[1];}else {HeaderCacheY=gr
+             -eedySnakeHead[0]+1;HeaderCacheX=greedySnakeHead[1];}break;}
+  82   2          case 2:{if(greedySnakeHead[1]==0 ){HeaderCacheY=greedySnakeHead[0];HeaderCacheX=21;}else {HeaderCacheY=g
+             -reedySnakeHead[0];HeaderCacheX=greedySnakeHead[1]-1;}break;}
+  83   2          case 3:{if(greedySnakeHead[0]==0 ){HeaderCacheY=13;HeaderCacheX=greedySnakeHead[1];}else {HeaderCacheY=g
+             -reedySnakeHead[0]-1;HeaderCacheX=greedySnakeHead[1];}break;}
+  84   2        }
+  85   1        for(i=0;i<greedySnakeBodyLength-1;i++)if(greedySnakeBody[i][0]==(HeaderCacheY))if(greedySnakeBody[i][1]==
+             -(HeaderCacheX)){return 254;}//自身
+  86   1        for(i=0;i<greedySnakeFeedUseNum;i++)if(greedySnakeFeedNum[i][0]==(HeaderCacheY))if(greedySnakeFeedNum[i][
+             -1]==(HeaderCacheX))
+  87   1          {
+  88   2            greedySnakeBodyLength++;
+  89   2            greedySnakeFeedNum[i][0]=0xAA;
+  90   2            greedySnakeFeedNum[i][1]=0xAA;
+  91   2            for(i=greedySnakeBodyLength-1;i>0;i--){greedySnakeBody[i][0]=greedySnakeBody[i-1][0];greedySnakeBody[i]
+             -[1]=greedySnakeBody[i-1][1];}
+  92   2            greedySnakeBody[0][0]=greedySnakeHead[0];greedySnakeBody[0][1]=greedySnakeHead[1];
+  93   2            greedySnakeHead[0]=HeaderCacheY;  greedySnakeHead[1]=HeaderCacheX;
+  94   2            return 1;
+  95   2          }//食物
+  96   1        for(i=greedySnakeBodyLength-1;i>0;i--){greedySnakeBody[i][0]=greedySnakeBody[i-1][0];greedySnakeBody[i][1
+             -]=greedySnakeBody[i-1][1];}
+  97   1        greedySnakeBody[0][0]=greedySnakeHead[0];greedySnakeBody[0][1]=greedySnakeHead[1];
+  98   1        greedySnakeHead[0]=HeaderCacheY;  greedySnakeHead[1]=HeaderCacheX;
+  99   1        return 0;
+ 100   1      }
+
+
+C51 COMPILER V9.60.0.0   GAME                                                              05/29/2020 16:57:57 PAGE 3   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1105    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    642       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,593 @@
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD12864
+OBJECT MODULE PLACED IN .\Objects\lcd12864.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE lcd12864.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 D
+                    -EBUG PRINT(.\Listings\lcd12864.lst) TABS(2) OBJECT(.\Objects\lcd12864.obj)
+
+line level    source
+
+   1          #include "lcd.h"
+   2          #include <intrins.h>
+   3          #include <stdlib.h>
+   4          #define LCD_IO P1
+   5          //#include "delay.h"
+   6          uchar code BitSelection[7][8]=
+   7          {
+   8            {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80},
+   9            {0x03,0x06,0x0c,0x18,0x30,0x60,0xc0,0x00},
+  10            {0x07,0x0e,0x1c,0x38,0x70,0xe0,0x00,0x00},
+  11            {0x0f,0x1e,0x3c,0x78,0xf0,0x00,0x00,0x00},
+  12            {0x1f,0x3e,0x7c,0xf8,0x00,0x00,0x00,0x00},
+  13            {0x3f,0x7e,0xfc,0x00,0x00,0x00,0x00,0x00},
+  14            {0x7f,0xfe,0x00,0x00,0x00,0x00,0x00,0x00},
+  15          };
+  16          bit lcd_busy()
+  17          {
+  18   1        bit result;
+  19   1        LCD_IO=0xff;
+  20   1        LCD_RS=0;
+  21   1        LCD_RW=1;
+  22   1        //LCD_E=0;
+  23   1        LCD_E=1;//_nop_();//_nop_();
+  24   1        result=(bit)(LCD_IO&0x80);
+  25   1        LCD_E=0;
+  26   1        return(result);
+  27   1      }
+  28          
+  29           void lcd_init()
+  30          {
+  31   1        /*RST=0;delay_10um(4);
+  32   1        RST=1; */
+  33   1        //LCD_PSB=1; 
+  34   1        lcd_wcmd(0x30);
+  35   1        lcd_wcmd(0x34);
+  36   1        lcd_wcmd(0x0c);
+  37   1        //lcd_wcmd(0x01);  //ÇåÆÁ
+  38   1        d_100us();
+  39   1      }
+  40          
+  41          uchar lcd_rdat()
+  42          {
+  43   1        uchar rdat;
+  44   1        while(lcd_busy());
+  45   1        LCD_IO=0xff;
+  46   1        LCD_RW=1;
+  47   1        LCD_RS=1;
+  48   1        LCD_E=1;//_nop_();
+  49   1        rdat=LCD_IO;
+  50   1        LCD_E=0;
+  51   1        return rdat;
+  52   1      }
+  53          
+  54          void  lcd_wdat(u8 data dat)
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 2   
+
+  55          { while(lcd_busy());
+  56   1        LCD_RW=0;
+  57   1        LCD_RS=1;
+  58   1        //LCD_E=0;//_nop_();
+  59   1        LCD_E=1;//_nop_();_nop_();
+  60   1        LCD_IO=dat;_nop_();
+  61   1        LCD_E=0;//_nop_();
+  62   1      }
+  63          void lcd_wcmd(u8 data dat)
+  64          {
+  65   1        while(lcd_busy());
+  66   1        LCD_RW=0;
+  67   1        LCD_RS=0;
+  68   1        //LCD_E=0;//_nop_();
+  69   1        LCD_E=1;//_nop_();
+  70   1        LCD_IO=dat;_nop_();
+  71   1        LCD_E=0;//_nop_();
+  72   1      }
+  73          
+  74          
+  75          //void lcd_Draw_PM(const unsigned  char *ptr){}
+  76          void lcd_Draw_PM_Any(uchar x,uchar y,uchar wide,uchar hight,uchar *ptr)
+  77          {
+  78   1        uchar line,row,movx,lcdx;
+  79   1        uchar addx,addy;
+  80   1        uchar dat0,dat1;
+  81   1        lcd_wcmd(0x36);
+  82   1        if(wide%8==0)wide=wide/8;else wide=wide/8+1;
+  83   1        lcdx=x/16;
+  84   1        
+  85   1        for(line=0;line<hight;line++)
+  86   1        {
+  87   2          movx=x&0x0f;
+  88   2          if(y+line>31)
+  89   2          {
+  90   3            addy=0x80+y+line-32;
+  91   3            addx=0x80+lcdx+8;
+  92   3        
+  93   3          }
+  94   2          else
+  95   2          {
+  96   3            addy=0x80+y+line;
+  97   3            addx=0x80+lcdx;
+  98   3      
+  99   3          }
+ 100   2          lcd_wcmd(addy);
+ 101   2          lcd_wcmd(addx);
+ 102   2          if(movx==0)
+ 103   2          {
+ 104   3            for(row=0;row<wide;row++)
+ 105   3            {
+ 106   4              lcd_wdat(ptr[line*wide+row]);
+ 107   4            }
+ 108   3            lcd_wdat(0x00);
+ 109   3            //lcd_DrawLineY(x+wide,y,hight,0);
+ 110   3          }
+ 111   2          else if(movx<8)
+ 112   2          {
+ 113   3            lcd_rdat();
+ 114   3            dat0=lcd_rdat();
+ 115   3            //dat1=lcd_rdat();
+ 116   3            dat0=(dat0>>movx)<<movx;
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 3   
+
+ 117   3            lcd_wcmd(addy);
+ 118   3            lcd_wcmd(addx);
+ 119   3            for(row=0;row<wide;row++)
+ 120   3            {
+ 121   4              if(row==0)lcd_wdat((ptr[line*wide+row]>>movx)|dat0);
+ 122   4              else 
+ 123   4                {
+ 124   5                  if(row==(wide-1)){lcd_wdat((ptr[line*wide+row]>>movx)|(ptr[line*wide+row-1]<<(8-movx)));if(wide)lcd_
+             -wdat(ptr[line*wide+row]<<(8-movx));}
+ 125   5                  else lcd_wdat((ptr[line*wide+row]>>movx)|(ptr[line*wide+row-1]<<(8-movx)));
+ 126   5                }
+ 127   4            }
+ 128   3            lcd_wdat(0x00);
+ 129   3          }
+ 130   2          else
+ 131   2          {
+ 132   3      //      lcd_wcmd(addy);
+ 133   3      //      lcd_wcmd(addx);
+ 134   3            lcd_rdat();
+ 135   3            dat0=lcd_rdat();
+ 136   3            dat1=lcd_rdat();
+ 137   3            dat1=(dat1>>movx)<<movx;
+ 138   3            movx-=8;
+ 139   3            
+ 140   3            lcd_wcmd(addy);
+ 141   3            lcd_wcmd(addx);
+ 142   3            lcd_wdat(dat0);
+ 143   3            for(row=0;row<wide;row++)
+ 144   3            {
+ 145   4              if(row==0)lcd_wdat((ptr[line*wide+row]>>movx)|dat1);
+ 146   4              else 
+ 147   4                {
+ 148   5                  if(row==(wide-1)){lcd_wdat((ptr[line*wide+row]>>movx)|(ptr[line*wide+row-1]<<(8-movx)));if(wide)lcd_
+             -wdat(ptr[line*wide+row]<<(8-movx));}
+ 149   5                  else lcd_wdat((ptr[line*wide+row]>>movx)|(ptr[line*wide+row-1]<<(8-movx)));
+ 150   5                }
+ 151   4            }
+ 152   3            lcd_wdat(0x00);
+ 153   3          }
+ 154   2        }
+ 155   1        
+ 156   1      }
+ 157          void lcd_Draw_PM_Any_plus(uchar startX,uchar startY,uchar wide,uchar hight,uchar *ptr)//x,wide:0~127;y,hig
+             -ht:0~63;
+ 158          {
+ 159   1        uchar addx,addy,endx;
+ 160   1        uchar dat[4];
+ 161   1        uchar offsetx;
+ 162   1        uchar x,y,wideByte,widebyte;
+ 163   1        lcd_wcmd(0x36);
+ 164   1        
+ 165   1      //  startaddx=startX>>4;
+ 166   1        wideByte=(wide-1>>4);
+ 167   1        widebyte=(wide-1>>3)+1;
+ 168   1      //  if()
+ 169   1      //  widebyte_p=(wide-1>>3)+1;
+ 170   1        offsetx=startX&0x07;
+ 171   1        for(y=0;y<hight;y++)//
+ 172   1        {
+ 173   2          if(y+startY<32){addx=0x80+(startX>>4);addy=y+startY+0x80;endx=0x80+(startX+wide>>4);}
+ 174   2          else    {addx=0x88+(startX>>4);addy=y+startY+0x80-32;endx=0x88+(startX+wide>>4);}
+ 175   2          
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 4   
+
+ 176   2          
+ 177   2          lcd_wcmd(addy);lcd_wcmd(addx);lcd_rdat();dat[0]=lcd_rdat();dat[1]=lcd_rdat();
+ 178   2          if(startX+wide-1<255){lcd_wcmd(addy);lcd_wcmd(endx);lcd_rdat();dat[2]=lcd_rdat();dat[3]=lcd_rdat();}
+ 179   2          
+ 180   2          lcd_wcmd(addy);lcd_wcmd(addx);
+ 181   2          
+ 182   2          for(x=0;x<widebyte;x++)
+ 183   2          {
+ 184   3            if((startX&0x0f)<8)//ÆðÊ¼Î»ÖÃÔÚ¸ß×Ö½Ú
+ 185   3            {
+ 186   4              if(x==0)//µÚÒ»¸ö×Ö½Ú
+ 187   4                {
+ 188   5                  if(offsetx+wide<8)lcd_wdat(((dat[0]>>(8-offsetx))<<(8-offsetx))|((ptr[y*widebyte+x])>>offsetx)|(dat[
+             -0]&(0xff>>(offsetx+wide))));//|((dat[0]<<(offsetx+wide))>>(offsetx+wide))
+ 189   5                    
+ 190   5                  else {lcd_wdat(((dat[0]>>(8-offsetx))<<(8-offsetx))|((ptr[y*widebyte+x])>>offsetx));lcd_wdat(((dat[1
+             -]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));}
+ 191   5                }
+ 192   4              else if(x==widebyte-1)
+ 193   4                {
+ 194   5                  lcd_wdat((ptr[y*widebyte+x-1]<<(8-offsetx))|((ptr[y*widebyte+x])>>(offsetx)));
+ 195   5                  if(((startX+wide-1)&0x0f)!=0x0f)
+ 196   5                  {
+ 197   6                    if(!(widebyte%2))
+ 198   6                    {
+ 199   7                    lcd_wdat(((dat[2]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));
+ 200   7                    lcd_wdat(dat[3]);
+ 201   7                    }
+ 202   6                    else
+ 203   6                    {
+ 204   7                      lcd_wdat(((dat[3]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));
+ 205   7                    }
+ 206   6                  }
+ 207   5                }
+ 208   4              else {lcd_wdat((ptr[y*widebyte+x-1]<<(8-offsetx))|((ptr[y*widebyte+x])>>(offsetx)));}
+ 209   4            }
+ 210   3            else
+ 211   3            {
+ 212   4              if(x==0)
+ 213   4                {
+ 214   5                  lcd_wdat(dat[0]);
+ 215   5                  if(offsetx+wide<8)lcd_wdat(((dat[1]>>(8-offsetx))<<(8-offsetx))|((ptr[y*widebyte+x])>>offsetx)|(dat[
+             -1]&(0xff>>(offsetx+wide))));
+ 216   5                  else {lcd_wdat(((dat[1]>>(8-offsetx))<<(8-offsetx))|((ptr[y*widebyte+x])>>offsetx));lcd_wdat(((dat[2
+             -]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));}
+ 217   5                }
+ 218   4              else if(x==widebyte-1)
+ 219   4                {
+ 220   5                  lcd_wdat((ptr[y*widebyte+x-1]<<(8-offsetx))|((ptr[y*widebyte+x])>>(offsetx)));
+ 221   5                  if(((startX+wide-1)&0x0f)!=0x0f)
+ 222   5                  {
+ 223   6                    if((widebyte%2))
+ 224   6                    {
+ 225   7                    lcd_wdat(((dat[2]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));
+ 226   7                    lcd_wdat(dat[3]);
+ 227   7                    }
+ 228   6                    else
+ 229   6                    {
+ 230   7                      lcd_wdat(((dat[3]<<offsetx)>>offsetx)|((ptr[y*widebyte+x])<<(8-offsetx)));
+ 231   7                    }
+ 232   6                  }
+ 233   5                }
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 5   
+
+ 234   4              else {lcd_wdat((ptr[y*widebyte+x-1]<<(8-offsetx))|((ptr[y*widebyte+x])>>(offsetx)));}
+ 235   4            }
+ 236   3            
+ 237   3          }
+ 238   2          
+ 239   2        }
+ 240   1        
+ 241   1        
+ 242   1        
+ 243   1      }
+ 244          void lcd_Draw_PM(uchar x,uchar y,uchar wide,uchar hight,uchar *ptr)
+ 245          {
+ 246   1        uchar line,row;
+ 247   1        lcd_wcmd(0x36);
+ 248   1        //if(wide%8==0)wide=wide/8;else wide=wide/8+1;
+ 249   1        for(line=0;line<hight;line++)
+ 250   1        {
+ 251   2          if(y+line>31)
+ 252   2          {
+ 253   3            lcd_wcmd(0x80+y+line-32);
+ 254   3            lcd_wcmd(0x80+x+8);     
+ 255   3          }
+ 256   2          else
+ 257   2          {
+ 258   3            lcd_wcmd(0x80+y+line);
+ 259   3            lcd_wcmd(0x80+x);
+ 260   3          }
+ 261   2          for(row=0;row<wide;row++)
+ 262   2          {
+ 263   3            lcd_wdat(ptr[line*wide+row]);
+ 264   3          }
+ 265   2        }
+ 266   1        
+ 267   1      }
+ 268          void lcd_Draw_PM_dat(uchar x,uchar y,uchar wide,uchar hight,uchar dat)//x:8,y:64,wide:16,hight:64
+ 269          {
+ 270   1        uchar line,row;
+ 271   1        lcd_wcmd(0x36);
+ 272   1        //if(wide%8==0)wide=wide/8;else wide=wide/8+1;
+ 273   1        for(line=0;line<hight;line++)
+ 274   1        {
+ 275   2          if(y+line>31)
+ 276   2          {
+ 277   3            lcd_wcmd(0x80+y+line-32);
+ 278   3            lcd_wcmd(0x80+x+8);     
+ 279   3          }
+ 280   2          else
+ 281   2          {
+ 282   3            lcd_wcmd(0x80+y+line);
+ 283   3            lcd_wcmd(0x80+x);
+ 284   3          }
+ 285   2          for(row=0;row<wide;row++)
+ 286   2          {
+ 287   3            lcd_wdat(dat);
+ 288   3          }
+ 289   2        }
+ 290   1      }
+ 291          void lcd_Draw_PM_dat2(uchar x,uchar y,uchar wide,uchar hight,uchar dat0,uchar dat1)//¸øÖ¸¶¨ÇøÓòÌîÈëÖ¸¶¨ÄÚÈ
+             -Ý
+ 292          {
+ 293   1        uchar line,row;
+ 294   1        lcd_wcmd(0x36);
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 6   
+
+ 295   1        //if(wide%8==0)wide=wide/8;else wide=wide/8+1;
+ 296   1        for(line=0;line<hight;line++)
+ 297   1        {
+ 298   2          if(y+line>31)
+ 299   2          {
+ 300   3            lcd_wcmd(0x80+y+line-32);
+ 301   3            lcd_wcmd(0x80+x+8);     
+ 302   3          }
+ 303   2          else
+ 304   2          {
+ 305   3            lcd_wcmd(0x80+y+line);
+ 306   3            lcd_wcmd(0x80+x);
+ 307   3          }
+ 308   2          for(row=0;row<wide;row++)
+ 309   2          {
+ 310   3            lcd_wdat(dat0);lcd_wdat(dat1);
+ 311   3          }
+ 312   2        }
+ 313   1      }
+ 314          
+ 315          void lcd_ch_display(uchar y,uchar x,uchar *z)
+ 316          { 
+ 317   1        uchar Address;
+ 318   1        lcd_wcmd(0x30);
+ 319   1        if(y==0){Address=0x80+x;}             //YÅÐ¶ÏµÚ¼¸ÐÐ,XÅÐ¶ÏµÚ¼¸ÁÐ,0x80ÎªÒº¾§ÐÐ³õÊ¼µØÖ·
+ 320   1        if(y==1){Address=0x90+x;}      
+ 321   1        if(y==2){Address=0x88+x;} 
+ 322   1        if(y==3){Address=0x98+x;} 
+ 323   1        lcd_wcmd(Address);            //Ð´ÈëµØÖ·ÃüÁîµ½LCD12864  
+ 324   1        while(*z!='\0')               //Ð´ÈëÏÔÊ¾Êý¾ÝµÄ´óÐ¡
+ 325   1        {   
+ 326   2          lcd_wdat(*z++);             //Ð´ÈëÏÔÊ¾Êý¾Ýµ½LCD12864            
+ 327   2        }  
+ 328   1      }
+ 329          //void lcd_clr_GD(void)
+ 330          //{
+ 331          //  uchar i, j, k;
+ 332          //  lcd_wcmd(0x34);        //´ò¿ªÀ©Õ¹Ö¸Áî¼¯  
+ 333          //  for(j=0,i=0x80; j<32; j++)
+ 334          //  {
+ 335          //    lcd_wcmd(i++);
+ 336          //    lcd_wcmd(0x80);
+ 337          //    for(k=0; k<16; k++)lcd_wdat(0x00);
+ 338          //  }
+ 339          //  for(j=0,i=0x80; j<32; j++)
+ 340          //  {
+ 341          //    lcd_wcmd(i++);
+ 342          //    lcd_wcmd(0x88);    
+ 343          //    for(k=0; k<16; k++)lcd_wdat(0x00);
+ 344          //  }  
+ 345          //}
+ 346          void lcd_clr_GD(void)
+ 347          {
+ 348   1        uchar i,j;
+ 349   1        lcd_wcmd(0x34);
+ 350   1        for(j=0;j<64;j++)
+ 351   1        {
+ 352   2          lcd_wcmd(0x80+j);
+ 353   2          for(i=0;i<32;i++)lcd_wdat(0x00);
+ 354   2        }
+ 355   1      }
+ 356          
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 7   
+
+ 357          void lcd_clr_DDram()
+ 358          {
+ 359   1        uchar i;
+ 360   1        lcd_wcmd(0x30);
+ 361   1        lcd_wcmd(0x80);
+ 362   1        for(i=0;i<32;i++)lcd_wdat(' ');
+ 363   1        lcd_wcmd(0x90);
+ 364   1        for(i=0;i<32;i++)lcd_wdat(' ');
+ 365   1      }
+ 366          
+ 367          void lcd_scrollBar(uchar x,uchar y,uchar hight,uchar Max,uchar num)
+ 368          {
+ 369   1        uchar line,bar_l,bar_y;
+ 370   1        lcd_wcmd(0x36);
+ 371   1        bar_l=(hight)/Max;
+ 372   1        bar_y=1+bar_l*num;
+ 373   1        hight=hight-hight%Max+1;
+ 374   1        for(line=0;line<=hight;line++)
+ 375   1        {
+ 376   2          if(y+line>31)
+ 377   2          {
+ 378   3            lcd_wcmd(0x80+y+line-32);
+ 379   3            lcd_wcmd(0x80+x+8);     
+ 380   3          }
+ 381   2          else
+ 382   2          {
+ 383   3            lcd_wcmd(0x80+y+line);
+ 384   3            lcd_wcmd(0x80+x);
+ 385   3          }
+ 386   2            if(line==0){lcd_wdat(0x00);lcd_wdat(0x1f);}
+ 387   2            
+ 388   2            else if((line<bar_y+bar_l)&&(line>=bar_y)){lcd_wdat(0x00);lcd_wdat(0x11);}
+ 389   2            else if(line<=hight){lcd_wdat(0x00);lcd_wdat(0x1f);}
+ 390   2          
+ 391   2        }
+ 392   1      }
+ 393          //uchar lcd_ReadPoint(uchar X,uchar Y)
+ 394          //{
+ 395          //  
+ 396          //}
+ 397          uchar lcd_ReadPoint(uchar X,uchar Y)
+ 398          {
+ 399   1        uchar rDat_H,rDat_L;
+ 400   1        lcd_wcmd(0x36);
+ 401   1        if(Y<32){lcd_wcmd(0x80+Y);lcd_wcmd(0x80+(X>>4));}
+ 402   1        else {lcd_wcmd(0x80+Y-32);lcd_wcmd(0x88+(X>>4));}
+ 403   1        lcd_rdat();//¶ªµôµÚÒ»´Î¶ÁÊý£¬0x80Ã¦±êÖ¾
+ 404   1        rDat_H=lcd_rdat();
+ 405   1        rDat_L=lcd_rdat();
+ 406   1        if((X&0x0f)<8)return rDat_H&(0x80>>(X&0x0f));
+ 407   1        else return rDat_L&(0x80>>((X&0x0f)-8));
+ 408   1      }
+ 409          void lcd_DrawPoint(uchar X,uchar Y,uchar Color)
+ 410          {
+ 411   1        uchar addx,addy,wordx;
+ 412   1        uchar rDat_H,rDat_L;
+ 413   1        lcd_wcmd(0x36);
+ 414   1        addx=0x80+(X>>4);
+ 415   1        if(Y<32)addy=0x80+Y;else {addy=0x80+Y-32;addx+=8;}
+ 416   1      
+ 417   1        lcd_wcmd(addy);lcd_wcmd(addx);
+ 418   1        lcd_rdat();//¶ªµôµÚÒ»´Î¶ÁÊý£¬0x80Ã¦±êÖ¾
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 8   
+
+ 419   1        rDat_H=lcd_rdat();
+ 420   1        rDat_L=lcd_rdat();
+ 421   1        wordx=X&0x0f;
+ 422   1        lcd_wcmd(addy);lcd_wcmd(addx);
+ 423   1        if(wordx<8)
+ 424   1        {switch(Color)
+ 425   2          {
+ 426   3            case 0:rDat_H&=(~(0x01<<(7-wordx)));break;//Çåµã
+ 427   3            case 1:rDat_H|=((0x01<<(7-wordx)));break;//»ò
+ 428   3            case 2:rDat_H^=((0x01<<(7-wordx)));break;//Òì»ò
+ 429   3            default:break;
+ 430   3          }
+ 431   2          lcd_wdat(rDat_H);lcd_wdat(rDat_L);
+ 432   2        }
+ 433   1        else
+ 434   1        {
+ 435   2          //wordx=wordx&0x07;
+ 436   2          switch(Color)
+ 437   2          {
+ 438   3            case 0:rDat_L&=(~(0x01<<(15-wordx)));break;
+ 439   3            case 1:rDat_L|=((0x01<<(15-wordx)));break;
+ 440   3            case 2:rDat_L^=((0x01<<(15-wordx)));break;
+ 441   3            default:break;
+ 442   3          }
+ 443   2          
+ 444   2          lcd_wdat(rDat_H);lcd_wdat(rDat_L);
+ 445   2        }
+ 446   1        
+ 447   1        
+ 448   1      }
+ 449          //»­Ë®Æ½Ïß£º
+ 450          void lcd_DrawLineX( uchar X0, uchar X1, uchar Y, uchar Color )
+ 451          {   uchar Temp ;
+ 452   1          if( X0 > X1 )
+ 453   1          {
+ 454   2              Temp = X1 ;
+ 455   2              X1 = X0 ;
+ 456   2              X0 = Temp ;
+ 457   2          }
+ 458   1          for( ; X0 <= X1 ; X0++ )
+ 459   1          lcd_DrawPoint( X0, Y, Color ) ;   
+ 460   1      }
+ 461          //»­´¹Ö±Ïß£º
+ 462          void lcd_DrawLineY( uchar X, uchar Y0, uchar Y1, uchar Color )
+ 463          {
+ 464   1          uchar Temp ;
+ 465   1          if( Y0 > Y1 )
+ 466   1          {
+ 467   2              Temp = Y1 ;
+ 468   2              Y1 = Y0 ;
+ 469   2              Y0 = Temp ;
+ 470   2          }
+ 471   1          for(; Y0 <= Y1 ; Y0++)
+ 472   1          lcd_DrawPoint( X, Y0, Color)    ;
+ 473   1      }
+ 474          
+ 475          void lcd_DrawLine( uchar StartX, uchar StartY, uchar EndX, uchar EndY, uchar Color )
+ 476          {
+ 477   1          int t, distance;      /*¸ù¾ÝÆÁÄ»´óÐ¡¸Ä±ä±äÁ¿ÀàÐÍ(Èç¸ÄÎªintÐÍ)*/
+ 478   1          int x = 0 , y = 0 , delta_x, delta_y ;
+ 479   1          char incx, incy ;
+ 480   1      
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 9   
+
+ 481   1          delta_x = EndX - StartX ;
+ 482   1          delta_y = EndY - StartY ;
+ 483   1      
+ 484   1          if( delta_x > 0 )
+ 485   1          {
+ 486   2              incx = 1;
+ 487   2          }
+ 488   1          else if( delta_x == 0 )
+ 489   1          {
+ 490   2              lcd_DrawLineY( StartX, StartY, EndY, Color ) ;
+ 491   2              return ;
+ 492   2          }
+ 493   1          else
+ 494   1          {
+ 495   2              incx = -1 ;
+ 496   2          }
+ 497   1          if( delta_y > 0 )
+ 498   1          {
+ 499   2              incy = 1 ;
+ 500   2          }
+ 501   1          else if(delta_y == 0 )
+ 502   1          {
+ 503   2              lcd_DrawLineX( StartX, EndX, StartY, Color ) ;   
+ 504   2              return ;
+ 505   2          }
+ 506   1          else
+ 507   1          {
+ 508   2              incy = -1 ;
+ 509   2          }
+ 510   1      
+ 511   1          delta_x = abs( delta_x );   
+ 512   1          delta_y = abs( delta_y );
+ 513   1          if( delta_x > delta_y )
+ 514   1          {
+ 515   2              distance = delta_x ;
+ 516   2          }
+ 517   1          else
+ 518   1          {
+ 519   2              distance = delta_y ;
+ 520   2          }
+ 521   1          lcd_DrawPoint( StartX, StartY, Color ) ;   
+ 522   1          /* Draw Line*/
+ 523   1          for( t = 0 ; t <= distance+1 ; t++ )
+ 524   1          {
+ 525   2              lcd_DrawPoint( StartX, StartY, Color ) ;
+ 526   2              x += delta_x ;
+ 527   2              y += delta_y ;
+ 528   2              if( x > distance )
+ 529   2              {
+ 530   3                  x -= distance ;
+ 531   3                  StartX += incx ;
+ 532   3              }
+ 533   2              if( y > distance )
+ 534   2              {
+ 535   3                  y -= distance ;
+ 536   3                  StartY += incy ;
+ 537   3              }
+ 538   2          }
+ 539   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.0.0   LCD12864                                                          05/29/2020 16:57:56 PAGE 10  
+
+   CODE SIZE        =   5116    ----
+   CONSTANT SIZE    =     56    ----
+   XDATA SIZE       =   ----      94
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

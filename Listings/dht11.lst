@@ -1,0 +1,84 @@
+C51 COMPILER V9.60.0.0   DHT11                                                             05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DHT11
+OBJECT MODULE PLACED IN .\Objects\dht11.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE dht11.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEBU
+                    -G PRINT(.\Listings\dht11.lst) TABS(2) OBJECT(.\Objects\dht11.obj)
+
+line level    source
+
+   1          #include "dht11.h"
+   2          #include "delay.h"
+   3          
+   4          
+   5          uchar Dht_RhData[5];//0~4分别分湿度、湿度小数、温度、温度小数、校验和
+   6          
+   7          u8 data Dht_FLAG;
+   8          u8 Dht_error=0;
+   9          u8 data Dht_count;
+  10          
+  11          
+  12          
+  13          
+  14          void dht_byte(uchar n)
+  15          {
+  16   1        //uchar error;
+  17   1        uchar data i;
+  18   1        for(i=0;i<8;i++)
+  19   1          {
+  20   2            Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//等待拉高,低等待
+  21   2            if(Dht_FLAG==1){Dht_error=4+n;return;}//错误跳出，并报错
+  22   2            
+  23   2            Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//Dht_count++;对拉高时间进行计时
+  24   2            
+  25   2            if(Dht_FLAG>9)Dht_RhData[n]=(Dht_RhData[n]<<1)|0x01;
+  26   2            else Dht_RhData[n]<<=1;
+  27   2            if(Dht_FLAG==1){Dht_error=(5+n)+10*i;return;}//错误跳出，并报错
+  28   2          }
+  29   1          }
+  30          void dht_rdat()
+  31          {
+  32   1        uchar data i;
+  33   1        DHT_IO=0;
+  34   1        d_n_ms(25);
+  35   1        DHT_IO=1;
+  36   1        
+  37   1        Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//等待DHT拉低,超时跳出
+  38   1        if(Dht_FLAG==1){Dht_error=1;return;}//错误跳出，并报错
+  39   1        
+  40   1        Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//等待DHT拉高,超时跳出
+  41   1        if(Dht_FLAG==1){Dht_error=2;return;}//错误跳出，并报错
+  42   1        
+  43   1        Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//等待DHT拉低,超时跳出
+  44   1        if(Dht_FLAG==1){Dht_error=3;return;}//错误跳出，并报错
+  45   1        for(i=0;i<5;i++)
+  46   1        {
+  47   2        
+  48   2          dht_byte(i);
+  49   2          if(Dht_FLAG==1){Dht_error+=10;return;}//错误跳出，并报错  
+  50   2        }
+  51   1        Dht_error=0;
+  52   1      
+  53   1      }
+  54          
+C51 COMPILER V9.60.0.0   DHT11                                                             05/29/2020 16:57:56 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    266    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      6    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

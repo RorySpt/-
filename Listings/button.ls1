@@ -1,0 +1,1967 @@
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\button.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\button.src PR(.\Listings\button.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\button.SRC generated from: button.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE button.c COMPACT OPTIMIZE(9,SPEED) BR
+                             OWSE DEBUG OBJECTEXTEND PRINT(.\Listings\button.lst) TABS(2) SRC(.\Objects\button.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    BUTTON
+                       8     
+  00A0                 9     DS_CE   BIT     0A0H.0
+  0080                10     P0      DATA    080H
+  0090                11     P1      DATA    090H
+  00A0                12     P2      DATA    0A0H
+  00B0                13     P3      DATA    0B0H
+  00C0                14     XICON   DATA    0C0H
+  00B4                15     T0      BIT     0B0H.4
+  00D6                16     AC      BIT     0D0H.6
+  00E8                17     P4      DATA    0E8H
+  00B5                18     T1      BIT     0B0H.5
+  00E6                19     ISP_TRIG        DATA    0E6H
+  0090                20     T2      BIT     090H.0
+  00AF                21     EA      BIT     0A8H.7
+  00AE                22     EC      BIT     0A8H.6
+  009F                23     FE      BIT     098H.7
+  00A8                24     IE      DATA    0A8H
+  00A1                25     DS_IO   BIT     0A0H.1
+  00CE                26     EXF2    BIT     0C8H.6
+  00B7                27     RD      BIT     0B0H.7
+  00AC                28     ES      BIT     0A8H.4
+  00B8                29     IP      DATA    0B8H
+  00B1                30     KEY0    BIT     0B0H.1
+  00B0                31     KEY1    BIT     0B0H.0
+  0098                32     RI      BIT     098H.0
+  00B2                33     KEY2    BIT     0B0H.2
+  00B2                34     INT0    BIT     0B0H.2
+  00D7                35     CY      BIT     0D0H.7
+  00B3                36     KEY3    BIT     0B0H.3
+  0099                37     TI      BIT     098H.1
+  00B3                38     INT1    BIT     0B0H.3
+  00CB                39     RCAP2H  DATA    0CBH
+  00E5                40     ISP_CMD DATA    0E5H
+  00BC                41     PS      BIT     0B8H.4
+  0081                42     SP      DATA    081H
+  0091                43     T2EX    BIT     090H.1
+  00D2                44     OV      BIT     0D0H.2
+  00A2                45     DS_SCLK BIT     0A0H.2
+  00CA                46     RCAP2L  DATA    0CAH
+  00C9                47     C_T2    BIT     0C8H.1
+  00B6                48     WR      BIT     0B0H.6
+  00CD                49     RCLK    BIT     0C8H.5
+  00CC                50     TCLK    BIT     0C8H.4
+  0080                51     P00     BIT     080H.0
+  0099                52     SBUF    DATA    099H
+  0087                53     PCON    DATA    087H
+  0090                54     P10     BIT     090H.0
+  0081                55     P01     BIT     080H.1
+  00A0                56     P20     BIT     0A0H.0
+  0091                57     P11     BIT     090H.1
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     2
+
+  0082                58     P02     BIT     080H.2
+  00E3                59     ISP_ADDRH       DATA    0E3H
+  00B0                60     P30     BIT     0B0H.0
+  00A1                61     P21     BIT     0A0H.1
+  0092                62     P12     BIT     090H.2
+  0083                63     P03     BIT     080H.3
+  0098                64     SCON    DATA    098H
+  00B1                65     P31     BIT     0B0H.1
+  00A2                66     P22     BIT     0A0H.2
+  0093                67     P13     BIT     090H.3
+  0084                68     P04     BIT     080H.4
+  00E8                69     P40     BIT     0E8H.0
+  0089                70     TMOD    DATA    089H
+  0088                71     TCON    DATA    088H
+  00B2                72     P32     BIT     0B0H.2
+  00A3                73     P23     BIT     0A0H.3
+  0094                74     P14     BIT     090H.4
+  0085                75     P05     BIT     080H.5
+  00E9                76     P41     BIT     0E8H.1
+  00B3                77     P33     BIT     0B0H.3
+  00A4                78     P24     BIT     0A0H.4
+  0095                79     P15     BIT     090H.5
+  0086                80     P06     BIT     080H.6
+  00E4                81     ISP_ADDRL       DATA    0E4H
+  00EA                82     P42     BIT     0E8H.2
+  00B4                83     P34     BIT     0B0H.4
+  00A5                84     P25     BIT     0A0H.5
+  0096                85     P16     BIT     090H.6
+  0087                86     P07     BIT     080H.7
+  00EB                87     P43     BIT     0E8H.3
+  00B5                88     P35     BIT     0B0H.5
+  00A6                89     P26     BIT     0A0H.6
+  0097                90     P17     BIT     090H.7
+  00EC                91     P44     BIT     0E8H.4
+  00B6                92     P36     BIT     0B0H.6
+  00A7                93     P27     BIT     0A0H.7
+  00ED                94     P45     BIT     0E8H.5
+  00B7                95     P37     BIT     0B0H.7
+  00EE                96     P46     BIT     0E8H.6
+  0089                97     IE0     BIT     088H.1
+  008B                98     IE1     BIT     088H.3
+  008E                99     AUXR    DATA    08EH
+  00F0               100     B       DATA    0F0H
+  00C8               101     CP_RL2  BIT     0C8H.0
+  00E0               102     ACC     DATA    0E0H
+  00A9               103     ET0     BIT     0A8H.1
+  00AB               104     ET1     BIT     0A8H.3
+  008D               105     TF0     BIT     088H.5
+  00AD               106     ET2     BIT     0A8H.5
+  008F               107     TF1     BIT     088H.7
+  00CF               108     TF2     BIT     0C8H.7
+  009A               109     RB8     BIT     098H.2
+  008C               110     TH0     DATA    08CH
+  00A8               111     EX0     BIT     0A8H.0
+  0088               112     IT0     BIT     088H.0
+  008D               113     TH1     DATA    08DH
+  009B               114     TB8     BIT     098H.3
+  00AA               115     EX1     BIT     0A8H.2
+  008A               116     IT1     BIT     088H.2
+  00CD               117     TH2     DATA    0CDH
+  00D0               118     P       BIT     0D0H.0
+  009F               119     SM0     BIT     098H.7
+  008A               120     TL0     DATA    08AH
+  009E               121     SM1     BIT     098H.6
+  008B               122     TL1     DATA    08BH
+  009D               123     SM2     BIT     098H.5
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     3
+
+  00CC               124     TL2     DATA    0CCH
+  00B9               125     PT0     BIT     0B8H.1
+  00BB               126     PT1     BIT     0B8H.3
+  00D3               127     RS0     BIT     0D0H.3
+  00E7               128     ISP_CONTR       DATA    0E7H
+  00BD               129     PT2     BIT     0B8H.5
+  008C               130     TR0     BIT     088H.4
+  00D4               131     RS1     BIT     0D0H.4
+  008E               132     TR1     BIT     088H.6
+  00CA               133     TR2     BIT     0C8H.2
+  00B8               134     PX0     BIT     0B8H.0
+  00E1               135     WDT_CONTR       DATA    0E1H
+  00BA               136     PX1     BIT     0B8H.2
+  0083               137     DPH     DATA    083H
+  0082               138     DPL     DATA    082H
+  00B7               139     IPH     DATA    0B7H
+  00CB               140     EXEN2   BIT     0C8H.3
+  009C               141     REN     BIT     098H.4
+  00C9               142     T2MOD   DATA    0C9H
+  00C8               143     T2CON   DATA    0C8H
+  00E2               144     ISP_DATA        DATA    0E2H
+  00B9               145     SADEN   DATA    0B9H
+  00B0               146     RXD     BIT     0B0H.0
+  00A9               147     SADDR   DATA    0A9H
+  00B1               148     TXD     BIT     0B0H.1
+  00A2               149     AUXR1   DATA    0A2H
+  00D5               150     F0      BIT     0D0H.5
+  00D0               151     PSW     DATA    0D0H
+                     152     ?PR?control_Section?BUTTON               SEGMENT CODE 
+                     153     ?PR?recognition_key?BUTTON               SEGMENT CODE 
+                     154     ?C_INITSEG           SEGMENT CODE 
+                     155     ?DT?BUTTON           SEGMENT DATA 
+                     156     ?PD?BUTTON           SEGMENT XDATA INPAGE 
+                     157     ?BA?BUTTON           SEGMENT DATA BITADDRESSABLE 
+                     158     ?PR?BUTTON           SEGMENT CODE 
+                     159             EXTRN   XDATA (Sensor_display_switchingSpeed)
+                     160             EXTRN   CODE (_Ds1302_time_Copy)
+                     161             EXTRN   XDATA (ds_dat_time_set16)
+                     162             EXTRN   CODE (Ds1302_Set_time)
+                     163             EXTRN   XDATA (rot_taskFrequency)
+                     164             EXTRN   DATA (menuCode)
+                     165             EXTRN   CODE (_Calculate_Totaldays_Ofmonth)
+                     166             EXTRN   XDATA (SwitchFlag)
+                     167             EXTRN   XDATA (Sensor_switch)
+                     168             PUBLIC  OptionCode
+                     169             PUBLIC  Prestate_key
+                     170             PUBLIC  Command_key
+                     171             PUBLIC  Change_sign
+                     172             PUBLIC  Instruction_code_key
+                     173             PUBLIC  Double_Press_counter
+                     174             PUBLIC  Double_Idle_counter
+                     175             PUBLIC  Refill_sign_7
+                     176             PUBLIC  Refill_sign_6
+                     177             PUBLIC  Refill_sign_5
+                     178             PUBLIC  Refill_sign_4
+                     179             PUBLIC  Refill_sign_3
+                     180             PUBLIC  Refill_sign_2
+                     181             PUBLIC  Refill_sign_1
+                     182             PUBLIC  Refill_sign_0
+                     183             PUBLIC  Refill_sign
+                     184             PUBLIC  OptionCode_Max
+                     185             PUBLIC  Curstatus_key
+                     186             PUBLIC  recognition_key
+                     187             PUBLIC  control_Section
+                     188     
+----                 189             RSEG  ?DT?BUTTON
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     4
+
+0000                 190       Curstatus_key:   DS   4
+0004                 191     Double_Idle_counter:   DS   8
+000C                 192     Double_Press_counter:   DS   8
+0014                 193     Instruction_code_key:   DS   4
+0018                 194         Command_key:   DS   4
+001C                 195        Prestate_key:   DS   4
+                     196     
+----                 197             RSEG  ?PD?BUTTON
+0000                 198      OptionCode_Max:   DS   3
+0003                 199         Change_sign:   DS   1
+0004                 200          OptionCode:   DS   3
+                     201     
+----                 202             RSEG  ?BA?BUTTON
+0000                 203         Refill_sign:   DS   1
+  0000               204     Refill_sign_0   EQU     (Refill_sign+0).0
+  0001               205     Refill_sign_1   EQU     (Refill_sign+0).1
+  0002               206     Refill_sign_2   EQU     (Refill_sign+0).2
+  0003               207     Refill_sign_3   EQU     (Refill_sign+0).3
+  0004               208     Refill_sign_4   EQU     (Refill_sign+0).4
+  0005               209     Refill_sign_5   EQU     (Refill_sign+0).5
+  0006               210     Refill_sign_6   EQU     (Refill_sign+0).6
+  0007               211     Refill_sign_7   EQU     (Refill_sign+0).7
+                     212     
+----                 213             RSEG  ?C_INITSEG
+0000 83              214             DB      083H
+0001 00       F      215             DB      LOW (OptionCode)
+0002 00              216             DB      000H
+0003 05              217             DB      005H
+0004 06              218             DB      006H
+                     219     
+0005 83              220             DB      083H
+0006 00       F      221             DB      LOW (OptionCode_Max)
+0007 06              222             DB      006H
+0008 05              223             DB      005H
+0009 04              224             DB      004H
+                     225     
+000A 81              226             DB      081H
+000B 00       F      227             DB      LOW (Change_sign)
+000C 00              228             DB      000H
+                     229     
+                     230     ; #include "button.h"
+                     231     ; #include "ds1302.h"
+                     232     ; #include "calendar.h"
+                     233     ; //#define KEY(i) KEY##i
+                     234     ; uchar data Command_key[4];//
+                     235     ; uchar data Prestate_key[4];//°´¼üÇ°×´Ì¬
+                     236     ; uchar data Curstatus_key[4];//°´¼üµ±Ç°×´Ì¬
+                     237     ; uchar data Instruction_code_key[4];
+                     238     ; uint data Double_Press_counter[4];//³¤°´¼ÆÊÆ÷
+                     239     ; uint data Double_Idle_counter[4];//¿ÕÏÐ¼ÆÊÆ÷
+                     240     ; //uint data Double_idle_counter[4];//¿ÕÏÐ±êÖ¾
+                     241     ; 
+                     242     ; uchar bdata Refill_sign;
+                     243     ; sbit Refill_sign_0=Refill_sign^0;
+                     244     ; sbit Refill_sign_1=Refill_sign^1;
+                     245     ; sbit Refill_sign_2=Refill_sign^2;
+                     246     ; sbit Refill_sign_3=Refill_sign^3;
+                     247     ; sbit Refill_sign_4=Refill_sign^4;
+                     248     ; sbit Refill_sign_5=Refill_sign^5;
+                     249     ; sbit Refill_sign_6=Refill_sign^6;
+                     250     ; sbit Refill_sign_7=Refill_sign^7;
+                     251     ; 
+                     252     ; #define button_BurstSpeed 2
+                     253     ; 
+                     254     ; #define goIn                                                          (Instruction_code_k
+                             ey[0]==0x80)
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     5
+
+                     255     ; #define goBack                                                        (Instruction_code_k
+                             ey[1]==0x80)
+                     256     ; #define       goUp                                                            (Instructio
+                             n_code_key[2]==0x80)
+                     257     ; #define       goDown                                                  (Instruction_code_k
+                             ey[3]==0x80)
+                     258     ; #define BurstGoin                                     ((Double_Press_counter[0]%button_Bu
+                             rstSpeed)==1)
+                     259     ; #define BurstGoback                           ((Double_Press_counter[1]%button_BurstSpeed
+                             )==1)
+                     260     ; #define BurstGoup                                     ((Double_Press_counter[2]%button_Bu
+                             rstSpeed)==1)
+                     261     ; #define BurstGodown                                   ((Double_Press_counter[3]%button_Bu
+                             rstSpeed)==1)
+                     262     ; 
+                     263     ; 
+                     264     ; extern uchar data menuCode;
+                     265     ; uchar OptionCode[]={0,5,6};
+                     266     ; uchar OptionCode_Max[]={6,5,4};
+                     267     ; 
+                     268     ; extern uchar SwitchFlag[];
+                     269     ; 
+                     270     ; 
+                     271     ; extern uchar Sensor_switch[2];
+                     272     ; extern uint rot_taskFrequency[];
+                     273     ; extern uint Sensor_display_switchingSpeed;
+                     274     ; uchar Change_sign=0;
+                     275     ; 
+                     276     
+----                 277             RSEG  ?PR?BUTTON
+0000                 278     Com00C1:
+0000                 279     L?0194:
+                     280             USING   0
+0000                 281     L?0195:
+0000 E2              282             MOVX    A,@R0
+0001 D3              283             SETB    C
+0002 9400            284             SUBB    A,#00H
+0004 7480            285             MOV     A,#080H
+0006 9480            286             SUBB    A,#080H
+0008 22              287             RET     
+0009                 288     L?0196:
+                     289             USING   0
+0009 D3              290             SETB    C
+000A                 291     L?0197:
+000A E2              292             MOVX    A,@R0
+000B                 293     L?0198:
+000B 9401            294             SUBB    A,#01H
+000D 7480            295             MOV     A,#080H
+000F 9480            296             SUBB    A,#080H
+0011 22              297             RET     
+0012                 298     L?0199:
+                     299             USING   0
+0012 C3              300             CLR     C
+0013                 301     L?0200:
+0013 E2              302             MOVX    A,@R0
+0014 9470            303             SUBB    A,#070H
+0016 18              304             DEC     R0
+0017 E2              305             MOVX    A,@R0
+0018 9417            306             SUBB    A,#017H
+001A 22              307             RET     
+001B                 308     L?0201:
+                     309             USING   0
+001B D3              310             SETB    C
+001C                 311     L?0202:
+001C E2              312             MOVX    A,@R0
+001D 9464            313             SUBB    A,#064H
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     6
+
+001F 18              314             DEC     R0
+0020 E2              315             MOVX    A,@R0
+0021 9400            316             SUBB    A,#00H
+0023 22              317             RET     
+0024                 318     L?0204:
+                     319             USING   0
+0024 7800     F      320             MOV     R0,#LOW (OptionCode+01H)
+0026 E2              321             MOVX    A,@R0
+0027 C3              322             CLR     C
+0028 9406            323             SUBB    A,#06H
+002A 7480            324             MOV     A,#080H
+002C 9480            325             SUBB    A,#080H
+002E 22              326             RET     
+002F                 327     L?0205:
+                     328             USING   0
+002F 7400     F      329             MOV     A,#LOW (Curstatus_key)
+0031 2F              330             ADD     A,R7
+0032 F8              331             MOV     R0,A
+0033 E6              332             MOV     A,@R0
+0034 FE              333             MOV     R6,A
+0035 7400     F      334             MOV     A,#LOW (Prestate_key)
+0037 2F              335             ADD     A,R7
+0038 F8              336             MOV     R0,A
+0039 22              337             RET     
+003A                 338     L?0206:
+                     339             USING   0
+003A EF              340             MOV     A,R7
+003B 25E0            341             ADD     A,ACC
+003D 2400     F      342             ADD     A,#LOW (Double_Press_counter)
+003F F8              343             MOV     R0,A
+0040 E4              344             CLR     A
+0041 F6              345             MOV     @R0,A
+0042 08              346             INC     R0
+0043 F6              347             MOV     @R0,A
+0044 22              348             RET     
+                     349     ; END OF Com00C1
+                     350     
+                     351     ; void control_Section()
+                     352     
+----                 353             RSEG  ?PR?control_Section?BUTTON
+0000                 354     control_Section:
+                     355             USING   0
+                     356                             ; SOURCE LINE # 47
+                     357     ; {
+                     358                             ; SOURCE LINE # 48
+                     359     ;       switch(menuCode)
+                     360                             ; SOURCE LINE # 49
+0000 E500     F      361             MOV     A,menuCode
+0002 14              362             DEC     A
+0003 6068            363             JZ      ?C0010
+0005 24F7            364             ADD     A,#0F7H
+0007 7003            365             JNZ     $ + 5H
+0009 020000   F      366             LJMP    ?C0029
+000C 14              367             DEC     A
+000D 7003            368             JNZ     $ + 5H
+000F 020000   F      369             LJMP    ?C0095
+0012 24A7            370             ADD     A,#0A7H
+0014 7003            371             JNZ     $ + 5H
+0016 020000   F      372             LJMP    ?C0088
+0019 2464            373             ADD     A,#064H
+001B 6003            374             JZ      $ + 5H
+001D 020000   F      375             LJMP    ?C0144
+                     376     ;       {
+                     377                             ; SOURCE LINE # 50
+                     378     ;               case 0: 
+                     379                             ; SOURCE LINE # 51
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     7
+
+0020                 380     ?C0002:
+                     381     ;               {       if(goIn) {menuCode=1;Refill_sign_0=0;}  
+                     382                             ; SOURCE LINE # 52
+0020 E500     F      383             MOV     A,Instruction_code_key
+0022 6480            384             XRL     A,#080H
+0024 7005            385             JNZ     ?C0003
+0026 750001   F      386             MOV     menuCode,#01H
+0029 C200     F      387             CLR     Refill_sign_0
+002B                 388     ?C0003:
+                     389     ;                       if(goDown&&Refill_sign_3){if(SwitchFlag[0]<2)SwitchFlag[0]++;else S
+                             witchFlag[0]=0;}
+                     390                             ; SOURCE LINE # 53
+002B E500     F      391             MOV     A,Instruction_code_key+03H
+002D 6480            392             XRL     A,#080H
+002F 7018            393             JNZ     ?C0004
+0031 300015   F      394             JNB     Refill_sign_3,?C0004
+0034 7800     F      395             MOV     R0,#LOW (SwitchFlag)
+0036 E2              396             MOVX    A,@R0
+0037 C3              397             CLR     C
+0038 9402            398             SUBB    A,#02H
+003A 7480            399             MOV     A,#080H
+003C 9480            400             SUBB    A,#080H
+003E 5005            401             JNC     ?C0005
+0040 E2              402             MOVX    A,@R0
+0041 04              403             INC     A
+0042 F2              404             MOVX    @R0,A
+0043 8004            405             SJMP    ?C0004
+0045                 406     ?C0005:
+0045 E4              407             CLR     A
+0046 7800     F      408             MOV     R0,#LOW (SwitchFlag)
+0048 F2              409             MOVX    @R0,A
+0049                 410     ?C0004:
+                     411     ;                       if(goUp&&Refill_sign_2){if(SwitchFlag[1]<3)SwitchFlag[1]++;else Swi
+                             tchFlag[1]=0;}
+                     412                             ; SOURCE LINE # 54
+0049 E500     F      413             MOV     A,Instruction_code_key+02H
+004B 6480            414             XRL     A,#080H
+004D 6003            415             JZ      $ + 5H
+004F 020000   F      416             LJMP    ?C0144
+0052 200003   F      417             JB      Refill_sign_2,$ + 6H
+0055 020000   F      418             LJMP    ?C0144
+0058 7800     F      419             MOV     R0,#LOW (SwitchFlag+01H)
+005A E2              420             MOVX    A,@R0
+005B C3              421             CLR     C
+005C 9403            422             SUBB    A,#03H
+005E 7480            423             MOV     A,#080H
+0060 9480            424             SUBB    A,#080H
+0062 5004            425             JNC     ?C0008
+0064 E2              426             MOVX    A,@R0
+0065 04              427             INC     A
+0066 F2              428             MOVX    @R0,A
+0067 22              429             RET     
+0068                 430     ?C0008:
+0068 E4              431             CLR     A
+0069 7800     F      432             MOV     R0,#LOW (SwitchFlag+01H)
+006B F2              433             MOVX    @R0,A
+                     434     ;                       //if(goUp&Refill_sign_2){if(ds_dat_time_set[3]<29)ds_dat_time_set[3
+                             ]++;else ds_dat_time_set[3]=0;Ds1302_Set_time();}
+                     435     ;               break;}
+                     436                             ; SOURCE LINE # 56
+006C 22              437             RET     
+                     438     ;               case 1:
+                     439                             ; SOURCE LINE # 57
+006D                 440     ?C0010:
+                     441     ;               {       if(goBack&Refill_sign_1)menuCode=0;
+                     442                             ; SOURCE LINE # 58
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     8
+
+006D E500     F      443             MOV     A,Instruction_code_key+01H
+006F 6480            444             XRL     A,#080H
+0071 7004            445             JNZ     ?C0012
+0073 7F01            446             MOV     R7,#01H
+0075 8002            447             SJMP    ?C0013
+0077                 448     ?C0012:
+0077 7F00            449             MOV     R7,#00H
+0079                 450     ?C0013:
+0079 A200     F      451             MOV     C,Refill_sign_1
+007B E4              452             CLR     A
+007C 33              453             RLC     A
+007D 5F              454             ANL     A,R7
+007E 6003            455             JZ      ?C0011
+0080 E4              456             CLR     A
+0081 F500     F      457             MOV     menuCode,A
+0083                 458     ?C0011:
+                     459     ;                       if(goUp&Refill_sign_2){if(OptionCode[0]<OptionCode_Max[0])OptionCod
+                             e[0]++;else OptionCode[0]=0;}
+                     460                             ; SOURCE LINE # 59
+0083 E500     F      461             MOV     A,Instruction_code_key+02H
+0085 6480            462             XRL     A,#080H
+0087 7004            463             JNZ     ?C0015
+0089 7F01            464             MOV     R7,#01H
+008B 8002            465             SJMP    ?C0016
+008D                 466     ?C0015:
+008D 7F00            467             MOV     R7,#00H
+008F                 468     ?C0016:
+008F A200     F      469             MOV     C,Refill_sign_2
+0091 E4              470             CLR     A
+0092 33              471             RLC     A
+0093 5F              472             ANL     A,R7
+0094 6014            473             JZ      ?C0014
+0096 7800     F      474             MOV     R0,#LOW (OptionCode_Max)
+0098 E2              475             MOVX    A,@R0
+0099 FF              476             MOV     R7,A
+009A 7800     F      477             MOV     R0,#LOW (OptionCode)
+009C E2              478             MOVX    A,@R0
+009D C3              479             CLR     C
+009E 9F              480             SUBB    A,R7
+009F 5005            481             JNC     ?C0017
+00A1 E2              482             MOVX    A,@R0
+00A2 04              483             INC     A
+00A3 F2              484             MOVX    @R0,A
+00A4 8004            485             SJMP    ?C0014
+00A6                 486     ?C0017:
+00A6 E4              487             CLR     A
+00A7 7800     F      488             MOV     R0,#LOW (OptionCode)
+00A9 F2              489             MOVX    @R0,A
+00AA                 490     ?C0014:
+                     491     ;                       if(goDown&Refill_sign_3)if(OptionCode[0]>0)OptionCode[0]--; else Op
+                             tionCode[0]=OptionCode_Max[0];
+                     492                             ; SOURCE LINE # 60
+00AA E500     F      493             MOV     A,Instruction_code_key+03H
+00AC 6480            494             XRL     A,#080H
+00AE 7004            495             JNZ     ?C0020
+00B0 7F01            496             MOV     R7,#01H
+00B2 8002            497             SJMP    ?C0021
+00B4                 498     ?C0020:
+00B4 7F00            499             MOV     R7,#00H
+00B6                 500     ?C0021:
+00B6 A200     F      501             MOV     C,Refill_sign_3
+00B8 E4              502             CLR     A
+00B9 33              503             RLC     A
+00BA 5F              504             ANL     A,R7
+00BB 6012            505             JZ      ?C0019
+00BD 7800     F      506             MOV     R0,#LOW (OptionCode)
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE     9
+
+00BF 120000   F      507             LCALL   L?0194
+00C2 4005            508             JC      ?C0022
+00C4 E2              509             MOVX    A,@R0
+00C5 14              510             DEC     A
+00C6 F2              511             MOVX    @R0,A
+00C7 8006            512             SJMP    ?C0019
+00C9                 513     ?C0022:
+00C9 7800     F      514             MOV     R0,#LOW (OptionCode_Max)
+00CB E2              515             MOVX    A,@R0
+00CC 7800     F      516             MOV     R0,#LOW (OptionCode)
+00CE F2              517             MOVX    @R0,A
+00CF                 518     ?C0019:
+                     519     ;                       if(goIn&Refill_sign_0){if(OptionCode[0]<2)menuCode=OptionCode[0]+10
+                             ;else menuCode=10; Refill_sign_0=0;}
+                     520                             ; SOURCE LINE # 61
+00CF E500     F      521             MOV     A,Instruction_code_key
+00D1 6480            522             XRL     A,#080H
+00D3 7004            523             JNZ     ?C0025
+00D5 7F01            524             MOV     R7,#01H
+00D7 8002            525             SJMP    ?C0026
+00D9                 526     ?C0025:
+00D9 7F00            527             MOV     R7,#00H
+00DB                 528     ?C0026:
+00DB A200     F      529             MOV     C,Refill_sign_0
+00DD E4              530             CLR     A
+00DE 33              531             RLC     A
+00DF 5F              532             ANL     A,R7
+00E0 7003            533             JNZ     $ + 5H
+00E2 020000   F      534             LJMP    ?C0144
+00E5 7800     F      535             MOV     R0,#LOW (OptionCode)
+00E7 E2              536             MOVX    A,@R0
+00E8 FF              537             MOV     R7,A
+00E9 C3              538             CLR     C
+00EA 9402            539             SUBB    A,#02H
+00EC 7480            540             MOV     A,#080H
+00EE 9480            541             SUBB    A,#080H
+00F0 5007            542             JNC     ?C0027
+00F2 EF              543             MOV     A,R7
+00F3 240A            544             ADD     A,#0AH
+00F5 F500     F      545             MOV     menuCode,A
+00F7 8003            546             SJMP    ?C0028
+00F9                 547     ?C0027:
+00F9 75000A   F      548             MOV     menuCode,#0AH
+00FC                 549     ?C0028:
+00FC C200     F      550             CLR     Refill_sign_0
+                     551     ;                       break;
+                     552                             ; SOURCE LINE # 62
+00FE 22              553             RET     
+                     554     ;               }
+                     555                             ; SOURCE LINE # 63
+                     556     ;               case 10:
+                     557                             ; SOURCE LINE # 64
+00FF                 558     ?C0029:
+                     559     ;               {
+                     560                             ; SOURCE LINE # 65
+                     561     ;                       if(goBack&Refill_sign_1){if(Change_sign==0)menuCode=1;if(Change_sig
+                             n==1){menuCode=100;Change_sign=0;}}
+                     562                             ; SOURCE LINE # 66
+00FF E500     F      563             MOV     A,Instruction_code_key+01H
+0101 6480            564             XRL     A,#080H
+0103 7004            565             JNZ     ?C0031
+0105 7F01            566             MOV     R7,#01H
+0107 8002            567             SJMP    ?C0032
+0109                 568     ?C0031:
+0109 7F00            569             MOV     R7,#00H
+010B                 570     ?C0032:
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    10
+
+010B A200     F      571             MOV     C,Refill_sign_1
+010D E4              572             CLR     A
+010E 33              573             RLC     A
+010F 5F              574             ANL     A,R7
+0110 6017            575             JZ      ?C0030
+0112 7800     F      576             MOV     R0,#LOW (Change_sign)
+0114 E2              577             MOVX    A,@R0
+0115 FF              578             MOV     R7,A
+0116 7E00            579             MOV     R6,#00H
+0118 7003            580             JNZ     ?C0033
+011A 750001   F      581             MOV     menuCode,#01H
+011D                 582     ?C0033:
+011D EF              583             MOV     A,R7
+011E 6401            584             XRL     A,#01H
+0120 4E              585             ORL     A,R6
+0121 7006            586             JNZ     ?C0030
+0123 750064   F      587             MOV     menuCode,#064H
+0126 7800     F      588             MOV     R0,#LOW (Change_sign)
+0128 F2              589             MOVX    @R0,A
+0129                 590     ?C0030:
+                     591     ;                       if(goIn&Refill_sign_0){if(OptionCode[1]<OptionCode_Max[1])OptionCod
+                             e[1]++;else OptionCode[1]=0;}
+                     592                             ; SOURCE LINE # 67
+0129 E500     F      593             MOV     A,Instruction_code_key
+012B 6480            594             XRL     A,#080H
+012D 7004            595             JNZ     ?C0036
+012F 7F01            596             MOV     R7,#01H
+0131 8002            597             SJMP    ?C0037
+0133                 598     ?C0036:
+0133 7F00            599             MOV     R7,#00H
+0135                 600     ?C0037:
+0135 A200     F      601             MOV     C,Refill_sign_0
+0137 E4              602             CLR     A
+0138 33              603             RLC     A
+0139 5F              604             ANL     A,R7
+013A 6014            605             JZ      ?C0035
+013C 7800     F      606             MOV     R0,#LOW (OptionCode_Max+01H)
+013E E2              607             MOVX    A,@R0
+013F FF              608             MOV     R7,A
+0140 7800     F      609             MOV     R0,#LOW (OptionCode+01H)
+0142 E2              610             MOVX    A,@R0
+0143 C3              611             CLR     C
+0144 9F              612             SUBB    A,R7
+0145 5005            613             JNC     ?C0038
+0147 E2              614             MOVX    A,@R0
+0148 04              615             INC     A
+0149 F2              616             MOVX    @R0,A
+014A 8004            617             SJMP    ?C0035
+014C                 618     ?C0038:
+014C E4              619             CLR     A
+014D 7800     F      620             MOV     R0,#LOW (OptionCode+01H)
+014F F2              621             MOVX    @R0,A
+0150                 622     ?C0035:
+                     623     ;                       if(BurstGoup||(goUp&Refill_sign_2))
+                     624                             ; SOURCE LINE # 68
+0150 E500     F      625             MOV     A,Double_Press_counter+05H
+0152 20E016          626             JB      ACC.0,?C0041
+0155 E500     F      627             MOV     A,Instruction_code_key+02H
+0157 6480            628             XRL     A,#080H
+0159 7004            629             JNZ     ?C0042
+015B 7F01            630             MOV     R7,#01H
+015D 8002            631             SJMP    ?C0043
+015F                 632     ?C0042:
+015F 7F00            633             MOV     R7,#00H
+0161                 634     ?C0043:
+0161 A200     F      635             MOV     C,Refill_sign_2
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    11
+
+0163 E4              636             CLR     A
+0164 33              637             RLC     A
+0165 5F              638             ANL     A,R7
+0166 7003            639             JNZ     $ + 5H
+0168 020000   F      640             LJMP    ?C0040
+016B                 641     ?C0041:
+                     642     ;                       {
+                     643                             ; SOURCE LINE # 69
+                     644     ;                               if(OptionCode[1]<6)Change_sign=1;
+                     645                             ; SOURCE LINE # 70
+016B 120000   F      646             LCALL   L?0204
+016E 5005            647             JNC     ?C0044
+0170 7800     F      648             MOV     R0,#LOW (Change_sign)
+0172 7401            649             MOV     A,#01H
+0174 F2              650             MOVX    @R0,A
+0175                 651     ?C0044:
+                     652     ;                                Ds1302_time_Copy(1);
+                     653                             ; SOURCE LINE # 71
+0175 7F01            654             MOV     R7,#01H
+0177 120000   F      655             LCALL   _Ds1302_time_Copy
+                     656     ;                               switch(OptionCode[1])
+                     657                             ; SOURCE LINE # 72
+017A 7800     F      658             MOV     R0,#LOW (OptionCode+01H)
+017C E2              659             MOVX    A,@R0
+017D 6048            660             JZ      ?C0055
+017F 14              661             DEC     A
+0180 6059            662             JZ      ?C0058
+0182 14              663             DEC     A
+0183 606A            664             JZ      ?C0061
+0185 24FE            665             ADD     A,#0FEH
+0187 601B            666             JZ      ?C0049
+0189 14              667             DEC     A
+018A 602A            668             JZ      ?C0052
+018C 2402            669             ADD     A,#02H
+018E 7074            670             JNZ     ?C0045
+                     671     ;                               {
+                     672                             ; SOURCE LINE # 73
+                     673     ;                                       case 3:{if(ds_dat_time_set16[6]<99)ds_dat_time_set1
+                             6[6]++;else ds_dat_time_set16[6]=0;}break;
+                     674                             ; SOURCE LINE # 74
+0190                 675     ?C0046:
+0190 7800     F      676             MOV     R0,#LOW (ds_dat_time_set16+06H)
+0192 E2              677             MOVX    A,@R0
+0193 C3              678             CLR     C
+0194 9463            679             SUBB    A,#063H
+0196 7480            680             MOV     A,#080H
+0198 9480            681             SUBB    A,#080H
+019A 5002            682             JNC     ?C0047
+019C 805D            683             SJMP    ?C0174
+019E                 684     ?C0047:
+019E E4              685             CLR     A
+019F 7800     F      686             MOV     R0,#LOW (ds_dat_time_set16+06H)
+01A1 F2              687             MOVX    @R0,A
+01A2 8060            688             SJMP    ?C0045
+                     689     ;                                       case 4:{if(ds_dat_time_set16[4]<12)ds_dat_time_set1
+                             6[4]++;else ds_dat_time_set16[4]=1;}break;
+                     690                             ; SOURCE LINE # 75
+01A4                 691     ?C0049:
+01A4 7800     F      692             MOV     R0,#LOW (ds_dat_time_set16+04H)
+01A6 E2              693             MOVX    A,@R0
+01A7 C3              694             CLR     C
+01A8 940C            695             SUBB    A,#0CH
+01AA 7480            696             MOV     A,#080H
+01AC 9480            697             SUBB    A,#080H
+01AE 5002            698             JNC     ?C0050
+01B0                 699     ?C0169:
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    12
+
+01B0 8049            700             SJMP    ?C0174
+01B2                 701     ?C0050:
+01B2 7800     F      702             MOV     R0,#LOW (ds_dat_time_set16+04H)
+01B4 800C            703             SJMP    ?C0171
+                     704     ;                                       case 5:{if(ds_dat_time_set16[3]<Calculate_Totaldays
+                             _Ofmonth(ds_dat_time_set16[6],ds_dat_time_set16[4]))ds_dat_time_set16[3]++;else ds_dat_time_set16[3]=1;}break;
+                     705                             ; SOURCE LINE # 76
+01B6                 706     ?C0052:
+01B6 120000   F      707             LCALL   L?0203
+01B9 E2              708             MOVX    A,@R0
+01BA C3              709             CLR     C
+01BB 9F              710             SUBB    A,R7
+01BC 5002            711             JNC     ?C0053
+01BE                 712     ?C0170:
+01BE 803B            713             SJMP    ?C0174
+01C0                 714     ?C0053:
+01C0 7800     F      715             MOV     R0,#LOW (ds_dat_time_set16+03H)
+01C2                 716     ?C0171:
+01C2 7401            717             MOV     A,#01H
+01C4 F2              718             MOVX    @R0,A
+01C5 803D            719             SJMP    ?C0045
+                     720     ;                                       case 0:{if(ds_dat_time_set16[2]<23)ds_dat_time_set1
+                             6[2]++;else ds_dat_time_set16[2]=0;}break;
+                     721                             ; SOURCE LINE # 77
+01C7                 722     ?C0055:
+01C7 7800     F      723             MOV     R0,#LOW (ds_dat_time_set16+02H)
+01C9 E2              724             MOVX    A,@R0
+01CA C3              725             CLR     C
+01CB 9417            726             SUBB    A,#017H
+01CD 7480            727             MOV     A,#080H
+01CF 9480            728             SUBB    A,#080H
+01D1 5002            729             JNC     ?C0056
+01D3                 730     ?C0172:
+01D3 8026            731             SJMP    ?C0174
+01D5                 732     ?C0056:
+01D5 E4              733             CLR     A
+01D6 7800     F      734             MOV     R0,#LOW (ds_dat_time_set16+02H)
+01D8 F2              735             MOVX    @R0,A
+01D9 8029            736             SJMP    ?C0045
+                     737     ;                                       case 1:{if(ds_dat_time_set16[1]<59)ds_dat_time_set1
+                             6[1]++;else ds_dat_time_set16[1]=0;}break;
+                     738                             ; SOURCE LINE # 78
+01DB                 739     ?C0058:
+01DB 7800     F      740             MOV     R0,#LOW (ds_dat_time_set16+01H)
+01DD E2              741             MOVX    A,@R0
+01DE C3              742             CLR     C
+01DF 943B            743             SUBB    A,#03BH
+01E1 7480            744             MOV     A,#080H
+01E3 9480            745             SUBB    A,#080H
+01E5 5002            746             JNC     ?C0059
+01E7                 747     ?C0173:
+01E7 8012            748             SJMP    ?C0174
+01E9                 749     ?C0059:
+01E9 E4              750             CLR     A
+01EA 7800     F      751             MOV     R0,#LOW (ds_dat_time_set16+01H)
+01EC F2              752             MOVX    @R0,A
+01ED 8015            753             SJMP    ?C0045
+                     754     ;                                       case 2:{if(ds_dat_time_set16[0]<59)ds_dat_time_set1
+                             6[0]++;else ds_dat_time_set16[0]=0;}break;
+                     755                             ; SOURCE LINE # 79
+01EF                 756     ?C0061:
+01EF 7800     F      757             MOV     R0,#LOW (ds_dat_time_set16)
+01F1 E2              758             MOVX    A,@R0
+01F2 C3              759             CLR     C
+01F3 943B            760             SUBB    A,#03BH
+01F5 7480            761             MOV     A,#080H
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    13
+
+01F7 9480            762             SUBB    A,#080H
+01F9 5005            763             JNC     ?C0062
+01FB                 764     ?C0174:
+01FB E2              765             MOVX    A,@R0
+01FC 04              766             INC     A
+01FD F2              767             MOVX    @R0,A
+01FE 8004            768             SJMP    ?C0045
+0200                 769     ?C0062:
+0200 E4              770             CLR     A
+0201 7800     F      771             MOV     R0,#LOW (ds_dat_time_set16)
+0203 F2              772             MOVX    @R0,A
+                     773     ;                               }
+                     774                             ; SOURCE LINE # 80
+0204                 775     ?C0045:
+                     776     ;                                Ds1302_time_Copy(2);
+                     777                             ; SOURCE LINE # 81
+0204 7F02            778             MOV     R7,#02H
+0206 120000   F      779             LCALL   _Ds1302_time_Copy
+                     780     ;                       }
+                     781                             ; SOURCE LINE # 82
+0209                 782     ?C0040:
+                     783     ;                       if(BurstGodown||(goDown&Refill_sign_3))
+                     784                             ; SOURCE LINE # 83
+0209 E500     F      785             MOV     A,Double_Press_counter+07H
+020B 20E016          786             JB      ACC.0,?C0065
+020E E500     F      787             MOV     A,Instruction_code_key+03H
+0210 6480            788             XRL     A,#080H
+0212 7004            789             JNZ     ?C0066
+0214 7F01            790             MOV     R7,#01H
+0216 8002            791             SJMP    ?C0067
+0218                 792     ?C0066:
+0218 7F00            793             MOV     R7,#00H
+021A                 794     ?C0067:
+021A A200     F      795             MOV     C,Refill_sign_3
+021C E4              796             CLR     A
+021D 33              797             RLC     A
+021E 5F              798             ANL     A,R7
+021F 7003            799             JNZ     $ + 5H
+0221 020000   F      800             LJMP    ?C0144
+0224                 801     ?C0065:
+                     802     ;                       {
+                     803                             ; SOURCE LINE # 84
+                     804     ;                               if(OptionCode[1]<6)Change_sign=1;//È·±£µ±Option´¦ÔÚÕÈ·µÄÖµÊ
+                             ±´¥·¢
+                     805                             ; SOURCE LINE # 85
+0224 120000   F      806             LCALL   L?0204
+0227 5005            807             JNC     ?C0068
+0229 7800     F      808             MOV     R0,#LOW (Change_sign)
+022B 7401            809             MOV     A,#01H
+022D F2              810             MOVX    @R0,A
+022E                 811     ?C0068:
+                     812     ;                                Ds1302_time_Copy(1);
+                     813                             ; SOURCE LINE # 86
+022E 7F01            814             MOV     R7,#01H
+0230 120000   F      815             LCALL   _Ds1302_time_Copy
+                     816     ;                               switch(OptionCode[1])
+                     817                             ; SOURCE LINE # 87
+0233 7800     F      818             MOV     R0,#LOW (OptionCode+01H)
+0235 E2              819             MOVX    A,@R0
+0236 6041            820             JZ      ?C0079
+0238 14              821             DEC     A
+0239 604E            822             JZ      ?C0082
+023B 14              823             DEC     A
+023C 6058            824             JZ      ?C0085
+023E 24FE            825             ADD     A,#0FEH
+0240 6017            826             JZ      ?C0073
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    14
+
+0242 14              827             DEC     A
+0243 6024            828             JZ      ?C0076
+0245 2402            829             ADD     A,#02H
+0247 705E            830             JNZ     ?C0069
+                     831     ;                               {
+                     832                             ; SOURCE LINE # 88
+                     833     ;                                       case 3:{if(ds_dat_time_set16[6]>0)ds_dat_time_set16
+                             [6]--;else ds_dat_time_set16[6]=99;}break;
+                     834                             ; SOURCE LINE # 89
+0249                 835     ?C0070:
+0249 7800     F      836             MOV     R0,#LOW (ds_dat_time_set16+06H)
+024B 120000   F      837             LCALL   L?0194
+024E 4002            838             JC      ?C0071
+0250 804B            839             SJMP    ?C0179
+0252                 840     ?C0071:
+0252 7800     F      841             MOV     R0,#LOW (ds_dat_time_set16+06H)
+0254 7463            842             MOV     A,#063H
+0256 F2              843             MOVX    @R0,A
+0257 804E            844             SJMP    ?C0069
+                     845     ;                                       case 4:{if(ds_dat_time_set16[4]>1)ds_dat_time_set16
+                             [4]--;else ds_dat_time_set16[4]=12;}break;
+                     846                             ; SOURCE LINE # 90
+0259                 847     ?C0073:
+0259 7800     F      848             MOV     R0,#LOW (ds_dat_time_set16+04H)
+025B 120000   F      849             LCALL   L?0196
+025E 4002            850             JC      ?C0074
+0260                 851     ?C0175:
+0260 803B            852             SJMP    ?C0179
+0262                 853     ?C0074:
+0262 7800     F      854             MOV     R0,#LOW (ds_dat_time_set16+04H)
+0264 740C            855             MOV     A,#0CH
+0266 F2              856             MOVX    @R0,A
+0267 803E            857             SJMP    ?C0069
+                     858     ;                                       case 5:{if(ds_dat_time_set16[3]>1)ds_dat_time_set16
+                             [3]--;else ds_dat_time_set16[3]=Calculate_Totaldays_Ofmonth(ds_dat_time_set16[6],ds_dat_time_set16[4]);}break;
+                     859                             ; SOURCE LINE # 91
+0269                 860     ?C0076:
+0269 7800     F      861             MOV     R0,#LOW (ds_dat_time_set16+03H)
+026B 120000   F      862             LCALL   L?0196
+026E 4002            863             JC      ?C0077
+0270                 864     ?C0176:
+0270 802B            865             SJMP    ?C0179
+0272                 866     ?C0077:
+0272 120000   F      867             LCALL   L?0203
+0275 EF              868             MOV     A,R7
+0276 F2              869             MOVX    @R0,A
+0277 802E            870             SJMP    ?C0069
+                     871     ;                                       case 0:{if(ds_dat_time_set16[2]>0)ds_dat_time_set16
+                             [2]--;else ds_dat_time_set16[2]=23;}break;
+                     872                             ; SOURCE LINE # 92
+0279                 873     ?C0079:
+0279 7800     F      874             MOV     R0,#LOW (ds_dat_time_set16+02H)
+027B 120000   F      875             LCALL   L?0195
+027E 4002            876             JC      ?C0080
+0280                 877     ?C0177:
+0280 801B            878             SJMP    ?C0179
+0282                 879     ?C0080:
+0282 7800     F      880             MOV     R0,#LOW (ds_dat_time_set16+02H)
+0284 7417            881             MOV     A,#017H
+0286 F2              882             MOVX    @R0,A
+0287 801E            883             SJMP    ?C0069
+                     884     ;                                       case 1:{if(ds_dat_time_set16[1]>0)ds_dat_time_set16
+                             [1]--;else ds_dat_time_set16[1]=59;}break;
+                     885                             ; SOURCE LINE # 93
+0289                 886     ?C0082:
+0289 7800     F      887             MOV     R0,#LOW (ds_dat_time_set16+01H)
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    15
+
+028B 120000   F      888             LCALL   L?0195
+028E 4002            889             JC      ?C0083
+0290                 890     ?C0178:
+0290 800B            891             SJMP    ?C0179
+0292                 892     ?C0083:
+0292 7800     F      893             MOV     R0,#LOW (ds_dat_time_set16+01H)
+0294 800E            894             SJMP    ?C0180
+                     895     ;                                       case 2:{if(ds_dat_time_set16[0]>0)ds_dat_time_set16
+                             [0]--;else ds_dat_time_set16[0]=59;}break;
+                     896                             ; SOURCE LINE # 94
+0296                 897     ?C0085:
+0296 7800     F      898             MOV     R0,#LOW (ds_dat_time_set16)
+0298 120000   F      899             LCALL   L?0195
+029B 4005            900             JC      ?C0086
+029D                 901     ?C0179:
+029D E2              902             MOVX    A,@R0
+029E 14              903             DEC     A
+029F F2              904             MOVX    @R0,A
+02A0 8005            905             SJMP    ?C0069
+02A2                 906     ?C0086:
+02A2 7800     F      907             MOV     R0,#LOW (ds_dat_time_set16)
+02A4                 908     ?C0180:
+02A4 743B            909             MOV     A,#03BH
+02A6 F2              910             MOVX    @R0,A
+                     911     ;                               }
+                     912                             ; SOURCE LINE # 95
+02A7                 913     ?C0069:
+                     914     ;                                Ds1302_time_Copy(2);
+                     915                             ; SOURCE LINE # 96
+02A7 7F02            916             MOV     R7,#02H
+02A9 020000   F      917             LJMP    _Ds1302_time_Copy
+                     918     ;                       }
+                     919                             ; SOURCE LINE # 97
+                     920     ;                       
+                     921     ;                       break;
+                     922                             ; SOURCE LINE # 99
+                     923     ;               }       
+                     924                             ; SOURCE LINE # 100
+                     925     ;               case 100:
+                     926                             ; SOURCE LINE # 101
+02AC                 927     ?C0088:
+                     928     ;               {
+                     929                             ; SOURCE LINE # 102
+                     930     ;                       if(goIn&Refill_sign_0){Ds1302_Set_time();menuCode=1;}
+                     931                             ; SOURCE LINE # 103
+02AC E500     F      932             MOV     A,Instruction_code_key
+02AE 6480            933             XRL     A,#080H
+02B0 7004            934             JNZ     ?C0090
+02B2 7F01            935             MOV     R7,#01H
+02B4 8002            936             SJMP    ?C0091
+02B6                 937     ?C0090:
+02B6 7F00            938             MOV     R7,#00H
+02B8                 939     ?C0091:
+02B8 A200     F      940             MOV     C,Refill_sign_0
+02BA E4              941             CLR     A
+02BB 33              942             RLC     A
+02BC 5F              943             ANL     A,R7
+02BD 6006            944             JZ      ?C0089
+02BF 120000   F      945             LCALL   Ds1302_Set_time
+02C2 750001   F      946             MOV     menuCode,#01H
+02C5                 947     ?C0089:
+                     948     ;                       if(goBack&Refill_sign_1){menuCode=1;}
+                     949                             ; SOURCE LINE # 104
+02C5 E500     F      950             MOV     A,Instruction_code_key+01H
+02C7 6480            951             XRL     A,#080H
+02C9 7004            952             JNZ     ?C0093
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    16
+
+02CB 7F01            953             MOV     R7,#01H
+02CD 8002            954             SJMP    ?C0094
+02CF                 955     ?C0093:
+02CF 7F00            956             MOV     R7,#00H
+02D1                 957     ?C0094:
+02D1 A200     F      958             MOV     C,Refill_sign_1
+02D3 E4              959             CLR     A
+02D4 33              960             RLC     A
+02D5 5F              961             ANL     A,R7
+02D6 7003            962             JNZ     $ + 5H
+02D8 020000   F      963             LJMP    ?C0144
+02DB 750001   F      964             MOV     menuCode,#01H
+                     965     ;                       break;
+                     966                             ; SOURCE LINE # 105
+02DE 22              967             RET     
+                     968     ;               }
+                     969                             ; SOURCE LINE # 106
+                     970     ;               case 11:
+                     971                             ; SOURCE LINE # 107
+02DF                 972     ?C0095:
+                     973     ;               {
+                     974                             ; SOURCE LINE # 108
+                     975     ;                       if(goBack&Refill_sign_1){menuCode=1;OptionCode[2]=10;}
+                     976                             ; SOURCE LINE # 109
+02DF E500     F      977             MOV     A,Instruction_code_key+01H
+02E1 6480            978             XRL     A,#080H
+02E3 7004            979             JNZ     ?C0097
+02E5 7F01            980             MOV     R7,#01H
+02E7 8002            981             SJMP    ?C0098
+02E9                 982     ?C0097:
+02E9 7F00            983             MOV     R7,#00H
+02EB                 984     ?C0098:
+02EB A200     F      985             MOV     C,Refill_sign_1
+02ED E4              986             CLR     A
+02EE 33              987             RLC     A
+02EF 5F              988             ANL     A,R7
+02F0 6008            989             JZ      ?C0096
+02F2 750001   F      990             MOV     menuCode,#01H
+02F5 7800     F      991             MOV     R0,#LOW (OptionCode+02H)
+02F7 740A            992             MOV     A,#0AH
+02F9 F2              993             MOVX    @R0,A
+02FA                 994     ?C0096:
+                     995     ;                       if(goIn&Refill_sign_0){if(OptionCode[2]<OptionCode_Max[2])OptionCod
+                             e[2]++;else OptionCode[2]=0;}
+                     996                             ; SOURCE LINE # 110
+02FA E500     F      997             MOV     A,Instruction_code_key
+02FC 6480            998             XRL     A,#080H
+02FE 7004            999             JNZ     ?C0100
+0300 7F01           1000             MOV     R7,#01H
+0302 8002           1001             SJMP    ?C0101
+0304                1002     ?C0100:
+0304 7F00           1003             MOV     R7,#00H
+0306                1004     ?C0101:
+0306 A200     F     1005             MOV     C,Refill_sign_0
+0308 E4             1006             CLR     A
+0309 33             1007             RLC     A
+030A 5F             1008             ANL     A,R7
+030B 6014           1009             JZ      ?C0099
+030D 7800     F     1010             MOV     R0,#LOW (OptionCode_Max+02H)
+030F E2             1011             MOVX    A,@R0
+0310 FF             1012             MOV     R7,A
+0311 7800     F     1013             MOV     R0,#LOW (OptionCode+02H)
+0313 E2             1014             MOVX    A,@R0
+0314 C3             1015             CLR     C
+0315 9F             1016             SUBB    A,R7
+0316 5005           1017             JNC     ?C0102
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    17
+
+0318 E2             1018             MOVX    A,@R0
+0319 04             1019             INC     A
+031A F2             1020             MOVX    @R0,A
+031B 8004           1021             SJMP    ?C0099
+031D                1022     ?C0102:
+031D E4             1023             CLR     A
+031E 7800     F     1024             MOV     R0,#LOW (OptionCode+02H)
+0320 F2             1025             MOVX    @R0,A
+0321                1026     ?C0099:
+                    1027     ;                       if(BurstGoup||(goUp&Refill_sign_2))
+                    1028                             ; SOURCE LINE # 111
+0321 E500     F     1029             MOV     A,Double_Press_counter+05H
+0323 20E013         1030             JB      ACC.0,?C0105
+0326 E500     F     1031             MOV     A,Instruction_code_key+02H
+0328 6480           1032             XRL     A,#080H
+032A 7004           1033             JNZ     ?C0106
+032C 7F01           1034             MOV     R7,#01H
+032E 8002           1035             SJMP    ?C0107
+0330                1036     ?C0106:
+0330 7F00           1037             MOV     R7,#00H
+0332                1038     ?C0107:
+0332 A200     F     1039             MOV     C,Refill_sign_2
+0334 E4             1040             CLR     A
+0335 33             1041             RLC     A
+0336 5F             1042             ANL     A,R7
+0337 6069           1043             JZ      ?C0104
+0339                1044     ?C0105:
+                    1045     ;                       {
+                    1046                             ; SOURCE LINE # 112
+                    1047     ;                       switch(OptionCode[2])
+                    1048                             ; SOURCE LINE # 113
+0339 7800     F     1049             MOV     R0,#LOW (OptionCode+02H)
+033B E2             1050             MOVX    A,@R0
+033C 14             1051             DEC     A
+033D 601D           1052             JZ      ?C0112
+033F 14             1053             DEC     A
+0340 602E           1054             JZ      ?C0115
+0342 14             1055             DEC     A
+0343 6034           1056             JZ      ?C0118
+0345 14             1057             DEC     A
+0346 603E           1058             JZ      ?C0121
+0348 2404           1059             ADD     A,#04H
+034A 7056           1060             JNZ     ?C0104
+                    1061     ;                               {
+                    1062                             ; SOURCE LINE # 114
+                    1063     ;                                       case 0:if(Sensor_switch[0]<1)Sensor_switch[0]++;els
+                             e Sensor_switch[0]=0;break;
+                    1064                             ; SOURCE LINE # 115
+034C                1065     ?C0109:
+034C 7800     F     1066             MOV     R0,#LOW (Sensor_switch)
+034E C3             1067             CLR     C
+034F 120000   F     1068             LCALL   L?0197
+0352 5002           1069             JNC     ?C0110
+0354 800F           1070             SJMP    ?C0181
+0356                1071     ?C0110:
+0356 E4             1072             CLR     A
+0357 7800     F     1073             MOV     R0,#LOW (Sensor_switch)
+0359 F2             1074             MOVX    @R0,A
+035A 8046           1075             SJMP    ?C0104
+                    1076     ;                                       case 1:if(Sensor_switch[1]<1)Sensor_switch[1]++;els
+                             e Sensor_switch[1]=0;break;
+                    1077                             ; SOURCE LINE # 116
+035C                1078     ?C0112:
+035C 7800     F     1079             MOV     R0,#LOW (Sensor_switch+01H)
+035E E2             1080             MOVX    A,@R0
+035F C3             1081             CLR     C
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    18
+
+0360 120000   F     1082             LCALL   L?0198
+0363 5005           1083             JNC     ?C0113
+0365                1084     ?C0181:
+0365 E2             1085             MOVX    A,@R0
+0366 04             1086             INC     A
+0367 F2             1087             MOVX    @R0,A
+0368 8038           1088             SJMP    ?C0104
+036A                1089     ?C0113:
+036A E4             1090             CLR     A
+036B 7800     F     1091             MOV     R0,#LOW (Sensor_switch+01H)
+036D F2             1092             MOVX    @R0,A
+036E 8032           1093             SJMP    ?C0104
+                    1094     ;                                       case 2:if(rot_taskFrequency[0]<6000)rot_taskFrequen
+                             cy[0]+=100;else rot_taskFrequency[0]=100;break;
+                    1095                             ; SOURCE LINE # 117
+0370                1096     ?C0115:
+0370 7800     F     1097             MOV     R0,#LOW (rot_taskFrequency+01H)
+0372 120000   F     1098             LCALL   L?0199
+0375 500B           1099             JNC     ?C0183
+0377 8015           1100             SJMP    ?C0184
+                    1101     ;                                       case 3:if(rot_taskFrequency[1]<6000)rot_taskFrequen
+                             cy[1]+=100;else rot_taskFrequency[0]=100;break;
+                    1102                             ; SOURCE LINE # 118
+0379                1103     ?C0118:
+0379 7800     F     1104             MOV     R0,#LOW (rot_taskFrequency+03H)
+037B 120000   F     1105             LCALL   L?0199
+037E 5002           1106             JNC     ?C0119
+0380                1107     ?C0182:
+0380 800C           1108             SJMP    ?C0184
+0382                1109     ?C0119:
+0382                1110     ?C0183:
+0382 7800     F     1111             MOV     R0,#LOW (rot_taskFrequency)
+0384 8016           1112             SJMP    ?C0185
+                    1113     ;                                       case 4:if(Sensor_display_switchingSpeed<6000)Sensor
+                             _display_switchingSpeed+=100;else Sensor_display_switchingSpeed=100;break;
+                    1114                             ; SOURCE LINE # 119
+0386                1115     ?C0121:
+0386 C3             1116             CLR     C
+0387 7800     F     1117             MOV     R0,#LOW (Sensor_display_switchingSpeed+01H)
+0389 120000   F     1118             LCALL   L?0200
+038C 500C           1119             JNC     ?C0122
+038E                1120     ?C0184:
+038E 08             1121             INC     R0
+038F E2             1122             MOVX    A,@R0
+0390 2464           1123             ADD     A,#064H
+0392 F2             1124             MOVX    @R0,A
+0393 18             1125             DEC     R0
+0394 E2             1126             MOVX    A,@R0
+0395 3400           1127             ADDC    A,#00H
+0397 F2             1128             MOVX    @R0,A
+0398 8008           1129             SJMP    ?C0104
+039A                1130     ?C0122:
+039A 7800     F     1131             MOV     R0,#LOW (Sensor_display_switchingSpeed)
+039C                1132     ?C0185:
+039C E4             1133             CLR     A
+039D F2             1134             MOVX    @R0,A
+039E 08             1135             INC     R0
+039F 7464           1136             MOV     A,#064H
+03A1 F2             1137             MOVX    @R0,A
+                    1138     ;                               }
+                    1139                             ; SOURCE LINE # 120
+                    1140     ;                       }
+                    1141                             ; SOURCE LINE # 121
+03A2                1142     ?C0104:
+                    1143     ;                       if(BurstGodown||(goDown&Refill_sign_3))
+                    1144                             ; SOURCE LINE # 122
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    19
+
+03A2 E500     F     1145             MOV     A,Double_Press_counter+07H
+03A4 20E013         1146             JB      ACC.0,?C0125
+03A7 E500     F     1147             MOV     A,Instruction_code_key+03H
+03A9 6480           1148             XRL     A,#080H
+03AB 7004           1149             JNZ     ?C0126
+03AD 7F01           1150             MOV     R7,#01H
+03AF 8002           1151             SJMP    ?C0127
+03B1                1152     ?C0126:
+03B1 7F00           1153             MOV     R7,#00H
+03B3                1154     ?C0127:
+03B3 A200     F     1155             MOV     C,Refill_sign_3
+03B5 E4             1156             CLR     A
+03B6 33             1157             RLC     A
+03B7 5F             1158             ANL     A,R7
+03B8 6063           1159             JZ      ?C0144
+03BA                1160     ?C0125:
+                    1161     ;                       switch(OptionCode[2])
+                    1162                             ; SOURCE LINE # 123
+03BA 7800     F     1163             MOV     R0,#LOW (OptionCode+02H)
+03BC E2             1164             MOVX    A,@R0
+03BD 14             1165             DEC     A
+03BE 601A           1166             JZ      ?C0132
+03C0 14             1167             DEC     A
+03C1 6028           1168             JZ      ?C0135
+03C3 14             1169             DEC     A
+03C4 602E           1170             JZ      ?C0138
+03C6 14             1171             DEC     A
+03C7 6038           1172             JZ      ?C0141
+03C9 2404           1173             ADD     A,#04H
+03CB 7050           1174             JNZ     ?C0144
+                    1175     ;                               {
+                    1176                             ; SOURCE LINE # 124
+                    1177     ;                                       case 0:if(Sensor_switch[0]>0)Sensor_switch[0]--;els
+                             e Sensor_switch[0]=1;break;
+                    1178                             ; SOURCE LINE # 125
+03CD                1179     ?C0129:
+03CD 7800     F     1180             MOV     R0,#LOW (Sensor_switch)
+03CF 120000   F     1181             LCALL   L?0195
+03D2 4002           1182             JC      ?C0130
+03D4 800B           1183             SJMP    ?C0186
+03D6                1184     ?C0130:
+03D6 7800     F     1185             MOV     R0,#LOW (Sensor_switch)
+03D8 800D           1186             SJMP    ?C0187
+                    1187     ;                                       case 1:if(Sensor_switch[1]>0)Sensor_switch[1]--;els
+                             e Sensor_switch[1]=1;break;
+                    1188                             ; SOURCE LINE # 126
+03DA                1189     ?C0132:
+03DA 7800     F     1190             MOV     R0,#LOW (Sensor_switch+01H)
+03DC 120000   F     1191             LCALL   L?0195
+03DF 4004           1192             JC      ?C0133
+03E1                1193     ?C0186:
+03E1 E2             1194             MOVX    A,@R0
+03E2 14             1195             DEC     A
+03E3 F2             1196             MOVX    @R0,A
+03E4 22             1197             RET     
+03E5                1198     ?C0133:
+03E5 7800     F     1199             MOV     R0,#LOW (Sensor_switch+01H)
+03E7                1200     ?C0187:
+03E7 7401           1201             MOV     A,#01H
+03E9 F2             1202             MOVX    @R0,A
+03EA 22             1203             RET     
+                    1204     ;                                       case 2:if(rot_taskFrequency[0]>100)rot_taskFrequenc
+                             y[0]-=100;else rot_taskFrequency[0]=6000;break;
+                    1205                             ; SOURCE LINE # 127
+03EB                1206     ?C0135:
+03EB 7800     F     1207             MOV     R0,#LOW (rot_taskFrequency+01H)
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    20
+
+03ED 120000   F     1208             LCALL   L?0201
+03F0 400B           1209             JC      ?C0189
+03F2 8015           1210             SJMP    ?C0190
+                    1211     ;                                       case 3:if(rot_taskFrequency[1]>100)rot_taskFrequenc
+                             y[1]-=100;else rot_taskFrequency[0]=6000;break;
+                    1212                             ; SOURCE LINE # 128
+03F4                1213     ?C0138:
+03F4 7800     F     1214             MOV     R0,#LOW (rot_taskFrequency+03H)
+03F6 120000   F     1215             LCALL   L?0201
+03F9 4002           1216             JC      ?C0139
+03FB                1217     ?C0188:
+03FB 800C           1218             SJMP    ?C0190
+03FD                1219     ?C0139:
+03FD                1220     ?C0189:
+03FD 7800     F     1221             MOV     R0,#LOW (rot_taskFrequency)
+03FF 8015           1222             SJMP    ?C0191
+                    1223     ;                                       case 4:if(Sensor_display_switchingSpeed>100)Sensor_
+                             display_switchingSpeed-=100;else Sensor_display_switchingSpeed=6000;break;
+                    1224                             ; SOURCE LINE # 129
+0401                1225     ?C0141:
+0401 D3             1226             SETB    C
+0402 7800     F     1227             MOV     R0,#LOW (Sensor_display_switchingSpeed+01H)
+0404 120000   F     1228             LCALL   L?0202
+0407 400B           1229             JC      ?C0142
+0409                1230     ?C0190:
+0409 08             1231             INC     R0
+040A E2             1232             MOVX    A,@R0
+040B 249C           1233             ADD     A,#09CH
+040D F2             1234             MOVX    @R0,A
+040E 18             1235             DEC     R0
+040F E2             1236             MOVX    A,@R0
+0410 34FF           1237             ADDC    A,#0FFH
+0412 F2             1238             MOVX    @R0,A
+0413 22             1239             RET     
+0414                1240     ?C0142:
+0414 7800     F     1241             MOV     R0,#LOW (Sensor_display_switchingSpeed)
+0416                1242     ?C0191:
+0416 7417           1243             MOV     A,#017H
+0418 F2             1244             MOVX    @R0,A
+0419 08             1245             INC     R0
+041A 7470           1246             MOV     A,#070H
+041C F2             1247             MOVX    @R0,A
+                    1248     ;                               }
+                    1249                             ; SOURCE LINE # 130
+                    1250     ;                       break;
+                    1251                             ; SOURCE LINE # 131
+                    1252     ;               }
+                    1253                             ; SOURCE LINE # 132
+                    1254     ;       }
+                    1255                             ; SOURCE LINE # 133
+                    1256     ; }
+                    1257                             ; SOURCE LINE # 134
+041D                1258     ?C0144:
+041D 22             1259             RET     
+041E                1260     L?0203:
+041E 7800     F     1261             MOV     R0,#LOW (ds_dat_time_set16+06H)
+0420 E2             1262             MOVX    A,@R0
+0421 FF             1263             MOV     R7,A
+0422 7800     F     1264             MOV     R0,#LOW (ds_dat_time_set16+04H)
+0424 E2             1265             MOVX    A,@R0
+0425 FD             1266             MOV     R5,A
+0426 120000   F     1267             LCALL   _Calculate_Totaldays_Ofmonth
+0429 7800     F     1268             MOV     R0,#LOW (ds_dat_time_set16+03H)
+042B 22             1269             RET     
+                    1270     ; END OF control_Section
+                    1271     
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    21
+
+                    1272     ; void recognition_key()
+                    1273     
+----                1274             RSEG  ?PR?recognition_key?BUTTON
+0000                1275     recognition_key:
+                    1276             USING   0
+                    1277                             ; SOURCE LINE # 135
+                    1278     ; {
+                    1279                             ; SOURCE LINE # 136
+                    1280     ;       uchar i;
+                    1281     ;       
+                    1282     ;       for(i=0;i<4;i++)
+                    1283                             ; SOURCE LINE # 139
+                    1284     ;---- Variable 'i?140' assigned to Register 'R7' ----
+0000 E4             1285             CLR     A
+0001 FF             1286             MOV     R7,A
+0002                1287     ?C0145:
+0002 EF             1288             MOV     A,R7
+0003 FD             1289             MOV     R5,A
+0004 7C00           1290             MOV     R4,#00H
+0006 C3             1291             CLR     C
+0007 9404           1292             SUBB    A,#04H
+0009 7480           1293             MOV     A,#080H
+000B 9480           1294             SUBB    A,#080H
+000D 4003           1295             JC      $ + 5H
+000F 020000   F     1296             LJMP    ?C0146
+                    1297     ;       {
+                    1298                             ; SOURCE LINE # 140
+                    1299     ;               Curstatus_key[i]=(KEY0&(i==0)|KEY1&(i==1)|KEY2&(i==2)|KEY3&(i==3));
+                    1300                             ; SOURCE LINE # 141
+0012 ED             1301             MOV     A,R5
+0013 6401           1302             XRL     A,#01H
+0015 7004           1303             JNZ     ?C0148
+0017 7E01           1304             MOV     R6,#01H
+0019 8002           1305             SJMP    ?C0149
+001B                1306     ?C0148:
+001B 7E00           1307             MOV     R6,#00H
+001D                1308     ?C0149:
+001D A2B0           1309             MOV     C,KEY1
+001F E4             1310             CLR     A
+0020 33             1311             RLC     A
+0021 5E             1312             ANL     A,R6
+0022 FE             1313             MOV     R6,A
+0023 EF             1314             MOV     A,R7
+0024 7004           1315             JNZ     ?C0150
+0026 7D01           1316             MOV     R5,#01H
+0028 8002           1317             SJMP    ?C0151
+002A                1318     ?C0150:
+002A 7D00           1319             MOV     R5,#00H
+002C                1320     ?C0151:
+002C A2B1           1321             MOV     C,KEY0
+002E E4             1322             CLR     A
+002F 33             1323             RLC     A
+0030 5D             1324             ANL     A,R5
+0031 4E             1325             ORL     A,R6
+0032 FE             1326             MOV     R6,A
+0033 EF             1327             MOV     A,R7
+0034 6402           1328             XRL     A,#02H
+0036 7004           1329             JNZ     ?C0152
+0038 7D01           1330             MOV     R5,#01H
+003A 8002           1331             SJMP    ?C0153
+003C                1332     ?C0152:
+003C 7D00           1333             MOV     R5,#00H
+003E                1334     ?C0153:
+003E A2B2           1335             MOV     C,KEY2
+0040 E4             1336             CLR     A
+0041 33             1337             RLC     A
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    22
+
+0042 5D             1338             ANL     A,R5
+0043 4E             1339             ORL     A,R6
+0044 FE             1340             MOV     R6,A
+0045 EF             1341             MOV     A,R7
+0046 6403           1342             XRL     A,#03H
+0048 7004           1343             JNZ     ?C0154
+004A 7D01           1344             MOV     R5,#01H
+004C 8002           1345             SJMP    ?C0155
+004E                1346     ?C0154:
+004E 7D00           1347             MOV     R5,#00H
+0050                1348     ?C0155:
+0050 A2B3           1349             MOV     C,KEY3
+0052 E4             1350             CLR     A
+0053 33             1351             RLC     A
+0054 5D             1352             ANL     A,R5
+0055 4E             1353             ORL     A,R6
+0056 FE             1354             MOV     R6,A
+0057 7400     F     1355             MOV     A,#LOW (Curstatus_key)
+0059 2F             1356             ADD     A,R7
+005A F8             1357             MOV     R0,A
+005B A606           1358             MOV     @R0,AR6
+                    1359     ;               if(Prestate_key[i]!=Curstatus_key[i])
+                    1360                             ; SOURCE LINE # 142
+005D 120000   F     1361             LCALL   L?0205
+0060 E6             1362             MOV     A,@R0
+0061 6E             1363             XRL     A,R6
+0062 6016           1364             JZ      ?C0156
+                    1365     ;               {
+                    1366                             ; SOURCE LINE # 143
+                    1367     ;                       if(Curstatus_key[i]==0)//0°´ÏÂ£¬1Ì§Æð
+                    1368                             ; SOURCE LINE # 144
+0064 EE             1369             MOV     A,R6
+0065 7008           1370             JNZ     ?C0157
+                    1371     ;                               Instruction_code_key[i]=0x80;
+                    1372                             ; SOURCE LINE # 145
+0067 7400     F     1373             MOV     A,#LOW (Instruction_code_key)
+0069 2F             1374             ADD     A,R7
+006A F8             1375             MOV     R0,A
+006B 7680           1376             MOV     @R0,#080H
+006D 8006           1377             SJMP    ?C0158
+006F                1378     ?C0157:
+                    1379     ;                               
+                    1380     ;                               
+                    1381     ;                       else 
+                    1382     ;                               Instruction_code_key[i]=0x81;
+                    1383                             ; SOURCE LINE # 149
+006F 7400     F     1384             MOV     A,#LOW (Instruction_code_key)
+0071 2F             1385             ADD     A,R7
+0072 F8             1386             MOV     R0,A
+0073 7681           1387             MOV     @R0,#081H
+0075                1388     ?C0158:
+                    1389     ;                               Refill_sign=0xff;
+                    1390                             ; SOURCE LINE # 150
+0075 7500FF   F     1391             MOV     Refill_sign,#0FFH
+                    1392     ;                               Double_Press_counter[i]=0;
+                    1393                             ; SOURCE LINE # 151
+                    1394     ;               }
+                    1395                             ; SOURCE LINE # 152
+0078 8016           1396             SJMP    ?C0192
+007A                1397     ?C0156:
+                    1398     ;               else //×´Ì¬±£³Ö
+                    1399     ;               {
+                    1400                             ; SOURCE LINE # 154
+                    1401     ;                       if(Curstatus_key[i]==0) 
+                    1402                             ; SOURCE LINE # 155
+007A 7400     F     1403             MOV     A,#LOW (Curstatus_key)
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    23
+
+007C 2F             1404             ADD     A,R7
+007D F8             1405             MOV     R0,A
+007E E6             1406             MOV     A,@R0
+007F 7023           1407             JNZ     ?C0160
+                    1408     ;                       {if(Instruction_code_key[i]!=0x82){Instruction_code_key[i]=0x82;Dou
+                             ble_Press_counter[i]=0;}
+                    1409                             ; SOURCE LINE # 156
+0081 7400     F     1410             MOV     A,#LOW (Instruction_code_key)
+0083 2F             1411             ADD     A,R7
+0084 F8             1412             MOV     R0,A
+0085 E6             1413             MOV     A,@R0
+0086 6482           1414             XRL     A,#082H
+0088 600B           1415             JZ      ?C0161
+008A 7400     F     1416             MOV     A,#LOW (Instruction_code_key)
+008C 2F             1417             ADD     A,R7
+008D F8             1418             MOV     R0,A
+008E 7682           1419             MOV     @R0,#082H
+0090                1420     ?C0192:
+0090 120000   F     1421             LCALL   L?0206
+0093 803D           1422             SJMP    ?C0159
+0095                1423     ?C0161:
+                    1424     ;                               else Double_Press_counter[i]++;}
+                    1425                             ; SOURCE LINE # 157
+0095 EF             1426             MOV     A,R7
+0096 25E0           1427             ADD     A,ACC
+0098 2400     F     1428             ADD     A,#LOW (Double_Press_counter)
+009A F8             1429             MOV     R0,A
+009B 08             1430             INC     R0
+009C 06             1431             INC     @R0
+009D E6             1432             MOV     A,@R0
+009E 18             1433             DEC     R0
+009F 7031           1434             JNZ     ?C0159
+00A1 06             1435             INC     @R0
+00A2                1436     ?C0167:
+00A2 802E           1437             SJMP    ?C0159
+00A4                1438     ?C0160:
+                    1439     ;                       else 
+                    1440     ;                       {if(Instruction_code_key[i]!=0x83){Instruction_code_key[i]=0x83;Dou
+                             ble_Idle_counter[i]=0;}
+                    1441                             ; SOURCE LINE # 159
+00A4 7400     F     1442             MOV     A,#LOW (Instruction_code_key)
+00A6 2F             1443             ADD     A,R7
+00A7 F8             1444             MOV     R0,A
+00A8 E6             1445             MOV     A,@R0
+00A9 6483           1446             XRL     A,#083H
+00AB 6012           1447             JZ      ?C0164
+00AD 7400     F     1448             MOV     A,#LOW (Instruction_code_key)
+00AF 2F             1449             ADD     A,R7
+00B0 F8             1450             MOV     R0,A
+00B1 7683           1451             MOV     @R0,#083H
+00B3 EF             1452             MOV     A,R7
+00B4 25E0           1453             ADD     A,ACC
+00B6 2400     F     1454             ADD     A,#LOW (Double_Idle_counter)
+00B8 F8             1455             MOV     R0,A
+00B9 E4             1456             CLR     A
+00BA F6             1457             MOV     @R0,A
+00BB 08             1458             INC     R0
+00BC F6             1459             MOV     @R0,A
+00BD 800D           1460             SJMP    ?C0165
+00BF                1461     ?C0164:
+                    1462     ;                               else Double_Idle_counter[i]++;
+                    1463                             ; SOURCE LINE # 160
+00BF EF             1464             MOV     A,R7
+00C0 25E0           1465             ADD     A,ACC
+00C2 2400     F     1466             ADD     A,#LOW (Double_Idle_counter)
+00C4 F8             1467             MOV     R0,A
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    24
+
+00C5 08             1468             INC     R0
+00C6 06             1469             INC     @R0
+00C7 E6             1470             MOV     A,@R0
+00C8 18             1471             DEC     R0
+00C9 7001           1472             JNZ     ?C0168
+00CB 06             1473             INC     @R0
+00CC                1474     ?C0168:
+00CC                1475     ?C0165:
+                    1476     ;                       Double_Press_counter[i]=0;
+                    1477                             ; SOURCE LINE # 161
+00CC 120000   F     1478             LCALL   L?0206
+                    1479     ;                       Refill_sign=0xff;
+                    1480                             ; SOURCE LINE # 162
+00CF 7500FF   F     1481             MOV     Refill_sign,#0FFH
+                    1482     ;                       }
+                    1483                             ; SOURCE LINE # 163
+                    1484     ;               }
+                    1485                             ; SOURCE LINE # 164
+00D2                1486     ?C0159:
+                    1487     ;               Prestate_key[i]=Curstatus_key[i];
+                    1488                             ; SOURCE LINE # 165
+00D2 120000   F     1489             LCALL   L?0205
+00D5 A606           1490             MOV     @R0,AR6
+                    1491     ;       }
+                    1492                             ; SOURCE LINE # 166
+00D7 0F             1493             INC     R7
+00D8 020000   F     1494             LJMP    ?C0145
+00DB                1495     ?C0146:
+                    1496     ;       control_Section();
+                    1497                             ; SOURCE LINE # 167
+00DB 020000   F     1498             LJMP    control_Section
+                    1499     ; END OF recognition_key
+                    1500     
+                    1501             END
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    25
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                        T Y P E  V A L U E   ATTRIBUTES
+
+?BA?BUTTON. . . . . . . . . .  D SEG    0001H       REL=BITADDRESSABLE
+?C0002. . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0003. . . . . . . . . . . .  C ADDR   002BH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0004. . . . . . . . . . . .  C ADDR   0049H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0005. . . . . . . . . . . .  C ADDR   0045H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0008. . . . . . . . . . . .  C ADDR   0068H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0010. . . . . . . . . . . .  C ADDR   006DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0011. . . . . . . . . . . .  C ADDR   0083H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0012. . . . . . . . . . . .  C ADDR   0077H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0013. . . . . . . . . . . .  C ADDR   0079H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0014. . . . . . . . . . . .  C ADDR   00AAH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0015. . . . . . . . . . . .  C ADDR   008DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0016. . . . . . . . . . . .  C ADDR   008FH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0017. . . . . . . . . . . .  C ADDR   00A6H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0019. . . . . . . . . . . .  C ADDR   00CFH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0020. . . . . . . . . . . .  C ADDR   00B4H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0021. . . . . . . . . . . .  C ADDR   00B6H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0022. . . . . . . . . . . .  C ADDR   00C9H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0025. . . . . . . . . . . .  C ADDR   00D9H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0026. . . . . . . . . . . .  C ADDR   00DBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0027. . . . . . . . . . . .  C ADDR   00F9H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0028. . . . . . . . . . . .  C ADDR   00FCH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0029. . . . . . . . . . . .  C ADDR   00FFH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0030. . . . . . . . . . . .  C ADDR   0129H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0031. . . . . . . . . . . .  C ADDR   0109H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0032. . . . . . . . . . . .  C ADDR   010BH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0033. . . . . . . . . . . .  C ADDR   011DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0035. . . . . . . . . . . .  C ADDR   0150H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0036. . . . . . . . . . . .  C ADDR   0133H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0037. . . . . . . . . . . .  C ADDR   0135H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0038. . . . . . . . . . . .  C ADDR   014CH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0040. . . . . . . . . . . .  C ADDR   0209H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0041. . . . . . . . . . . .  C ADDR   016BH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0042. . . . . . . . . . . .  C ADDR   015FH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0043. . . . . . . . . . . .  C ADDR   0161H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0044. . . . . . . . . . . .  C ADDR   0175H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0045. . . . . . . . . . . .  C ADDR   0204H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0046. . . . . . . . . . . .  C ADDR   0190H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0047. . . . . . . . . . . .  C ADDR   019EH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0049. . . . . . . . . . . .  C ADDR   01A4H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0050. . . . . . . . . . . .  C ADDR   01B2H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0052. . . . . . . . . . . .  C ADDR   01B6H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0053. . . . . . . . . . . .  C ADDR   01C0H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0055. . . . . . . . . . . .  C ADDR   01C7H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0056. . . . . . . . . . . .  C ADDR   01D5H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0058. . . . . . . . . . . .  C ADDR   01DBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0059. . . . . . . . . . . .  C ADDR   01E9H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0061. . . . . . . . . . . .  C ADDR   01EFH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0062. . . . . . . . . . . .  C ADDR   0200H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0065. . . . . . . . . . . .  C ADDR   0224H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0066. . . . . . . . . . . .  C ADDR   0218H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0067. . . . . . . . . . . .  C ADDR   021AH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0068. . . . . . . . . . . .  C ADDR   022EH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0069. . . . . . . . . . . .  C ADDR   02A7H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0070. . . . . . . . . . . .  C ADDR   0249H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0071. . . . . . . . . . . .  C ADDR   0252H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0073. . . . . . . . . . . .  C ADDR   0259H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0074. . . . . . . . . . . .  C ADDR   0262H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0076. . . . . . . . . . . .  C ADDR   0269H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0077. . . . . . . . . . . .  C ADDR   0272H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    26
+
+?C0079. . . . . . . . . . . .  C ADDR   0279H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0080. . . . . . . . . . . .  C ADDR   0282H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0082. . . . . . . . . . . .  C ADDR   0289H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0083. . . . . . . . . . . .  C ADDR   0292H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0085. . . . . . . . . . . .  C ADDR   0296H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0086. . . . . . . . . . . .  C ADDR   02A2H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0088. . . . . . . . . . . .  C ADDR   02ACH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0089. . . . . . . . . . . .  C ADDR   02C5H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0090. . . . . . . . . . . .  C ADDR   02B6H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0091. . . . . . . . . . . .  C ADDR   02B8H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0093. . . . . . . . . . . .  C ADDR   02CFH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0094. . . . . . . . . . . .  C ADDR   02D1H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0095. . . . . . . . . . . .  C ADDR   02DFH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0096. . . . . . . . . . . .  C ADDR   02FAH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0097. . . . . . . . . . . .  C ADDR   02E9H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0098. . . . . . . . . . . .  C ADDR   02EBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0099. . . . . . . . . . . .  C ADDR   0321H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0100. . . . . . . . . . . .  C ADDR   0304H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0101. . . . . . . . . . . .  C ADDR   0306H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0102. . . . . . . . . . . .  C ADDR   031DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0104. . . . . . . . . . . .  C ADDR   03A2H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0105. . . . . . . . . . . .  C ADDR   0339H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0106. . . . . . . . . . . .  C ADDR   0330H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0107. . . . . . . . . . . .  C ADDR   0332H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0109. . . . . . . . . . . .  C ADDR   034CH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0110. . . . . . . . . . . .  C ADDR   0356H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0112. . . . . . . . . . . .  C ADDR   035CH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0113. . . . . . . . . . . .  C ADDR   036AH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0115. . . . . . . . . . . .  C ADDR   0370H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0118. . . . . . . . . . . .  C ADDR   0379H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0119. . . . . . . . . . . .  C ADDR   0382H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0121. . . . . . . . . . . .  C ADDR   0386H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0122. . . . . . . . . . . .  C ADDR   039AH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0125. . . . . . . . . . . .  C ADDR   03BAH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0126. . . . . . . . . . . .  C ADDR   03B1H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0127. . . . . . . . . . . .  C ADDR   03B3H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0129. . . . . . . . . . . .  C ADDR   03CDH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0130. . . . . . . . . . . .  C ADDR   03D6H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0132. . . . . . . . . . . .  C ADDR   03DAH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0133. . . . . . . . . . . .  C ADDR   03E5H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0135. . . . . . . . . . . .  C ADDR   03EBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0138. . . . . . . . . . . .  C ADDR   03F4H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0139. . . . . . . . . . . .  C ADDR   03FDH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0141. . . . . . . . . . . .  C ADDR   0401H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0142. . . . . . . . . . . .  C ADDR   0414H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0144. . . . . . . . . . . .  C ADDR   041DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0145. . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0146. . . . . . . . . . . .  C ADDR   00DBH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0148. . . . . . . . . . . .  C ADDR   001BH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0149. . . . . . . . . . . .  C ADDR   001DH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0150. . . . . . . . . . . .  C ADDR   002AH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0151. . . . . . . . . . . .  C ADDR   002CH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0152. . . . . . . . . . . .  C ADDR   003CH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0153. . . . . . . . . . . .  C ADDR   003EH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0154. . . . . . . . . . . .  C ADDR   004EH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0155. . . . . . . . . . . .  C ADDR   0050H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0156. . . . . . . . . . . .  C ADDR   007AH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0157. . . . . . . . . . . .  C ADDR   006FH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0158. . . . . . . . . . . .  C ADDR   0075H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0159. . . . . . . . . . . .  C ADDR   00D2H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0160. . . . . . . . . . . .  C ADDR   00A4H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0161. . . . . . . . . . . .  C ADDR   0095H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0164. . . . . . . . . . . .  C ADDR   00BFH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0165. . . . . . . . . . . .  C ADDR   00CCH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0167. . . . . . . . . . . .  C ADDR   00A2H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C0168. . . . . . . . . . . .  C ADDR   00CCH   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    27
+
+?C0169. . . . . . . . . . . .  C ADDR   01B0H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0170. . . . . . . . . . . .  C ADDR   01BEH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0171. . . . . . . . . . . .  C ADDR   01C2H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0172. . . . . . . . . . . .  C ADDR   01D3H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0173. . . . . . . . . . . .  C ADDR   01E7H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0174. . . . . . . . . . . .  C ADDR   01FBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0175. . . . . . . . . . . .  C ADDR   0260H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0176. . . . . . . . . . . .  C ADDR   0270H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0177. . . . . . . . . . . .  C ADDR   0280H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0178. . . . . . . . . . . .  C ADDR   0290H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0179. . . . . . . . . . . .  C ADDR   029DH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0180. . . . . . . . . . . .  C ADDR   02A4H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0181. . . . . . . . . . . .  C ADDR   0365H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0182. . . . . . . . . . . .  C ADDR   0380H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0183. . . . . . . . . . . .  C ADDR   0382H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0184. . . . . . . . . . . .  C ADDR   038EH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0185. . . . . . . . . . . .  C ADDR   039CH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0186. . . . . . . . . . . .  C ADDR   03E1H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0187. . . . . . . . . . . .  C ADDR   03E7H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0188. . . . . . . . . . . .  C ADDR   03FBH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0189. . . . . . . . . . . .  C ADDR   03FDH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0190. . . . . . . . . . . .  C ADDR   0409H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0191. . . . . . . . . . . .  C ADDR   0416H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+?C0192. . . . . . . . . . . .  C ADDR   0090H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+?C_INITSEG. . . . . . . . . .  C SEG    000DH       REL=UNIT
+?DT?BUTTON. . . . . . . . . .  D SEG    0020H       REL=UNIT
+?PD?BUTTON. . . . . . . . . .  X SEG    0007H       REL=INPAGE
+?PR?BUTTON. . . . . . . . . .  C SEG    0045H       REL=UNIT
+?PR?CONTROL_SECTION?BUTTON. .  C SEG    042CH       REL=UNIT
+?PR?RECOGNITION_KEY?BUTTON. .  C SEG    00DEH       REL=UNIT
+AC. . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AR6 . . . . . . . . . . . . .  D ADDR   0006H   A   
+AUXR. . . . . . . . . . . . .  D ADDR   008EH   A   
+AUXR1 . . . . . . . . . . . .  D ADDR   00A2H   A   
+B . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BUTTON. . . . . . . . . . . .  N NUMB   -----       
+CHANGE_SIGN . . . . . . . . .  X ADDR   0003H   R   SEG=?PD?BUTTON
+COM00C1 . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?BUTTON
+COMMAND_KEY . . . . . . . . .  D ADDR   0018H   R   SEG=?DT?BUTTON
+CONTROL_SECTION . . . . . . .  C ADDR   0000H   R   SEG=?PR?CONTROL_SECTION?BUTTON
+CP_RL2. . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CURSTATUS_KEY . . . . . . . .  D ADDR   0000H   R   SEG=?DT?BUTTON
+CY. . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2. . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+DOUBLE_IDLE_COUNTER . . . . .  D ADDR   0004H   R   SEG=?DT?BUTTON
+DOUBLE_PRESS_COUNTER. . . . .  D ADDR   000CH   R   SEG=?DT?BUTTON
+DPH . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . .  D ADDR   0082H   A   
+DS1302_SET_TIME . . . . . . .  C ADDR   -----       EXT
+DS_CE . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+DS_DAT_TIME_SET16 . . . . . .  X ADDR   -----       EXT
+DS_IO . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+DS_SCLK . . . . . . . . . . .  B ADDR   00A0H.2 A   
+EA. . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EC. . . . . . . . . . . . . .  B ADDR   00A8H.6 A   
+ES. . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+FE. . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    28
+
+IE. . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INSTRUCTION_CODE_KEY. . . . .  D ADDR   0014H   R   SEG=?DT?BUTTON
+INT0. . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+INT1. . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+IP. . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IPH . . . . . . . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH . . . . . . . . . .  D ADDR   00E3H   A   
+ISP_ADDRL . . . . . . . . . .  D ADDR   00E4H   A   
+ISP_CMD . . . . . . . . . . .  D ADDR   00E5H   A   
+ISP_CONTR . . . . . . . . . .  D ADDR   00E7H   A   
+ISP_DATA. . . . . . . . . . .  D ADDR   00E2H   A   
+ISP_TRIG. . . . . . . . . . .  D ADDR   00E6H   A   
+IT0 . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+KEY0. . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+KEY1. . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+KEY2. . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+KEY3. . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+L?0194. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?BUTTON
+L?0195. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?BUTTON
+L?0196. . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?BUTTON
+L?0197. . . . . . . . . . . .  C ADDR   000AH   R   SEG=?PR?BUTTON
+L?0198. . . . . . . . . . . .  C ADDR   000BH   R   SEG=?PR?BUTTON
+L?0199. . . . . . . . . . . .  C ADDR   0012H   R   SEG=?PR?BUTTON
+L?0200. . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?BUTTON
+L?0201. . . . . . . . . . . .  C ADDR   001BH   R   SEG=?PR?BUTTON
+L?0202. . . . . . . . . . . .  C ADDR   001CH   R   SEG=?PR?BUTTON
+L?0203. . . . . . . . . . . .  C ADDR   041EH   R   SEG=?PR?CONTROL_SECTION?BUTTON
+L?0204. . . . . . . . . . . .  C ADDR   0024H   R   SEG=?PR?BUTTON
+L?0205. . . . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?BUTTON
+L?0206. . . . . . . . . . . .  C ADDR   003AH   R   SEG=?PR?BUTTON
+MENUCODE. . . . . . . . . . .  D ADDR   -----       EXT
+OPTIONCODE. . . . . . . . . .  X ADDR   0004H   R   SEG=?PD?BUTTON
+OPTIONCODE_MAX. . . . . . . .  X ADDR   0000H   R   SEG=?PD?BUTTON
+OV. . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+P1. . . . . . . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . . . . . . .  B ADDR   0090H.7 A   
+P2. . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+P3. . . . . . . . . . . . . .  D ADDR   00B0H   A   
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    29
+
+P30 . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+P36 . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+P4. . . . . . . . . . . . . .  D ADDR   00E8H   A   
+P40 . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+P41 . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+P42 . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+P43 . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+P44 . . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+P45 . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+P46 . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+PCON. . . . . . . . . . . . .  D ADDR   0087H   A   
+PRESTATE_KEY. . . . . . . . .  D ADDR   001CH   R   SEG=?DT?BUTTON
+PS. . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2 . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0 . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8 . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . .  D ADDR   00CAH   A   
+RCLK. . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+RD. . . . . . . . . . . . . .  B ADDR   00B0H.7 A   
+RECOGNITION_KEY . . . . . . .  C ADDR   0000H   R   SEG=?PR?RECOGNITION_KEY?BUTTON
+REFILL_SIGN . . . . . . . . .  D ADDR   0000H   R   SEG=?BA?BUTTON
+REFILL_SIGN_0 . . . . . . . .  B ADDR   0000H.0 R   SEG=?BA?BUTTON
+REFILL_SIGN_1 . . . . . . . .  B ADDR   0000H.1 R   SEG=?BA?BUTTON
+REFILL_SIGN_2 . . . . . . . .  B ADDR   0000H.2 R   SEG=?BA?BUTTON
+REFILL_SIGN_3 . . . . . . . .  B ADDR   0000H.3 R   SEG=?BA?BUTTON
+REFILL_SIGN_4 . . . . . . . .  B ADDR   0000H.4 R   SEG=?BA?BUTTON
+REFILL_SIGN_5 . . . . . . . .  B ADDR   0000H.5 R   SEG=?BA?BUTTON
+REFILL_SIGN_6 . . . . . . . .  B ADDR   0000H.6 R   SEG=?BA?BUTTON
+REFILL_SIGN_7 . . . . . . . .  B ADDR   0000H.7 R   SEG=?BA?BUTTON
+REN . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI. . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+ROT_TASKFREQUENCY . . . . . .  X ADDR   -----       EXT
+RS0 . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RXD . . . . . . . . . . . . .  B ADDR   00B0H.0 A   
+SADDR . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADEN . . . . . . . . . . . .  D ADDR   00B9H   A   
+SBUF. . . . . . . . . . . . .  D ADDR   0099H   A   
+SCON. . . . . . . . . . . . .  D ADDR   0098H   A   
+SENSOR_DISPLAY_SWITCHINGSPEED  X ADDR   -----       EXT
+SENSOR_SWITCH . . . . . . . .  X ADDR   -----       EXT
+SM0 . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2 . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SP. . . . . . . . . . . . . .  D ADDR   0081H   A   
+SWITCHFLAG. . . . . . . . . .  X ADDR   -----       EXT
+T0. . . . . . . . . . . . . .  B ADDR   00B0H.4 A   
+T1. . . . . . . . . . . . . .  B ADDR   00B0H.5 A   
+T2. . . . . . . . . . . . . .  B ADDR   0090H.0 A   
+T2CON . . . . . . . . . . . .  D ADDR   00C8H   A   
+T2EX. . . . . . . . . . . . .  B ADDR   0090H.1 A   
+T2MOD . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8 . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK. . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . .  D ADDR   0088H   A   
+A51 MACRO ASSEMBLER  BUTTON                                                               03/24/2020 10:35:02 PAGE    30
+
+TF0 . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD . . . . . . . . . . . . .  B ADDR   00B0H.1 A   
+WDT_CONTR . . . . . . . . . .  D ADDR   00E1H   A   
+WR. . . . . . . . . . . . . .  B ADDR   00B0H.6 A   
+XICON . . . . . . . . . . . .  D ADDR   00C0H   A   
+_CALCULATE_TOTALDAYS_OFMONTH.  C ADDR   -----       EXT
+_DS1302_TIME_COPY . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

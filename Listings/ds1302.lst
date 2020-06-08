@@ -1,0 +1,135 @@
+C51 COMPILER V9.60.0.0   DS1302                                                            05/29/2020 16:57:56 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\Objects\ds1302.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE ds1302.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEB
+                    -UG PRINT(.\Listings\ds1302.lst) TABS(2) OBJECT(.\Objects\ds1302.obj)
+
+line level    source
+
+   1          #include "ds1302.h"
+   2          
+   3          uchar ds_dat_time[7];
+   4          uchar ds_dat_time_set[7]={0,0,0,10,3,1,20};
+   5          uchar ds_dat_time_set16[7]={0,0,0,0,0,0,0};
+   6          //---DS1302写入和读取时分秒的地址命令---//
+   7          //---秒分时日月周年 最低位读写位;-------//
+   8          uchar code READ_RTC_ADDR[7] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d}; 
+   9          uchar code WRITE_RTC_ADDR[7] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+  10          
+  11          void Ds1302_wByte(uchar addr, uchar dat)
+  12          {
+  13   1        uchar n;
+  14   1        EA=0;
+  15   1        DS_CE = 0;    _nop_();
+  16   1        DS_SCLK = 0;  _nop_();
+  17   1        DS_CE = 1;    _nop_();
+  18   1        for (n=0; n<8; n++)     //开始传送八位地址命令
+  19   1        {
+  20   2          DS_IO = addr & 0x01;  //数据从低位开始传送
+  21   2          addr >>= 1;
+  22   2          DS_SCLK = 1;  _nop_();//数据在上升沿时，DS1302读取数据
+  23   2          DS_SCLK = 0;  _nop_();
+  24   2        }
+  25   1        for (n=0; n<8; n++)     //写入8位数据
+  26   1        {
+  27   2          DS_IO = dat & 0x01;
+  28   2          dat >>= 1;
+  29   2          DS_SCLK = 1;  _nop_();//数据在上升沿时，DS1302读取数据    
+  30   2          DS_SCLK = 0;  _nop_();      
+  31   2        } 
+  32   1           
+  33   1        DS_CE = 0;  _nop_();    //传送数据结束
+  34   1        EA=1;
+  35   1        
+  36   1      }
+  37          
+  38          uchar Ds1302_rByte(uchar addr)
+  39          {
+  40   1        uchar n,dat;
+  41   1        EA=0;
+  42   1        DS_CE = 0;    _nop_();
+  43   1        DS_SCLK = 0;  _nop_();
+  44   1        DS_CE = 1;    _nop_();
+  45   1        for (n=0; n<8; n++)   //传送地址
+  46   1        {
+  47   2          DS_IO = addr & 0x01;  
+  48   2          addr >>= 1;
+  49   2          DS_SCLK = 1;  _nop_();
+  50   2          DS_SCLK = 0;  _nop_();
+  51   2        }
+  52   1        for (n=0; n<8; n++)     //读取8位数据
+  53   1        {
+  54   2          dat=(dat>>1)|((uchar)DS_IO<<7);
+C51 COMPILER V9.60.0.0   DS1302                                                            05/29/2020 16:57:56 PAGE 2   
+
+  55   2          DS_SCLK = 1;  _nop_();//数据在上升沿时，DS1302读取数据    
+  56   2          DS_SCLK = 0;  _nop_();      
+  57   2        } 
+  58   1           
+  59   1        DS_CE = 0;      _nop_();    //传送数据结束
+  60   1        DS_SCLK = 1;    _nop_();
+  61   1        DS_IO = 0;      _nop_();
+  62   1        DS_IO = 1;      _nop_();
+  63   1        EA=1;
+  64   1        return dat; 
+  65   1        
+  66   1      }
+  67          void Ds1302_init() 
+  68          {
+  69   1        DS_CE=0;      //RST脚置低
+  70   1        DS_SCLK=0;      //SCK脚置低
+  71   1      }
+  72          void Ds1302_Set_time()
+  73          {
+  74   1        uchar n;
+  75   1        Ds1302_wByte(0x8E,0X00);     //禁止写保护，就是关闭写保护功能
+  76   1        for (n=0; n<7; n++)//写入7个字节的时钟信号：分秒时日月周年
+  77   1        {
+  78   2          Ds1302_wByte(WRITE_RTC_ADDR[n],ds_dat_time_set[n]); 
+  79   2        }
+  80   1        Ds1302_wByte(0x8E,0x80);     //打开写保护功能
+  81   1      }
+  82          
+  83          void Ds1302_Read_time()
+  84          {
+  85   1        uchar n;
+  86   1        for (n=0; n<7; n++)//读取7个字节的时钟信号：分秒时日月周年
+  87   1        {
+  88   2          ds_dat_time[n] = Ds1302_rByte(READ_RTC_ADDR[n]);
+  89   2        }
+  90   1        //Ds1302_tDat_BCD();
+  91   1          
+  92   1      }
+  93          void Ds1302_time_Copy(uchar sign)//复制时间信息
+  94          {
+  95   1        uchar n;
+  96   1        for (n=0; n<7; n++)
+  97   1        {
+  98   2          if(sign==0)ds_dat_time_set[n]=ds_dat_time[n];
+  99   2          if(sign==1)ds_dat_time_set16[n]=(ds_dat_time_set[n]>>4)*10+(ds_dat_time_set[n]&0x0f);
+ 100   2          if(sign==2)ds_dat_time_set[n]=ds_dat_time_set16[n]/10*16+ds_dat_time_set16[n]%10;
+ 101   2        }
+ 102   1      }
+ 103          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    397    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =     21    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+C51 COMPILER V9.60.0.0   DS1302                                                            05/29/2020 16:57:56 PAGE 3   
+
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

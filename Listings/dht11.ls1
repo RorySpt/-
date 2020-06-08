@@ -1,0 +1,656 @@
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\dht11.OBJ
+ASSEMBLER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\A51.EXE .\Objects\dht11.src PR(.\Listings\dht11.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\dht11.SRC generated from: dht11.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE dht11.c COMPACT OPTIMIZE(9,SPEED) BRO
+                             WSE DEBUG OBJECTEXTEND PRINT(.\Listings\dht11.lst) TABS(2) SRC(.\Objects\dht11.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    DHT11
+                       8     
+  0080                 9     P0      DATA    080H
+  0090                10     P1      DATA    090H
+  00A0                11     P2      DATA    0A0H
+  00B0                12     P3      DATA    0B0H
+  00C0                13     XICON   DATA    0C0H
+  00B4                14     T0      BIT     0B0H.4
+  00D6                15     AC      BIT     0D0H.6
+  00E8                16     P4      DATA    0E8H
+  00B5                17     T1      BIT     0B0H.5
+  00E6                18     ISP_TRIG        DATA    0E6H
+  0090                19     T2      BIT     090H.0
+  00AF                20     EA      BIT     0A8H.7
+  00AE                21     EC      BIT     0A8H.6
+  009F                22     FE      BIT     098H.7
+  00A8                23     IE      DATA    0A8H
+  00CE                24     EXF2    BIT     0C8H.6
+  00B7                25     RD      BIT     0B0H.7
+  00AC                26     ES      BIT     0A8H.4
+  00B8                27     IP      DATA    0B8H
+  0098                28     RI      BIT     098H.0
+  00B2                29     INT0    BIT     0B0H.2
+  00D7                30     CY      BIT     0D0H.7
+  0099                31     TI      BIT     098H.1
+  00B3                32     INT1    BIT     0B0H.3
+  00CB                33     RCAP2H  DATA    0CBH
+  00E5                34     ISP_CMD DATA    0E5H
+  00BC                35     PS      BIT     0B8H.4
+  0081                36     SP      DATA    081H
+  0091                37     T2EX    BIT     090H.1
+  00D2                38     OV      BIT     0D0H.2
+  00CA                39     RCAP2L  DATA    0CAH
+  00C9                40     C_T2    BIT     0C8H.1
+  00B6                41     WR      BIT     0B0H.6
+  00CD                42     RCLK    BIT     0C8H.5
+  00CC                43     TCLK    BIT     0C8H.4
+  0080                44     P00     BIT     080H.0
+  0099                45     SBUF    DATA    099H
+  0087                46     PCON    DATA    087H
+  0090                47     P10     BIT     090H.0
+  0081                48     P01     BIT     080H.1
+  00A0                49     P20     BIT     0A0H.0
+  0091                50     P11     BIT     090H.1
+  0082                51     P02     BIT     080H.2
+  00E3                52     ISP_ADDRH       DATA    0E3H
+  00B0                53     P30     BIT     0B0H.0
+  00A1                54     P21     BIT     0A0H.1
+  0092                55     P12     BIT     090H.2
+  0083                56     P03     BIT     080H.3
+  0098                57     SCON    DATA    098H
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     2
+
+  00B1                58     P31     BIT     0B0H.1
+  00A2                59     P22     BIT     0A0H.2
+  0093                60     P13     BIT     090H.3
+  0084                61     P04     BIT     080H.4
+  00E8                62     P40     BIT     0E8H.0
+  0089                63     TMOD    DATA    089H
+  0088                64     TCON    DATA    088H
+  00B2                65     P32     BIT     0B0H.2
+  00A3                66     P23     BIT     0A0H.3
+  0094                67     P14     BIT     090H.4
+  0085                68     P05     BIT     080H.5
+  00E9                69     P41     BIT     0E8H.1
+  00B3                70     P33     BIT     0B0H.3
+  00A4                71     P24     BIT     0A0H.4
+  0095                72     P15     BIT     090H.5
+  0086                73     P06     BIT     080H.6
+  00E4                74     ISP_ADDRL       DATA    0E4H
+  00EA                75     P42     BIT     0E8H.2
+  00B4                76     P34     BIT     0B0H.4
+  00A5                77     P25     BIT     0A0H.5
+  0096                78     P16     BIT     090H.6
+  0087                79     P07     BIT     080H.7
+  00EB                80     P43     BIT     0E8H.3
+  00B5                81     P35     BIT     0B0H.5
+  00A6                82     P26     BIT     0A0H.6
+  0097                83     P17     BIT     090H.7
+  00EC                84     P44     BIT     0E8H.4
+  00B6                85     P36     BIT     0B0H.6
+  00A7                86     P27     BIT     0A0H.7
+  00ED                87     P45     BIT     0E8H.5
+  00B7                88     P37     BIT     0B0H.7
+  00EE                89     P46     BIT     0E8H.6
+  0089                90     IE0     BIT     088H.1
+  008B                91     IE1     BIT     088H.3
+  008E                92     AUXR    DATA    08EH
+  00F0                93     B       DATA    0F0H
+  00C8                94     CP_RL2  BIT     0C8H.0
+  00E0                95     ACC     DATA    0E0H
+  00A9                96     ET0     BIT     0A8H.1
+  00AB                97     ET1     BIT     0A8H.3
+  008D                98     TF0     BIT     088H.5
+  00AD                99     ET2     BIT     0A8H.5
+  008F               100     TF1     BIT     088H.7
+  00CF               101     TF2     BIT     0C8H.7
+  009A               102     RB8     BIT     098H.2
+  008C               103     TH0     DATA    08CH
+  00A8               104     EX0     BIT     0A8H.0
+  0088               105     IT0     BIT     088H.0
+  008D               106     TH1     DATA    08DH
+  009B               107     TB8     BIT     098H.3
+  00AA               108     EX1     BIT     0A8H.2
+  008A               109     IT1     BIT     088H.2
+  00CD               110     TH2     DATA    0CDH
+  00D0               111     P       BIT     0D0H.0
+  009F               112     SM0     BIT     098H.7
+  008A               113     TL0     DATA    08AH
+  009E               114     SM1     BIT     098H.6
+  008B               115     TL1     DATA    08BH
+  009D               116     SM2     BIT     098H.5
+  00CC               117     TL2     DATA    0CCH
+  00B9               118     PT0     BIT     0B8H.1
+  00BB               119     PT1     BIT     0B8H.3
+  00D3               120     RS0     BIT     0D0H.3
+  00E7               121     ISP_CONTR       DATA    0E7H
+  00BD               122     PT2     BIT     0B8H.5
+  008C               123     TR0     BIT     088H.4
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     3
+
+  00D4               124     RS1     BIT     0D0H.4
+  008E               125     TR1     BIT     088H.6
+  00CA               126     TR2     BIT     0C8H.2
+  00B8               127     PX0     BIT     0B8H.0
+  00E1               128     WDT_CONTR       DATA    0E1H
+  00A3               129     DHT_IO  BIT     0A0H.3
+  00BA               130     PX1     BIT     0B8H.2
+  0083               131     DPH     DATA    083H
+  0082               132     DPL     DATA    082H
+  00B7               133     IPH     DATA    0B7H
+  00CB               134     EXEN2   BIT     0C8H.3
+  009C               135     REN     BIT     098H.4
+  00C9               136     T2MOD   DATA    0C9H
+  00C8               137     T2CON   DATA    0C8H
+  00E2               138     ISP_DATA        DATA    0E2H
+  00B9               139     SADEN   DATA    0B9H
+  00B0               140     RXD     BIT     0B0H.0
+  00A9               141     SADDR   DATA    0A9H
+  00B1               142     TXD     BIT     0B0H.1
+  00A2               143     AUXR1   DATA    0A2H
+  00D5               144     F0      BIT     0D0H.5
+  00D0               145     PSW     DATA    0D0H
+                     146     ?PR?_dht_byte?DHT11  SEGMENT CODE 
+                     147     ?PR?dht_rdat?DHT11   SEGMENT CODE 
+                     148     ?C_INITSEG           SEGMENT CODE 
+                     149     ?DT?DHT11            SEGMENT DATA 
+                     150     ?PD?DHT11            SEGMENT XDATA INPAGE 
+                     151     ?DT?_dht_byte?DHT11  SEGMENT DATA OVERLAYABLE 
+                     152     ?DT?dht_rdat?DHT11   SEGMENT DATA OVERLAYABLE 
+                     153             EXTRN   CODE (_d_n_ms)
+                     154             PUBLIC  Dht_RhData
+                     155             PUBLIC  Dht_error
+                     156             PUBLIC  Dht_count
+                     157             PUBLIC  Dht_FLAG
+                     158             PUBLIC  dht_rdat
+                     159             PUBLIC  _dht_byte
+                     160     
+----                 161             RSEG  ?DT?DHT11
+0000                 162            Dht_FLAG:   DS   1
+0001                 163           Dht_count:   DS   1
+                     164     
+----                 165             RSEG  ?PD?DHT11
+0000                 166           Dht_error:   DS   1
+0001                 167          Dht_RhData:   DS   5
+                     168     
+----                 169             RSEG  ?DT?_dht_byte?DHT11
+0000                 170               i?041:   DS   1
+                     171     
+----                 172             RSEG  ?DT?dht_rdat?DHT11
+0000                 173               i?142:   DS   1
+                     174     
+----                 175             RSEG  ?C_INITSEG
+0000 81              176             DB      081H
+0001 00       F      177             DB      LOW (Dht_error)
+0002 00              178             DB      000H
+                     179     
+                     180     ; #include "dht11.h"
+                     181     ; #include "delay.h"
+                     182     ; 
+                     183     ; 
+                     184     ; uchar Dht_RhData[5];//0~4·Ö±ð·ÖÊª¶È¡¢Êª¶ÈÐ¡Ê¡¢ÎÂ¶È¡¢ÎÂ¶ÈÐ¡Ê¡¢Ð£ÑéºÍ
+                     185     ; 
+                     186     ; u8 data Dht_FLAG;
+                     187     ; u8 Dht_error=0;
+                     188     ; u8 data Dht_count;
+                     189     ; 
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     4
+
+                     190     ; 
+                     191     ; 
+                     192     ; 
+                     193     ; void dht_byte(uchar n)
+                     194     
+----                 195             RSEG  ?PR?_dht_byte?DHT11
+0000                 196     _dht_byte:
+                     197             USING   0
+                     198                             ; SOURCE LINE # 14
+                     199     ;---- Variable 'n?040' assigned to Register 'R7' ----
+                     200     ; {
+                     201                             ; SOURCE LINE # 15
+                     202     ;       //uchar error;
+                     203     ;       uchar data i;
+                     204     ;       for(i=0;i<8;i++)
+                     205                             ; SOURCE LINE # 18
+0000 E4              206             CLR     A
+0001 F500     F      207             MOV     i?041,A
+0003                 208     ?C0001:
+0003 E500     F      209             MOV     A,i?041
+0005 C3              210             CLR     C
+0006 9408            211             SUBB    A,#08H
+0008 7480            212             MOV     A,#080H
+000A 9480            213             SUBB    A,#080H
+000C 5065            214             JNC     ?C0007
+                     215     ;               {
+                     216                             ; SOURCE LINE # 19
+                     217     ;                       Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//µÈ´À­¸ß,µÍµÈ´
+                     218                             ; SOURCE LINE # 20
+000E 750002   F      219             MOV     Dht_FLAG,#02H
+0011                 220     ?C0004:
+0011 20A307          221             JB      DHT_IO,?C0005
+0014 AE00     F      222             MOV     R6,Dht_FLAG
+0016 0500     F      223             INC     Dht_FLAG
+0018 EE              224             MOV     A,R6
+0019 70F6            225             JNZ     ?C0004
+001B                 226     ?C0005:
+                     227     ;                       if(Dht_FLAG==1){Dht_error=4+n;return;}//´íÎóÌø³ö£¬²¢±¨´í
+                     228                             ; SOURCE LINE # 21
+001B E500     F      229             MOV     A,Dht_FLAG
+001D 6401            230             XRL     A,#01H
+001F 7005            231             JNZ     ?C0006
+0021 EF              232             MOV     A,R7
+0022 2404            233             ADD     A,#04H
+0024 8045            234             SJMP    ?C0027
+0026                 235     ?C0006:
+                     236     ;                       
+                     237     ;                       Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//Dht_count++;¶ÔÀ­¸ßÊ±¼ä½øÐÐ¼Æ
+                             Ê±
+                     238                             ; SOURCE LINE # 23
+0026 750002   F      239             MOV     Dht_FLAG,#02H
+0029                 240     ?C0008:
+0029 30A307          241             JNB     DHT_IO,?C0009
+002C AE00     F      242             MOV     R6,Dht_FLAG
+002E 0500     F      243             INC     Dht_FLAG
+0030 EE              244             MOV     A,R6
+0031 70F6            245             JNZ     ?C0008
+0033                 246     ?C0009:
+                     247     ;                       
+                     248     ;                       if(Dht_FLAG>5)Dht_RhData[n]=(Dht_RhData[n]<<1)|0x01;
+                     249                             ; SOURCE LINE # 25
+0033 E500     F      250             MOV     A,Dht_FLAG
+0035 D3              251             SETB    C
+0036 9405            252             SUBB    A,#05H
+0038 7480            253             MOV     A,#080H
+003A 9480            254             SUBB    A,#080H
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     5
+
+003C 7400     F      255             MOV     A,#LOW (Dht_RhData)
+003E 4010            256             JC      ?C0010
+0040 2F              257             ADD     A,R7
+0041 F8              258             MOV     R0,A
+0042 E2              259             MOVX    A,@R0
+0043 25E0            260             ADD     A,ACC
+0045 4401            261             ORL     A,#01H
+0047 FE              262             MOV     R6,A
+0048 7400     F      263             MOV     A,#LOW (Dht_RhData)
+004A 2F              264             ADD     A,R7
+004B F8              265             MOV     R0,A
+004C EE              266             MOV     A,R6
+004D F2              267             MOVX    @R0,A
+004E 800A            268             SJMP    ?C0011
+0050                 269     ?C0010:
+                     270     ;                       else Dht_RhData[n]<<=1;
+                     271                             ; SOURCE LINE # 26
+0050 2F              272             ADD     A,R7
+0051 F8              273             MOV     R0,A
+0052 C000            274             PUSH    AR0
+0054 E2              275             MOVX    A,@R0
+0055 25E0            276             ADD     A,ACC
+0057 D000            277             POP     AR0
+0059 F2              278             MOVX    @R0,A
+005A                 279     ?C0011:
+                     280     ;                       if(Dht_FLAG==1){Dht_error=(5+n)+10*i;return;}//´íÎóÌø³ö£¬²¢±¨´í
+                     281                             ; SOURCE LINE # 27
+005A E500     F      282             MOV     A,Dht_FLAG
+005C 6401            283             XRL     A,#01H
+005E 700F            284             JNZ     ?C0003
+0060 EF              285             MOV     A,R7
+0061 2405            286             ADD     A,#05H
+0063 FF              287             MOV     R7,A
+0064 E500     F      288             MOV     A,i?041
+0066 75F00A          289             MOV     B,#0AH
+0069 A4              290             MUL     AB
+006A 2F              291             ADD     A,R7
+006B                 292     ?C0027:
+006B 7800     F      293             MOV     R0,#LOW (Dht_error)
+006D F2              294             MOVX    @R0,A
+006E 22              295             RET     
+                     296     ;               }
+                     297                             ; SOURCE LINE # 28
+006F                 298     ?C0003:
+006F 0500     F      299             INC     i?041
+0071 8090            300             SJMP    ?C0001
+                     301     ;               }
+                     302                             ; SOURCE LINE # 29
+0073                 303     ?C0007:
+0073 22              304             RET     
+                     305     ; END OF _dht_byte
+                     306     
+                     307     ; void dht_rdat()
+                     308     
+----                 309             RSEG  ?PR?dht_rdat?DHT11
+0000                 310     dht_rdat:
+                     311             USING   0
+                     312                             ; SOURCE LINE # 30
+                     313     ; {
+                     314                             ; SOURCE LINE # 31
+                     315     ;       uchar data i;
+                     316     ;       DHT_IO=0;
+                     317                             ; SOURCE LINE # 33
+0000 C2A3            318             CLR     DHT_IO
+                     319     ;       d_n_ms(25);
+                     320                             ; SOURCE LINE # 34
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     6
+
+0002 7F19            321             MOV     R7,#019H
+0004 7E00            322             MOV     R6,#00H
+0006 120000   F      323             LCALL   _d_n_ms
+                     324     ;       DHT_IO=1;
+                     325                             ; SOURCE LINE # 35
+0009 D2A3            326             SETB    DHT_IO
+                     327     ;       
+                     328     ;       Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//µÈ´DHTÀ­µÍ,³¬Ê±Ìø³ö
+                     329                             ; SOURCE LINE # 37
+000B 750002   F      330             MOV     Dht_FLAG,#02H
+000E                 331     ?C0013:
+000E 30A307          332             JNB     DHT_IO,?C0014
+0011 AF00     F      333             MOV     R7,Dht_FLAG
+0013 0500     F      334             INC     Dht_FLAG
+0015 EF              335             MOV     A,R7
+0016 70F6            336             JNZ     ?C0013
+0018                 337     ?C0014:
+                     338     ;       if(Dht_FLAG==1){Dht_error=1;return;}//´íÎóÌø³ö£¬²¢±¨´í
+                     339                             ; SOURCE LINE # 38
+0018 E500     F      340             MOV     A,Dht_FLAG
+001A 6401            341             XRL     A,#01H
+001C 7005            342             JNZ     ?C0015
+001E 7800     F      343             MOV     R0,#LOW (Dht_error)
+0020 04              344             INC     A
+0021 F2              345             MOVX    @R0,A
+0022 22              346             RET     
+0023                 347     ?C0015:
+                     348     ;       
+                     349     ;       Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//µÈ´DHTÀ­¸ß,³¬Ê±Ìø³ö
+                     350                             ; SOURCE LINE # 40
+0023 750002   F      351             MOV     Dht_FLAG,#02H
+0026                 352     ?C0017:
+0026 20A307          353             JB      DHT_IO,?C0018
+0029 AF00     F      354             MOV     R7,Dht_FLAG
+002B 0500     F      355             INC     Dht_FLAG
+002D EF              356             MOV     A,R7
+002E 70F6            357             JNZ     ?C0017
+0030                 358     ?C0018:
+                     359     ;       if(Dht_FLAG==1){Dht_error=2;return;}//´íÎóÌø³ö£¬²¢±¨´í
+                     360                             ; SOURCE LINE # 41
+0030 E500     F      361             MOV     A,Dht_FLAG
+0032 6401            362             XRL     A,#01H
+0034 7006            363             JNZ     ?C0019
+0036 7800     F      364             MOV     R0,#LOW (Dht_error)
+0038 7402            365             MOV     A,#02H
+003A F2              366             MOVX    @R0,A
+003B 22              367             RET     
+003C                 368     ?C0019:
+                     369     ;       
+                     370     ;       Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//µÈ´DHTÀ­µÍ,³¬Ê±Ìø³ö
+                     371                             ; SOURCE LINE # 43
+003C 750002   F      372             MOV     Dht_FLAG,#02H
+003F                 373     ?C0020:
+003F 30A307          374             JNB     DHT_IO,?C0021
+0042 AF00     F      375             MOV     R7,Dht_FLAG
+0044 0500     F      376             INC     Dht_FLAG
+0046 EF              377             MOV     A,R7
+0047 70F6            378             JNZ     ?C0020
+0049                 379     ?C0021:
+                     380     ;       if(Dht_FLAG==1){Dht_error=3;return;}//´íÎóÌø³ö£¬²¢±¨´í
+                     381                             ; SOURCE LINE # 44
+0049 E500     F      382             MOV     A,Dht_FLAG
+004B 6401            383             XRL     A,#01H
+004D 7006            384             JNZ     ?C0022
+004F 7800     F      385             MOV     R0,#LOW (Dht_error)
+0051 7403            386             MOV     A,#03H
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     7
+
+0053 F2              387             MOVX    @R0,A
+0054 22              388             RET     
+0055                 389     ?C0022:
+                     390     ;       for(i=0;i<5;i++)
+                     391                             ; SOURCE LINE # 45
+0055 E4              392             CLR     A
+0056 F500     F      393             MOV     i?142,A
+0058                 394     ?C0023:
+0058 C3              395             CLR     C
+0059 E500     F      396             MOV     A,i?142
+005B 9405            397             SUBB    A,#05H
+005D 7480            398             MOV     A,#080H
+005F 9480            399             SUBB    A,#080H
+0061 5016            400             JNC     ?C0024
+                     401     ;       {
+                     402                             ; SOURCE LINE # 46
+                     403     ;       
+                     404     ;               dht_byte(i);
+                     405                             ; SOURCE LINE # 48
+0063 AF00     F      406             MOV     R7,i?142
+0065 120000   F      407             LCALL   _dht_byte
+                     408     ;               if(Dht_FLAG==1){Dht_error+=10;return;}//´íÎóÌø³ö£¬²¢±¨´í        
+                     409                             ; SOURCE LINE # 49
+0068 E500     F      410             MOV     A,Dht_FLAG
+006A 6401            411             XRL     A,#01H
+006C 7007            412             JNZ     ?C0025
+006E 7800     F      413             MOV     R0,#LOW (Dht_error)
+0070 E2              414             MOVX    A,@R0
+0071 240A            415             ADD     A,#0AH
+0073 F2              416             MOVX    @R0,A
+0074 22              417             RET     
+                     418     ;       }
+                     419                             ; SOURCE LINE # 50
+0075                 420     ?C0025:
+0075 0500     F      421             INC     i?142
+0077 80DF            422             SJMP    ?C0023
+0079                 423     ?C0024:
+                     424     ;       Dht_error=0;
+                     425                             ; SOURCE LINE # 51
+0079 E4              426             CLR     A
+007A 7800     F      427             MOV     R0,#LOW (Dht_error)
+007C F2              428             MOVX    @R0,A
+                     429     ; 
+                     430     ; }
+                     431                             ; SOURCE LINE # 53
+007D                 432     ?C0016:
+007D 22              433             RET     
+                     434     ; END OF dht_rdat
+                     435     
+                     436             END
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     8
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E              T Y P E  V A L U E   ATTRIBUTES
+
+?C0001. . . . . . .  C ADDR   0003H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0003. . . . . . .  C ADDR   006FH   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0004. . . . . . .  C ADDR   0011H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0005. . . . . . .  C ADDR   001BH   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0006. . . . . . .  C ADDR   0026H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0007. . . . . . .  C ADDR   0073H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0008. . . . . . .  C ADDR   0029H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0009. . . . . . .  C ADDR   0033H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0010. . . . . . .  C ADDR   0050H   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0011. . . . . . .  C ADDR   005AH   R   SEG=?PR?_DHT_BYTE?DHT11
+?C0013. . . . . . .  C ADDR   000EH   R   SEG=?PR?DHT_RDAT?DHT11
+?C0014. . . . . . .  C ADDR   0018H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0015. . . . . . .  C ADDR   0023H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0016. . . . . . .  C ADDR   007DH   R   SEG=?PR?DHT_RDAT?DHT11
+?C0017. . . . . . .  C ADDR   0026H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0018. . . . . . .  C ADDR   0030H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0019. . . . . . .  C ADDR   003CH   R   SEG=?PR?DHT_RDAT?DHT11
+?C0020. . . . . . .  C ADDR   003FH   R   SEG=?PR?DHT_RDAT?DHT11
+?C0021. . . . . . .  C ADDR   0049H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0022. . . . . . .  C ADDR   0055H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0023. . . . . . .  C ADDR   0058H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0024. . . . . . .  C ADDR   0079H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0025. . . . . . .  C ADDR   0075H   R   SEG=?PR?DHT_RDAT?DHT11
+?C0027. . . . . . .  C ADDR   006BH   R   SEG=?PR?_DHT_BYTE?DHT11
+?C_INITSEG. . . . .  C SEG    0003H       REL=UNIT
+?DT?DHT11 . . . . .  D SEG    0002H       REL=UNIT
+?DT?DHT_RDAT?DHT11.  D SEG    0001H       REL=UNIT
+?DT?_DHT_BYTE?DHT11  D SEG    0001H       REL=UNIT
+?PD?DHT11 . . . . .  X SEG    0006H       REL=INPAGE
+?PR?DHT_RDAT?DHT11.  C SEG    007EH       REL=UNIT
+?PR?_DHT_BYTE?DHT11  C SEG    0074H       REL=UNIT
+AC. . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . .  D ADDR   00E0H   A   
+AR0 . . . . . . . .  D ADDR   0000H   A   
+AUXR. . . . . . . .  D ADDR   008EH   A   
+AUXR1 . . . . . . .  D ADDR   00A2H   A   
+B . . . . . . . . .  D ADDR   00F0H   A   
+CP_RL2. . . . . . .  B ADDR   00C8H.0 A   
+CY. . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2. . . . . . . .  B ADDR   00C8H.1 A   
+DHT11 . . . . . . .  N NUMB   -----       
+DHT_COUNT . . . . .  D ADDR   0001H   R   SEG=?DT?DHT11
+DHT_ERROR . . . . .  X ADDR   0000H   R   SEG=?PD?DHT11
+DHT_FLAG. . . . . .  D ADDR   0000H   R   SEG=?DT?DHT11
+DHT_IO. . . . . . .  B ADDR   00A0H.3 A   
+DHT_RDAT. . . . . .  C ADDR   0000H   R   SEG=?PR?DHT_RDAT?DHT11
+DHT_RHDATA. . . . .  X ADDR   0001H   R   SEG=?PD?DHT11
+DPH . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . .  D ADDR   0082H   A   
+EA. . . . . . . . .  B ADDR   00A8H.7 A   
+EC. . . . . . . . .  B ADDR   00A8H.6 A   
+ES. . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . .  B ADDR   00D0H.5 A   
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE     9
+
+FE. . . . . . . . .  B ADDR   0098H.7 A   
+I?041 . . . . . . .  D ADDR   0000H   R   SEG=?DT?_DHT_BYTE?DHT11
+I?142 . . . . . . .  D ADDR   0000H   R   SEG=?DT?DHT_RDAT?DHT11
+IE. . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . .  B ADDR   0088H.3 A   
+INT0. . . . . . . .  B ADDR   00B0H.2 A   
+INT1. . . . . . . .  B ADDR   00B0H.3 A   
+IP. . . . . . . . .  D ADDR   00B8H   A   
+IPH . . . . . . . .  D ADDR   00B7H   A   
+ISP_ADDRH . . . . .  D ADDR   00E3H   A   
+ISP_ADDRL . . . . .  D ADDR   00E4H   A   
+ISP_CMD . . . . . .  D ADDR   00E5H   A   
+ISP_CONTR . . . . .  D ADDR   00E7H   A   
+ISP_DATA. . . . . .  D ADDR   00E2H   A   
+ISP_TRIG. . . . . .  D ADDR   00E6H   A   
+IT0 . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . .  B ADDR   0088H.2 A   
+OV. . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . .  B ADDR   0080H.7 A   
+P1. . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . .  B ADDR   0090H.2 A   
+P13 . . . . . . . .  B ADDR   0090H.3 A   
+P14 . . . . . . . .  B ADDR   0090H.4 A   
+P15 . . . . . . . .  B ADDR   0090H.5 A   
+P16 . . . . . . . .  B ADDR   0090H.6 A   
+P17 . . . . . . . .  B ADDR   0090H.7 A   
+P2. . . . . . . . .  D ADDR   00A0H   A   
+P20 . . . . . . . .  B ADDR   00A0H.0 A   
+P21 . . . . . . . .  B ADDR   00A0H.1 A   
+P22 . . . . . . . .  B ADDR   00A0H.2 A   
+P23 . . . . . . . .  B ADDR   00A0H.3 A   
+P24 . . . . . . . .  B ADDR   00A0H.4 A   
+P25 . . . . . . . .  B ADDR   00A0H.5 A   
+P26 . . . . . . . .  B ADDR   00A0H.6 A   
+P27 . . . . . . . .  B ADDR   00A0H.7 A   
+P3. . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . .  B ADDR   00B0H.0 A   
+P31 . . . . . . . .  B ADDR   00B0H.1 A   
+P32 . . . . . . . .  B ADDR   00B0H.2 A   
+P33 . . . . . . . .  B ADDR   00B0H.3 A   
+P34 . . . . . . . .  B ADDR   00B0H.4 A   
+P35 . . . . . . . .  B ADDR   00B0H.5 A   
+P36 . . . . . . . .  B ADDR   00B0H.6 A   
+P37 . . . . . . . .  B ADDR   00B0H.7 A   
+P4. . . . . . . . .  D ADDR   00E8H   A   
+P40 . . . . . . . .  B ADDR   00E8H.0 A   
+P41 . . . . . . . .  B ADDR   00E8H.1 A   
+P42 . . . . . . . .  B ADDR   00E8H.2 A   
+P43 . . . . . . . .  B ADDR   00E8H.3 A   
+P44 . . . . . . . .  B ADDR   00E8H.4 A   
+P45 . . . . . . . .  B ADDR   00E8H.5 A   
+P46 . . . . . . . .  B ADDR   00E8H.6 A   
+PCON. . . . . . . .  D ADDR   0087H   A   
+PS. . . . . . . . .  B ADDR   00B8H.4 A   
+A51 MACRO ASSEMBLER  DHT11                                                                03/24/2020 10:35:02 PAGE    10
+
+PSW . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . .  B ADDR   00B8H.3 A   
+PT2 . . . . . . . .  B ADDR   00B8H.5 A   
+PX0 . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . .  B ADDR   00B8H.2 A   
+RB8 . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . .  D ADDR   00CAH   A   
+RCLK. . . . . . . .  B ADDR   00C8H.5 A   
+RD. . . . . . . . .  B ADDR   00B0H.7 A   
+REN . . . . . . . .  B ADDR   0098H.4 A   
+RI. . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . .  B ADDR   00D0H.4 A   
+RXD . . . . . . . .  B ADDR   00B0H.0 A   
+SADDR . . . . . . .  D ADDR   00A9H   A   
+SADEN . . . . . . .  D ADDR   00B9H   A   
+SBUF. . . . . . . .  D ADDR   0099H   A   
+SCON. . . . . . . .  D ADDR   0098H   A   
+SM0 . . . . . . . .  B ADDR   0098H.7 A   
+SM1 . . . . . . . .  B ADDR   0098H.6 A   
+SM2 . . . . . . . .  B ADDR   0098H.5 A   
+SP. . . . . . . . .  D ADDR   0081H   A   
+T0. . . . . . . . .  B ADDR   00B0H.4 A   
+T1. . . . . . . . .  B ADDR   00B0H.5 A   
+T2. . . . . . . . .  B ADDR   0090H.0 A   
+T2CON . . . . . . .  D ADDR   00C8H   A   
+T2EX. . . . . . . .  B ADDR   0090H.1 A   
+T2MOD . . . . . . .  D ADDR   00C9H   A   
+TB8 . . . . . . . .  B ADDR   0098H.3 A   
+TCLK. . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . .  D ADDR   0088H   A   
+TF0 . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . .  B ADDR   00C8H.2 A   
+TXD . . . . . . . .  B ADDR   00B0H.1 A   
+WDT_CONTR . . . . .  D ADDR   00E1H   A   
+WR. . . . . . . . .  B ADDR   00B0H.6 A   
+XICON . . . . . . .  D ADDR   00C0H   A   
+_DHT_BYTE . . . . .  C ADDR   0000H   R   SEG=?PR?_DHT_BYTE?DHT11
+_D_N_MS . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

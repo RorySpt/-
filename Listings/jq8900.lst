@@ -1,0 +1,429 @@
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE JQ8900
+OBJECT MODULE PLACED IN .\Objects\jq8900.obj
+COMPILER INVOKED BY: D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE jq8900.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE MODP2 DEB
+                    -UG PRINT(.\Listings\jq8900.lst) TABS(2) OBJECT(.\Objects\jq8900.obj)
+
+line level    source
+
+   1          #include "jq8900.h"
+   2          #include "uart.h"
+   3          #include "ds1302.h"
+   4          #include "calendar.h"
+   5          
+   6          uchar RiPlaybackStatus=0;//播放状态
+   7          uchar RiTotalTrackTlaybackTime[3]={0,0,0};//曲目总时间，时分秒
+   8          uchar RiCurrentPlayingTime[3]={0,0,0};//曲目已播放时间
+   9          uint RiTotalTrack=0;//总曲目
+  10          uint RiCurrentTrack=0;//当前曲目
+  11          
+  12          //uchar code JqCmdCode_groupPlay[]=
+  13          //{
+  14          //  0xAA,0x1B
+  15          //};//
+  16          extern uchar Receive_buffer_num;
+  17          //extern uchar xdata Receive_buffer[][];//第一位
+  18          //uchar code JqCmdCode_;
+  19          //uchar code NaoLing0[]={
+  20          //0xAA, 0x07, 0x02, 0x00, 0x21, 0xD4, 
+  21          //};
+  22          //uchar code NaoLing1[]={
+  23          //0xAA, 0x07, 0x02, 0x00, 0x20, 0xD3, 
+  24          //};
+  25          //uchar code NaoLing2[]={
+  26          //0xAA, 0x07, 0x02, 0x00, 0x19, 0xD2, 
+  27          //};
+  28          //uchar code NaoLing3[]={
+  29          //0xAA, 0x07, 0x02, 0x00, 0x18, 0xD1, 
+  30          //};
+  31          //void JpAlarmMusic(uchar dat)
+  32          //{
+  33          //  uchar n=0,i;
+  34          //  if(dat==0)
+  35          //  {
+  36          //  for(i=0;i<6;i++)Send_buffer[i]=NaoLing0[i];UartPutStr(Send_buffer,6);
+  37          //  }
+  38          //  if(dat==1)
+  39          //  {
+  40          //  for(i=0;i<6;i++)Send_buffer[i]=NaoLing1[i];UartPutStr(Send_buffer,6);
+  41          //  }
+  42          //  if(dat==2)
+  43          //  {
+  44          //  for(i=0;i<6;i++)Send_buffer[i]=NaoLing2[i];UartPutStr(Send_buffer,6);
+  45          //  }
+  46          //  if(dat==3)
+  47          //  {
+  48          //  for(i=0;i<6;i++)Send_buffer[i]=NaoLing3[i];UartPutStr(Send_buffer,6);
+  49          //  }
+  50          
+  51          //}
+  52          
+  53          void JqPlaySpecifiedTrack(uint dat)//播放指定曲目0~65535
+  54          {
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 2   
+
+  55   1        uchar n,i;
+  56   1        n=0;
+  57   1        Send_buffer[n++]=0xAA;
+  58   1        Send_buffer[n++]=0x07;//组合播放指令码;
+  59   1        Send_buffer[n++]=0x02;//长度
+  60   1        Send_buffer[n++]=(uchar)(dat/0xff);
+  61   1        Send_buffer[n++]=(uchar)(dat%0xff);
+  62   1        Send_buffer[n]=0;
+  63   1        for(i=0;i<n;i++)
+  64   1        Send_buffer[n]+=Send_buffer[i];
+  65   1        UartPutStr(Send_buffer,n+1);
+  66   1      }
+  67          void JqSpecify_volume(uchar dat)//指定音量
+  68          {
+  69   1        uchar n,i;
+  70   1        n=0;
+  71   1        Send_buffer[n++]=0xAA;
+  72   1        Send_buffer[n++]=0x13;
+  73   1        Send_buffer[n++]=0x01;//长度
+  74   1        Send_buffer[n++]=dat;
+  75   1        Send_buffer[n]=0;
+  76   1        for(i=0;i<n;i++)
+  77   1        Send_buffer[n]+=Send_buffer[i];
+  78   1        UartPutStr(Send_buffer,n+1);
+  79   1      }
+  80          //***************************************
+  81          //函数功能：设置循环模式
+  82          //指令    ：00：全盘循环，01：单曲循环，02：单曲停止
+  83          //          03：全盘随机，04：目录循环，05：目录随机
+  84          //          06：目录顺序，07：全盘顺序
+  85          //***************************************
+  86          void JqSetLoopMode(uchar dat)//
+  87          {
+  88   1        uchar n,i;
+  89   1        n=0;
+  90   1        Send_buffer[n++]=0xAA;
+  91   1        Send_buffer[n++]=0x18;//组合播放指令码;
+  92   1        Send_buffer[n++]=0x01;//长度
+  93   1        Send_buffer[n++]=dat;
+  94   1        Send_buffer[n]=0;
+  95   1        for(i=0;i<n;i++)
+  96   1        Send_buffer[n]+=Send_buffer[i];
+  97   1        UartPutStr(Send_buffer,n+1);
+  98   1      }
+  99          void JqPlayCmd2(uchar dat)//02:播放，03：暂停，04：停止，05：上一曲，06：下一曲
+ 100          {
+ 101   1        uchar n,i;
+ 102   1        n=0;
+ 103   1        Send_buffer[n++]=0xAA;
+ 104   1        switch(dat)
+ 105   1        {
+ 106   2          case 0:{Send_buffer[n++]=0x02;break;}//播放
+ 107   2          case 1:{Send_buffer[n++]=0x03;break;}//暂停
+ 108   2          case 2:{Send_buffer[n++]=0x04;break;}//停止
+ 109   2          case 3:{Send_buffer[n++]=0x05;break;}//上一曲
+ 110   2          case 4:{Send_buffer[n++]=0x06;break;}//下一曲
+ 111   2          case 5:{Send_buffer[n++]=0x07;break;}//结束播放
+ 112   2          case 6:{Send_buffer[n++]=0x14;break;}//音量加
+ 113   2          case 7:{Send_buffer[n++]=0x15;break;}//音量减
+ 114   2          case 8:{Send_buffer[n++]=0x25;break;}//开始查询时间
+ 115   2          default  :return;
+ 116   2        }
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 3   
+
+ 117   1        Send_buffer[n++]=0x00;
+ 118   1        Send_buffer[n]=0;
+ 119   1        for(i=0;i<n;i++)
+ 120   1        Send_buffer[n]+=Send_buffer[i];
+ 121   1        UartPutStr(Send_buffer,n+1);
+ 122   1      }
+ 123          
+ 124          void JqPlayCmd(uchar dat)//02:播放，03：暂停，04：停止，05：上一曲，06：下一曲////for task
+ 125          {
+ 126   1        uchar n,i;
+ 127   1        n=0;
+ 128   1        Send_buffer[n++]=0xAA;
+ 129   1        switch(dat)
+ 130   1        {
+ 131   2          case 0:{Send_buffer[n++]=0x02;break;}//播放
+ 132   2          case 1:{Send_buffer[n++]=0x03;break;}//暂停
+ 133   2          case 2:{Send_buffer[n++]=0x04;break;}//停止
+ 134   2          case 3:{Send_buffer[n++]=0x05;break;}//上一曲
+ 135   2          case 4:{Send_buffer[n++]=0x06;break;}//下一曲
+ 136   2          case 5:{Send_buffer[n++]=0x26;break;}//停止查询时间
+ 137   2          case 6:{Send_buffer[n++]=0x14;break;}//音量加
+ 138   2          case 7:{Send_buffer[n++]=0x15;break;}//音量减
+ 139   2          
+ 140   2          default  :return;
+ 141   2        }
+ 142   1        Send_buffer[n++]=0x00;
+ 143   1        Send_buffer[n]=0;
+ 144   1        for(i=0;i<n;i++)
+ 145   1        Send_buffer[n]+=Send_buffer[i];
+ 146   1        UartPutStr(Send_buffer,n+1);
+ 147   1      }
+ 148          
+ 149          void JqQueryCmd(uchar dat)//0~7
+ 150          {
+ 151   1        uchar n,i;
+ 152   1        n=0;
+ 153   1        Send_buffer[n++]=0xAA;
+ 154   1        //组合播放指令码;
+ 155   1        switch(dat)
+ 156   1        {
+ 157   2          case 0:{Send_buffer[n++]=0x01;break;}//查询播放状态
+ 158   2          case 1:{Send_buffer[n++]=0x24;break;}//曲目播放总时间
+ 159   2          case 2:{Send_buffer[n++]=0x25;break;}//当前播放时间
+ 160   2      //    case 3:{Send_buffer[n++]=0x1E;break;}//歌曲名称
+ 161   2          case 4:{Send_buffer[n++]=0x11;break;}//文件夹首曲曲目
+ 162   2          case 5:{Send_buffer[n++]=0x12;break;}//文件目录总曲目
+ 163   2          case 6:{Send_buffer[n++]=0x0C;break;}//总曲目
+ 164   2          case 7:{Send_buffer[n++]=0x0D;break;}//当前曲目
+ 165   2          default  :return;
+ 166   2        }
+ 167   1        Send_buffer[n++]=0x00;
+ 168   1        Send_buffer[n]=0;
+ 169   1        for(i=0;i<n;i++)
+ 170   1        Send_buffer[n]+=Send_buffer[i];
+ 171   1        UartPutStr(Send_buffer,n+1);
+ 172   1      }
+ 173          
+ 174          void JqPlaybackStatus()
+ 175          {
+ 176   1        uchar n;
+ 177   1        n=0;
+ 178   1        Send_buffer[n++]=0xAA;
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 4   
+
+ 179   1        Send_buffer[n++]=0x01;//组合播放指令码;
+ 180   1        Send_buffer[n++]=0x00;//长度
+ 181   1        Send_buffer[n]=0xAB;
+ 182   1        UartPutStr(Send_buffer,n+1);
+ 183   1        
+ 184   1      }
+ 185          
+ 186          void Tell_theData()
+ 187          {
+ 188   1                uchar i,n;
+ 189   1                n=0;
+ 190   1                Send_buffer[n++]=0xAA;
+ 191   1                Send_buffer[n++]=0x1B;//组合播放指令码;
+ 192   1                Send_buffer[n++]=0x00;//长度
+ 193   1                Send_buffer[n++]='1';Send_buffer[n++]='3';
+ 194   1                Send_buffer[n++]='X';Send_buffer[n++]='2';
+ 195   1                Send_buffer[n++]='X';Send_buffer[n++]='0';
+ 196   1                Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[6]>>4)+48;
+ 197   1                Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[6]&0x0f)+48;
+ 198   1                Send_buffer[n++]='0';Send_buffer[n++]='5';//年
+ 199   1                
+ 200   1                if((ds_dat_time[4]>>4)==0)
+ 201   1                {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 202   1                if((ds_dat_time[4]>>4)==1)
+ 203   1                {
+ 204   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 205   2                  if(ds_dat_time[4]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 206   2                }
+ 207   1                if((ds_dat_time[4]>>4)>1)
+ 208   1                {
+ 209   2                  Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]>>4)+48;
+ 210   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 211   2                  if(ds_dat_time[4]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 212   2                }
+ 213   1                Send_buffer[n++]='0';Send_buffer[n++]='6';//月
+ 214   1                
+ 215   1                if((ds_dat_time[3]>>4)==0)
+ 216   1                {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}
+ 217   1                if((ds_dat_time[3]>>4)==1)
+ 218   1                {
+ 219   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 220   2                  if(ds_dat_time[3]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}//确保不是零
+ 221   2                }
+ 222   1                if((ds_dat_time[3]>>4)>1)
+ 223   1                {
+ 224   2                  Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]>>4)+48;
+ 225   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 226   2                  if(ds_dat_time[3]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}
+ 227   2                }
+ 228   1                Send_buffer[n++]='0';Send_buffer[n++]='7';//日
+ 229   1                
+ 230   1                Send_buffer[n++]='1';Send_buffer[n++]='2';//周
+ 231   1                if(((ds_dat_time[5]&0x0f)==7)||((ds_dat_time[5]&0x0f)==0)){Send_buffer[n++]='0';Send_buffer[n++]='7';
+             -}
+ 232   1                else {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[5]&0x0f)+48;}
+ 233   1                
+ 234   1                Send_buffer[n++]='0';Send_buffer[n++]='8';//农历
+ 235   1                Send_buffer[n++]='A';Send_buffer[n++]=(moon_year%10)+48;
+ 236   1                Send_buffer[n++]='B';Send_buffer[n++]=(moon_year%12)+48;
+ 237   1                Send_buffer[n++]='0';Send_buffer[n++]='5';//年
+ 238   1                if(moon_month==0x01){Send_buffer[n++]='1';Send_buffer[n++]='4';}//  正月
+ 239   1                else if(moon_month==0x11){Send_buffer[n++]='0';Send_buffer[n++]='9';Send_buffer[n++]='0';Send_buffer[
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 5   
+
+             -n++]='6';}//冬月
+ 240   1                else if(moon_month==0x12){Send_buffer[n++]='1';Send_buffer[n++]='0';Send_buffer[n++]='0';Send_buffer[
+             -n++]='6';}//腊月
+ 241   1                else if(moon_month){Send_buffer[n++]='X';Send_buffer[n++]=moon_month+48;Send_buffer[n++]='0';Send_buf
+             -fer[n++]='6';}
+ 242   1                
+ 243   1                if(((moon_day>>4)==0)||((moon_day>>4)==1)&&((moon_day&0x0f)==0)){Send_buffer[n++]='1';Send_buffer[n++
+             -]='1';}//初
+ 244   1                if((moon_day>>4)==1){Send_buffer[n++]='X';Send_buffer[n++]='A';}//十
+ 245   1                if(((moon_day>>4)==2)&&((moon_day&0x0f)==0)){Send_buffer[n++]='X';Send_buffer[n++]='2';Send_buffer[n+
+             -+]='X';Send_buffer[n++]='A';}//二十
+ 246   1                else if((moon_day>>4)==2){Send_buffer[n++]='1';Send_buffer[n++]='5';}//廿
+ 247   1                if((moon_day>>4)==3){Send_buffer[n++]='X';Send_buffer[n++]='3';Send_buffer[n++]='X';Send_buffer[n++]=
+             -'A';}
+ 248   1                if(moon_day&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(moon_day&0x0f)+48;}
+ 249   1                
+ 250   1                Send_buffer[2]=n-3;
+ 251   1                Send_buffer[n]=0;
+ 252   1                for(i=0;i<n;i++)
+ 253   1                Send_buffer[n]+=Send_buffer[i];
+ 254   1                UartPutStr(Send_buffer,n+1);
+ 255   1      }
+ 256          void Tell_theTime()
+ 257          {
+ 258   1                uchar i,n;
+ 259   1                n=0;
+ 260   1                Send_buffer[n++]=0xAA;
+ 261   1                Send_buffer[n++]=0x1B;//组合播放指令码;
+ 262   1                Send_buffer[n++]=0x00;//长度
+ 263   1        
+ 264   1                Send_buffer[n++]='0';
+ 265   1                Send_buffer[n++]='1';
+ 266   1                if((ds_dat_time[2]>>4)==0)
+ 267   1                {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[2]&0x0f)+48;}
+ 268   1                if((ds_dat_time[2]>>4)==1)
+ 269   1                {
+ 270   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 271   2                  if(ds_dat_time[2]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[2]&0x0f)+48;}
+ 272   2                }
+ 273   1                if((ds_dat_time[2]>>4)==2)
+ 274   1                {
+ 275   2                  Send_buffer[n++]='X';Send_buffer[n++]='2';
+ 276   2                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 277   2                  if(ds_dat_time[2]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[2]&0x0f)+48;}
+ 278   2                }
+ 279   1                Send_buffer[n++]='1';Send_buffer[n++]='6';//点
+ 280   1                
+ 281   1                if(ds_dat_time[1]||ds_dat_time[0])
+ 282   1                {
+ 283   2                if((ds_dat_time[1]>>4)==0)
+ 284   2                {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[1]&0x0f)+48;}
+ 285   2                if((ds_dat_time[1]>>4)==1)
+ 286   2                {
+ 287   3                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 288   3                  if(ds_dat_time[1]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[1]&0x0f)+48;}
+ 289   3                }
+ 290   2                if((ds_dat_time[1]>>4)>1)
+ 291   2                {
+ 292   3                  Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[1]>>4)+48;
+ 293   3                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 294   3                  if(ds_dat_time[1]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[1]&0x0f)+48;}
+ 295   3                }
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 6   
+
+ 296   2                Send_buffer[n++]='0';Send_buffer[n++]='3';// 分
+ 297   2                if((ds_dat_time[0]>>4)==0)
+ 298   2                {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[0]&0x0f)+48;}
+ 299   2                if((ds_dat_time[0]>>4)==1)
+ 300   2                {
+ 301   3                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 302   3                  if(ds_dat_time[0]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[0]&0x0f)+48;}
+ 303   3                }
+ 304   2                if((ds_dat_time[0]>>4)>1)
+ 305   2                {
+ 306   3                  Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[0]>>4)+48;
+ 307   3                  Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 308   3                  if(ds_dat_time[0]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[0]&0x0f)+48;}
+ 309   3                }
+ 310   2                Send_buffer[n++]='0';Send_buffer[n++]='4';//秒
+ 311   2                }
+ 312   1                else
+ 313   1                {
+ 314   2                Send_buffer[n++]='1';Send_buffer[n++]='7';//整
+ 315   2                }
+ 316   1      //          Send_buffer[n++]='1';Send_buffer[n++]='3';
+ 317   1      //          Send_buffer[n++]='X';Send_buffer[n++]='2';
+ 318   1      //          Send_buffer[n++]='X';Send_buffer[n++]='0';
+ 319   1      //          Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[6]>>4)+48;
+ 320   1      //          Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[6]&0x0f)+48;
+ 321   1      //          Send_buffer[n++]='0';Send_buffer[n++]='5';//年
+ 322   1      //          
+ 323   1      //          if((ds_dat_time[4]>>4)==0)
+ 324   1      //          {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 325   1      //          if((ds_dat_time[4]>>4)==1)
+ 326   1      //          {
+ 327   1      //            Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 328   1      //            if(ds_dat_time[4]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 329   1      //          }
+ 330   1      //          if((ds_dat_time[4]>>4)>1)
+ 331   1      //          {
+ 332   1      //            Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]>>4)+48;
+ 333   1      //            Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 334   1      //            if(ds_dat_time[4]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[4]&0x0f)+48;}
+ 335   1      //          }
+ 336   1      //          Send_buffer[n++]='0';Send_buffer[n++]='6';//月
+ 337   1      //          
+ 338   1      //          if((ds_dat_time[3]>>4)==0)
+ 339   1      //          {Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}
+ 340   1      //          if((ds_dat_time[3]>>4)==1)
+ 341   1      //          {
+ 342   1      //            Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 343   1      //            if(ds_dat_time[3]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}//确保不是
+             -零
+ 344   1      //          }
+ 345   1      //          if((ds_dat_time[3]>>4)>1)
+ 346   1      //          {
+ 347   1      //            Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]>>4)+48;
+ 348   1      //            Send_buffer[n++]='X';Send_buffer[n++]='A';
+ 349   1      //            if(ds_dat_time[3]&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[3]&0x0f)+48;}
+ 350   1      //          }
+ 351   1      //          Send_buffer[n++]='0';Send_buffer[n++]='7';//日
+ 352   1      //          
+ 353   1      //          Send_buffer[n++]='1';Send_buffer[n++]='2';//周
+ 354   1      //          Send_buffer[n++]='X';Send_buffer[n++]=(ds_dat_time[5]&0x0f)+48;
+ 355   1      //          
+ 356   1      //          Send_buffer[n++]='0';Send_buffer[n++]='8';//周
+C51 COMPILER V9.60.0.0   JQ8900                                                            05/29/2020 16:57:57 PAGE 7   
+
+ 357   1      //          Send_buffer[n++]='A';Send_buffer[n++]=(moon_year/12)+48;
+ 358   1      //          Send_buffer[n++]='B';Send_buffer[n++]=(moon_year%12)+48;
+ 359   1      //          Send_buffer[n++]='0';Send_buffer[n++]='5';//年
+ 360   1      //          if(moon_month==0x01){Send_buffer[n++]='1';Send_buffer[n++]='4';}//  正月
+ 361   1      //          else if(moon_month==0x11){Send_buffer[n++]='1';Send_buffer[n++]='0';Send_buffer[n++]='0';Send_buffe
+             -r[n++]='6';}//腊月
+ 362   1      //          else if(moon_month==0x12){Send_buffer[n++]='0';Send_buffer[n++]='9';Send_buffer[n++]='0';Send_buffe
+             -r[n++]='6';}//冬月
+ 363   1      //          else if(moon_month){Send_buffer[n++]='X';Send_buffer[n++]=moon_month+48;Send_buffer[n++]='0';Send_b
+             -uffer[n++]='6';}
+ 364   1      //          
+ 365   1      //          if((moon_day>>4)==0){Send_buffer[n++]='1';Send_buffer[n++]='1';}//初
+ 366   1      //          if((moon_day>>4)==1){Send_buffer[n++]='X';Send_buffer[n++]='A';}//十
+ 367   1      //          if((moon_day>>4)==2){Send_buffer[n++]='1';Send_buffer[n++]='5';}//廿
+ 368   1      //          if((moon_day>>4)==3){Send_buffer[n++]='X';Send_buffer[n++]='3';Send_buffer[n++]='X';Send_buffer[n++
+             -]='A';}
+ 369   1      //          if(moon_day&0x0f){Send_buffer[n++]='X';Send_buffer[n++]=(moon_day&0x0f)+48;}
+ 370   1                          
+ 371   1                Send_buffer[2]=n-3;
+ 372   1                Send_buffer[n]=0;
+ 373   1                for(i=0;i<n;i++)
+ 374   1                Send_buffer[n]+=Send_buffer[i];
+ 375   1                UartPutStr(Send_buffer,n+1);
+ 376   1                
+ 377   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   4084    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     11       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
