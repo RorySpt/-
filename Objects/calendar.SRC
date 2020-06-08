@@ -1,0 +1,2478 @@
+; .\Objects\calendar.SRC generated from: calendar.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE calendar.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\calendar.lst) TABS(2) SRC(.\Objects\calendar.SRC)
+
+$NOMOD51
+
+NAME	CALENDAR
+
+DS_CE	BIT	0A0H.0
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+DS_IO	BIT	0A0H.1
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+DS_SCLK	BIT	0A0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?_get_cale_moon_day?CALENDAR          SEGMENT CODE 
+?PR?Conversion?CALENDAR                  SEGMENT CODE 
+?PD?Conversion?CALENDAR                  SEGMENT XDATA INPAGE OVERLAYABLE 
+?BI?Conversion?CALENDAR                  SEGMENT BIT OVERLAYABLE 
+?PR?cale_data_transfer?CALENDAR          SEGMENT CODE 
+?PR?Conver_week?CALENDAR                 SEGMENT CODE 
+?PD?Conver_week?CALENDAR                 SEGMENT XDATA INPAGE OVERLAYABLE 
+?BI?Conver_week?CALENDAR                 SEGMENT BIT OVERLAYABLE 
+?PR?_CalculateWeek?CALENDAR              SEGMENT CODE 
+?PD?_CalculateWeek?CALENDAR              SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?_Calculate_Totaldays_Ofmonth?CALENDAR SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?CO?CALENDAR         SEGMENT CODE 
+?BI?CALENDAR         SEGMENT BIT 
+?PD?CALENDAR         SEGMENT XDATA INPAGE 
+?DT?CALENDAR         SEGMENT DATA 
+?PR?CALENDAR         SEGMENT CODE 
+	EXTRN	CODE (?C?IMUL)
+	EXTRN	CODE (?C?UIDIV)
+	PUBLIC	sun_week
+	PUBLIC	moon_day
+	PUBLIC	cale_moon_day
+	PUBLIC	moon_year
+	PUBLIC	cale_moon_year
+	PUBLIC	moon_month
+	PUBLIC	cale_moon_month
+	PUBLIC	week
+	PUBLIC	century
+	PUBLIC	moon_c
+	PUBLIC	table_week
+	PUBLIC	day_code2
+	PUBLIC	day_code1
+	PUBLIC	year_code
+	PUBLIC	NLyear_dat
+	PUBLIC	_Calculate_Totaldays_Ofmonth
+	PUBLIC	?_CalculateWeek?BYTE
+	PUBLIC	_CalculateWeek
+	PUBLIC	?Conver_week?BIT
+	PUBLIC	?Conver_week?BYTE
+	PUBLIC	Conver_week
+	PUBLIC	cale_data_transfer
+	PUBLIC	?Conversion?BIT
+	PUBLIC	?Conversion?BYTE
+	PUBLIC	Conversion
+	PUBLIC	_get_cale_moon_day
+
+	RSEG  ?PD?Conver_week?CALENDAR
+?Conver_week?BYTE:
+       year?356:   DS   1
+	ORG  1
+      month?357:   DS   1
+	ORG  2
+        day?358:   DS   1
+
+	RSEG  ?BI?Conver_week?CALENDAR
+?Conver_week?BIT:
+          c?355:   DBIT   1
+
+	RSEG  ?PD?_CalculateWeek?CALENDAR
+?_CalculateWeek?BYTE:
+    century?461:   DS   1
+       year?462:   DS   1
+      month?463:   DS   1
+	ORG  3
+        day?464:   DS   1
+
+	RSEG  ?PD?Conversion?CALENDAR
+?Conversion?BYTE:
+       year?144:   DS   1
+	ORG  1
+      month?145:   DS   1
+	ORG  2
+        day?146:   DS   1
+	ORG  3
+      temp3?149:   DS   1
+	ORG  4
+    month_p?150:   DS   1
+	ORG  5
+      temp4?151:   DS   2
+	ORG  7
+ table_addr?152:   DS   2
+
+	RSEG  ?BI?Conversion?CALENDAR
+?Conversion?BIT:
+          c?143:   DBIT   1
+	ORG  1
+      flag2?153:   DBIT   1
+	ORG  2
+     flag_y?154:   DBIT   1
+
+	RSEG  ?BI?CALENDAR
+         moon_c:   DBIT   1
+
+	RSEG  ?PD?CALENDAR
+        century:   DS   1
+       sun_week:   DS   1
+
+	RSEG  ?DT?CALENDAR
+           week:   DS   1
+cale_moon_month:   DS   1
+     moon_month:   DS   1
+ cale_moon_year:   DS   1
+      moon_year:   DS   1
+  cale_moon_day:   DS   1
+       moon_day:   DS   1
+
+	RSEG  ?CO?CALENDAR
+NLyear_dat:
+	DB  0BCH,0D7H,0D2H,0D2H,0B1H,0FBH,0B6H,0A1H,0CEH,0ECH
+	DB  0BCH,0BAH,0B8H,0D0H,0C1H,0C8H,0C9H,0B9H,0EFH,0D7H
+	DB  0D3H,0B3H,0F3H,0D2H,0FAH,0C3H,0AEH,0B3H,0BDH,0CBH
+	DB  0C8H,0CEH,0E7H,0CEH,0B4H,0C9H,0EAH,0D3H,0CFH,0D0H
+	DB  0E7H,0BAH,0A5H,000H
+
+
+year_code:
+	DB	004H
+	DB	0AEH
+	DB	053H
+	DB	00AH
+	DB	057H
+	DB	048H
+	DB	055H
+	DB	026H
+	DB	0BDH
+	DB	00DH
+	DB	026H
+	DB	050H
+	DB	00DH
+	DB	095H
+	DB	044H
+	DB	046H
+	DB	0AAH
+	DB	0B9H
+	DB	005H
+	DB	06AH
+	DB	04DH
+	DB	009H
+	DB	0ADH
+	DB	042H
+	DB	024H
+	DB	0AEH
+	DB	0B6H
+	DB	004H
+	DB	0AEH
+	DB	04AH
+	DB	06AH
+	DB	04DH
+	DB	0BEH
+	DB	00AH
+	DB	04DH
+	DB	052H
+	DB	00DH
+	DB	025H
+	DB	046H
+	DB	05DH
+	DB	052H
+	DB	0BAH
+	DB	00BH
+	DB	054H
+	DB	04EH
+	DB	00DH
+	DB	06AH
+	DB	043H
+	DB	029H
+	DB	06DH
+	DB	037H
+	DB	009H
+	DB	05BH
+	DB	04BH
+	DB	074H
+	DB	09BH
+	DB	0C1H
+	DB	004H
+	DB	097H
+	DB	054H
+	DB	00AH
+	DB	04BH
+	DB	048H
+	DB	05BH
+	DB	025H
+	DB	0BCH
+	DB	006H
+	DB	0A5H
+	DB	050H
+	DB	006H
+	DB	0D4H
+	DB	045H
+	DB	04AH
+	DB	0DAH
+	DB	0B8H
+	DB	002H
+	DB	0B6H
+	DB	04DH
+	DB	009H
+	DB	057H
+	DB	042H
+	DB	024H
+	DB	097H
+	DB	0B7H
+	DB	004H
+	DB	097H
+	DB	04AH
+	DB	066H
+	DB	04BH
+	DB	03EH
+	DB	00DH
+	DB	04AH
+	DB	051H
+	DB	00EH
+	DB	0A5H
+	DB	046H
+	DB	056H
+	DB	0D4H
+	DB	0BAH
+	DB	005H
+	DB	0ADH
+	DB	04EH
+	DB	002H
+	DB	0B6H
+	DB	044H
+	DB	039H
+	DB	037H
+	DB	038H
+	DB	009H
+	DB	02EH
+	DB	04BH
+	DB	07CH
+	DB	096H
+	DB	0BFH
+	DB	00CH
+	DB	095H
+	DB	053H
+	DB	00DH
+	DB	04AH
+	DB	048H
+	DB	06DH
+	DB	0A5H
+	DB	03BH
+	DB	00BH
+	DB	055H
+	DB	04FH
+	DB	005H
+	DB	06AH
+	DB	045H
+	DB	04AH
+	DB	0ADH
+	DB	0B9H
+	DB	002H
+	DB	05DH
+	DB	04DH
+	DB	009H
+	DB	02DH
+	DB	042H
+	DB	02CH
+	DB	095H
+	DB	0B6H
+	DB	00AH
+	DB	095H
+	DB	04AH
+	DB	07BH
+	DB	04AH
+	DB	0BDH
+	DB	006H
+	DB	0CAH
+	DB	051H
+	DB	00BH
+	DB	055H
+	DB	046H
+	DB	055H
+	DB	05AH
+	DB	0BBH
+	DB	004H
+	DB	0DAH
+	DB	04EH
+	DB	00AH
+	DB	05BH
+	DB	043H
+	DB	035H
+	DB	02BH
+	DB	0B8H
+	DB	005H
+	DB	02BH
+	DB	04CH
+	DB	08AH
+	DB	095H
+	DB	03FH
+	DB	00EH
+	DB	095H
+	DB	052H
+	DB	006H
+	DB	0AAH
+	DB	048H
+	DB	07AH
+	DB	0D5H
+	DB	03CH
+	DB	00AH
+	DB	0B5H
+	DB	04FH
+	DB	004H
+	DB	0B6H
+	DB	045H
+	DB	04AH
+	DB	057H
+	DB	039H
+	DB	00AH
+	DB	057H
+	DB	04DH
+	DB	005H
+	DB	026H
+	DB	042H
+	DB	03EH
+	DB	093H
+	DB	035H
+	DB	00DH
+	DB	095H
+	DB	049H
+	DB	075H
+	DB	0AAH
+	DB	0BEH
+	DB	005H
+	DB	06AH
+	DB	051H
+	DB	009H
+	DB	06DH
+	DB	046H
+	DB	054H
+	DB	0AEH
+	DB	0BBH
+	DB	004H
+	DB	0ADH
+	DB	04FH
+	DB	00AH
+	DB	04DH
+	DB	043H
+	DB	04DH
+	DB	026H
+	DB	0B7H
+	DB	00DH
+	DB	025H
+	DB	04BH
+	DB	08DH
+	DB	052H
+	DB	0BFH
+	DB	00BH
+	DB	054H
+	DB	052H
+	DB	00BH
+	DB	06AH
+	DB	047H
+	DB	069H
+	DB	06DH
+	DB	03CH
+	DB	009H
+	DB	05BH
+	DB	050H
+	DB	004H
+	DB	09BH
+	DB	045H
+	DB	04AH
+	DB	04BH
+	DB	0B9H
+	DB	00AH
+	DB	04BH
+	DB	04DH
+	DB	0ABH
+	DB	025H
+	DB	0C2H
+	DB	006H
+	DB	0A5H
+	DB	054H
+	DB	006H
+	DB	0D4H
+	DB	049H
+	DB	06AH
+	DB	0DAH
+	DB	03DH
+	DB	00AH
+	DB	0B6H
+	DB	051H
+	DB	009H
+	DB	037H
+	DB	046H
+	DB	054H
+	DB	097H
+	DB	0BBH
+	DB	004H
+	DB	097H
+	DB	04FH
+	DB	006H
+	DB	04BH
+	DB	044H
+	DB	036H
+	DB	0A5H
+	DB	037H
+	DB	00EH
+	DB	0A5H
+	DB	04AH
+	DB	086H
+	DB	0B2H
+	DB	0BFH
+	DB	005H
+	DB	0ACH
+	DB	053H
+	DB	00AH
+	DB	0B6H
+	DB	047H
+	DB	059H
+	DB	036H
+	DB	0BCH
+	DB	009H
+	DB	02EH
+	DB	050H
+	DB	00CH
+	DB	096H
+	DB	045H
+	DB	04DH
+	DB	04AH
+	DB	0B8H
+	DB	00DH
+	DB	04AH
+	DB	04CH
+	DB	00DH
+	DB	0A5H
+	DB	041H
+	DB	025H
+	DB	0AAH
+	DB	0B6H
+	DB	005H
+	DB	06AH
+	DB	049H
+	DB	07AH
+	DB	0ADH
+	DB	0BDH
+	DB	002H
+	DB	05DH
+	DB	052H
+	DB	009H
+	DB	02DH
+	DB	047H
+	DB	05CH
+	DB	095H
+	DB	0BAH
+	DB	00AH
+	DB	095H
+	DB	04EH
+	DB	00BH
+	DB	04AH
+	DB	043H
+	DB	04BH
+	DB	055H
+	DB	037H
+	DB	00AH
+	DB	0D5H
+	DB	04AH
+	DB	095H
+	DB	05AH
+	DB	0BFH
+	DB	004H
+	DB	0BAH
+	DB	053H
+	DB	00AH
+	DB	05BH
+	DB	048H
+	DB	065H
+	DB	02BH
+	DB	0BCH
+	DB	005H
+	DB	02BH
+	DB	050H
+	DB	00AH
+	DB	093H
+	DB	045H
+	DB	047H
+	DB	04AH
+	DB	0B9H
+	DB	006H
+	DB	0AAH
+	DB	04CH
+	DB	00AH
+	DB	0D5H
+	DB	041H
+	DB	024H
+	DB	0DAH
+	DB	0B6H
+	DB	004H
+	DB	0B6H
+	DB	04AH
+	DB	069H
+	DB	057H
+	DB	03DH
+	DB	00AH
+	DB	04EH
+	DB	051H
+	DB	00DH
+	DB	026H
+	DB	046H
+	DB	05EH
+	DB	093H
+	DB	03AH
+	DB	00DH
+	DB	053H
+	DB	04DH
+	DB	005H
+	DB	0AAH
+	DB	043H
+	DB	036H
+	DB	0B5H
+	DB	037H
+	DB	009H
+	DB	06DH
+	DB	04BH
+	DB	0B4H
+	DB	0AEH
+	DB	0BFH
+	DB	004H
+	DB	0ADH
+	DB	053H
+	DB	00AH
+	DB	04DH
+	DB	048H
+	DB	06DH
+	DB	025H
+	DB	0BCH
+	DB	00DH
+	DB	025H
+	DB	04FH
+	DB	00DH
+	DB	052H
+	DB	044H
+	DB	05DH
+	DB	0AAH
+	DB	038H
+	DB	00BH
+	DB	05AH
+	DB	04CH
+	DB	005H
+	DB	06DH
+	DB	041H
+	DB	024H
+	DB	0ADH
+	DB	0B6H
+	DB	004H
+	DB	09BH
+	DB	04AH
+	DB	07AH
+	DB	04BH
+	DB	0BEH
+	DB	00AH
+	DB	04BH
+	DB	051H
+	DB	00AH
+	DB	0A5H
+	DB	046H
+	DB	05BH
+	DB	052H
+	DB	0BAH
+	DB	006H
+	DB	0D2H
+	DB	04EH
+	DB	00AH
+	DB	0DAH
+	DB	042H
+	DB	035H
+	DB	05BH
+	DB	037H
+	DB	009H
+	DB	037H
+	DB	04BH
+	DB	084H
+	DB	097H
+	DB	0C1H
+	DB	004H
+	DB	097H
+	DB	053H
+	DB	006H
+	DB	04BH
+	DB	048H
+	DB	066H
+	DB	0A5H
+	DB	03CH
+	DB	00EH
+	DB	0A5H
+	DB	04FH
+	DB	006H
+	DB	0B2H
+	DB	044H
+	DB	04AH
+	DB	0B6H
+	DB	038H
+	DB	00AH
+	DB	0AEH
+	DB	04CH
+	DB	009H
+	DB	02EH
+	DB	042H
+	DB	03CH
+	DB	097H
+	DB	035H
+	DB	00CH
+	DB	096H
+	DB	049H
+	DB	07DH
+	DB	04AH
+	DB	0BDH
+	DB	00DH
+	DB	04AH
+	DB	051H
+	DB	00DH
+	DB	0A5H
+	DB	045H
+	DB	055H
+	DB	0AAH
+	DB	0BAH
+	DB	005H
+	DB	06AH
+	DB	04EH
+	DB	00AH
+	DB	06DH
+	DB	043H
+	DB	045H
+	DB	02EH
+	DB	0B7H
+	DB	005H
+	DB	02DH
+	DB	04BH
+	DB	08AH
+	DB	095H
+	DB	0BFH
+	DB	00AH
+	DB	095H
+	DB	053H
+	DB	00BH
+	DB	04AH
+	DB	047H
+	DB	06BH
+	DB	055H
+	DB	03BH
+	DB	00AH
+	DB	0D5H
+	DB	04FH
+	DB	005H
+	DB	05AH
+	DB	045H
+	DB	04AH
+	DB	05DH
+	DB	038H
+	DB	00AH
+	DB	05BH
+	DB	04CH
+	DB	005H
+	DB	02BH
+	DB	042H
+	DB	03AH
+	DB	093H
+	DB	0B6H
+	DB	006H
+	DB	093H
+	DB	049H
+	DB	077H
+	DB	029H
+	DB	0BDH
+	DB	006H
+	DB	0AAH
+	DB	051H
+	DB	00AH
+	DB	0D5H
+	DB	046H
+	DB	054H
+	DB	0DAH
+	DB	0BAH
+	DB	004H
+	DB	0B6H
+	DB	04EH
+	DB	00AH
+	DB	057H
+	DB	043H
+	DB	045H
+	DB	027H
+	DB	038H
+	DB	00DH
+	DB	026H
+	DB	04AH
+	DB	08EH
+	DB	093H
+	DB	03EH
+	DB	00DH
+	DB	052H
+	DB	052H
+	DB	00DH
+	DB	0AAH
+	DB	047H
+	DB	066H
+	DB	0B5H
+	DB	03BH
+	DB	005H
+	DB	06DH
+	DB	04FH
+	DB	004H
+	DB	0AEH
+	DB	045H
+	DB	04AH
+	DB	04EH
+	DB	0B9H
+	DB	00AH
+	DB	04DH
+	DB	04CH
+	DB	00DH
+	DB	015H
+	DB	041H
+	DB	02DH
+	DB	092H
+	DB	0B5H
+
+day_code1:
+	DB	000H
+	DB	01FH
+	DB	03BH
+	DB	05AH
+	DB	078H
+	DB	097H
+	DB	0B5H
+	DB	0D4H
+	DB	0F3H
+
+day_code2:
+	DW	00111H
+	DW	00130H
+	DW	0014EH
+
+table_week:
+	DB	000H
+	DB	003H
+	DB	003H
+	DB	006H
+	DB	001H
+	DB	004H
+	DB	006H
+	DB	002H
+	DB	005H
+	DB	000H
+	DB	003H
+	DB	005H
+
+
+	RSEG  ?C_INITSEG
+	DB	081H
+	DB	LOW (century)
+	DB	014H
+
+; #include "calendar.h"
+; #include "ds1302.h"
+; #include <intrins.h>
+; uchar century=20;//20xx
+; //uchar Gredata[4];// 百年，年月日
+; uchar sun_week;
+; 
+; code uchar NLyear_dat[]="甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申酉戌亥";//0~9天干，10~21地支
+; /*
+; 公历年对应的农历数据,每年三字节,
+; 格式第一字节BIT7-4 位表示闰月月份,值为0 为无闰月,BIT3-0 对应农历第1-4 月的大小
+; 第二字节BIT7-0 对应农历第5-12 月大小,第三字节BIT7 表示农历第13 个月大小
+; 月份对应的位为1 表示本农历月大(30 天),为0 表示小(29 天)
+; 第三字节BIT6-5 表示春节的公历月份,BIT4-0 表示春节的公历日期
+; */
+; code uchar year_code[597] = {
+; 0x04,0xAe,0x53, //1901 0
+; 0x0A,0x57,0x48, //1902 3
+; 0x55,0x26,0xBd, //1903 6
+; 0x0d,0x26,0x50, //1904 9
+; 0x0d,0x95,0x44, //1905 12
+; 0x46,0xAA,0xB9, //1906 15
+; 0x05,0x6A,0x4d, //1907 18
+; 0x09,0xAd,0x42, //1908 21
+; 0x24,0xAe,0xB6, //1909
+; 0x04,0xAe,0x4A, //1910
+; 0x6A,0x4d,0xBe, //1911
+; 0x0A,0x4d,0x52, //1912
+; 0x0d,0x25,0x46, //1913
+; 0x5d,0x52,0xBA, //1914
+; 0x0B,0x54,0x4e, //1915
+; 0x0d,0x6A,0x43, //1916
+; 0x29,0x6d,0x37, //1917
+; 0x09,0x5B,0x4B, //1918
+; 0x74,0x9B,0xC1, //1919
+; 0x04,0x97,0x54, //1920
+; 0x0A,0x4B,0x48, //1921
+; 0x5B,0x25,0xBC, //1922
+; 0x06,0xA5,0x50, //1923
+; 0x06,0xd4,0x45, //1924
+; 0x4A,0xdA,0xB8, //1925
+; 0x02,0xB6,0x4d, //1926
+; 0x09,0x57,0x42, //1927
+; 0x24,0x97,0xB7, //1928
+; 0x04,0x97,0x4A, //1929
+; 0x66,0x4B,0x3e, //1930
+; 0x0d,0x4A,0x51, //1931
+; 0x0e,0xA5,0x46, //1932
+; 0x56,0xd4,0xBA, //1933
+; 0x05,0xAd,0x4e, //1934
+; 0x02,0xB6,0x44, //1935
+; 0x39,0x37,0x38, //1936
+; 0x09,0x2e,0x4B, //1937
+; 0x7C,0x96,0xBf, //1938
+; 0x0C,0x95,0x53, //1939
+; 0x0d,0x4A,0x48, //1940
+; 0x6d,0xA5,0x3B, //1941
+; 0x0B,0x55,0x4f, //1942
+; 0x05,0x6A,0x45, //1943
+; 0x4A,0xAd,0xB9, //1944
+; 0x02,0x5d,0x4d, //1945
+; 0x09,0x2d,0x42, //1946
+; 0x2C,0x95,0xB6, //1947
+; 0x0A,0x95,0x4A, //1948
+; 0x7B,0x4A,0xBd, //1949
+; 0x06,0xCA,0x51, //1950
+; 0x0B,0x55,0x46, //1951
+; 0x55,0x5A,0xBB, //1952
+; 0x04,0xdA,0x4e, //1953
+; 0x0A,0x5B,0x43, //1954
+; 0x35,0x2B,0xB8, //1955
+; 0x05,0x2B,0x4C, //1956
+; 0x8A,0x95,0x3f, //1957
+; 0x0e,0x95,0x52, //1958
+; 0x06,0xAA,0x48, //1959
+; 0x7A,0xd5,0x3C, //1960
+; 0x0A,0xB5,0x4f, //1961
+; 0x04,0xB6,0x45, //1962
+; 0x4A,0x57,0x39, //1963
+; 0x0A,0x57,0x4d, //1964
+; 0x05,0x26,0x42, //1965
+; 0x3e,0x93,0x35, //1966
+; 0x0d,0x95,0x49, //1967
+; 0x75,0xAA,0xBe, //1968
+; 0x05,0x6A,0x51, //1969
+; 0x09,0x6d,0x46, //1970
+; 0x54,0xAe,0xBB, //1971
+; 0x04,0xAd,0x4f, //1972
+; 0x0A,0x4d,0x43, //1973
+; 0x4d,0x26,0xB7, //1974
+; 0x0d,0x25,0x4B, //1975
+; 0x8d,0x52,0xBf, //1976
+; 0x0B,0x54,0x52, //1977
+; 0x0B,0x6A,0x47, //1978
+; 0x69,0x6d,0x3C, //1979
+; 0x09,0x5B,0x50, //1980
+; 0x04,0x9B,0x45, //1981
+; 0x4A,0x4B,0xB9, //1982
+; 0x0A,0x4B,0x4d, //1983
+; 0xAB,0x25,0xC2, //1984
+; 0x06,0xA5,0x54, //1985
+; 0x06,0xd4,0x49, //1986
+; 0x6A,0xdA,0x3d, //1987
+; 0x0A,0xB6,0x51, //1988
+; 0x09,0x37,0x46, //1989
+; 0x54,0x97,0xBB, //1990
+; 0x04,0x97,0x4f, //1991
+; 0x06,0x4B,0x44, //1992
+; 0x36,0xA5,0x37, //1993
+; 0x0e,0xA5,0x4A, //1994
+; 0x86,0xB2,0xBf, //1995
+; 0x05,0xAC,0x53, //1996
+; 0x0A,0xB6,0x47, //1997
+; 0x59,0x36,0xBC, //1998
+; 0x09,0x2e,0x50, //1999 294
+; 0x0C,0x96,0x45, //2000 297
+; 0x4d,0x4A,0xB8, //2001
+; 0x0d,0x4A,0x4C, //2002
+; 0x0d,0xA5,0x41, //2003
+; 0x25,0xAA,0xB6, //2004
+; 0x05,0x6A,0x49, //2005
+; 0x7A,0xAd,0xBd, //2006
+; 0x02,0x5d,0x52, //2007
+; 0x09,0x2d,0x47, //2008
+; 0x5C,0x95,0xBA, //2009
+; 0x0A,0x95,0x4e, //2010
+; 0x0B,0x4A,0x43, //2011
+; 0x4B,0x55,0x37, //2012
+; 0x0A,0xd5,0x4A, //2013
+; 0x95,0x5A,0xBf, //2014
+; 0x04,0xBA,0x53, //2015
+; 0x0A,0x5B,0x48, //2016
+; 0x65,0x2B,0xBC, //2017
+; 0x05,0x2B,0x50, //2018
+; 0x0A,0x93,0x45, //2019
+; 0x47,0x4A,0xB9, //2020
+; 0x06,0xAA,0x4C, //2021
+; 0x0A,0xd5,0x41, //2022
+; 0x24,0xdA,0xB6, //2023
+; 0x04,0xB6,0x4A, //2024
+; 0x69,0x57,0x3d, //2025
+; 0x0A,0x4e,0x51, //2026
+; 0x0d,0x26,0x46, //2027
+; 0x5e,0x93,0x3A, //2028
+; 0x0d,0x53,0x4d, //2029
+; 0x05,0xAA,0x43, //2030
+; 0x36,0xB5,0x37, //2031
+; 0x09,0x6d,0x4B, //2032
+; 0xB4,0xAe,0xBf, //2033
+; 0x04,0xAd,0x53, //2034
+; 0x0A,0x4d,0x48, //2035
+; 0x6d,0x25,0xBC, //2036
+; 0x0d,0x25,0x4f, //2037
+; 0x0d,0x52,0x44, //2038
+; 0x5d,0xAA,0x38, //2039
+; 0x0B,0x5A,0x4C, //2040
+; 0x05,0x6d,0x41, //2041
+; 0x24,0xAd,0xB6, //2042
+; 0x04,0x9B,0x4A, //2043
+; 0x7A,0x4B,0xBe, //2044
+; 0x0A,0x4B,0x51, //2045
+; 0x0A,0xA5,0x46, //2046
+; 0x5B,0x52,0xBA, //2047
+; 0x06,0xd2,0x4e, //2048
+; 0x0A,0xdA,0x42, //2049
+; 0x35,0x5B,0x37, //2050
+; 0x09,0x37,0x4B, //2051
+; 0x84,0x97,0xC1, //2052
+; 0x04,0x97,0x53, //2053
+; 0x06,0x4B,0x48, //2054
+; 0x66,0xA5,0x3C, //2055
+; 0x0e,0xA5,0x4f, //2056
+; 0x06,0xB2,0x44, //2057
+; 0x4A,0xB6,0x38, //2058
+; 0x0A,0xAe,0x4C, //2059
+; 0x09,0x2e,0x42, //2060
+; 0x3C,0x97,0x35, //2061
+; 0x0C,0x96,0x49, //2062
+; 0x7d,0x4A,0xBd, //2063
+; 0x0d,0x4A,0x51, //2064
+; 0x0d,0xA5,0x45, //2065
+; 0x55,0xAA,0xBA, //2066
+; 0x05,0x6A,0x4e, //2067
+; 0x0A,0x6d,0x43, //2068
+; 0x45,0x2e,0xB7, //2069
+; 0x05,0x2d,0x4B, //2070
+; 0x8A,0x95,0xBf, //2071
+; 0x0A,0x95,0x53, //2072
+; 0x0B,0x4A,0x47, //2073
+; 0x6B,0x55,0x3B, //2074
+; 0x0A,0xd5,0x4f, //2075
+; 0x05,0x5A,0x45, //2076
+; 0x4A,0x5d,0x38, //2077
+; 0x0A,0x5B,0x4C, //2078
+; 0x05,0x2B,0x42, //2079
+; 0x3A,0x93,0xB6, //2080
+; 0x06,0x93,0x49, //2081
+; 0x77,0x29,0xBd, //2082
+; 0x06,0xAA,0x51, //2083
+; 0x0A,0xd5,0x46, //2084
+; 0x54,0xdA,0xBA, //2085
+; 0x04,0xB6,0x4e, //2086
+; 0x0A,0x57,0x43, //2087
+; 0x45,0x27,0x38, //2088
+; 0x0d,0x26,0x4A, //2089
+; 0x8e,0x93,0x3e, //2090
+; 0x0d,0x52,0x52, //2091
+; 0x0d,0xAA,0x47, //2092
+; 0x66,0xB5,0x3B, //2093
+; 0x05,0x6d,0x4f, //2094
+; 0x04,0xAe,0x45, //2095
+; 0x4A,0x4e,0xB9, //2096
+; 0x0A,0x4d,0x4C, //2097
+; 0x0d,0x15,0x41, //2098
+; 0x2d,0x92,0xB5, //2099
+; };
+; ///月份数据表
+; 
+; code uchar day_code1[9]={0x0,0x1f,0x3b,0x5a,0x78,0x97,0xb5,0xd4,0xf3};
+; code uint day_code2[3]={0x111,0x130,0x14e};
+; /*
+; 函数功能:输入BCD阳历数据,输出BCD阴历数据(只允许1901-2099年)
+; 调用函数示例:Conversion(c_sun,year_sun,month_sun,day_sun)
+; 如:计算2004年10月16日Conversion(0,0x4,0x10,0x16);
+; c_sun,year_sun,month_sun,day_sun均为BCD数据,c_sun为世纪标志位,c_sun=0为21世
+; 纪,c_sun=1为19世纪
+; 调用函数后,原有数据不变,读moon_c,cale_moon_year,cale_moon_month,cale_moon_day得出阴历BCD数据
+; */
+; bit moon_c;
+; data uchar  cale_moon_year,cale_moon_month,cale_moon_day;
+; data uchar 	moon_year,moon_month,moon_day,week;
+; /*子函数,用于读取数据表中农历月的大月或小月,如果该月为大返回1,为小返回0*/
+
+	RSEG  ?PR?CALENDAR
+Com0075:
+L?0118:
+	USING	0
+L?0119:
+	MOV  	A,#LOW (year_code+01H)
+	ADD  	A,R5
+	MOV  	DPL,A
+	MOV  	A,#HIGH (year_code+01H)
+	ADDC 	A,R4
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	RET  	
+L?0120:
+	USING	0
+	MOV  	R6,A
+	MOV  	A,R7
+	ANL  	A,#0FH
+	ADD  	A,R6
+	MOVX 	@R0,A
+	INC  	R0
+L?0121:
+	MOVX 	A,@R0
+	MOV  	R7,A
+L?0122:
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#0AH
+	MUL  	AB
+	RET  	
+L?0123:
+	USING	0
+L?0124:
+	MOV  	A,#LOW (year_code)
+	ADD  	A,R5
+L?0125:
+	MOV  	DPL,A
+	MOV  	A,#HIGH (year_code)
+	ADDC 	A,R4
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	RET  	
+L?0126:
+	USING	0
+	INC  	R0
+L?0127:
+	MOVX 	A,@R0
+	MOV  	R7,A
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	R6,A
+	MOV  	A,R7
+	ANL  	A,#0FH
+	MOV  	R7,A
+	MOV  	A,R6
+	MOV  	B,#0AH
+	MUL  	AB
+	ADD  	A,R7
+	MOVX 	@R0,A
+	RET  	
+L?0128:
+	USING	0
+	MOV  	R0,#LOW (month_p?150)
+	MOVX 	A,@R0
+	MOV  	R7,A
+L?0129:
+	MOV  	R0,#LOW (table_addr?152)
+	MOVX 	A,@R0
+	MOV  	R4,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R5,A
+	RET  	
+L?0130:
+	USING	0
+L?0131:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	R3,A
+	MOV  	R0,#04H
+	MOV  	R7,A
+	INC  	R0
+	RET  	
+L?0132:
+	USING	0
+L?0133:
+	MOV  	R3,A
+	MOV  	A,R6
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	R2,B
+	MOV  	A,R3
+	ORL  	A,R2
+	RET  	
+L?0134:
+	USING	0
+	MOV  	B,#03H
+	MUL  	AB
+	XCH  	A,DPH
+	ADD  	A,B
+	XCH  	A,DPH
+	RET  	
+L?0135:
+	USING	0
+	MOV  	R7,A
+	CLR  	C
+	MOV  	R0,#LOW (temp4?151+01H)
+	MOVX 	A,@R0
+	SUBB 	A,R7
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	RET  	
+; END OF Com0075
+
+; bit get_cale_moon_day(uchar month_p,uint table_addr)
+
+	RSEG  ?PR?_get_cale_moon_day?CALENDAR
+_get_cale_moon_day:
+	USING	0
+			; SOURCE LINE # 233
+;---- Variable 'temp?042' assigned to Register 'R6' ----
+;---- Variable 'table_addr?041' assigned to Register 'R4/R5' ----
+;---- Variable 'month_p?040' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 234
+; uchar temp;
+; switch (month_p)
+			; SOURCE LINE # 236
+	MOV  	A,R7
+	DEC  	A
+	CJNE 	A,#0DH,?C0097
+?C0097:
+	JC   	$ + 5H
+	LJMP 	?C0001
+	MOV  	DPTR,#?C0098
+	LCALL	L?0134
+	JMP  	@A+DPTR
+?C0098:
+	LJMP 	?C0002
+	LJMP 	?C0006
+	LJMP 	?C0009
+	LJMP 	?C0012
+	LJMP 	?C0015
+	LJMP 	?C0018
+	LJMP 	?C0021
+	LJMP 	?C0024
+	LJMP 	?C0027
+	LJMP 	?C0030
+	LJMP 	?C0033
+	LJMP 	?C0036
+	LJMP 	?C0039
+; {
+			; SOURCE LINE # 237
+; case 1:{temp=year_code[table_addr]&0x08;
+			; SOURCE LINE # 238
+?C0002:
+	LCALL	L?0123
+	ANL  	A,#08H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 239
+	JNZ  	?C0003
+	CLR  	C
+	RET  	
+?C0003:
+	SETB 	C
+	RET  	
+; case 2:{temp=year_code[table_addr]&0x04;
+			; SOURCE LINE # 240
+?C0006:
+	LCALL	L?0123
+	ANL  	A,#04H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 241
+	JNZ  	?C0007
+	CLR  	C
+	RET  	
+?C0007:
+	SETB 	C
+	RET  	
+; case 3:{temp=year_code[table_addr]&0x02;
+			; SOURCE LINE # 242
+?C0009:
+	LCALL	L?0124
+	ANL  	A,#02H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 243
+	JNZ  	?C0010
+	CLR  	C
+	RET  	
+?C0010:
+	SETB 	C
+	RET  	
+; case 4:{temp=year_code[table_addr]&0x01;
+			; SOURCE LINE # 244
+?C0012:
+	LCALL	L?0124
+	ANL  	A,#01H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 245
+	JNZ  	?C0013
+	CLR  	C
+	RET  	
+?C0013:
+	SETB 	C
+	RET  	
+; case 5:{temp=year_code[table_addr+1]&0x80;
+			; SOURCE LINE # 246
+?C0015:
+	LCALL	L?0118
+	ANL  	A,#080H
+; if (temp==0) return(0);else return(1);}
+			; SOURCE LINE # 247
+	JNZ  	?C0016
+	CLR  	C
+	RET  	
+?C0016:
+	SETB 	C
+	RET  	
+; case 6:{temp=year_code[table_addr+1]&0x40;
+			; SOURCE LINE # 248
+?C0018:
+	LCALL	L?0118
+	ANL  	A,#040H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 249
+	JNZ  	?C0019
+	CLR  	C
+	RET  	
+?C0019:
+	SETB 	C
+	RET  	
+; case 7:{temp=year_code[table_addr+1]&0x20;
+			; SOURCE LINE # 250
+?C0021:
+	LCALL	L?0119
+	ANL  	A,#020H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 251
+	JNZ  	?C0022
+	CLR  	C
+	RET  	
+?C0022:
+	SETB 	C
+	RET  	
+; case 8:{temp=year_code[table_addr+1]&0x10;
+			; SOURCE LINE # 252
+?C0024:
+	LCALL	L?0119
+	ANL  	A,#010H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 253
+	JNZ  	?C0025
+	CLR  	C
+	RET  	
+?C0025:
+	SETB 	C
+	RET  	
+; case 9:{temp=year_code[table_addr+1]&0x08;
+			; SOURCE LINE # 254
+?C0027:
+	LCALL	L?0119
+	ANL  	A,#08H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 255
+	JNZ  	?C0028
+	CLR  	C
+	RET  	
+?C0028:
+	SETB 	C
+	RET  	
+; case 10:{temp=year_code[table_addr+1]&0x04;
+			; SOURCE LINE # 256
+?C0030:
+	LCALL	L?0119
+	ANL  	A,#04H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 257
+	JNZ  	?C0031
+	CLR  	C
+	RET  	
+?C0031:
+	SETB 	C
+	RET  	
+; case 11:{temp=year_code[table_addr+1]&0x02;
+			; SOURCE LINE # 258
+?C0033:
+	LCALL	L?0119
+	ANL  	A,#02H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 259
+	JNZ  	?C0034
+	CLR  	C
+	RET  	
+?C0034:
+	SETB 	C
+	RET  	
+; case 12:{temp=year_code[table_addr+1]&0x01;
+			; SOURCE LINE # 260
+?C0036:
+	LCALL	L?0119
+	ANL  	A,#01H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 261
+	JNZ  	?C0037
+	CLR  	C
+	RET  	
+?C0037:
+	SETB 	C
+	RET  	
+; case 13:{temp=year_code[table_addr+2]&0x80;
+			; SOURCE LINE # 262
+?C0039:
+	MOV  	A,#LOW (year_code+02H)
+	ADD  	A,R5
+	MOV  	DPL,A
+	MOV  	A,#HIGH (year_code+02H)
+	ADDC 	A,R4
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	ANL  	A,#080H
+; if (temp==0)return(0);else return(1);}
+			; SOURCE LINE # 263
+	JNZ  	?C0040
+	CLR  	C
+	RET  	
+?C0040:
+	SETB 	C
+	RET  	
+; }
+			; SOURCE LINE # 264
+?C0001:
+; return 255;
+			; SOURCE LINE # 265
+	SETB 	C
+; }
+			; SOURCE LINE # 266
+?C0004:
+	RET  	
+; END OF _get_cale_moon_day
+
+; /*
+; 函数功能:输入BCD阳历数据,输出BCD阴历数据(只允许1901-2099年)
+; 调用函数示例:Conversion(c_sun,year_sun,month_sun,day_sun)
+; 如:计算2004年10月16日Conversion(0,0x4,0x10,0x16);
+; c_sun,year_sun,month_sun,day_sun均为BCD数据,c_sun为世纪标志位,c_sun=0为21世
+; 纪,c_sun=1为19世纪
+; 调用函数后,原有数据不变,读moon_c,cale_moon_year,cale_moon_month,cale_moon_day得出阴历BCD数据
+; */
+; void Conversion(bit c,uchar year,uchar month,uchar day)
+
+	RSEG  ?PR?Conversion?CALENDAR
+Conversion:
+	USING	0
+			; SOURCE LINE # 275
+; { //c=0 为21世纪,c=1 为19世纪 输入输出数据均为BCD数据
+			; SOURCE LINE # 276
+; 	uchar temp1,temp2,temp3,month_p;
+; 	uint temp4,table_addr;
+; 	bit flag2,flag_y;
+; //	year=0x20;month=3;day=9;
+; 	year=(year>>4)*10+(year&0x0f);//BCD->hex 先把数据转换为十六进制
+			; SOURCE LINE # 281
+	MOV  	R0,#LOW (year?144)
+	LCALL	L?0121
+; 	month=(month>>4)*10+(month&0x0f);
+			; SOURCE LINE # 282
+	LCALL	L?0120
+; 	day=(day>>4)*10+(day&0x0f);
+			; SOURCE LINE # 283
+	LCALL	L?0120
+	MOV  	R6,A
+	MOV  	A,R7
+	ANL  	A,#0FH
+	ADD  	A,R6
+	MOVX 	@R0,A
+; 	//定位数据表地址
+; 	if(c==0)
+			; SOURCE LINE # 285
+	MOV  	R0,#LOW (year?144)
+	MOVX 	A,@R0
+	JB   	c?143,?C0042
+; 	{
+			; SOURCE LINE # 286
+; 		table_addr=(year+0x64-1)*0x3;
+			; SOURCE LINE # 287
+	ADD  	A,#063H
+	MOV  	R7,A
+	CLR  	A
+	RLC  	A
+; 	}
+			; SOURCE LINE # 288
+	SJMP 	?C0113
+?C0042:
+; 	else
+; 	{
+			; SOURCE LINE # 290
+; 		table_addr=(year-1)*0x3;
+			; SOURCE LINE # 291
+	ADD  	A,#0FFH
+	MOV  	R7,A
+	CLR  	A
+	ADDC 	A,#0FFH
+?C0113:
+	MOV  	R6,A
+	MOV  	R4,#00H
+	MOV  	R5,#03H
+	LCALL	?C?IMUL
+	MOV  	R0,#LOW (table_addr?152)
+	MOV  	A,R6
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R7
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 292
+?C0043:
+; 	//定位数据表地址完成
+; 	//取当年春节所在的公历月份
+; 	temp1=year_code[table_addr+2]&0x60;
+			; SOURCE LINE # 295
+	MOV  	R0,#LOW (table_addr?152)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,#LOW (year_code+02H)
+	MOV  	DPL,A
+	MOV  	A,#HIGH (year_code+02H)
+	ADDC 	A,R6
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R6,A
+	ANL  	A,#060H
+;---- Variable 'temp1?147' assigned to Register 'R3' ----
+	MOV  	R3,A
+; 	temp1=_cror_(temp1,5);
+			; SOURCE LINE # 296
+	MOV  	R0,#05H
+	MOV  	R7,A
+	INC  	R0
+	SJMP 	?C0100
+?C0099:
+	RR   	A
+?C0100:
+	DJNZ 	R0,?C0099
+	MOV  	R3,A
+; 	//取当年春节所在的公历月份完成
+; 	//取当年春节所在的公历日
+; 	temp2=year_code[table_addr+2]&0x1f;
+			; SOURCE LINE # 299
+	MOV  	A,R6
+	ANL  	A,#01FH
+;---- Variable 'temp2?148' assigned to Register 'R2' ----
+	MOV  	R2,A
+; 	//取当年春节所在的公历日完成
+; 	// 计算当年春年离当年元旦的天数,春节只会在公历1月或2月
+; 	if(temp1==0x1)
+			; SOURCE LINE # 302
+	MOV  	A,R3
+	XRL  	A,#01H
+	JNZ  	?C0044
+; 	{
+			; SOURCE LINE # 303
+; 		temp3=temp2-1;
+			; SOURCE LINE # 304
+	MOV  	A,R2
+	DEC  	A
+; 	}
+			; SOURCE LINE # 305
+	SJMP 	?C0115
+?C0044:
+; 	else
+; 	{
+			; SOURCE LINE # 307
+; 		temp3=temp2+0x1f-1;
+			; SOURCE LINE # 308
+	MOV  	A,R2
+	ADD  	A,#01EH
+?C0115:
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 309
+?C0045:
+; 	// 计算当年春年离当年元旦的天数完成
+; 	//计算公历日离当年元旦的天数,为了减少运算,用了两个表
+; 	//day_code1[9],day_code2[3]
+; 	//如果公历月在九月或前,天数会少于0xff,用表day_code1[9],
+; 	//在九月后,天数大于0xff,用表day_code2[3]
+; 	//如输入公历日为8月10日,则公历日离元旦天数为day_code1[8-1]+10-1
+; 	//如输入公历日为11月10日,则公历日离元旦天数为day_code2[11-10]+10-1
+; 	if (month<10)
+			; SOURCE LINE # 317
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#0AH
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0046
+; 	{
+			; SOURCE LINE # 318
+; 		temp4=day_code1[month-1]+day-1;
+			; SOURCE LINE # 319
+	MOV  	A,R7
+	MOV  	DPTR,#day_code1-01H
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R5,A
+	MOV  	A,R7
+	ADD  	A,R5
+	MOV  	R7,A
+	CLR  	A
+	RLC  	A
+; 	}
+			; SOURCE LINE # 320
+	SJMP 	?C0114
+?C0046:
+; 	else
+; 	{
+			; SOURCE LINE # 322
+; 		temp4=day_code2[month-10]+day-1;
+			; SOURCE LINE # 323
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	ADD  	A,ACC
+	ADD  	A,#LOW (day_code2+0FFECH)
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (day_code2+0FFECH)
+	MOV  	DPH,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	A,#01H
+	MOVC 	A,@A+DPTR
+	ADD  	A,R7
+	MOV  	R7,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	ADDC 	A,#00H
+?C0114:
+	XCH  	A,R7
+	ADD  	A,#0FFH
+	MOV  	R0,#LOW (temp4?151+01H)
+	MOVX 	@R0,A
+	MOV  	A,R7
+	ADDC 	A,#0FFH
+	DEC  	R0
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 324
+?C0047:
+; 	if ((month>0x2)&&(year%0x4==0))
+			; SOURCE LINE # 325
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	SETB 	C
+	SUBB 	A,#02H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JC   	?C0048
+	DEC  	R0
+	MOVX 	A,@R0
+	ANL  	A,#03H
+	JNZ  	?C0048
+; 	{ //如果公历月大于2月并且该年的2月为闰月,天数加1
+			; SOURCE LINE # 326
+; 		temp4+=1;
+			; SOURCE LINE # 327
+	MOV  	R0,#LOW (temp4?151+01H)
+	MOVX 	A,@R0
+	ADD  	A,#01H
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADDC 	A,#00H
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 328
+?C0048:
+; 	//计算公历日离当年元旦的天数完成
+; 	//判断公历日在春节前还是春节后
+; 	if (temp4>=temp3)
+			; SOURCE LINE # 331
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	A,@R0
+	LCALL	L?0135
+	JNC  	$ + 5H
+	LJMP 	?C0049
+; 	{ //公历日在春节后或就是春节当日使用下面代码进行运算
+			; SOURCE LINE # 332
+; 		temp4-=temp3;
+			; SOURCE LINE # 333
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (temp4?151+01H)
+	MOVX 	A,@R0
+	SUBB 	A,R7
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	MOVX 	@R0,A
+; 		month=0x1;
+			; SOURCE LINE # 334
+	MOV  	R0,#LOW (month?145)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+; 		month_p=0x1; //month_p为月份指向,公历日在春节前或就是春节当日month_p指向首月
+			; SOURCE LINE # 335
+	MOV  	R0,#LOW (month_p?150)
+	MOVX 	@R0,A
+; 		flag2=get_cale_moon_day(month_p,table_addr);
+			; SOURCE LINE # 336
+	LCALL	L?0129
+	MOV  	R7,#01H
+	LCALL	_get_cale_moon_day
+	MOV  	flag2?153,C
+; 		//检查该农历月为大小还是小月,大月返回1,小月返回0
+; 		flag_y=0;
+			; SOURCE LINE # 338
+	CLR  	flag_y?154
+; 		if(flag2==0)temp1=0x1d; //小月29天
+			; SOURCE LINE # 339
+	JB   	flag2?153,?C0050
+	MOV  	R3,#01DH
+	SJMP 	?C0051
+?C0050:
+; 		else temp1=0x1e; //大小30天
+			; SOURCE LINE # 340
+	MOV  	R3,#01EH
+?C0051:
+; 		temp2=year_code[table_addr]&0xf0;
+			; SOURCE LINE # 341
+	MOV  	R0,#LOW (table_addr?152)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,#LOW (year_code)
+	MOV  	DPL,A
+	MOV  	A,#HIGH (year_code)
+	ADDC 	A,R6
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	ANL  	A,#0F0H
+	MOV  	R2,A
+; 		temp2=_cror_(temp2,4); //从数据表中取该年的闰月月份,如为0则该年无闰月
+			; SOURCE LINE # 342
+	MOV  	R0,#04H
+	MOV  	R7,A
+	INC  	R0
+	SJMP 	?C0102
+?C0101:
+	RR   	A
+?C0102:
+	DJNZ 	R0,?C0101
+	MOV  	R2,A
+?C0052:
+; 		while(temp4>=temp1)
+			; SOURCE LINE # 343
+	MOV  	A,R3
+	LCALL	L?0135
+	JC   	?C0053
+; 		{
+			; SOURCE LINE # 344
+; 			temp4-=temp1;
+			; SOURCE LINE # 345
+	INC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,R7
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	MOVX 	@R0,A
+; 			month_p+=1;
+			; SOURCE LINE # 346
+	DEC  	R0
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+; 			if(month==temp2)
+			; SOURCE LINE # 347
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	CJNE 	A,AR2,?C0054
+; 			{
+			; SOURCE LINE # 348
+; 			flag_y=~flag_y;
+			; SOURCE LINE # 349
+	CPL  	flag_y?154
+; 			if(flag_y==0)//?
+			; SOURCE LINE # 350
+	JB   	flag_y?154,?C0056
+; 			month+=1;
+			; SOURCE LINE # 351
+; 			}
+			; SOURCE LINE # 352
+	SJMP 	?C0116
+?C0054:
+; 			else month+=1;
+			; SOURCE LINE # 353
+	MOV  	R0,#LOW (month?145)
+?C0116:
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+?C0056:
+; 			flag2=get_cale_moon_day(month_p,table_addr);
+			; SOURCE LINE # 354
+	LCALL	L?0128
+	LCALL	_get_cale_moon_day
+	MOV  	flag2?153,C
+; 			if(flag2==0)temp1=0x1d;
+			; SOURCE LINE # 355
+	JB   	flag2?153,?C0057
+	MOV  	R3,#01DH
+	SJMP 	?C0052
+?C0057:
+; 			else temp1=0x1e;
+			; SOURCE LINE # 356
+	MOV  	R3,#01EH
+; 		}
+			; SOURCE LINE # 357
+	SJMP 	?C0052
+?C0053:
+; 		day=temp4+1;
+			; SOURCE LINE # 358
+	MOV  	R0,#LOW (temp4?151)
+	INC  	R0
+	MOVX 	A,@R0
+	INC  	A
+	MOV  	R0,#LOW (day?146)
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 359
+	LJMP 	?C0059
+?C0049:
+; 	else
+; 	{ //公历日在春节前使用下面代码进行运算,从上一年计算
+			; SOURCE LINE # 361
+; 		temp3-=temp4;
+			; SOURCE LINE # 362
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (temp4?151)
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R6,A
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,R6
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	@R0,A
+; 		if (year==0x0)
+			; SOURCE LINE # 363
+	MOV  	R0,#LOW (year?144)
+	MOVX 	A,@R0
+	JNZ  	?C0060
+; 		{
+			; SOURCE LINE # 364
+; 			year=0x63;c=1;
+			; SOURCE LINE # 365
+	MOV  	A,#063H
+	MOVX 	@R0,A
+	SETB 	c?143
+; 		}
+			; SOURCE LINE # 366
+	SJMP 	?C0061
+?C0060:
+; 		else year-=1;
+			; SOURCE LINE # 367
+	MOV  	R0,#LOW (year?144)
+	MOVX 	A,@R0
+	DEC  	A
+	MOVX 	@R0,A
+?C0061:
+; 		table_addr-=0x3;
+			; SOURCE LINE # 368
+	MOV  	R0,#LOW (table_addr?152+01H)
+	MOVX 	A,@R0
+	ADD  	A,#0FDH
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADDC 	A,#0FFH
+	MOVX 	@R0,A
+; 		month=0xc;
+			; SOURCE LINE # 369
+	MOV  	R0,#LOW (month?145)
+	MOV  	A,#0CH
+	MOVX 	@R0,A
+; 		temp2=year_code[table_addr]&0xf0;
+			; SOURCE LINE # 370
+	LCALL	L?0129
+	ADD  	A,#LOW (year_code)
+	LCALL	L?0125
+	ANL  	A,#0F0H
+	MOV  	R2,A
+; 		temp2=_cror_(temp2,4);//闰月月份
+			; SOURCE LINE # 371
+	MOV  	R0,#04H
+	MOV  	R7,A
+	INC  	R0
+	SJMP 	?C0104
+?C0103:
+	RR   	A
+?C0104:
+	DJNZ 	R0,?C0103
+	MOV  	R2,A
+; 		if (temp2==0)
+			; SOURCE LINE # 372
+	MOV  	R0,#LOW (month_p?150)
+	JNZ  	?C0062
+; 		month_p=0xc;
+			; SOURCE LINE # 373
+	MOV  	A,#0CH
+	MOVX 	@R0,A
+	SJMP 	?C0063
+?C0062:
+; 		else
+; 		month_p=0xd; //
+			; SOURCE LINE # 375
+	MOV  	A,#0DH
+	MOVX 	@R0,A
+?C0063:
+; 		/*month_p为月份指向,如果当年有闰月,一年有十三个月,月指向13,无闰月指向12*/
+; 		flag_y=0;
+			; SOURCE LINE # 377
+	CLR  	flag_y?154
+; 		flag2=get_cale_moon_day(month_p,table_addr);
+			; SOURCE LINE # 378
+	MOV  	R0,#LOW (month_p?150)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	_get_cale_moon_day
+	MOV  	flag2?153,C
+; 		if(flag2==0)temp1=0x1d;
+			; SOURCE LINE # 379
+	JB   	flag2?153,?C0064
+	MOV  	R3,#01DH
+	SJMP 	?C0066
+?C0064:
+; 		else temp1=0x1e;
+			; SOURCE LINE # 380
+	MOV  	R3,#01EH
+?C0066:
+; 		while(temp3>temp1)
+			; SOURCE LINE # 381
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	SETB 	C
+	SUBB 	A,R3
+	JC   	?C0067
+; 		{
+			; SOURCE LINE # 382
+; 			temp3-=temp1;
+			; SOURCE LINE # 383
+	MOV  	A,R7
+	SUBB 	A,R3
+	MOVX 	@R0,A
+; 			month_p-=1;
+			; SOURCE LINE # 384
+	INC  	R0
+	MOVX 	A,@R0
+	DEC  	A
+	MOVX 	@R0,A
+; 			if(flag_y==0)month-=1;
+			; SOURCE LINE # 385
+	JB   	flag_y?154,?C0068
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	DEC  	A
+	MOVX 	@R0,A
+?C0068:
+; 			if(month==temp2)flag_y=~flag_y;
+			; SOURCE LINE # 386
+	MOV  	R0,#LOW (month?145)
+	MOVX 	A,@R0
+	CJNE 	A,AR2,?C0069
+	CPL  	flag_y?154
+?C0069:
+; 			flag2=get_cale_moon_day(month_p,table_addr);
+			; SOURCE LINE # 387
+	LCALL	L?0128
+	LCALL	_get_cale_moon_day
+	MOV  	flag2?153,C
+; 			if(flag2==0)temp1=0x1d;
+			; SOURCE LINE # 388
+	JB   	flag2?153,?C0070
+	MOV  	R3,#01DH
+	SJMP 	?C0066
+?C0070:
+; 			else temp1=0x1e;
+			; SOURCE LINE # 389
+	MOV  	R3,#01EH
+; 		}
+			; SOURCE LINE # 390
+	SJMP 	?C0066
+?C0067:
+; 		day=temp1-temp3+1;
+			; SOURCE LINE # 391
+	MOV  	R0,#LOW (temp3?149)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	MOV  	A,R3
+	SUBB 	A,R7
+	INC  	A
+	DEC  	R0
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 392
+?C0059:
+; 	moon_c=c; //HEX->BCD ,运算结束后,把数据转换为BCD数据
+			; SOURCE LINE # 393
+	MOV  	C,c?143
+	MOV  	moon_c,C
+; 	temp1=year/10;
+			; SOURCE LINE # 394
+	MOV  	R0,#LOW (year?144)
+; 	temp1=_crol_(temp1,4);
+			; SOURCE LINE # 395
+	LCALL	L?0130
+	SJMP 	?C0106
+?C0105:
+	RL   	A
+?C0106:
+	DJNZ 	R0,?C0105
+; 	temp2=year%10;
+			; SOURCE LINE # 396
+; 	cale_moon_year=temp1|temp2;
+			; SOURCE LINE # 397
+	LCALL	L?0132
+	MOV  	cale_moon_year,A
+; 	temp1=month/10;
+			; SOURCE LINE # 398
+	MOV  	R0,#LOW (month?145)
+; 	temp1=_crol_(temp1,4);
+			; SOURCE LINE # 399
+	LCALL	L?0130
+	SJMP 	?C0108
+?C0107:
+	RL   	A
+?C0108:
+	DJNZ 	R0,?C0107
+; 	temp2=month%10;
+			; SOURCE LINE # 400
+; 	cale_moon_month=temp1|temp2;
+			; SOURCE LINE # 401
+	LCALL	L?0132
+	MOV  	cale_moon_month,A
+; 	temp1=day/10;
+			; SOURCE LINE # 402
+	MOV  	R0,#LOW (day?146)
+; 	temp1=_crol_(temp1,4);
+			; SOURCE LINE # 403
+	LCALL	L?0131
+	SJMP 	?C0110
+?C0109:
+	RL   	A
+?C0110:
+	DJNZ 	R0,?C0109
+; 	temp2=day%10;
+			; SOURCE LINE # 404
+; 	cale_moon_day=temp1|temp2;
+			; SOURCE LINE # 405
+	LCALL	L?0133
+	MOV  	cale_moon_day,A
+; }
+			; SOURCE LINE # 406
+	RET  	
+; END OF Conversion
+
+; 
+; void cale_data_transfer()
+
+	RSEG  ?PR?cale_data_transfer?CALENDAR
+cale_data_transfer:
+	USING	0
+			; SOURCE LINE # 408
+; {
+			; SOURCE LINE # 409
+; 	//moon_year=cale_moon_year;
+; 	moon_month=cale_moon_month;
+			; SOURCE LINE # 411
+	MOV  	moon_month,cale_moon_month
+; 	moon_day=cale_moon_day;
+			; SOURCE LINE # 412
+	MOV  	moon_day,cale_moon_day
+; 	moon_year=(cale_moon_year>>4)*10+(cale_moon_year&0x0f);//moon年为16进制数
+			; SOURCE LINE # 413
+	MOV  	A,cale_moon_year
+	LCALL	L?0122
+	MOV  	R7,A
+	MOV  	A,cale_moon_year
+	ANL  	A,#0FH
+	ADD  	A,R7
+	MOV  	moon_year,A
+; }
+			; SOURCE LINE # 414
+	RET  	
+; END OF cale_data_transfer
+
+; /*函数功能:输入BCD阳历数据,输出BCD星期数据(只允许1901-2099年)
+; 调用函数示例:Conver_week(c_sun,year_sun,month_sun,day_sun)
+; 如:计算2004年10月16日Conversion(0,0x4,0x10,0x16);
+; c_sun,year_sun,month_sun,day_sun均为BCD数据,c_sun为世纪标志位,c_sun=0为21世
+; 纪,c_sun=1为19世纪
+; 调用函数后,原有数据不变,读week得出阴历BCD数据
+; */
+; code uchar table_week[12]={0,3,3,6,1,4,6,2,5,0,3,5}; //月修正数据表
+; /*
+; 算法:日期+年份+所过闰年数+月较正数之和除7 的余数就是星期但如果是在
+; 闰年又不到3 月份上述之和要减一天再除7
+; 星期数为0
+; */
+; void Conver_week(bit c,uchar year,uchar month,uchar day)
+
+	RSEG  ?PR?Conver_week?CALENDAR
+Conver_week:
+	USING	0
+			; SOURCE LINE # 428
+; {//c=0 为21世纪,c=1 为19世纪 输入输出数据均为BCD数据
+			; SOURCE LINE # 429
+; 	uchar temp1,temp2;
+; 	temp1=year/16; //BCD->hex 先把数据转换为十六进制
+			; SOURCE LINE # 431
+	MOV  	R0,#LOW (year?356)
+;---- Variable 'temp1?359' assigned to Register 'R6' ----
+; 	temp2=year%16;
+			; SOURCE LINE # 432
+;---- Variable 'temp2?360' assigned to Register 'R7' ----
+; 	year=temp1*10+temp2;
+			; SOURCE LINE # 433
+	LCALL	L?0127
+; 	temp1=month/16;
+			; SOURCE LINE # 434
+; 	temp2=month%16;
+			; SOURCE LINE # 435
+; 	month=temp1*10+temp2;
+			; SOURCE LINE # 436
+	LCALL	L?0126
+; 	temp1=day/16;
+			; SOURCE LINE # 437
+; 	temp2=day%16;
+			; SOURCE LINE # 438
+; 	day=temp1*10+temp2;
+			; SOURCE LINE # 439
+	LCALL	L?0126
+; 	if (c==0){year+=0x64;} //如果为21世纪,年份数加100
+			; SOURCE LINE # 440
+	JB   	c?355,?C0074
+	MOV  	R0,#LOW (year?356)
+	MOVX 	A,@R0
+	ADD  	A,#064H
+	MOVX 	@R0,A
+?C0074:
+; 	temp1=year/0x4; //所过闰年数只算1900年之后的
+			; SOURCE LINE # 441
+	MOV  	R0,#LOW (year?356)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	RRC  	A
+	RRC  	A
+	ANL  	A,#03FH
+	MOV  	R6,A
+; 	temp2=year+temp1;
+			; SOURCE LINE # 442
+	MOV  	A,R7
+	ADD  	A,R6
+; 	temp2=temp2%0x7; //为节省资源,先进行一次取余,避免数大于0xff,避免使用整型数据
+			; SOURCE LINE # 443
+	MOV  	B,#07H
+	DIV  	AB
+	MOV  	R7,B
+; 	temp2=temp2+day+table_week[month-1];
+			; SOURCE LINE # 444
+	MOV  	R0,#LOW (day?358)
+	MOVX 	A,@R0
+	ADD  	A,R7
+	MOV  	R7,A
+	DEC  	R0
+	MOVX 	A,@R0
+	MOV  	R6,A
+	MOV  	DPTR,#table_week-01H
+	MOVC 	A,@A+DPTR
+	ADD  	A,R7
+	MOV  	R7,A
+; 	if (year%0x4==0&&month<3)temp2-=1;
+			; SOURCE LINE # 445
+	DEC  	R0
+	MOVX 	A,@R0
+	ANL  	A,#03H
+	JNZ  	?C0075
+	MOV  	A,R6
+	CLR  	C
+	SUBB 	A,#03H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0075
+	DEC  	R7
+?C0075:
+; 	week=temp2%0x7;
+			; SOURCE LINE # 446
+	MOV  	A,R7
+	MOV  	B,#07H
+	DIV  	AB
+	MOV  	week,B
+; }
+			; SOURCE LINE # 447
+	RET  	
+; END OF Conver_week
+
+; /**另一种方法**/
+; uchar CalculateWeek(u8 century,u8 year, u8 month, u8 day)//通过年月日计算周
+
+	RSEG  ?PR?_CalculateWeek?CALENDAR
+_CalculateWeek:
+	USING	0
+			; SOURCE LINE # 449
+	MOV  	R0,#LOW (century?461)
+	MOV  	A,R7
+	MOVX 	@R0,A
+;---- Variable 'month?463' assigned to Register 'R3' ----
+;---- Variable 'year?462' assigned to Register 'R2' ----
+	MOV  	R2,AR5
+; {
+			; SOURCE LINE # 450
+; 	uchar week;
+; 	year=(year>>4)*10+(year&0x0f);//BCD->hex 先把数据转换为十六进制
+			; SOURCE LINE # 452
+	MOV  	A,R2
+	LCALL	L?0122
+	MOV  	R7,A
+	MOV  	A,R2
+	ANL  	A,#0FH
+	ADD  	A,R7
+	MOV  	R2,A
+; 	month=(month>>4)*10+(month&0x0f);
+			; SOURCE LINE # 453
+	MOV  	A,R3
+	LCALL	L?0122
+	MOV  	R7,A
+	MOV  	A,R3
+	ANL  	A,#0FH
+	ADD  	A,R7
+	MOV  	R3,A
+; 	day=(day>>4)*10+(day&0x0f);
+			; SOURCE LINE # 454
+	MOV  	R0,#LOW (day?464)
+	LCALL	L?0121
+	MOV  	R6,A
+	MOV  	A,R7
+	ANL  	A,#0FH
+	ADD  	A,R6
+	MOVX 	@R0,A
+; 	
+; 		if (month == 1 || month == 2)//判断month是否为1或2　
+			; SOURCE LINE # 456
+	MOV  	A,R3
+	MOV  	R7,A
+	XRL  	A,#01H
+	JZ   	?C0078
+	MOV  	A,R7
+	XRL  	A,#02H
+	JNZ  	?C0077
+?C0078:
+; 			year--, month += 12;
+			; SOURCE LINE # 457
+	DEC  	R2
+	MOV  	A,#0CH
+	ADD  	A,R3
+	MOV  	R3,A
+?C0077:
+; 		week = year + year / 4 + century / 4 - 2 * century + 13 * (month + 1) / 5 + day - 1;
+			; SOURCE LINE # 458
+	MOV  	A,R3
+	ADD  	A,#01H
+	MOV  	R7,A
+	CLR  	A
+	RLC  	A
+	MOV  	R6,A
+	MOV  	R4,#00H
+	MOV  	R5,#0DH
+	LCALL	?C?IMUL
+	MOV  	R5,#05H
+	LCALL	?C?UIDIV
+	MOV  	A,R2
+	RRC  	A
+	RRC  	A
+	ANL  	A,#03FH
+	ADD  	A,R2
+	MOV  	R6,A
+	MOV  	R0,#LOW (century?461)
+	MOVX 	A,@R0
+	MOV  	R5,A
+	RRC  	A
+	RRC  	A
+	ANL  	A,#03FH
+	ADD  	A,R6
+	MOV  	R6,A
+	MOV  	A,R5
+	ADD  	A,ACC
+	MOV  	R5,A
+	CLR  	C
+	MOV  	A,R6
+	SUBB 	A,R5
+	ADD  	A,R7
+	MOV  	R7,A
+	MOV  	R0,#LOW (day?464)
+	MOVX 	A,@R0
+	ADD  	A,R7
+	DEC  	A
+;---- Variable 'week?465' assigned to Register 'R6' ----
+; 		sun_week=week%7;
+			; SOURCE LINE # 459
+	MOV  	B,#07H
+	DIV  	AB
+	MOV  	R7,B
+	MOV  	R0,#LOW (sun_week)
+	MOV  	A,R7
+	MOVX 	@R0,A
+; 		return week%7;
+			; SOURCE LINE # 460
+; }
+			; SOURCE LINE # 461
+	RET  	
+; END OF _CalculateWeek
+
+; 
+; //算出给定月份的天数
+; uchar Calculate_Totaldays_Ofmonth(uchar year,uchar month)
+
+	RSEG  ?PR?_Calculate_Totaldays_Ofmonth?CALENDAR
+_Calculate_Totaldays_Ofmonth:
+	USING	0
+			; SOURCE LINE # 464
+;---- Variable 'month?567' assigned to Register 'R5' ----
+;---- Variable 'year?566' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 465
+; 	switch(month)
+			; SOURCE LINE # 466
+	MOV  	A,R5
+	DEC  	A
+	CJNE 	A,#0CH,?C0111
+?C0111:
+	JNC  	?C0096
+	MOV  	DPTR,#?C0112
+	LCALL	L?0134
+	JMP  	@A+DPTR
+?C0112:
+	LJMP 	?C0093
+	LJMP 	?C0083
+	LJMP 	?C0093
+	LJMP 	?C0087
+	LJMP 	?C0093
+	LJMP 	?C0089
+	LJMP 	?C0093
+	LJMP 	?C0093
+	LJMP 	?C0092
+	LJMP 	?C0093
+	LJMP 	?C0094
+	LJMP 	?C0093
+; 	{
+			; SOURCE LINE # 467
+; 		case 1:return 31;
+			; SOURCE LINE # 468
+?C0081:
+	MOV  	R7,#01FH
+	RET  	
+; 		case 2:if(year%4)return 28;else return 29;
+			; SOURCE LINE # 469
+?C0083:
+	MOV  	A,R7
+	ANL  	A,#03H
+	JZ   	?C0084
+	MOV  	R7,#01CH
+	RET  	
+?C0084:
+	MOV  	R7,#01DH
+	RET  	
+; 		case 3:return 31;
+			; SOURCE LINE # 470
+; 		case 4:return 30;
+			; SOURCE LINE # 471
+?C0087:
+	MOV  	R7,#01EH
+	RET  	
+; 		case 5:return 31;
+			; SOURCE LINE # 472
+; 		case 6:return 30;
+			; SOURCE LINE # 473
+?C0089:
+	MOV  	R7,#01EH
+	RET  	
+; 		case 7:return 31;
+			; SOURCE LINE # 474
+; 		case 8:return 31;
+			; SOURCE LINE # 475
+; 		case 9:return 30;
+			; SOURCE LINE # 476
+?C0092:
+	MOV  	R7,#01EH
+	RET  	
+; 		case 10:return 31;
+			; SOURCE LINE # 477
+?C0093:
+	MOV  	R7,#01FH
+	RET  	
+; 		case 11:return 30;
+			; SOURCE LINE # 478
+?C0094:
+	MOV  	R7,#01EH
+	RET  	
+; 		case 12:return 31;
+			; SOURCE LINE # 479
+; 		default:return 0;
+			; SOURCE LINE # 480
+?C0096:
+	MOV  	R7,#00H
+; 	}
+			; SOURCE LINE # 481
+; 	
+; }
+			; SOURCE LINE # 483
+?C0082:
+	RET  	
+; END OF _Calculate_Totaldays_Ofmonth
+
+	END

@@ -1,0 +1,436 @@
+; .\Objects\dht11.SRC generated from: dht11.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE dht11.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\dht11.lst) TABS(2) SRC(.\Objects\dht11.SRC)
+
+$NOMOD51
+
+NAME	DHT11
+
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+DHT_IO	BIT	0A0H.3
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?_dht_byte?DHT11  SEGMENT CODE 
+?PR?dht_rdat?DHT11   SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?DT?DHT11            SEGMENT DATA 
+?PD?DHT11            SEGMENT XDATA INPAGE 
+?DT?_dht_byte?DHT11  SEGMENT DATA OVERLAYABLE 
+?DT?dht_rdat?DHT11   SEGMENT DATA OVERLAYABLE 
+	EXTRN	CODE (_d_n_ms)
+	PUBLIC	Dht_RhData
+	PUBLIC	Dht_error
+	PUBLIC	Dht_count
+	PUBLIC	Dht_FLAG
+	PUBLIC	dht_rdat
+	PUBLIC	_dht_byte
+
+	RSEG  ?DT?DHT11
+       Dht_FLAG:   DS   1
+      Dht_count:   DS   1
+
+	RSEG  ?PD?DHT11
+      Dht_error:   DS   1
+     Dht_RhData:   DS   5
+
+	RSEG  ?DT?_dht_byte?DHT11
+          i?041:   DS   1
+
+	RSEG  ?DT?dht_rdat?DHT11
+          i?142:   DS   1
+
+	RSEG  ?C_INITSEG
+	DB	081H
+	DB	LOW (Dht_error)
+	DB	000H
+
+; #include "dht11.h"
+; #include "delay.h"
+; 
+; 
+; uchar Dht_RhData[5];//0~4分别分湿度、湿度小数、温度、温度小数、校验和
+; 
+; u8 data Dht_FLAG;
+; u8 Dht_error=0;
+; u8 data Dht_count;
+; 
+; 
+; 
+; 
+; void dht_byte(uchar n)
+
+	RSEG  ?PR?_dht_byte?DHT11
+_dht_byte:
+	USING	0
+			; SOURCE LINE # 14
+;---- Variable 'n?040' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 15
+; 	//uchar error;
+; 	uchar data i;
+; 	for(i=0;i<8;i++)
+			; SOURCE LINE # 18
+	CLR  	A
+	MOV  	i?041,A
+?C0001:
+	MOV  	A,i?041
+	CLR  	C
+	SUBB 	A,#08H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0007
+; 		{
+			; SOURCE LINE # 19
+; 			Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//等待拉高,低等待
+			; SOURCE LINE # 20
+	MOV  	Dht_FLAG,#02H
+?C0004:
+	JB   	DHT_IO,?C0005
+	MOV  	R6,Dht_FLAG
+	INC  	Dht_FLAG
+	MOV  	A,R6
+	JNZ  	?C0004
+?C0005:
+; 			if(Dht_FLAG==1){Dht_error=4+n;return;}//错误跳出，并报错
+			; SOURCE LINE # 21
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0006
+	MOV  	A,R7
+	ADD  	A,#04H
+	SJMP 	?C0027
+?C0006:
+; 			
+; 			Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//Dht_count++;对拉高时间进行计时
+			; SOURCE LINE # 23
+	MOV  	Dht_FLAG,#02H
+?C0008:
+	JNB  	DHT_IO,?C0009
+	MOV  	R6,Dht_FLAG
+	INC  	Dht_FLAG
+	MOV  	A,R6
+	JNZ  	?C0008
+?C0009:
+; 			
+; 			if(Dht_FLAG>5)Dht_RhData[n]=(Dht_RhData[n]<<1)|0x01;
+			; SOURCE LINE # 25
+	MOV  	A,Dht_FLAG
+	SETB 	C
+	SUBB 	A,#05H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	MOV  	A,#LOW (Dht_RhData)
+	JC   	?C0010
+	ADD  	A,R7
+	MOV  	R0,A
+	MOVX 	A,@R0
+	ADD  	A,ACC
+	ORL  	A,#01H
+	MOV  	R6,A
+	MOV  	A,#LOW (Dht_RhData)
+	ADD  	A,R7
+	MOV  	R0,A
+	MOV  	A,R6
+	MOVX 	@R0,A
+	SJMP 	?C0011
+?C0010:
+; 			else Dht_RhData[n]<<=1;
+			; SOURCE LINE # 26
+	ADD  	A,R7
+	MOV  	R0,A
+	PUSH 	AR0
+	MOVX 	A,@R0
+	ADD  	A,ACC
+	POP  	AR0
+	MOVX 	@R0,A
+?C0011:
+; 			if(Dht_FLAG==1){Dht_error=(5+n)+10*i;return;}//错误跳出，并报错
+			; SOURCE LINE # 27
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0003
+	MOV  	A,R7
+	ADD  	A,#05H
+	MOV  	R7,A
+	MOV  	A,i?041
+	MOV  	B,#0AH
+	MUL  	AB
+	ADD  	A,R7
+?C0027:
+	MOV  	R0,#LOW (Dht_error)
+	MOVX 	@R0,A
+	RET  	
+; 		}
+			; SOURCE LINE # 28
+?C0003:
+	INC  	i?041
+	SJMP 	?C0001
+; 		}
+			; SOURCE LINE # 29
+?C0007:
+	RET  	
+; END OF _dht_byte
+
+; void dht_rdat()
+
+	RSEG  ?PR?dht_rdat?DHT11
+dht_rdat:
+	USING	0
+			; SOURCE LINE # 30
+; {
+			; SOURCE LINE # 31
+; 	uchar data i;
+; 	DHT_IO=0;
+			; SOURCE LINE # 33
+	CLR  	DHT_IO
+; 	d_n_ms(25);
+			; SOURCE LINE # 34
+	MOV  	R7,#019H
+	MOV  	R6,#00H
+	LCALL	_d_n_ms
+; 	DHT_IO=1;
+			; SOURCE LINE # 35
+	SETB 	DHT_IO
+; 	
+; 	Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//等待DHT拉低,超时跳出
+			; SOURCE LINE # 37
+	MOV  	Dht_FLAG,#02H
+?C0013:
+	JNB  	DHT_IO,?C0014
+	MOV  	R7,Dht_FLAG
+	INC  	Dht_FLAG
+	MOV  	A,R7
+	JNZ  	?C0013
+?C0014:
+; 	if(Dht_FLAG==1){Dht_error=1;return;}//错误跳出，并报错
+			; SOURCE LINE # 38
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0015
+	MOV  	R0,#LOW (Dht_error)
+	INC  	A
+	MOVX 	@R0,A
+	RET  	
+?C0015:
+; 	
+; 	Dht_FLAG=2;while((!DHT_IO)&&Dht_FLAG++);//等待DHT拉高,超时跳出
+			; SOURCE LINE # 40
+	MOV  	Dht_FLAG,#02H
+?C0017:
+	JB   	DHT_IO,?C0018
+	MOV  	R7,Dht_FLAG
+	INC  	Dht_FLAG
+	MOV  	A,R7
+	JNZ  	?C0017
+?C0018:
+; 	if(Dht_FLAG==1){Dht_error=2;return;}//错误跳出，并报错
+			; SOURCE LINE # 41
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0019
+	MOV  	R0,#LOW (Dht_error)
+	MOV  	A,#02H
+	MOVX 	@R0,A
+	RET  	
+?C0019:
+; 	
+; 	Dht_FLAG=2;while(DHT_IO&&Dht_FLAG++);//等待DHT拉低,超时跳出
+			; SOURCE LINE # 43
+	MOV  	Dht_FLAG,#02H
+?C0020:
+	JNB  	DHT_IO,?C0021
+	MOV  	R7,Dht_FLAG
+	INC  	Dht_FLAG
+	MOV  	A,R7
+	JNZ  	?C0020
+?C0021:
+; 	if(Dht_FLAG==1){Dht_error=3;return;}//错误跳出，并报错
+			; SOURCE LINE # 44
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0022
+	MOV  	R0,#LOW (Dht_error)
+	MOV  	A,#03H
+	MOVX 	@R0,A
+	RET  	
+?C0022:
+; 	for(i=0;i<5;i++)
+			; SOURCE LINE # 45
+	CLR  	A
+	MOV  	i?142,A
+?C0023:
+	CLR  	C
+	MOV  	A,i?142
+	SUBB 	A,#05H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0024
+; 	{
+			; SOURCE LINE # 46
+; 	
+; 		dht_byte(i);
+			; SOURCE LINE # 48
+	MOV  	R7,i?142
+	LCALL	_dht_byte
+; 		if(Dht_FLAG==1){Dht_error+=10;return;}//错误跳出，并报错	
+			; SOURCE LINE # 49
+	MOV  	A,Dht_FLAG
+	XRL  	A,#01H
+	JNZ  	?C0025
+	MOV  	R0,#LOW (Dht_error)
+	MOVX 	A,@R0
+	ADD  	A,#0AH
+	MOVX 	@R0,A
+	RET  	
+; 	}
+			; SOURCE LINE # 50
+?C0025:
+	INC  	i?142
+	SJMP 	?C0023
+?C0024:
+; 	Dht_error=0;
+			; SOURCE LINE # 51
+	CLR  	A
+	MOV  	R0,#LOW (Dht_error)
+	MOVX 	@R0,A
+; 
+; }
+			; SOURCE LINE # 53
+?C0016:
+	RET  	
+; END OF dht_rdat
+
+	END

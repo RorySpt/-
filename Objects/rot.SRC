@@ -1,0 +1,5683 @@
+; .\Objects\rot.SRC generated from: rot.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE rot.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\rot.lst) TABS(2) SRC(.\Objects\rot.SRC)
+
+$NOMOD51
+
+NAME	ROT
+
+DS_CE	BIT	0A0H.0
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+DS_IO	BIT	0A0H.1
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+KEY0	BIT	0B0H.1
+KEY1	BIT	0B0H.0
+RI	BIT	098H.0
+KEY2	BIT	0B0H.2
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+KEY3	BIT	0B0H.3
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+DS_SCLK	BIT	0A0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+TEMP_IO	BIT	0B0H.7
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+DHT_IO	BIT	0A0H.3
+LCD_RS	BIT	0A0H.7
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+LCD_RW	BIT	0A0H.6
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+LCD_E	BIT	0A0H.5
+PSW	DATA	0D0H
+?PR?Time0_init?ROT   SEGMENT CODE 
+?PR?rot_init?ROT     SEGMENT CODE 
+?PR?Calculation?ROT  SEGMENT CODE 
+?PR?screenOutput?ROT SEGMENT CODE 
+?PR?rot_task0?ROT    SEGMENT CODE 
+?PR?rot_task1?ROT    SEGMENT CODE 
+?PR?rot_task2?ROT    SEGMENT CODE 
+?PR?rot_task3?ROT    SEGMENT CODE 
+?PR?rot_task4?ROT    SEGMENT CODE 
+?PR?rot_taskSchedule?ROT                 SEGMENT CODE 
+?PR?rot_T0_time?ROT  SEGMENT CODE 
+?PR?rot_os?ROT       SEGMENT CODE 
+?CO?ROT              SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?PD?ROT              SEGMENT XDATA INPAGE 
+?DT?ROT              SEGMENT DATA 
+?DT?rot_T0_time?ROT  SEGMENT DATA OVERLAYABLE 
+?PR?ROT              SEGMENT CODE 
+	EXTRN	XDATA (OptionCode_Max)
+	EXTRN	CODE (lcd_clr_DDram)
+	EXTRN	XDATA (ds_dat_time)
+	EXTRN	CODE (_Ds1302_time_Copy)
+	EXTRN	CODE (Ds1302_init)
+	EXTRN	XDATA (temp_data_Decimal_r)
+	EXTRN	CODE (_CalculateWeek)
+	EXTRN	XDATA (?_CalculateWeek?BYTE)
+	EXTRN	CODE (_lcd_Draw_PM)
+	EXTRN	XDATA (?_lcd_Draw_PM?BYTE)
+	EXTRN	CODE (bfb)
+	EXTRN	CODE (Conversion)
+	EXTRN	XDATA (?Conversion?BYTE)
+	EXTRN	BIT (?Conversion?BIT)
+	EXTRN	XDATA (ds_dat_time_set)
+	EXTRN	XDATA (Dht_RhData)
+	EXTRN	CODE (_lcd_ch_display)
+	EXTRN	DATA (cale_moon_month)
+	EXTRN	CODE (_lcd_Draw_PM_dat)
+	EXTRN	XDATA (?_lcd_Draw_PM_dat?BYTE)
+	EXTRN	CODE (_lcd_scrollBar)
+	EXTRN	XDATA (?_lcd_scrollBar?BYTE)
+	EXTRN	CODE (shd)
+	EXTRN	CODE (_lcd_wcmd)
+	EXTRN	CODE (lcd_clr_GD)
+	EXTRN	CODE (Ds18b20_ChangTemp)
+	EXTRN	DATA (moon_month)
+	EXTRN	CODE (wdj)
+	EXTRN	DATA (cale_moon_year)
+	EXTRN	CODE (_lcd_wdat)
+	EXTRN	CODE (lcd_init)
+	EXTRN	DATA (moon_year)
+	EXTRN	CODE (dht_rdat)
+	EXTRN	CODE (num16321)
+	EXTRN	CODE (num16322)
+	EXTRN	CODE (num16323)
+	EXTRN	CODE (Ds18b20_rTemp)
+	EXTRN	CODE (num16324)
+	EXTRN	DATA (cale_moon_day)
+	EXTRN	CODE (recognition_key)
+	EXTRN	DATA (moon_day)
+	EXTRN	CODE (cale_data_transfer)
+	EXTRN	CODE (temp_data_collation)
+	EXTRN	XDATA (sun_week)
+	EXTRN	XDATA (temp_data_Integer)
+	EXTRN	CODE (Ds1302_Read_time)
+	EXTRN	CODE (_lcd_Draw_PM_dat2)
+	EXTRN	XDATA (?_lcd_Draw_PM_dat2?BYTE)
+	EXTRN	XDATA (OptionCode)
+	EXTRN	CODE (?C?UIDIV)
+	PUBLIC	Sensor_switch
+	PUBLIC	SwitchFlag
+	PUBLIC	rot_character
+	PUBLIC	rot_timeBase
+	PUBLIC	rot_taskCounter
+	PUBLIC	rot_taskTrigger
+	PUBLIC	DisplayOffset
+	PUBLIC	OptionSite_old_Direction
+	PUBLIC	OptionSite_old
+	PUBLIC	menuCode
+	PUBLIC	backDrop
+	PUBLIC	rot_taskFrequency
+	PUBLIC	menuRefreshSign
+	PUBLIC	task0_operating_status
+	PUBLIC	OptionCode_old
+	PUBLIC	OptionSite
+	PUBLIC	task0_operating_status_timing
+	PUBLIC	Option_count
+	PUBLIC	SwitchFlag_sign
+	PUBLIC	Sensor_display_switchingSpeed
+	PUBLIC	c_day
+	PUBLIC	rot_os
+	PUBLIC	rot_T0_time
+	PUBLIC	rot_taskSchedule
+	PUBLIC	rot_task4
+	PUBLIC	rot_task3
+	PUBLIC	rot_task2
+	PUBLIC	rot_task1
+	PUBLIC	rot_task0
+	PUBLIC	screenOutput
+	PUBLIC	Calculation
+	PUBLIC	rot_init
+	PUBLIC	Time0_init
+
+	RSEG  ?PD?ROT
+          c_day:   DS   1
+Sensor_display_switchingSpeed:   DS   2
+SwitchFlag_sign:   DS   2
+   Option_count:   DS   1
+task0_operating_status_timing:   DS   1
+     OptionSite:   DS   1
+ OptionCode_old:   DS   3
+task0_operating_status:   DS   1
+menuRefreshSign:   DS   1
+rot_taskFrequency:   DS   10
+       backDrop:   DS   16
+ OptionSite_old:   DS   1
+OptionSite_old_Direction:   DS   1
+  DisplayOffset:   DS   1
+rot_taskTrigger:   DS   5
+rot_taskCounter:   DS   10
+   rot_timeBase:   DS   2
+  rot_character:   DS   31
+     SwitchFlag:   DS   2
+  Sensor_switch:   DS   2
+
+	RSEG  ?DT?ROT
+       menuCode:   DS   1
+
+	RSEG  ?DT?rot_T0_time?ROT
+         i?1040:   DS   1
+
+	RSEG  ?CO?ROT
+?SC_0:
+	DB  0D6H,0DCH,0D2H,0BBH,000H
+
+?SC_5:
+	DB  0D6H,0DCH,0B6H,0FEH,000H
+
+?SC_10:
+	DB  0D6H,0DCH,0C8H,0FDH,000H
+
+?SC_15:
+	DB  0D6H,0DCH,0CBH,0C4H,000H
+
+?SC_20:
+	DB  0D6H,0DCH,0CEH,0E5H,000H
+
+?SC_25:
+	DB  0D6H,0DCH,0C1H,0F9H,000H
+
+?SC_30:
+	DB  0D6H,0DCH,0C8H,0D5H,000H
+
+?SC_35:
+	DB  0D5H,0FDH,000H
+
+?SC_38:
+	DB  0B6H,0FEH,000H
+
+?SC_41:
+	DB  0C8H,0FDH,000H
+
+?SC_44:
+	DB  0CBH,0C4H,000H
+
+?SC_47:
+	DB  0CEH,0E5H,000H
+
+?SC_50:
+	DB  0C1H,0F9H,000H
+
+?SC_53:
+	DB  0C6H,0DFH,000H
+
+?SC_56:
+	DB  0B0H,0CBH,000H
+
+?SC_59:
+	DB  0BEH,0C5H,000H
+
+?SC_62:
+	DB  0CAH,0AEH,000H
+
+?SC_65:
+	DB  0B6H,0ACH,000H
+
+?SC_68:
+	DB  0C0H,0B0H,000H
+
+?SC_71:
+	DB  0D4H,0C2H,000H
+
+?SC_74:
+	DB  0B3H,0F5H,0D2H,0BBH,000H
+
+?SC_79:
+	DB  0B3H,0F5H,0B6H,0FEH,000H
+
+?SC_84:
+	DB  0B3H,0F5H,0C8H,0FDH,000H
+
+?SC_89:
+	DB  0B3H,0F5H,0CBH,0C4H,000H
+
+?SC_94:
+	DB  0B3H,0F5H,0CEH,0E5H,000H
+
+?SC_99:
+	DB  0B3H,0F5H,0C1H,0F9H,000H
+
+?SC_104:
+	DB  0B3H,0F5H,0C6H,0DFH,000H
+
+?SC_109:
+	DB  0B3H,0F5H,0B0H,0CBH,000H
+
+?SC_114:
+	DB  0B3H,0F5H,0BEH,0C5H,000H
+
+?SC_119:
+	DB  0B3H,0F5H,0CAH,0AEH,000H
+
+?SC_124:
+	DB  0CAH,0AEH,0D2H,0BBH,000H
+
+?SC_129:
+	DB  0CAH,0AEH,0B6H,0FEH,000H
+
+?SC_134:
+	DB  0CAH,0AEH,0C8H,0FDH,000H
+
+?SC_139:
+	DB  0CAH,0AEH,0CBH,0C4H,000H
+
+?SC_144:
+	DB  0CAH,0AEH,0CEH,0E5H,000H
+
+?SC_149:
+	DB  0CAH,0AEH,0C1H,0F9H,000H
+
+?SC_154:
+	DB  0CAH,0AEH,0C6H,0DFH,000H
+
+?SC_159:
+	DB  0CAH,0AEH,0B0H,0CBH,000H
+
+?SC_164:
+	DB  0CAH,0AEH,0BEH,0C5H,000H
+
+?SC_169:
+	DB  0B6H,0FEH,0CAH,0AEH,000H
+
+?SC_174:
+	DB  0D8H,0A5H,0D2H,0BBH,000H
+
+?SC_179:
+	DB  0D8H,0A5H,0B6H,0FEH,000H
+
+?SC_184:
+	DB  0D8H,0A5H,0C8H,0FDH,000H
+
+?SC_189:
+	DB  0D8H,0A5H,0CBH,0C4H,000H
+
+?SC_194:
+	DB  0D8H,0A5H,0CEH,0E5H,000H
+
+?SC_199:
+	DB  0D8H,0A5H,0C1H,0F9H,000H
+
+?SC_204:
+	DB  0D8H,0A5H,0C6H,0DFH,000H
+
+?SC_209:
+	DB  0D8H,0A5H,0B0H,0CBH,000H
+
+?SC_214:
+	DB  0D8H,0A5H,0BEH,0C5H,000H
+
+?SC_219:
+	DB  0C8H,0FDH,0CAH,0AEH,000H
+
+?SC_224:
+	DB  ' ' ,' ' ,' ' ,' ' ,' ' ,' ' ,' ' ,' ' ,000H
+
+?SC_233:
+	DB  0B8H,0FDH,000H
+
+?SC_236:
+	DB  0D0H,0C1H,000H
+
+?SC_239:
+	DB  0C8H,0C9H,000H
+
+?SC_242:
+	DB  0B9H,0EFH,000H
+
+?SC_245:
+	DB  0BCH,0D7H,000H
+
+?SC_248:
+	DB  0D2H,0D2H,000H
+
+?SC_251:
+	DB  0B1H,0FBH,000H
+
+?SC_254:
+	DB  0B6H,0A1H,000H
+
+?SC_257:
+	DB  0CEH,0ECH,000H
+
+?SC_260:
+	DB  0BCH,0BAH,000H
+
+?SC_263:
+	DB  0B3H,0BDH,000H
+
+?SC_266:
+	DB  0CBH,0C8H,000H
+
+?SC_269:
+	DB  0CEH,0E7H,000H
+
+?SC_272:
+	DB  0CEH,0B4H,000H
+
+?SC_275:
+	DB  0C9H,0EAH,000H
+
+?SC_278:
+	DB  0D3H,0CFH,000H
+
+?SC_281:
+	DB  0D0H,0E7H,000H
+
+?SC_284:
+	DB  0BAH,0A5H,000H
+
+?SC_287:
+	DB  0D7H,0D3H,000H
+
+?SC_290:
+	DB  0B3H,0F3H,000H
+
+?SC_293:
+	DB  0D2H,0FAH,000H
+
+?SC_296:
+	DB  0C3H,0AEH,000H
+
+?SC_299:
+	DB  0C1H,0FAH,000H
+
+?SC_302:
+	DB  0C9H,0DFH,000H
+
+?SC_305:
+	DB  0C2H,0EDH,000H
+
+?SC_308:
+	DB  0D1H,0F2H,000H
+
+?SC_311:
+	DB  0BAH,0EFH,000H
+
+?SC_314:
+	DB  0BCH,0A6H,000H
+
+?SC_317:
+	DB  0B9H,0B7H,000H
+
+?SC_320:
+	DB  0D6H,0EDH,000H
+
+?SC_323:
+	DB  0CAH,0F3H,000H
+
+?SC_326:
+	DB  0C5H,0A3H,000H
+
+?SC_329:
+	DB  0BBH,0A2H,000H
+
+?SC_332:
+	DB  0CDH,0C3H,000H
+
+?SC_335:
+	DB  0C4H,0EAH,000H
+
+?SC_338:
+	DB  0A1H,0E6H,000H
+
+?SC_341:
+	DB  0A1H,0EFH,000H
+
+?SC_344:
+	DB  0B9H,0A6H,000H
+
+?SC_347:
+	DB  0C4H,0DCH,000H
+
+?SC_350:
+	DB  0B2H,0CBH,000H
+
+?SC_353:
+	DB  0B5H,0A5H,000H
+
+?SC_356:
+	DB  ' ' ,' ' ,000H
+
+?SC_359:
+	DB  0C9H,0E8H,0D6H,0C3H,0CAH,0B1H,0BCH,0E4H,000H
+
+?SC_368:
+	DB  0B4H,0ABH,0B8H,0D0H,0C6H,0F7H,0C9H,0E8H,0D6H,0C3H
+	DB  000H
+
+?SC_379:
+	DB  0B9H,0A6H,0C4H,0DCH,0D1H,0A1H,0CFH,0EEH,'2' ,' ' 
+	DB  000H
+
+?SC_390:
+	DB  0B9H,0A6H,0C4H,0DCH,0D1H,0A1H,0CFH,0EEH,'3' ,' ' 
+	DB  000H
+
+?SC_401:
+	DB  0B9H,0A6H,0C4H,0DCH,0D1H,0A1H,0CFH,0EEH,'4' ,' ' 
+	DB  000H
+
+?SC_412:
+	DB  0B9H,0A6H,0C4H,0DCH,0D1H,0A1H,0CFH,0EEH,'5' ,' ' 
+	DB  000H
+
+?SC_423:
+	DB  0B9H,0A6H,0C4H,0DCH,0D1H,0A1H,0CFH,0EEH,'6' ,' ' 
+	DB  000H
+
+?SC_434:
+	DB  0C9H,0E8H,000H
+
+?SC_437:
+	DB  0D6H,0C3H,000H
+
+?SC_440:
+	DB  0CAH,0B1H,000H
+
+?SC_443:
+	DB  0BCH,0E4H,000H
+
+?SC_446:
+	DB  0CAH,0B1H,0BCH,0E4H,0B7H,0A2H,0C9H,0FAH,0B1H,0E4H
+	DB  0B6H,0AFH,0A3H,0A1H,0A3H,0A1H,000H
+
+?SC_463:
+	DB  0CAH,0C7H,0B7H,0F1H,0C8H,0B7H,0C8H,0CFH,0B8H,0FCH
+	DB  0B8H,0C4H,0A3H,0BFH,000H
+
+?SC_478:
+	DB  0B4H,0ABH,000H
+
+?SC_481:
+	DB  0B8H,0D0H,000H
+
+?SC_484:
+	DB  0C6H,0F7H,000H
+
+?SC_487:
+	DB  0CEH,0C2H,0B6H,0C8H,000H
+
+?SC_492:
+	DB  0CAH,0AAH,0B6H,0C8H,000H
+
+?SC_497:
+	DB  0BFH,0AAH,0B9H,0D8H,000H
+
+?SC_502:
+	DB  0CBH,0A2H,0D0H,0C2H,000H
+
+?SC_507:
+	DB  0C7H,0D0H,0BBH,0BBH,000H
+
+?SC_512:
+	DB  'Y' ,'E' ,'S' ,000H
+
+?SC_516:
+	DB  'N' ,'O' ,000H
+
+?SC_519:
+	DB  0C3H,0EBH,000H
+
+?SC_522:
+	DB  'N' ,'O' ,' ' ,000H
+
+
+	RSEG  ?C_INITSEG
+	DB	082H
+	DB	LOW (rot_timeBase)
+	DW	00001H
+
+	DB	08AH
+	DB	LOW (rot_taskCounter)
+	DW	00000H
+	DB  000H,000H,000H,000H,000H,000H,000H,000H
+
+
+	DB	085H
+	DB	LOW (rot_taskTrigger)
+	DB	000H
+	DB  000H,000H,000H,000H
+
+
+	DB	08AH
+	DB	LOW (rot_taskFrequency)
+	DW	00064H
+	DW	00064H
+	DW	0000AH
+	DW	00064H
+	DW	00005H
+
+	DB	081H
+	DB	LOW (task0_operating_status)
+	DB	000H
+
+	DB	081H
+	DB	LOW (task0_operating_status_timing)
+	DB	000H
+
+	DB	09FH
+	DB	LOW (rot_character)
+	DB  0D0H,0C7H,0C6H,0DAH,0C4H,0EAH,0D4H,0C2H,0C8H,0D5H
+	DB  0D2H,0BBH,0B6H,0FEH,0C8H,0FDH,0CBH,0C4H,0CEH,0E5H
+	DB  0C1H,0F9H,0C6H,0DFH,0B0H,0CBH,0BEH,0C5H,0CAH,0AEH
+	DB  000H
+
+
+	DB	081H
+	DB	LOW (c_day)
+	DB	00AH
+
+	DB	001H
+	DB	menuCode
+	DB	000H
+
+	DB	081H
+	DB	LOW (menuRefreshSign)
+	DB	000H
+
+	DB	082H
+	DB	LOW (SwitchFlag)
+	DB	000H
+	DB	000H
+
+	DB	082H
+	DB	LOW (SwitchFlag_sign)
+	DB	000H
+	DB	000H
+
+	DB	081H
+	DB	LOW (DisplayOffset)
+	DB	000H
+
+	DB	083H
+	DB	LOW (OptionCode_old)
+	DB	000H
+	DB	00AH
+	DB	00AH
+
+	DB	081H
+	DB	LOW (OptionSite)
+	DB	000H
+
+	DB	081H
+	DB	LOW (OptionSite_old)
+	DB	000H
+
+	DB	081H
+	DB	LOW (OptionSite_old_Direction)
+	DB	000H
+
+	DB	081H
+	DB	LOW (Option_count)
+	DB	000H
+
+	DB	082H
+	DB	LOW (Sensor_switch)
+	DB	001H
+	DB	001H
+
+	DB	082H
+	DB	LOW (Sensor_display_switchingSpeed)
+	DW	00208H
+
+; #include <STC89C5xRC.H>
+; #include "rot.h"
+; //
+; #include "lcd.h"
+; #include "habit.h"
+; #include "delay.h"
+; #include "bmp.h"
+; #include "temps.h"
+; #include "test.h"
+; #include "ds1302.h"
+; #include "button.h"
+; #include "dht11.h"
+; #include "calendar.h"
+; #include "zk.h"
+; #include "Uart.h"
+; //
+; #define tasksTotalNum 5
+; 
+; uint rot_timeBase=1 ;//1~10000
+; //uchar rot_timebutton_ms=0 ;//0~9
+; 
+; uint rot_taskCounter[tasksTotalNum]={0};//任务计时器
+; uchar rot_taskTrigger[tasksTotalNum]={0};//任务触发器
+; 
+; uint rot_taskFrequency[tasksTotalNum]={100,100,10,100,5};//任务间隔
+; 
+; uchar task0_operating_status=0;//任务分步0: 输入,1:等待,2: 读取
+; uchar task0_operating_status_timing=0;//0~10
+; 
+; uchar rot_character[]={"星期年月日一二\xC8\xFD四五六七八九十"};
+; extern uchar ver_key[4][8];
+; 
+; uchar c_day=10;
+; 
+; /************MENU***********/
+; uchar data menuCode=0;
+; 
+; uchar menuRefreshSign=0;
+; 
+; uchar SwitchFlag[]={0,0};
+; uchar SwitchFlag_sign[]={0,0};
+; 
+; uchar backDrop[16];
+; 
+; uchar DisplayOffset=0;
+; //uchar DisplayOffset_old;
+; uchar OptionCode_old[]={0,10,10};
+; uchar OptionSite=0;
+; uchar OptionSite_old=0;
+; uchar OptionSite_old_Direction=0;
+; uchar Option_count=0;//用于子菜单检测
+; 
+; uchar Sensor_switch[2]={1,1};
+; uint Sensor_display_switchingSpeed=520;
+; 
+; 
+
+	RSEG  ?PR?ROT
+Com014A:
+L?0331:
+	USING	0
+L?0332:
+	MOVX 	A,@R0
+	SWAP 	A
+L?0333:
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	ADD  	A,#LOW (num16321)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16321)
+L?0334:
+	ADDC 	A,B
+	MOV  	R2,A
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+04H)
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R2
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R1
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#020H
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#010H
+	RET  	
+L?0369:
+	USING	0
+L?0370:
+	MOV  	A,moon_year
+L?0371:
+	MOV  	B,#0CH
+	DIV  	AB
+	MOV  	A,B
+	RET  	
+L?0394:
+	USING	0
+L?0395:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+L?0396:
+	MOV  	A,#010H
+L?0397:
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0398:
+	USING	0
+L?0399:
+	MOV  	A,moon_year
+L?0400:
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	RET  	
+L?0424:
+	USING	0
+L?0425:
+	MOVX 	A,@R0
+	SWAP 	A
+L?0426:
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	ADD  	A,#LOW (num16324)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16324)
+	RET  	
+L?0432:
+	USING	0
+L?0433:
+	MOV  	R0,#LOW (DisplayOffset)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	INC  	A
+	MOVX 	@R0,A
+	MOV  	R3,#0FFH
+	RET  	
+L?0437:
+	USING	0
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R6,#00H
+L?0438:
+	SUBB 	A,#03H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+L?0439:
+	USING	0
+L?0440:
+	MOV  	A,#040H
+L?0441:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0447:
+	USING	0
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R6,#00H
+L?0448:
+	SUBB 	A,#02H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+L?0458:
+	USING	0
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	ADD  	A,#01H
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	MOV  	R6,A
+	ADDC 	A,#00H
+	MOVX 	@R0,A
+	RET  	
+L?0462:
+	USING	0
+	MOV  	R5,A
+	MOVX 	A,@R0
+	MOV  	R3,A
+	DEC  	R0
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?_CalculateWeek?BYTE+03H)
+	MOVX 	@R0,A
+	MOV  	R7,#014H
+	RET  	
+L?0463:
+	USING	0
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0465:
+	USING	0
+L?0466:
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (SwitchFlag_sign)
+	MOVX 	@R0,A
+	RET  	
+L?0467:
+	USING	0
+	MOV  	R6,#00H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+L?0468:
+	USING	0
+	MOVX 	@R0,A
+	MOV  	A,#LOW (rot_taskTrigger)
+	ADD  	A,i?1040
+	MOV  	R0,A
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	RET  	
+; END OF Com014A
+
+; void Time0_init()
+
+	RSEG  ?PR?Time0_init?ROT
+Time0_init:
+			; SOURCE LINE # 57
+; {
+			; SOURCE LINE # 58
+; 	TMOD&=0xf1;//设置定时器0为工作方式1（M1 M0为01）
+			; SOURCE LINE # 59
+	ANL  	TMOD,#0F1H
+;   TH0=0xDC;//10ms
+			; SOURCE LINE # 60
+	MOV  	TH0,#0DCH
+;   TL0=0x00;
+			; SOURCE LINE # 61
+	CLR  	A
+	MOV  	TL0,A
+;   EA=1;//开总中断
+			; SOURCE LINE # 62
+	SETB 	EA
+;   ET0=1;//开定时器0中断
+			; SOURCE LINE # 63
+	SETB 	ET0
+; 	TR0=1;//启动定时器
+			; SOURCE LINE # 64
+	SETB 	TR0
+; 	
+; }
+			; SOURCE LINE # 66
+	RET  	
+; END OF Time0_init
+
+; 
+; void rot_init()
+
+	RSEG  ?PR?rot_init?ROT
+rot_init:
+	USING	0
+			; SOURCE LINE # 68
+; {
+			; SOURCE LINE # 69
+; 	Time0_init();
+			; SOURCE LINE # 70
+	LCALL	Time0_init
+; 	//Uart_Init ();
+; 	//Ds18b20_Init();
+; 	//Ds1302_Set_time();
+; 	Ds1302_init();
+			; SOURCE LINE # 74
+	LCALL	Ds1302_init
+; 	lcd_init();
+			; SOURCE LINE # 75
+	LCALL	lcd_init
+; 	lcd_clr_DDram	();
+			; SOURCE LINE # 76
+	LCALL	lcd_clr_DDram
+; 	lcd_clr_GD ();
+			; SOURCE LINE # 77
+	LJMP 	lcd_clr_GD
+; END OF rot_init
+
+; 	//d_1s();
+; }
+; 
+; 
+; 
+; 
+; void Calculation()
+
+	RSEG  ?PR?Calculation?ROT
+Calculation:
+	USING	0
+			; SOURCE LINE # 84
+; {
+			; SOURCE LINE # 85
+; 	if((ds_dat_time[3]!=c_day)||(menuRefreshSign!=menuCode)&&menuCode==0)
+			; SOURCE LINE # 86
+	MOV  	R0,#LOW (c_day)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	CJNE 	A,AR7,?C0004
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0005
+	MOV  	A,menuCode
+	JNZ  	?C0005
+?C0004:
+; 	{
+			; SOURCE LINE # 87
+; 		Conversion(0,ds_dat_time[6],ds_dat_time[4],ds_dat_time[3]);cale_data_transfer();
+			; SOURCE LINE # 88
+	CLR  	?Conversion?BIT
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?Conversion?BYTE)
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?Conversion?BYTE+01H)
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R6
+	MOVX 	@R0,A
+	LCALL	Conversion
+	LCALL	cale_data_transfer
+; 		CalculateWeek(20,ds_dat_time[6],ds_dat_time[4],ds_dat_time[3]);
+			; SOURCE LINE # 89
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	LCALL	L?0462
+	LCALL	_CalculateWeek
+; 		c_day=ds_dat_time[3];
+			; SOURCE LINE # 90
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (c_day)
+	MOVX 	@R0,A
+; 		
+; 	}
+			; SOURCE LINE # 92
+; }
+			; SOURCE LINE # 93
+?C0005:
+	RET  	
+; END OF Calculation
+
+; 
+; void screenOutput()
+
+	RSEG  ?PR?screenOutput?ROT
+screenOutput:
+	USING	0
+			; SOURCE LINE # 95
+; {
+			; SOURCE LINE # 96
+; 	//uchar i;
+; 
+; 	switch(menuCode)
+			; SOURCE LINE # 99
+	MOV  	A,menuCode
+	DEC  	A
+	JNZ  	$ + 5H
+	LJMP 	?C0115
+	ADD  	A,#0F7H
+	JNZ  	$ + 5H
+	LJMP 	?C0148
+	DEC  	A
+	JNZ  	$ + 5H
+	LJMP 	?C0245
+	ADD  	A,#0A7H
+	JNZ  	$ + 5H
+	LJMP 	?C0243
+	ADD  	A,#064H
+	JZ   	$ + 5H
+	LJMP 	?C0262
+; 	{
+			; SOURCE LINE # 100
+; 		case 0:{
+			; SOURCE LINE # 101
+?C0007:
+; 			if(menuRefreshSign!=menuCode){lcd_clr_DDram	();lcd_clr_GD ();menuRefreshSign=menuCode;}
+			; SOURCE LINE # 102
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0008
+	LCALL	L?0430
+?C0008:
+; 			lcd_wcmd(0x30);
+			; SOURCE LINE # 103
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+; 			lcd_wcmd(0x80);
+			; SOURCE LINE # 104
+	MOV  	R7,#080H
+; 			lcd_wdat('2');lcd_wdat('0');
+			; SOURCE LINE # 105
+	LCALL	L?0456
+; 			lcd_wdat((ds_dat_time[6]>>4)+48);lcd_wdat((ds_dat_time[6]&0x0f)+48);lcd_wdat('-');
+			; SOURCE LINE # 106
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	LCALL	L?0382
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	LCALL	L?0391
+	MOV  	R7,#02DH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time[4]>>4)+48);lcd_wdat((ds_dat_time[4]&0x0f)+48);lcd_wdat('-');
+			; SOURCE LINE # 107
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	LCALL	L?0382
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	LCALL	L?0391
+	MOV  	R7,#02DH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time[3]>>4)+48);lcd_wdat((ds_dat_time[3]&0x0f)+48);
+			; SOURCE LINE # 108
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	LCALL	L?0387
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	LCALL	L?0408
+; 			if(sun_week==1)lcd_ch_display(0,6,"周一");
+			; SOURCE LINE # 109
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#01H
+	JNZ  	?C0009
+	MOV  	R7,A
+	LCALL	L?0384
+?C0009:
+; 			if(sun_week==2)lcd_ch_display(0,6,"周二");
+			; SOURCE LINE # 110
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#02H
+	JNZ  	?C0010
+	MOV  	R7,A
+	LCALL	L?0388
+?C0010:
+; 			if(sun_week==3)lcd_ch_display(0,6,"周\xC8\xFD");//三
+			; SOURCE LINE # 111
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#03H
+	JNZ  	?C0011
+	MOV  	R7,A
+	LCALL	L?0392
+?C0011:
+; 			if(sun_week==4)lcd_ch_display(0,6,"周四");
+			; SOURCE LINE # 112
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#04H
+	JNZ  	?C0012
+	MOV  	R7,A
+	LCALL	L?0404
+?C0012:
+; 			if(sun_week==5)lcd_ch_display(0,6,"周五");
+			; SOURCE LINE # 113
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#05H
+	JNZ  	?C0013
+	MOV  	R7,A
+	LCALL	L?0410
+?C0013:
+; 			if(sun_week==6)lcd_ch_display(0,6,"周六");
+			; SOURCE LINE # 114
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	XRL  	A,#06H
+	JNZ  	?C0014
+	MOV  	R7,A
+	LCALL	L?0429
+?C0014:
+; 			if(sun_week==0||sun_week==7)lcd_ch_display(0,6,"周日");
+			; SOURCE LINE # 115
+	MOV  	R0,#LOW (sun_week)
+	MOVX 	A,@R0
+	JZ   	?C0016
+	XRL  	A,#07H
+	JNZ  	?C0015
+?C0016:
+	MOV  	R2,#HIGH (?SC_30)
+	MOV  	R1,#LOW (?SC_30)
+	LCALL	L?0443
+?C0015:
+; 			if(SwitchFlag[1]==0)
+			; SOURCE LINE # 116
+	MOV  	R0,#LOW (SwitchFlag+01H)
+	MOVX 	A,@R0
+	JNZ  	?C0017
+; 			{
+			; SOURCE LINE # 117
+; 			lcd_Draw_PM(0,16,2,32,num16321[ds_dat_time[2]>>4]);
+			; SOURCE LINE # 118
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	LCALL	L?0331
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(1,16,2,32,num16321[ds_dat_time[2]&0x0f]);
+			; SOURCE LINE # 119
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	MOVX 	A,@R0
+	LCALL	L?0333
+; 			lcd_Draw_PM(2,16,2,32,num16321[10]);
+			; SOURCE LINE # 120
+	LCALL	L?0380
+	MOV  	A,#HIGH (num16321+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16321+0280H)
+	LCALL	L?0445
+; 			lcd_Draw_PM(3,16,2,32,num16321[ds_dat_time[1]>>4]);
+			; SOURCE LINE # 121
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	LCALL	L?0331
+	MOV  	R7,#03H
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(4,16,2,32,num16321[ds_dat_time[1]&0x0f]);
+			; SOURCE LINE # 122
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	MOVX 	A,@R0
+	LCALL	L?0333
+; 			lcd_Draw_PM(5,16,2,32,num16321[10]);
+			; SOURCE LINE # 123
+	LCALL	L?0386
+	MOV  	A,#HIGH (num16321+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16321+0280H)
+; 			lcd_Draw_PM(6,16,2,32,num16321[ds_dat_time[0]>>4]);
+			; SOURCE LINE # 124
+	LCALL	L?0457
+	LCALL	L?0332
+	MOV  	R7,#06H
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(7,16,2,32,num16321[ds_dat_time[0]&0x0f]);
+			; SOURCE LINE # 125
+	MOV  	R0,#LOW (ds_dat_time)
+	MOVX 	A,@R0
+	LCALL	L?0333
+	MOV  	R7,#07H
+	LCALL	_lcd_Draw_PM
+; 			}
+			; SOURCE LINE # 126
+?C0017:
+; 			if(SwitchFlag[1]==1)
+			; SOURCE LINE # 127
+	MOV  	R0,#LOW (SwitchFlag+01H)
+	MOVX 	A,@R0
+	XRL  	A,#01H
+	JNZ  	?C0018
+; 			{
+			; SOURCE LINE # 128
+; 			lcd_Draw_PM(0,16,2,32,num16322[ds_dat_time[2]>>4]);
+			; SOURCE LINE # 129
+	LCALL	L?0463
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+; 			lcd_Draw_PM(1,16,2,32,num16322[ds_dat_time[2]&0x0f]);
+			; SOURCE LINE # 130
+	LCALL	L?0414
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+; 			lcd_Draw_PM(2,16,2,32,num16322[10]);
+			; SOURCE LINE # 131
+	LCALL	L?0380
+	MOV  	A,#HIGH (num16322+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16322+0280H)
+; 			lcd_Draw_PM(3,16,2,32,num16322[ds_dat_time[1]>>4]);
+			; SOURCE LINE # 132
+	LCALL	L?0401
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+; 			lcd_Draw_PM(4,16,2,32,num16322[ds_dat_time[1]&0x0f]);
+			; SOURCE LINE # 133
+	LCALL	L?0418
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+; 			lcd_Draw_PM(5,16,2,32,num16322[10]);
+			; SOURCE LINE # 134
+	LCALL	L?0386
+	MOV  	A,#HIGH (num16322+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16322+0280H)
+; 			lcd_Draw_PM(6,16,2,32,num16322[ds_dat_time[0]>>4]);
+			; SOURCE LINE # 135
+	LCALL	L?0406
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+; 			lcd_Draw_PM(7,16,2,32,num16322[ds_dat_time[0]&0x0f]);
+			; SOURCE LINE # 136
+	LCALL	L?0423
+	ADD  	A,#LOW (num16322)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16322)
+	LCALL	L?0334
+	MOV  	R7,#07H
+	LCALL	_lcd_Draw_PM
+; 			}
+			; SOURCE LINE # 137
+?C0018:
+; 			if(SwitchFlag[1]==2)
+			; SOURCE LINE # 138
+	MOV  	R0,#LOW (SwitchFlag+01H)
+	MOVX 	A,@R0
+	XRL  	A,#02H
+	JNZ  	?C0019
+; 			{
+			; SOURCE LINE # 139
+; 			lcd_Draw_PM(0,16,2,32,num16323[ds_dat_time[2]>>4]);
+			; SOURCE LINE # 140
+	LCALL	L?0463
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+; 			lcd_Draw_PM(1,16,2,32,num16323[ds_dat_time[2]&0x0f]);
+			; SOURCE LINE # 141
+	LCALL	L?0414
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+; 			lcd_Draw_PM(2,16,2,32,num16323[10]);
+			; SOURCE LINE # 142
+	LCALL	L?0449
+	LCALL	L?0397
+	MOV  	A,#HIGH (num16323+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16323+0280H)
+; 			lcd_Draw_PM(3,16,2,32,num16323[ds_dat_time[1]>>4]);
+			; SOURCE LINE # 143
+	LCALL	L?0401
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+; 			lcd_Draw_PM(4,16,2,32,num16323[ds_dat_time[1]&0x0f]);
+			; SOURCE LINE # 144
+	LCALL	L?0418
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+; 			lcd_Draw_PM(5,16,2,32,num16323[10]);
+			; SOURCE LINE # 145
+	LCALL	L?0469
+	LCALL	L?0397
+	MOV  	A,#HIGH (num16323+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16323+0280H)
+; 			lcd_Draw_PM(6,16,2,32,num16323[ds_dat_time[0]>>4]);
+			; SOURCE LINE # 146
+	LCALL	L?0406
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+; 			lcd_Draw_PM(7,16,2,32,num16323[ds_dat_time[0]&0x0f]);
+			; SOURCE LINE # 147
+	LCALL	L?0423
+	ADD  	A,#LOW (num16323)
+	MOV  	R1,A
+	MOV  	A,#HIGH (num16323)
+	LCALL	L?0334
+	MOV  	R7,#07H
+	LCALL	_lcd_Draw_PM
+; 			}
+			; SOURCE LINE # 148
+?C0019:
+; 			if(SwitchFlag[1]==3)
+			; SOURCE LINE # 149
+	MOV  	R0,#LOW (SwitchFlag+01H)
+	MOVX 	A,@R0
+	XRL  	A,#03H
+	JNZ  	?C0020
+; 			{
+			; SOURCE LINE # 150
+; 			lcd_Draw_PM(0,16,2,32,num16324[ds_dat_time[2]>>4]);
+			; SOURCE LINE # 151
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	LCALL	L?0424
+	LCALL	L?0334
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(1,16,2,32,num16324[ds_dat_time[2]&0x0f]);
+			; SOURCE LINE # 152
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	MOVX 	A,@R0
+	LCALL	L?0426
+	LCALL	L?0334
+; 			lcd_Draw_PM(2,16,2,32,num16324[10]);
+			; SOURCE LINE # 153
+	LCALL	L?0449
+	LCALL	L?0397
+	MOV  	A,#HIGH (num16324+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16324+0280H)
+	LCALL	L?0445
+; 			lcd_Draw_PM(3,16,2,32,num16324[ds_dat_time[1]>>4]);
+			; SOURCE LINE # 154
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	LCALL	L?0424
+	LCALL	L?0334
+	MOV  	R7,#03H
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(4,16,2,32,num16324[ds_dat_time[1]&0x0f]);
+			; SOURCE LINE # 155
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	MOVX 	A,@R0
+	LCALL	L?0426
+	LCALL	L?0334
+; 			lcd_Draw_PM(5,16,2,32,num16324[10]);
+			; SOURCE LINE # 156
+	LCALL	L?0469
+	LCALL	L?0397
+	MOV  	A,#HIGH (num16324+0280H)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (num16324+0280H)
+; 			lcd_Draw_PM(6,16,2,32,num16324[ds_dat_time[0]>>4]);
+			; SOURCE LINE # 157
+	LCALL	L?0457
+	LCALL	L?0425
+	LCALL	L?0334
+	MOV  	R7,#06H
+	LCALL	_lcd_Draw_PM
+; 			lcd_Draw_PM(7,16,2,32,num16324[ds_dat_time[0]&0x0f]);
+			; SOURCE LINE # 158
+	MOV  	R0,#LOW (ds_dat_time)
+	MOVX 	A,@R0
+	LCALL	L?0426
+	LCALL	L?0334
+	MOV  	R7,#07H
+	LCALL	_lcd_Draw_PM
+; 			}
+			; SOURCE LINE # 159
+?C0020:
+; 			
+; 			if(moon_month==1)lcd_ch_display(3,0,"\xD5\xFD");
+			; SOURCE LINE # 161
+	MOV  	A,moon_month
+	XRL  	A,#01H
+	JNZ  	?C0021
+	MOV  	R5,A
+	LCALL	L?0367
+?C0021:
+; 			if(moon_month==2)lcd_ch_display(3,0,"二");
+			; SOURCE LINE # 162
+	MOV  	A,moon_month
+	XRL  	A,#02H
+	JNZ  	?C0022
+	MOV  	R5,A
+	LCALL	L?0372
+?C0022:
+; 			if(moon_month==3)lcd_ch_display(3,0,"\xC8\xFD");
+			; SOURCE LINE # 163
+	MOV  	A,moon_month
+	XRL  	A,#03H
+	JNZ  	?C0023
+	MOV  	R5,A
+	LCALL	L?0376
+?C0023:
+; 			if(moon_month==4)lcd_ch_display(3,0,"四");
+			; SOURCE LINE # 164
+	MOV  	A,moon_month
+	XRL  	A,#04H
+	JNZ  	?C0024
+	MOV  	R5,A
+	LCALL	L?0378
+?C0024:
+; 			if(moon_month==5)lcd_ch_display(3,0,"五");
+			; SOURCE LINE # 165
+	MOV  	A,moon_month
+	XRL  	A,#05H
+	JNZ  	?C0025
+	MOV  	R5,A
+	LCALL	L?0383
+?C0025:
+; 			if(moon_month==6)lcd_ch_display(3,0,"六");
+			; SOURCE LINE # 166
+	MOV  	A,moon_month
+	XRL  	A,#06H
+	JNZ  	?C0026
+	MOV  	R5,A
+	LCALL	L?0389
+?C0026:
+; 			if(moon_month==7)lcd_ch_display(3,0,"七");
+			; SOURCE LINE # 167
+	MOV  	A,moon_month
+	XRL  	A,#07H
+	JNZ  	?C0027
+	MOV  	R5,A
+	LCALL	L?0402
+?C0027:
+; 			if(moon_month==8)lcd_ch_display(3,0,"八");
+			; SOURCE LINE # 168
+	MOV  	A,moon_month
+	XRL  	A,#08H
+	JNZ  	?C0028
+	MOV  	R5,A
+	LCALL	L?0407
+?C0028:
+; 			if(moon_month==9)lcd_ch_display(3,0,"九");
+			; SOURCE LINE # 169
+	MOV  	A,moon_month
+	XRL  	A,#09H
+	JNZ  	?C0029
+	MOV  	R5,A
+	LCALL	L?0413
+?C0029:
+; 			if(moon_month==0x10)lcd_ch_display(3,0,"十");
+			; SOURCE LINE # 170
+	MOV  	A,moon_month
+	XRL  	A,#010H
+	JNZ  	?C0030
+	MOV  	R5,A
+	LCALL	L?0416
+?C0030:
+; 			if(moon_month==0x11)lcd_ch_display(3,0,"冬");
+			; SOURCE LINE # 171
+	MOV  	A,moon_month
+	XRL  	A,#011H
+	JNZ  	?C0031
+	MOV  	R5,A
+	LCALL	L?0422
+?C0031:
+; 			if(moon_month==0x12)lcd_ch_display(3,0,"腊");
+			; SOURCE LINE # 172
+	MOV  	A,moon_month
+	XRL  	A,#012H
+	JNZ  	?C0032
+	MOV  	R5,A
+	LCALL	L?0427
+?C0032:
+; 			lcd_ch_display(3,1,"月");
+			; SOURCE LINE # 173
+	MOV  	R5,#01H
+	LCALL	L?0344
+; 			if(moon_day==0x1){lcd_ch_display(3,2,"初一");}
+			; SOURCE LINE # 174
+	MOV  	A,moon_day
+	XRL  	A,#01H
+	JNZ  	?C0033
+	MOV  	R5,#02H
+	LCALL	L?0315
+?C0033:
+; 			if(moon_day==0x2){lcd_ch_display(3,2,"初二");}
+			; SOURCE LINE # 175
+	MOV  	A,moon_day
+	XRL  	A,#02H
+	JNZ  	?C0034
+	MOV  	R5,#02H
+	LCALL	L?0316
+?C0034:
+; 			if(moon_day==0x3){lcd_ch_display(3,2,"初\xC8\xFD");}
+			; SOURCE LINE # 176
+	MOV  	A,moon_day
+	XRL  	A,#03H
+	JNZ  	?C0035
+	MOV  	R5,#02H
+	LCALL	L?0317
+?C0035:
+; 			if(moon_day==0x4){lcd_ch_display(3,2,"初四");}
+			; SOURCE LINE # 177
+	MOV  	A,moon_day
+	XRL  	A,#04H
+	JNZ  	?C0036
+	MOV  	R5,#02H
+	LCALL	L?0318
+?C0036:
+; 			if(moon_day==0x5){lcd_ch_display(3,2,"初五");}
+			; SOURCE LINE # 178
+	MOV  	A,moon_day
+	XRL  	A,#05H
+	JNZ  	?C0037
+	MOV  	R5,#02H
+	LCALL	L?0319
+?C0037:
+; 			if(moon_day==0x6){lcd_ch_display(3,2,"初六");}
+			; SOURCE LINE # 179
+	MOV  	A,moon_day
+	XRL  	A,#06H
+	JNZ  	?C0038
+	MOV  	R5,#02H
+	LCALL	L?0320
+?C0038:
+; 			if(moon_day==0x7){lcd_ch_display(3,2,"初七");}
+			; SOURCE LINE # 180
+	MOV  	A,moon_day
+	XRL  	A,#07H
+	JNZ  	?C0039
+	MOV  	R5,#02H
+	LCALL	L?0321
+?C0039:
+; 			if(moon_day==0x8){lcd_ch_display(3,2,"初八");}
+			; SOURCE LINE # 181
+	MOV  	A,moon_day
+	XRL  	A,#08H
+	JNZ  	?C0040
+	MOV  	R5,#02H
+	LCALL	L?0322
+?C0040:
+; 			if(moon_day==0x9){lcd_ch_display(3,2,"初九");}
+			; SOURCE LINE # 182
+	MOV  	A,moon_day
+	XRL  	A,#09H
+	JNZ  	?C0041
+	MOV  	R5,#02H
+	LCALL	L?0323
+?C0041:
+; 			if(moon_day==0x10){lcd_ch_display(3,2,"初十");}
+			; SOURCE LINE # 183
+	MOV  	A,moon_day
+	XRL  	A,#010H
+	JNZ  	?C0042
+	MOV  	R5,#02H
+	LCALL	L?0324
+?C0042:
+; 			if(moon_day==0x11){lcd_ch_display(3,2,"十一");}
+			; SOURCE LINE # 184
+	MOV  	A,moon_day
+	XRL  	A,#011H
+	JNZ  	?C0043
+	MOV  	R5,#02H
+	LCALL	L?0325
+?C0043:
+; 			if(moon_day==0x12){lcd_ch_display(3,2,"十二");}
+			; SOURCE LINE # 185
+	MOV  	A,moon_day
+	XRL  	A,#012H
+	JNZ  	?C0044
+	MOV  	R5,#02H
+	LCALL	L?0326
+?C0044:
+; 			if(moon_day==0x13){lcd_ch_display(3,2,"十\xC8\xFD");}
+			; SOURCE LINE # 186
+	MOV  	A,moon_day
+	XRL  	A,#013H
+	JNZ  	?C0045
+	MOV  	R5,#02H
+	LCALL	L?0328
+?C0045:
+; 			if(moon_day==0x14){lcd_ch_display(3,2,"十四");}
+			; SOURCE LINE # 187
+	MOV  	A,moon_day
+	XRL  	A,#014H
+	JNZ  	?C0046
+	MOV  	R5,#02H
+	LCALL	L?0329
+?C0046:
+; 			if(moon_day==0x15){lcd_ch_display(3,2,"十五");}
+			; SOURCE LINE # 188
+	MOV  	A,moon_day
+	XRL  	A,#015H
+	JNZ  	?C0047
+	MOV  	R5,#02H
+	LCALL	L?0335
+?C0047:
+; 			if(moon_day==0x16){lcd_ch_display(3,2,"十六");}
+			; SOURCE LINE # 189
+	MOV  	A,moon_day
+	XRL  	A,#016H
+	JNZ  	?C0048
+	MOV  	R5,#02H
+	LCALL	L?0336
+?C0048:
+; 			if(moon_day==0x17){lcd_ch_display(3,2,"十七");}
+			; SOURCE LINE # 190
+	MOV  	A,moon_day
+	XRL  	A,#017H
+	JNZ  	?C0049
+	MOV  	R5,#02H
+	LCALL	L?0337
+?C0049:
+; 			if(moon_day==0x18){lcd_ch_display(3,2,"十八");}
+			; SOURCE LINE # 191
+	MOV  	A,moon_day
+	XRL  	A,#018H
+	JNZ  	?C0050
+	MOV  	R5,#02H
+	LCALL	L?0338
+?C0050:
+; 			if(moon_day==0x19){lcd_ch_display(3,2,"十九");}
+			; SOURCE LINE # 192
+	MOV  	A,moon_day
+	XRL  	A,#019H
+	JNZ  	?C0051
+	MOV  	R5,#02H
+	LCALL	L?0339
+?C0051:
+; 			if(moon_day==0x20){lcd_ch_display(3,2,"二十");}
+			; SOURCE LINE # 193
+	MOV  	A,moon_day
+	XRL  	A,#020H
+	JNZ  	?C0052
+	MOV  	R5,#02H
+	LCALL	L?0340
+?C0052:
+; 			if(moon_day==0x21){lcd_ch_display(3,2,"廿一");}
+			; SOURCE LINE # 194
+	MOV  	A,moon_day
+	XRL  	A,#021H
+	JNZ  	?C0053
+	MOV  	R5,#02H
+	LCALL	L?0341
+?C0053:
+; 			if(moon_day==0x22){lcd_ch_display(3,2,"廿二");}
+			; SOURCE LINE # 195
+	MOV  	A,moon_day
+	XRL  	A,#022H
+	JNZ  	?C0054
+	MOV  	R5,#02H
+	LCALL	L?0342
+?C0054:
+; 			if(moon_day==0x23){lcd_ch_display(3,2,"廿\xC8\xFD");}
+			; SOURCE LINE # 196
+	MOV  	A,moon_day
+	XRL  	A,#023H
+	JNZ  	?C0055
+	MOV  	R5,#02H
+	LCALL	L?0343
+?C0055:
+; 			if(moon_day==0x24){lcd_ch_display(3,2,"廿四");}
+			; SOURCE LINE # 197
+	MOV  	A,moon_day
+	XRL  	A,#024H
+	JNZ  	?C0056
+	MOV  	R5,#02H
+	LCALL	L?0345
+?C0056:
+; 			if(moon_day==0x25){lcd_ch_display(3,2,"廿五");}
+			; SOURCE LINE # 198
+	MOV  	A,moon_day
+	XRL  	A,#025H
+	JNZ  	?C0057
+	MOV  	R5,#02H
+	LCALL	L?0347
+?C0057:
+; 			if(moon_day==0x26){lcd_ch_display(3,2,"廿六");}
+			; SOURCE LINE # 199
+	MOV  	A,moon_day
+	XRL  	A,#026H
+	JNZ  	?C0058
+	MOV  	R5,#02H
+	LCALL	L?0349
+?C0058:
+; 			if(moon_day==0x27){lcd_ch_display(3,2,"廿七");}
+			; SOURCE LINE # 200
+	MOV  	A,moon_day
+	XRL  	A,#027H
+	JNZ  	?C0059
+	MOV  	R5,#02H
+	LCALL	L?0351
+?C0059:
+; 			if(moon_day==0x28){lcd_ch_display(3,2,"廿八");}
+			; SOURCE LINE # 201
+	MOV  	A,moon_day
+	XRL  	A,#028H
+	JNZ  	?C0060
+	MOV  	R5,#02H
+	LCALL	L?0353
+?C0060:
+; 			if(moon_day==0x29){lcd_ch_display(3,2,"廿九");}
+			; SOURCE LINE # 202
+	MOV  	A,moon_day
+	XRL  	A,#029H
+	JNZ  	?C0061
+	MOV  	R5,#02H
+	LCALL	L?0355
+?C0061:
+; 			if(moon_day==0x30){lcd_ch_display(3,2,"\xC8\xFD十");}
+			; SOURCE LINE # 203
+	MOV  	A,moon_day
+	XRL  	A,#030H
+	JNZ  	?C0062
+	MOV  	R5,#02H
+	LCALL	L?0357
+?C0062:
+; 			if((!Sensor_switch[1])&&(!Sensor_switch[0])||SwitchFlag[0]==2)
+			; SOURCE LINE # 204
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	JNZ  	?C0065
+	DEC  	R0
+	MOVX 	A,@R0
+	JZ   	?C0064
+?C0065:
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	XRL  	A,#02H
+	JZ   	$ + 5H
+	LJMP 	?C0063
+?C0064:
+; 			{
+			; SOURCE LINE # 205
+; 				if(SwitchFlag[0]!=SwitchFlag_sign[0]||(!(SwitchFlag[0]==2))){lcd_Draw_PM_dat(4,48,8,16,0x00);lcd_ch_display(3,4,"        ");SwitchFlag_sign[0]=SwitchFlag[0];}			
+			; SOURCE LINE # 206
+	MOV  	R0,#LOW (SwitchFlag_sign)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	CJNE 	A,AR7,?C0067
+	XRL  	A,#02H
+	JNZ  	?C0068
+	SETB 	C
+	SJMP 	?C0069
+?C0068:
+	CLR  	C
+?C0069:
+	JC   	?C0066
+?C0067:
+	LCALL	L?0327
+	LCALL	L?0465
+?C0066:
+; 				
+; 				if((moon_year%10)==0)lcd_ch_display(3,4,"\xB8\xFD");//天干
+			; SOURCE LINE # 208
+	LCALL	L?0398
+	JNZ  	?C0070
+	MOV  	R5,#04H
+	LCALL	L?0346
+?C0070:
+; 				if((moon_year%10)==1)lcd_ch_display(3,4,"辛");
+			; SOURCE LINE # 209
+	LCALL	L?0398
+	XRL  	A,#01H
+	JNZ  	?C0071
+	MOV  	R5,#04H
+	LCALL	L?0348
+?C0071:
+; 				if((moon_year%10)==2)lcd_ch_display(3,4,"壬");
+			; SOURCE LINE # 210
+	LCALL	L?0399
+	XRL  	A,#02H
+	JNZ  	?C0072
+	MOV  	R5,#04H
+	LCALL	L?0350
+?C0072:
+; 				if((moon_year%10)==3)lcd_ch_display(3,4,"癸");
+			; SOURCE LINE # 211
+	LCALL	L?0399
+	XRL  	A,#03H
+	JNZ  	?C0073
+	MOV  	R5,#04H
+	LCALL	L?0352
+?C0073:
+; 				if((moon_year%10)==4)lcd_ch_display(3,4,"甲");
+			; SOURCE LINE # 212
+	LCALL	L?0399
+	XRL  	A,#04H
+	JNZ  	?C0074
+	MOV  	R5,#04H
+	LCALL	L?0354
+?C0074:
+; 				if((moon_year%10)==5)lcd_ch_display(3,4,"乙");
+			; SOURCE LINE # 213
+	LCALL	L?0399
+	XRL  	A,#05H
+	JNZ  	?C0075
+	MOV  	R5,#04H
+	LCALL	L?0356
+?C0075:
+; 				if((moon_year%10)==6)lcd_ch_display(3,4,"丙");
+			; SOURCE LINE # 214
+	LCALL	L?0399
+	XRL  	A,#06H
+	JNZ  	?C0076
+	MOV  	R5,#04H
+	LCALL	L?0358
+?C0076:
+; 				if((moon_year%10)==7)lcd_ch_display(3,4,"丁");
+			; SOURCE LINE # 215
+	LCALL	L?0399
+	XRL  	A,#07H
+	JNZ  	?C0077
+	MOV  	R5,#04H
+	LCALL	L?0359
+?C0077:
+; 				if((moon_year%10)==8)lcd_ch_display(3,4,"戊");
+			; SOURCE LINE # 216
+	LCALL	L?0399
+	XRL  	A,#08H
+	JNZ  	?C0078
+	MOV  	R5,#04H
+	LCALL	L?0360
+?C0078:
+; 				if((moon_year%10)==9)lcd_ch_display(3,4,"己");
+			; SOURCE LINE # 217
+	LCALL	L?0399
+	XRL  	A,#09H
+	JNZ  	?C0079
+	MOV  	R5,#04H
+	LCALL	L?0361
+?C0079:
+; 				
+; 				if((moon_year%12)==0)lcd_ch_display(3,5,"辰");//地支
+			; SOURCE LINE # 219
+	LCALL	L?0369
+	JNZ  	?C0080
+	MOV  	R5,#05H
+	LCALL	L?0362
+?C0080:
+; 				if((moon_year%12)==1)lcd_ch_display(3,5,"巳");
+			; SOURCE LINE # 220
+	LCALL	L?0369
+	XRL  	A,#01H
+	JNZ  	?C0081
+	MOV  	R5,#05H
+	LCALL	L?0363
+?C0081:
+; 				if((moon_year%12)==2)lcd_ch_display(3,5,"午");
+			; SOURCE LINE # 221
+	LCALL	L?0370
+	XRL  	A,#02H
+	JNZ  	?C0082
+	MOV  	R5,#05H
+	LCALL	L?0364
+?C0082:
+; 				if((moon_year%12)==3)lcd_ch_display(3,5,"未");
+			; SOURCE LINE # 222
+	LCALL	L?0370
+	XRL  	A,#03H
+	JNZ  	?C0083
+	MOV  	R5,#05H
+	LCALL	L?0365
+?C0083:
+; 				if((moon_year%12)==4)lcd_ch_display(3,5,"申");
+			; SOURCE LINE # 223
+	LCALL	L?0370
+	XRL  	A,#04H
+	JNZ  	?C0084
+	MOV  	R5,#05H
+	LCALL	L?0366
+?C0084:
+; 				if((moon_year%12)==5)lcd_ch_display(3,5,"酉");
+			; SOURCE LINE # 224
+	LCALL	L?0370
+	XRL  	A,#05H
+	JNZ  	?C0085
+	MOV  	R5,#05H
+	LCALL	L?0368
+?C0085:
+; 				if((moon_year%12)==6)lcd_ch_display(3,5,"戌");
+			; SOURCE LINE # 225
+	LCALL	L?0370
+	XRL  	A,#06H
+	JNZ  	?C0086
+	MOV  	R5,#05H
+	LCALL	L?0374
+?C0086:
+; 				if((moon_year%12)==7)lcd_ch_display(3,5,"亥");
+			; SOURCE LINE # 226
+	LCALL	L?0370
+	XRL  	A,#07H
+	JNZ  	?C0087
+	MOV  	R5,#05H
+	LCALL	L?0377
+?C0087:
+; 				if((moon_year%12)==8)lcd_ch_display(3,5,"子");
+			; SOURCE LINE # 227
+	LCALL	L?0370
+	XRL  	A,#08H
+	JNZ  	?C0088
+	MOV  	R5,#05H
+	LCALL	L?0381
+?C0088:
+; 				if((moon_year%12)==9)lcd_ch_display(3,5,"丑");
+			; SOURCE LINE # 228
+	LCALL	L?0370
+	XRL  	A,#09H
+	JNZ  	?C0089
+	MOV  	R5,#05H
+	LCALL	L?0385
+?C0089:
+; 				if((moon_year%12)==10)lcd_ch_display(3,5,"寅");
+			; SOURCE LINE # 229
+	LCALL	L?0370
+	XRL  	A,#0AH
+	JNZ  	?C0090
+	MOV  	R5,#05H
+	LCALL	L?0393
+?C0090:
+; 				if((moon_year%12)==11)lcd_ch_display(3,5,"卯");
+			; SOURCE LINE # 230
+	LCALL	L?0370
+	XRL  	A,#0BH
+	JNZ  	?C0091
+	MOV  	R5,#05H
+	LCALL	L?0409
+?C0091:
+; 				
+; 				if((moon_year%12)==0)lcd_ch_display(3,6,"龙");//地支
+			; SOURCE LINE # 232
+	LCALL	L?0370
+	JNZ  	?C0092
+	MOV  	R2,#HIGH (?SC_299)
+	MOV  	R1,#LOW (?SC_299)
+	LCALL	L?0308
+?C0092:
+; 				if((moon_year%12)==1)lcd_ch_display(3,6,"蛇");
+			; SOURCE LINE # 233
+	LCALL	L?0370
+	XRL  	A,#01H
+	JNZ  	?C0093
+	MOV  	R2,#HIGH (?SC_302)
+	MOV  	R1,#LOW (?SC_302)
+	LCALL	L?0309
+?C0093:
+; 				if((moon_year%12)==2)lcd_ch_display(3,6,"马");
+			; SOURCE LINE # 234
+	LCALL	L?0370
+	XRL  	A,#02H
+	JNZ  	?C0094
+	MOV  	R2,#HIGH (?SC_305)
+	MOV  	R1,#LOW (?SC_305)
+	LCALL	L?0309
+?C0094:
+; 				if((moon_year%12)==3)lcd_ch_display(3,6,"羊");
+			; SOURCE LINE # 235
+	LCALL	L?0370
+	XRL  	A,#03H
+	JNZ  	?C0095
+	MOV  	R2,#HIGH (?SC_308)
+	MOV  	R1,#LOW (?SC_308)
+	LCALL	L?0310
+?C0095:
+; 				if((moon_year%12)==4)lcd_ch_display(3,6,"猴");
+			; SOURCE LINE # 236
+	LCALL	L?0370
+	XRL  	A,#04H
+	JNZ  	?C0096
+	MOV  	R2,#HIGH (?SC_311)
+	MOV  	R1,#LOW (?SC_311)
+	LCALL	L?0310
+?C0096:
+; 				if((moon_year%12)==5)lcd_ch_display(3,6,"鸡");
+			; SOURCE LINE # 237
+	LCALL	L?0370
+	XRL  	A,#05H
+	JNZ  	?C0097
+	MOV  	R2,#HIGH (?SC_314)
+	MOV  	R1,#LOW (?SC_314)
+	LCALL	L?0311
+?C0097:
+; 				if((moon_year%12)==6)lcd_ch_display(3,6,"狗");
+			; SOURCE LINE # 238
+	LCALL	L?0370
+	XRL  	A,#06H
+	JNZ  	?C0098
+	MOV  	R2,#HIGH (?SC_317)
+	MOV  	R1,#LOW (?SC_317)
+	LCALL	L?0311
+?C0098:
+; 				if((moon_year%12)==7)lcd_ch_display(3,6,"猪");
+			; SOURCE LINE # 239
+	LCALL	L?0370
+	XRL  	A,#07H
+	JNZ  	?C0099
+	MOV  	R2,#HIGH (?SC_320)
+	MOV  	R1,#LOW (?SC_320)
+	LCALL	L?0312
+?C0099:
+; 				if((moon_year%12)==8)lcd_ch_display(3,6,"鼠");
+			; SOURCE LINE # 240
+	LCALL	L?0370
+	XRL  	A,#08H
+	JNZ  	?C0100
+	MOV  	R2,#HIGH (?SC_323)
+	MOV  	R1,#LOW (?SC_323)
+	LCALL	L?0312
+?C0100:
+; 				if((moon_year%12)==9)lcd_ch_display(3,6,"牛");
+			; SOURCE LINE # 241
+	LCALL	L?0370
+	XRL  	A,#09H
+	JNZ  	?C0101
+	MOV  	R2,#HIGH (?SC_326)
+	MOV  	R1,#LOW (?SC_326)
+	LCALL	L?0313
+?C0101:
+; 				if((moon_year%12)==10)lcd_ch_display(3,6,"虎");
+			; SOURCE LINE # 242
+	LCALL	L?0370
+	XRL  	A,#0AH
+	JNZ  	?C0102
+	MOV  	R2,#HIGH (?SC_329)
+	MOV  	R1,#LOW (?SC_329)
+	LCALL	L?0313
+?C0102:
+; 				if((moon_year%12)==11)lcd_ch_display(3,6,"兔");
+			; SOURCE LINE # 243
+	LCALL	L?0370
+	XRL  	A,#0BH
+	JNZ  	?C0103
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	L?0314
+?C0103:
+; 				lcd_ch_display(3,7,"年");
+			; SOURCE LINE # 244
+	MOV  	R2,#HIGH (?SC_335)
+	MOV  	R1,#LOW (?SC_335)
+	MOV  	R5,#07H
+	LCALL	L?0435
+; 			}
+			; SOURCE LINE # 245
+?C0063:
+; 
+; 			if((SwitchFlag[0]==0||(!Sensor_switch[1]))&&Sensor_switch[0])
+			; SOURCE LINE # 247
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	JZ   	?C0105
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	JNZ  	?C0104
+?C0105:
+	MOV  	R0,#LOW (Sensor_switch)
+	MOVX 	A,@R0
+	JZ   	?C0104
+; 			{
+			; SOURCE LINE # 248
+; 				if(SwitchFlag[0]!=SwitchFlag_sign[0]){lcd_Draw_PM_dat(4,48,8,16,0x00);lcd_ch_display(3,4,"        ");SwitchFlag_sign[0]=SwitchFlag[0];}
+			; SOURCE LINE # 249
+	MOV  	R0,#LOW (SwitchFlag_sign)
+	MOVX 	A,@R0
+	XRL  	A,R7
+	JZ   	?C0106
+	LCALL	L?0327
+	LCALL	L?0465
+?C0106:
+; 				lcd_Draw_PM(4,48,2,16,wdj);
+			; SOURCE LINE # 250
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	LCALL	L?0396
+	MOV  	A,#HIGH (wdj)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (wdj)
+	LCALL	L?0460
+; 				lcd_wcmd(0x30);
+			; SOURCE LINE # 251
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+; 				lcd_wcmd(0x9d);
+			; SOURCE LINE # 252
+	MOV  	R7,#09DH
+	LCALL	_lcd_wcmd
+; 				if(temp_data_Integer/100%10)lcd_wdat(temp_data_Integer/100%10+48);
+			; SOURCE LINE # 253
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	R7,B
+	MOV  	A,R7
+	JZ   	?C0107
+	LCALL	L?0444
+?C0107:
+; 				lcd_wdat(temp_data_Integer/10%10+48);
+			; SOURCE LINE # 254
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	LCALL	L?0400
+	LCALL	L?0444
+; 				lcd_wdat(temp_data_Integer%10+48);
+			; SOURCE LINE # 255
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	LCALL	L?0400
+	LCALL	L?0453
+; 				if(!(temp_data_Integer/100%10)){lcd_wdat('.');lcd_wdat(temp_data_Decimal_r%10+48);}
+			; SOURCE LINE # 256
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	LCALL	L?0400
+	JNZ  	?C0108
+	MOV  	R7,#02EH
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (temp_data_Decimal_r)
+	MOVX 	A,@R0
+	LCALL	L?0400
+	LCALL	L?0453
+?C0108:
+; 				lcd_ch_display(3,7,"℃");
+			; SOURCE LINE # 257
+	MOV  	R2,#HIGH (?SC_338)
+	MOV  	R1,#LOW (?SC_338)
+	MOV  	R5,#07H
+	LCALL	L?0454
+; 				//lcd_Draw_PM(7,48,2,16,wd);
+; 			}
+			; SOURCE LINE # 259
+?C0104:
+; 			if((SwitchFlag[0]==1||(!Sensor_switch[0]))&&Sensor_switch[1])
+			; SOURCE LINE # 260
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	XRL  	A,#01H
+	JZ   	?C0110
+	MOV  	R0,#LOW (Sensor_switch)
+	MOVX 	A,@R0
+	JZ   	$ + 5H
+	LJMP 	?C0262
+?C0110:
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	JNZ  	$ + 5H
+	LJMP 	?C0262
+; 			{
+			; SOURCE LINE # 261
+; 				if(SwitchFlag[0]!=SwitchFlag_sign[0]){lcd_Draw_PM_dat(4,48,8,16,0x00);lcd_ch_display(3,4,"        ");SwitchFlag_sign[0]=SwitchFlag[0];}
+			; SOURCE LINE # 262
+	MOV  	R0,#LOW (SwitchFlag_sign)
+	MOVX 	A,@R0
+	XRL  	A,R7
+	JZ   	?C0111
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat?BYTE+03H)
+	MOV  	A,#010H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#08H
+	MOV  	R5,#030H
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM_dat
+	MOV  	R2,#HIGH (?SC_224)
+	MOV  	R1,#LOW (?SC_224)
+	MOV  	R5,#04H
+	LCALL	L?0454
+	LCALL	L?0466
+?C0111:
+; 
+; 				lcd_Draw_PM(4,48,2,16,shd);
+			; SOURCE LINE # 264
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	LCALL	L?0396
+	MOV  	A,#HIGH (shd)
+	MOVX 	@R0,A
+	MOV  	A,#LOW (shd)
+	LCALL	L?0460
+; 				if(Dht_RhData[0]!=100)lcd_ch_display(3,5,"\xA1\xEF");//填充空位
+			; SOURCE LINE # 265
+	MOV  	R0,#LOW (Dht_RhData)
+	MOVX 	A,@R0
+	XRL  	A,#064H
+	JZ   	?C0112
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_341)
+	MOV  	R1,#LOW (?SC_341)
+	MOV  	R5,#05H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+?C0112:
+; 				lcd_wcmd(0x30);
+			; SOURCE LINE # 266
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+; 				if(Dht_RhData[0]!=100)lcd_wcmd(0x9e);else {lcd_wcmd(0x9d);lcd_wdat(' ');lcd_wdat('1');}//100%
+			; SOURCE LINE # 267
+	MOV  	R0,#LOW (Dht_RhData)
+	MOVX 	A,@R0
+	XRL  	A,#064H
+	JZ   	?C0113
+	MOV  	R7,#09EH
+	LCALL	_lcd_wcmd
+	SJMP 	?C0114
+?C0113:
+	MOV  	R7,#09DH
+	LCALL	_lcd_wcmd
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+	MOV  	R7,#031H
+	LCALL	_lcd_wdat
+?C0114:
+; 				lcd_wdat(Dht_RhData[0]/10%10+48);
+			; SOURCE LINE # 268
+	MOV  	R0,#LOW (Dht_RhData)
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	LCALL	L?0400
+	LCALL	L?0470
+; 				lcd_wdat(Dht_RhData[0]%10+48);
+			; SOURCE LINE # 269
+	MOV  	R0,#LOW (Dht_RhData)
+	MOVX 	A,@R0
+	LCALL	L?0400
+	LCALL	L?0470
+; //				lcd_wdat('.');//小数没有数据
+; //				lcd_wdat(Dht_RhData[1]+48);
+; 				lcd_Draw_PM(7,48,2,16,bfb);
+			; SOURCE LINE # 272
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	LCALL	L?0396
+	MOV  	A,#HIGH (bfb)
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#LOW (bfb)
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#030H
+	MOV  	R7,#07H
+	LJMP 	_lcd_Draw_PM
+; 			}
+			; SOURCE LINE # 273
+; 			break;
+			; SOURCE LINE # 274
+; 		}
+			; SOURCE LINE # 275
+; 		case 1:
+			; SOURCE LINE # 276
+?C0115:
+; 		{	
+			; SOURCE LINE # 277
+; 			if(menuRefreshSign!=menuCode){
+			; SOURCE LINE # 278
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0116
+; 				lcd_clr_DDram	();lcd_clr_GD ();menuRefreshSign=menuCode;
+			; SOURCE LINE # 279
+	LCALL	L?0430
+; 				DisplayOffset=0;OptionCode_old[0]=0;OptionSite=0;OptionSite_old=0;
+			; SOURCE LINE # 280
+	CLR  	A
+	MOV  	R0,#LOW (DisplayOffset)
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (OptionCode_old)
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (OptionSite_old)
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 281
+?C0116:
+; 			lcd_ch_display(0,0,"功");
+			; SOURCE LINE # 282
+	MOV  	R2,#HIGH (?SC_344)
+	MOV  	R1,#LOW (?SC_344)
+	LCALL	L?0452
+; 			lcd_ch_display(1,0,"能");
+			; SOURCE LINE # 283
+	MOV  	R2,#HIGH (?SC_347)
+	MOV  	R1,#LOW (?SC_347)
+; 			lcd_ch_display(2,0,"菜");
+			; SOURCE LINE # 284
+	LCALL	L?0420
+	MOV  	R2,#HIGH (?SC_350)
+	MOV  	R1,#LOW (?SC_350)
+	LCALL	L?0461
+; 			lcd_ch_display(3,0,"单");
+			; SOURCE LINE # 285
+	MOV  	R2,#HIGH (?SC_353)
+	MOV  	R1,#LOW (?SC_353)
+	LCALL	L?0471
+; 			lcd_wcmd(0x87);lcd_wdat(OptionCode[0]+48);
+			; SOURCE LINE # 286
+	MOV  	R7,#087H
+	LCALL	_lcd_wcmd
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+; 			lcd_Draw_PM_dat2(0,0,1,64,0xff,0xfe);
+			; SOURCE LINE # 287
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#040H
+	LCALL	L?0397
+	LCALL	L?0450
+; 			//光标
+; 			if(OptionCode[0]>OptionCode_old[0])
+			; SOURCE LINE # 289
+	MOV  	R0,#LOW (OptionCode_old)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	SETB 	C
+	SUBB 	A,R7
+	JC   	?C0117
+; 			{
+			; SOURCE LINE # 290
+; 				if(OptionCode[0]<3)OptionSite=OptionCode[0]*16;
+			; SOURCE LINE # 291
+	MOV  	A,R6
+	LCALL	L?0438
+	JNC  	?C0118
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R0,#LOW (OptionSite)
+	MOVX 	@R0,A
+	SJMP 	?C0119
+?C0118:
+; 				else if(OptionCode[0]<(OptionCode_Max[0]))OptionSite=32;
+			; SOURCE LINE # 292
+	MOV  	R0,#LOW (OptionCode_Max)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	CLR  	C
+	SUBB 	A,R6
+	MOV  	R0,#LOW (OptionSite)
+	JNC  	?C0120
+	MOV  	A,#020H
+	MOVX 	@R0,A
+	SJMP 	?C0119
+?C0120:
+; 				else OptionSite=48;
+			; SOURCE LINE # 293
+	MOV  	A,#030H
+	MOVX 	@R0,A
+?C0119:
+; 				OptionSite_old_Direction=0;
+			; SOURCE LINE # 294
+	CLR  	A
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 295
+?C0117:
+; 			if(OptionCode[0]<OptionCode_old[0])
+			; SOURCE LINE # 296
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	CLR  	C
+	SUBB 	A,R7
+	JNC  	?C0122
+; 			{
+			; SOURCE LINE # 297
+; 				if(OptionCode[0]>(OptionCode_Max[0]-3))OptionSite=48-(OptionCode_Max[0]-OptionCode[0])*16;
+			; SOURCE LINE # 298
+	MOV  	R0,#LOW (OptionCode_Max)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	ADD  	A,#0FDH
+	MOV  	R5,A
+	MOV  	A,R6
+	SETB 	C
+	SUBB 	A,R5
+	JC   	?C0123
+	MOV  	A,R7
+	SUBB 	A,R6
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R7,A
+	CLR  	C
+	MOV  	A,#030H
+	SUBB 	A,R7
+	SJMP 	?C0297
+?C0123:
+; 				else if(OptionCode[0]>0) OptionSite=16;
+			; SOURCE LINE # 299
+	MOV  	A,R6
+	SETB 	C
+	SUBB 	A,#00H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JC   	?C0125
+	MOV  	R0,#LOW (OptionSite)
+	MOV  	A,#010H
+	MOVX 	@R0,A
+	SJMP 	?C0124
+?C0125:
+; 				else OptionSite=0;
+			; SOURCE LINE # 300
+	CLR  	A
+?C0297:
+	MOV  	R0,#LOW (OptionSite)
+	MOVX 	@R0,A
+?C0124:
+; 				OptionSite_old_Direction=1;
+			; SOURCE LINE # 301
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 302
+?C0122:
+; 			OptionCode_old[0]=OptionCode[0];
+			; SOURCE LINE # 303
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (OptionCode_old)
+	MOVX 	@R0,A
+; 			if(OptionSite!=OptionSite_old)
+			; SOURCE LINE # 304
+	MOV  	R0,#LOW (OptionSite_old)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (OptionSite)
+	MOVX 	A,@R0
+	XRL  	A,R7
+	JZ   	?C0127
+; 			{
+			; SOURCE LINE # 305
+; 			lcd_Draw_PM_dat2(1,0,5,64,0x00,0x00);
+			; SOURCE LINE # 306
+	LCALL	L?0439
+	LCALL	L?0459
+; 			OptionSite_old=OptionSite;
+			; SOURCE LINE # 307
+	MOV  	R0,#LOW (OptionSite)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (OptionSite_old)
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 308
+?C0127:
+; 			
+; 			lcd_Draw_PM_dat2(1,OptionSite,5,16,0xff,0xff);
+			; SOURCE LINE # 310
+	MOV  	R0,#LOW (OptionSite)
+	MOVX 	A,@R0
+	MOV  	R5,A
+	LCALL	L?0394
+	MOVX 	@R0,A
+	MOV  	R3,#05H
+	MOV  	R7,#01H
+	LCALL	_lcd_Draw_PM_dat2
+; 			
+; 			//进度条
+; 			lcd_scrollBar(7,3,62,7,OptionCode[0]);
+			; SOURCE LINE # 313
+	MOV  	R0,#LOW (?_lcd_scrollBar?BYTE+03H)
+	MOV  	A,#07H
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?_lcd_scrollBar?BYTE+04H)
+	MOVX 	@R0,A
+	MOV  	R3,#03EH
+	MOV  	R5,#03H
+	MOV  	R7,#07H
+	LCALL	_lcd_scrollBar
+; 			
+; 			//选单
+; 			DisplayOffset=0;
+			; SOURCE LINE # 316
+	CLR  	A
+	MOV  	R0,#LOW (DisplayOffset)
+	MOVX 	@R0,A
+; 			if((OptionCode[0]<2)&&OptionSite_old_Direction									||(OptionCode[0]<3)&&(!OptionSite_old_Direction)){lcd_ch_display(DisplayOffset,5,"  ");lcd_ch_display(DisplayOffset++,1,"设置时间");}
+			; SOURCE LINE # 317
+	CLR  	C
+	LCALL	L?0447
+	JNC  	?C0130
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0129
+?C0130:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#03H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0128
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0128
+?C0129:
+	MOV  	R0,#LOW (DisplayOffset)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_356)
+	MOV  	R1,#LOW (?SC_356)
+	MOV  	R5,#05H
+	LCALL	_lcd_ch_display
+	LCALL	L?0432
+	MOV  	R2,#HIGH (?SC_359)
+	MOV  	R1,#LOW (?SC_359)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0128:
+; 			if((OptionCode[0]<3)&&OptionSite_old_Direction									||(OptionCode[0]<4)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"传感器设置");
+			; SOURCE LINE # 318
+	CLR  	C
+	LCALL	L?0437
+	JNC  	?C0133
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0132
+?C0133:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#04H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0131
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0131
+?C0132:
+	LCALL	L?0432
+	MOV  	R2,#HIGH (?SC_368)
+	MOV  	R1,#LOW (?SC_368)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0131:
+; 			if((OptionCode[0]<4)&&OptionSite_old_Direction									||(OptionCode[0]<5)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项2 ");
+			; SOURCE LINE # 319
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#04H
+	LCALL	L?0467
+	JNC  	?C0136
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0135
+?C0136:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#05H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0134
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0134
+?C0135:
+	LCALL	L?0433
+	MOV  	R2,#HIGH (?SC_379)
+	MOV  	R1,#LOW (?SC_379)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0134:
+; 			if(																	OptionSite_old_Direction||								(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项3 ");
+			; SOURCE LINE # 320
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	JNZ  	?C0138
+	MOV  	A,R7
+	JNZ  	?C0137
+?C0138:
+	LCALL	L?0433
+	MOV  	R2,#HIGH (?SC_390)
+	MOV  	R1,#LOW (?SC_390)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0137:
+; 			if(									(OptionCode[0]>1)&&OptionSite_old_Direction||(OptionCode[0]<7)&&(OptionCode[0]>2)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项4 ");
+			; SOURCE LINE # 321
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	SETB 	C
+	SUBB 	A,#01H
+	LCALL	L?0467
+	JC   	?C0141
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0140
+?C0141:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#07H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0139
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	LCALL	L?0448
+	JC   	?C0139
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0139
+?C0140:
+	LCALL	L?0433
+	MOV  	R2,#HIGH (?SC_401)
+	MOV  	R1,#LOW (?SC_401)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0139:
+; 			if(									(OptionCode[0]>2)&&OptionSite_old_Direction||(OptionCode[0]<8)&&(OptionCode[0]>3)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项5 ");
+			; SOURCE LINE # 322
+	SETB 	C
+	LCALL	L?0447
+	JC   	?C0144
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0143
+?C0144:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#08H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0142
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	LCALL	L?0438
+	JC   	?C0142
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0142
+?C0143:
+	LCALL	L?0433
+	MOV  	R2,#HIGH (?SC_412)
+	MOV  	R1,#LOW (?SC_412)
+	MOV  	R5,#01H
+	LCALL	_lcd_ch_display
+?C0142:
+; 			if(									(OptionCode[0]>3)&&OptionSite_old_Direction||(OptionCode[0]<9)&&(OptionCode[0]>4)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项6 ");
+			; SOURCE LINE # 323
+	SETB 	C
+	LCALL	L?0437
+	JC   	?C0147
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JNZ  	?C0146
+?C0147:
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#09H
+	MOV  	A,R6
+	XRL  	A,#080H
+	SUBB 	A,#080H
+	JC   	$ + 5H
+	LJMP 	?C0262
+	MOV  	R0,#LOW (OptionCode)
+	MOVX 	A,@R0
+	SUBB 	A,#04H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	$ + 5H
+	LJMP 	?C0262
+	MOV  	R0,#LOW (OptionSite_old_Direction)
+	MOVX 	A,@R0
+	JZ   	$ + 5H
+	LJMP 	?C0262
+?C0146:
+	LCALL	L?0433
+	MOV  	R2,#HIGH (?SC_423)
+	MOV  	R1,#LOW (?SC_423)
+	MOV  	R5,#01H
+; //			if(									(OptionCode[0]>4)&&OptionSite_old_Direction||(OptionCode[0]<10)&&(OptionCode[0]>5)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项7");
+; //			if(									(OptionCode[0]>5)&&OptionSite_old_Direction||(OptionCode[0]<11)&&(OptionCode[0]>6)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项8");
+; //			if(									(OptionCode[0]>6)&&OptionSite_old_Direction||(OptionCode[0]<12)&&(OptionCode[0]>7)&&(!OptionSite_old_Direction))lcd_ch_display(DisplayOffset++,1,"功能选项9");
+; 			break;
+			; SOURCE LINE # 327
+	LJMP 	?C0298
+; 		}
+			; SOURCE LINE # 328
+; 		
+; 		case 10:
+			; SOURCE LINE # 330
+?C0148:
+; 		{	if(menuRefreshSign!=menuCode){lcd_clr_DDram	();lcd_clr_GD ();menuRefreshSign=menuCode;Ds1302_time_Copy(0);OptionCode[1]=10;Option_count=0;}
+			; SOURCE LINE # 331
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0149
+	LCALL	L?0446
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_Ds1302_time_Copy
+	MOV  	R0,#LOW (OptionCode+01H)
+	MOV  	A,#0AH
+	MOVX 	@R0,A
+	CLR  	A
+	MOV  	R0,#LOW (Option_count)
+	MOVX 	@R0,A
+?C0149:
+; 			//lcd_ch_display(0,0,"功能子菜单");lcd_Draw_PM_dat(0,0,10,16,0xff);
+; 			lcd_ch_display(0,0,"设");
+			; SOURCE LINE # 333
+	MOV  	R2,#HIGH (?SC_434)
+	MOV  	R1,#LOW (?SC_434)
+	LCALL	L?0452
+; 			lcd_ch_display(1,0,"置");
+			; SOURCE LINE # 334
+	MOV  	R2,#HIGH (?SC_437)
+	MOV  	R1,#LOW (?SC_437)
+; 			lcd_ch_display(2,0,"时");
+			; SOURCE LINE # 335
+	LCALL	L?0434
+	MOV  	R2,#HIGH (?SC_440)
+	MOV  	R1,#LOW (?SC_440)
+	LCALL	L?0461
+; 			lcd_ch_display(3,0,"间");
+			; SOURCE LINE # 336
+	MOV  	R2,#HIGH (?SC_443)
+	MOV  	R1,#LOW (?SC_443)
+	LCALL	L?0471
+; 			
+; 			lcd_wcmd(0x30);lcd_wcmd(0x81);
+			; SOURCE LINE # 338
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+	MOV  	R7,#081H
+	LCALL	_lcd_wcmd
+; 			lcd_wdat((ds_dat_time_set[2]>>4)+48);lcd_wdat((ds_dat_time_set[2]&0x0f)+48);lcd_wdat(':');
+			; SOURCE LINE # 339
+	MOV  	R0,#LOW (ds_dat_time_set+02H)
+	LCALL	L?0387
+	MOV  	R0,#LOW (ds_dat_time_set+02H)
+	LCALL	L?0408
+	MOV  	R7,#03AH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time_set[1]>>4)+48);lcd_wdat((ds_dat_time_set[1]&0x0f)+48);lcd_wdat(':');
+			; SOURCE LINE # 340
+	MOV  	R0,#LOW (ds_dat_time_set+01H)
+	LCALL	L?0403
+	MOV  	R0,#LOW (ds_dat_time_set+01H)
+	LCALL	L?0412
+	MOV  	R7,#03AH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time_set[0]>>4)+48);lcd_wdat((ds_dat_time_set[0]&0x0f)+48);
+			; SOURCE LINE # 341
+	MOV  	R0,#LOW (ds_dat_time_set)
+	LCALL	L?0403
+	MOV  	R0,#LOW (ds_dat_time_set)
+	LCALL	L?0412
+; 			lcd_Draw_PM_dat2(0,0,1,64,0xff,0xfe);
+			; SOURCE LINE # 342
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#040H
+	LCALL	L?0397
+	LCALL	L?0450
+; 			lcd_wcmd(0x30);lcd_wcmd(0x91);
+			; SOURCE LINE # 343
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+	MOV  	R7,#091H
+; 			lcd_wdat('2');lcd_wdat('0');
+			; SOURCE LINE # 344
+	LCALL	L?0456
+; 			lcd_wdat((ds_dat_time_set[6]>>4)+48);lcd_wdat((ds_dat_time_set[6]&0x0f)+48);lcd_wdat('-');
+			; SOURCE LINE # 345
+	MOV  	R0,#LOW (ds_dat_time_set+06H)
+	LCALL	L?0419
+	MOV  	R0,#LOW (ds_dat_time_set+06H)
+	LCALL	L?0428
+	MOV  	R7,#02DH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time_set[4]>>4)+48);lcd_wdat((ds_dat_time_set[4]&0x0f)+48);lcd_wdat('-');
+			; SOURCE LINE # 346
+	MOV  	R0,#LOW (ds_dat_time_set+04H)
+	LCALL	L?0419
+	MOV  	R0,#LOW (ds_dat_time_set+04H)
+	LCALL	L?0428
+	MOV  	R7,#02DH
+	LCALL	_lcd_wdat
+; 			lcd_wdat((ds_dat_time_set[3]>>4)+48);lcd_wdat((ds_dat_time_set[3]&0x0f)+48);
+			; SOURCE LINE # 347
+	MOV  	R0,#LOW (ds_dat_time_set+03H)
+	MOVX 	A,@R0
+	SWAP 	A
+	LCALL	L?0436
+	MOV  	R0,#LOW (ds_dat_time_set+03H)
+	MOVX 	A,@R0
+	LCALL	L?0436
+; 			
+; 
+; 			
+; 			
+; 			ds_dat_time_set[5]=CalculateWeek(20,ds_dat_time_set[6],ds_dat_time_set[4],ds_dat_time_set[3]);
+			; SOURCE LINE # 352
+	MOV  	R0,#LOW (ds_dat_time_set+06H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (ds_dat_time_set+04H)
+	LCALL	L?0462
+	LCALL	_CalculateWeek
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOV  	A,R7
+	MOVX 	@R0,A
+; 			if(ds_dat_time_set[5]==1)lcd_ch_display(2,6,"周一");
+			; SOURCE LINE # 353
+	XRL  	A,#01H
+	JNZ  	?C0150
+	MOV  	R7,#02H
+	LCALL	L?0384
+?C0150:
+; 			if(ds_dat_time_set[5]==2)lcd_ch_display(2,6,"周二");
+			; SOURCE LINE # 354
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	XRL  	A,#02H
+	JNZ  	?C0151
+	MOV  	R7,#02H
+	LCALL	L?0388
+?C0151:
+; 			if(ds_dat_time_set[5]==3)lcd_ch_display(2,6,"周\xC8\xFD");//三
+			; SOURCE LINE # 355
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	XRL  	A,#03H
+	JNZ  	?C0152
+	MOV  	R7,#02H
+	LCALL	L?0392
+?C0152:
+; 			if(ds_dat_time_set[5]==4)lcd_ch_display(2,6,"周四");
+			; SOURCE LINE # 356
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	XRL  	A,#04H
+	JNZ  	?C0153
+	MOV  	R7,#02H
+	LCALL	L?0404
+?C0153:
+; 			if(ds_dat_time_set[5]==5)lcd_ch_display(2,6,"周五");
+			; SOURCE LINE # 357
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	XRL  	A,#05H
+	JNZ  	?C0154
+	MOV  	R7,#02H
+	LCALL	L?0410
+?C0154:
+; 			if(ds_dat_time_set[5]==6)lcd_ch_display(2,6,"周六");
+			; SOURCE LINE # 358
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	XRL  	A,#06H
+	JNZ  	?C0155
+	MOV  	R7,#02H
+	LCALL	L?0429
+?C0155:
+; 			if(ds_dat_time_set[5]==0||ds_dat_time_set[5]==7)lcd_ch_display(2,6,"周日");
+			; SOURCE LINE # 359
+	MOV  	R0,#LOW (ds_dat_time_set+05H)
+	MOVX 	A,@R0
+	JZ   	?C0157
+	XRL  	A,#07H
+	JNZ  	?C0156
+?C0157:
+	MOV  	R2,#HIGH (?SC_30)
+	MOV  	R1,#LOW (?SC_30)
+	MOV  	R5,#06H
+	LCALL	L?0455
+?C0156:
+; 			
+; 			Conversion(0,ds_dat_time_set[6],ds_dat_time_set[4],ds_dat_time_set[3]);
+			; SOURCE LINE # 361
+	CLR  	?Conversion?BIT
+	MOV  	R0,#LOW (ds_dat_time_set+06H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?Conversion?BYTE)
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (ds_dat_time_set+04H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?Conversion?BYTE+01H)
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (ds_dat_time_set+03H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (?Conversion?BYTE+02H)
+	MOVX 	@R0,A
+	LCALL	Conversion
+; 			//lcd_wcmd(0x30);lcd_wcmd(0x8b);lcd_wdat((cale_moon_year>>4)+48);lcd_wdat((cale_moon_year&0x0f)+48);
+; 			cale_moon_year=(cale_moon_year>>4)*10+(cale_moon_year&0x0f);
+			; SOURCE LINE # 363
+	MOV  	A,cale_moon_year
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#0AH
+	MUL  	AB
+	MOV  	R7,A
+	MOV  	A,cale_moon_year
+	ANL  	A,#0FH
+	ADD  	A,R7
+	MOV  	cale_moon_year,A
+; 			
+; 			if((cale_moon_year%10)==0)lcd_ch_display(3,1,"\xB8\xFD");//天干
+			; SOURCE LINE # 365
+	LCALL	L?0400
+	JNZ  	?C0158
+	MOV  	R5,#01H
+	LCALL	L?0346
+?C0158:
+; 			if((cale_moon_year%10)==1)lcd_ch_display(3,1,"辛");
+			; SOURCE LINE # 366
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#01H
+	JNZ  	?C0159
+	MOV  	R5,#01H
+	LCALL	L?0348
+?C0159:
+; 			if((cale_moon_year%10)==2)lcd_ch_display(3,1,"壬");
+			; SOURCE LINE # 367
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#02H
+	JNZ  	?C0160
+	MOV  	R5,#01H
+	LCALL	L?0350
+?C0160:
+; 			if((cale_moon_year%10)==3)lcd_ch_display(3,1,"癸");
+			; SOURCE LINE # 368
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#03H
+	JNZ  	?C0161
+	MOV  	R5,#01H
+	LCALL	L?0352
+?C0161:
+; 			if((cale_moon_year%10)==4)lcd_ch_display(3,1,"甲");
+			; SOURCE LINE # 369
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#04H
+	JNZ  	?C0162
+	MOV  	R5,#01H
+	LCALL	L?0354
+?C0162:
+; 			if((cale_moon_year%10)==5)lcd_ch_display(3,1,"乙");
+			; SOURCE LINE # 370
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#05H
+	JNZ  	?C0163
+	MOV  	R5,#01H
+	LCALL	L?0356
+?C0163:
+; 			if((cale_moon_year%10)==6)lcd_ch_display(3,1,"丙");
+			; SOURCE LINE # 371
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#06H
+	JNZ  	?C0164
+	MOV  	R5,#01H
+	LCALL	L?0358
+?C0164:
+; 			if((cale_moon_year%10)==7)lcd_ch_display(3,1,"丁");
+			; SOURCE LINE # 372
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#07H
+	JNZ  	?C0165
+	MOV  	R5,#01H
+	LCALL	L?0359
+?C0165:
+; 			if((cale_moon_year%10)==8)lcd_ch_display(3,1,"戊");
+			; SOURCE LINE # 373
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#08H
+	JNZ  	?C0166
+	MOV  	R5,#01H
+	LCALL	L?0360
+?C0166:
+; 			if((cale_moon_year%10)==9)lcd_ch_display(3,1,"己");
+			; SOURCE LINE # 374
+	MOV  	A,cale_moon_year
+	LCALL	L?0400
+	XRL  	A,#09H
+	JNZ  	?C0167
+	MOV  	R5,#01H
+	LCALL	L?0361
+?C0167:
+; 			
+; 			if((cale_moon_year%12)==0)lcd_ch_display(3,2,"辰");//地支
+			; SOURCE LINE # 376
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	JNZ  	?C0168
+	MOV  	R5,#02H
+	LCALL	L?0362
+?C0168:
+; 			if((cale_moon_year%12)==1)lcd_ch_display(3,2,"巳");
+			; SOURCE LINE # 377
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#01H
+	JNZ  	?C0169
+	MOV  	R5,#02H
+	LCALL	L?0363
+?C0169:
+; 			if((cale_moon_year%12)==2)lcd_ch_display(3,2,"午");
+			; SOURCE LINE # 378
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#02H
+	JNZ  	?C0170
+	MOV  	R5,#02H
+	LCALL	L?0364
+?C0170:
+; 			if((cale_moon_year%12)==3)lcd_ch_display(3,2,"未");
+			; SOURCE LINE # 379
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#03H
+	JNZ  	?C0171
+	MOV  	R5,#02H
+	LCALL	L?0365
+?C0171:
+; 			if((cale_moon_year%12)==4)lcd_ch_display(3,2,"申");
+			; SOURCE LINE # 380
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#04H
+	JNZ  	?C0172
+	MOV  	R5,#02H
+	LCALL	L?0366
+?C0172:
+; 			if((cale_moon_year%12)==5)lcd_ch_display(3,2,"酉");
+			; SOURCE LINE # 381
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#05H
+	JNZ  	?C0173
+	MOV  	R5,#02H
+	LCALL	L?0368
+?C0173:
+; 			if((cale_moon_year%12)==6)lcd_ch_display(3,2,"戌");
+			; SOURCE LINE # 382
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#06H
+	JNZ  	?C0174
+	MOV  	R5,#02H
+	LCALL	L?0374
+?C0174:
+; 			if((cale_moon_year%12)==7)lcd_ch_display(3,2,"亥");
+			; SOURCE LINE # 383
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#07H
+	JNZ  	?C0175
+	MOV  	R5,#02H
+	LCALL	L?0377
+?C0175:
+; 			if((cale_moon_year%12)==8)lcd_ch_display(3,2,"子");
+			; SOURCE LINE # 384
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#08H
+	JNZ  	?C0176
+	MOV  	R5,#02H
+	LCALL	L?0381
+?C0176:
+; 			if((cale_moon_year%12)==9)lcd_ch_display(3,2,"丑");
+			; SOURCE LINE # 385
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#09H
+	JNZ  	?C0177
+	MOV  	R5,#02H
+	LCALL	L?0385
+?C0177:
+; 			if((cale_moon_year%12)==10)lcd_ch_display(3,2,"寅");
+			; SOURCE LINE # 386
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#0AH
+	JNZ  	?C0178
+	MOV  	R5,#02H
+	LCALL	L?0393
+?C0178:
+; 			if((cale_moon_year%12)==11)lcd_ch_display(3,2,"卯");
+			; SOURCE LINE # 387
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#0BH
+	JNZ  	?C0179
+	MOV  	R5,#02H
+	LCALL	L?0409
+?C0179:
+; 			
+; 			if((cale_moon_year%12)==0)lcd_ch_display(2,1,"龙");//地支
+			; SOURCE LINE # 389
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	JNZ  	?C0180
+	MOV  	R2,#HIGH (?SC_299)
+	MOV  	R1,#LOW (?SC_299)
+	LCALL	L?0405
+?C0180:
+; 			if((cale_moon_year%12)==1)lcd_ch_display(2,1,"蛇");
+			; SOURCE LINE # 390
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#01H
+	JNZ  	?C0181
+	MOV  	R2,#HIGH (?SC_302)
+	MOV  	R1,#LOW (?SC_302)
+	LCALL	L?0405
+?C0181:
+; 			if((cale_moon_year%12)==2)lcd_ch_display(2,1,"马");
+			; SOURCE LINE # 391
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#02H
+	JNZ  	?C0182
+	MOV  	R2,#HIGH (?SC_305)
+	MOV  	R1,#LOW (?SC_305)
+	LCALL	L?0411
+?C0182:
+; 			if((cale_moon_year%12)==3)lcd_ch_display(2,1,"羊");
+			; SOURCE LINE # 392
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#03H
+	JNZ  	?C0183
+	MOV  	R2,#HIGH (?SC_308)
+	MOV  	R1,#LOW (?SC_308)
+	LCALL	L?0411
+?C0183:
+; 			if((cale_moon_year%12)==4)lcd_ch_display(2,1,"猴");
+			; SOURCE LINE # 393
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#04H
+	JNZ  	?C0184
+	MOV  	R2,#HIGH (?SC_311)
+	MOV  	R1,#LOW (?SC_311)
+	LCALL	L?0417
+?C0184:
+; 			if((cale_moon_year%12)==5)lcd_ch_display(2,1,"鸡");
+			; SOURCE LINE # 394
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#05H
+	JNZ  	?C0185
+	MOV  	R2,#HIGH (?SC_314)
+	MOV  	R1,#LOW (?SC_314)
+	LCALL	L?0417
+?C0185:
+; 			if((cale_moon_year%12)==6)lcd_ch_display(2,1,"狗");
+			; SOURCE LINE # 395
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#06H
+	JNZ  	?C0186
+	MOV  	R2,#HIGH (?SC_317)
+	MOV  	R1,#LOW (?SC_317)
+	LCALL	L?0431
+?C0186:
+; 			if((cale_moon_year%12)==7)lcd_ch_display(2,1,"猪");
+			; SOURCE LINE # 396
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#07H
+	JNZ  	?C0187
+	MOV  	R2,#HIGH (?SC_320)
+	MOV  	R1,#LOW (?SC_320)
+	LCALL	L?0431
+?C0187:
+; 			if((cale_moon_year%12)==8)lcd_ch_display(2,1,"鼠");
+			; SOURCE LINE # 397
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#08H
+	JNZ  	?C0188
+	MOV  	R2,#HIGH (?SC_323)
+	MOV  	R1,#LOW (?SC_323)
+	LCALL	L?0442
+?C0188:
+; 			if((cale_moon_year%12)==9)lcd_ch_display(2,1,"牛");
+			; SOURCE LINE # 398
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#09H
+	JNZ  	?C0189
+	MOV  	R2,#HIGH (?SC_326)
+	MOV  	R1,#LOW (?SC_326)
+	LCALL	L?0442
+?C0189:
+; 			if((cale_moon_year%12)==10)lcd_ch_display(2,1,"虎");
+			; SOURCE LINE # 399
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#0AH
+	JNZ  	?C0190
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_329)
+	MOV  	R1,#LOW (?SC_329)
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+?C0190:
+; 			if((cale_moon_year%12)==11)lcd_ch_display(2,1,"兔");
+			; SOURCE LINE # 400
+	MOV  	A,cale_moon_year
+	LCALL	L?0371
+	XRL  	A,#0BH
+	JNZ  	?C0191
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	L?0314
+?C0191:
+; 			lcd_ch_display(3,3,"年");
+			; SOURCE LINE # 401
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_335)
+	MOV  	R1,#LOW (?SC_335)
+	MOV  	R5,#03H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+; 			if(cale_moon_month==1)lcd_ch_display(3,4,"\xD5\xFD");
+			; SOURCE LINE # 402
+	MOV  	A,cale_moon_month
+	XRL  	A,#01H
+	JNZ  	?C0192
+	MOV  	R5,#04H
+	LCALL	L?0367
+?C0192:
+; 			if(cale_moon_month==2)lcd_ch_display(3,4,"二");
+			; SOURCE LINE # 403
+	MOV  	A,cale_moon_month
+	XRL  	A,#02H
+	JNZ  	?C0193
+	MOV  	R5,#04H
+	LCALL	L?0372
+?C0193:
+; 			if(cale_moon_month==3)lcd_ch_display(3,4,"\xC8\xFD");
+			; SOURCE LINE # 404
+	MOV  	A,cale_moon_month
+	XRL  	A,#03H
+	JNZ  	?C0194
+	MOV  	R5,#04H
+	LCALL	L?0376
+?C0194:
+; 			if(cale_moon_month==4)lcd_ch_display(3,4,"四");
+			; SOURCE LINE # 405
+	MOV  	A,cale_moon_month
+	XRL  	A,#04H
+	JNZ  	?C0195
+	MOV  	R5,#04H
+	LCALL	L?0378
+?C0195:
+; 			if(cale_moon_month==5)lcd_ch_display(3,4,"五");
+			; SOURCE LINE # 406
+	MOV  	A,cale_moon_month
+	XRL  	A,#05H
+	JNZ  	?C0196
+	MOV  	R5,#04H
+	LCALL	L?0383
+?C0196:
+; 			if(cale_moon_month==6)lcd_ch_display(3,4,"六");
+			; SOURCE LINE # 407
+	MOV  	A,cale_moon_month
+	XRL  	A,#06H
+	JNZ  	?C0197
+	MOV  	R5,#04H
+	LCALL	L?0389
+?C0197:
+; 			if(cale_moon_month==7)lcd_ch_display(3,4,"七");
+			; SOURCE LINE # 408
+	MOV  	A,cale_moon_month
+	XRL  	A,#07H
+	JNZ  	?C0198
+	MOV  	R5,#04H
+	LCALL	L?0402
+?C0198:
+; 			if(cale_moon_month==8)lcd_ch_display(3,4,"八");
+			; SOURCE LINE # 409
+	MOV  	A,cale_moon_month
+	XRL  	A,#08H
+	JNZ  	?C0199
+	MOV  	R5,#04H
+	LCALL	L?0407
+?C0199:
+; 			if(cale_moon_month==9)lcd_ch_display(3,4,"九");
+			; SOURCE LINE # 410
+	MOV  	A,cale_moon_month
+	XRL  	A,#09H
+	JNZ  	?C0200
+	MOV  	R5,#04H
+	LCALL	L?0413
+?C0200:
+; 			if(cale_moon_month==0x10)lcd_ch_display(3,4,"十");
+			; SOURCE LINE # 411
+	MOV  	A,cale_moon_month
+	XRL  	A,#010H
+	JNZ  	?C0201
+	MOV  	R5,#04H
+	LCALL	L?0416
+?C0201:
+; 			if(cale_moon_month==0x11)lcd_ch_display(3,4,"冬");
+			; SOURCE LINE # 412
+	MOV  	A,cale_moon_month
+	XRL  	A,#011H
+	JNZ  	?C0202
+	MOV  	R5,#04H
+	LCALL	L?0422
+?C0202:
+; 			if(cale_moon_month==0x12)lcd_ch_display(3,4,"腊");
+			; SOURCE LINE # 413
+	MOV  	A,cale_moon_month
+	XRL  	A,#012H
+	JNZ  	?C0203
+	MOV  	R5,#04H
+	LCALL	L?0427
+?C0203:
+; 			lcd_ch_display(3,5,"月");
+			; SOURCE LINE # 414
+	MOV  	R5,#05H
+	LCALL	L?0344
+; 			if(cale_moon_day==0x1){lcd_ch_display(3,6,"初一");}
+			; SOURCE LINE # 415
+	MOV  	A,cale_moon_day
+	XRL  	A,#01H
+	JNZ  	?C0204
+	MOV  	R5,#06H
+	LCALL	L?0315
+?C0204:
+; 			if(cale_moon_day==0x2){lcd_ch_display(3,6,"初二");}
+			; SOURCE LINE # 416
+	MOV  	A,cale_moon_day
+	XRL  	A,#02H
+	JNZ  	?C0205
+	MOV  	R5,#06H
+	LCALL	L?0316
+?C0205:
+; 			if(cale_moon_day==0x3){lcd_ch_display(3,6,"初\xC8\xFD");}
+			; SOURCE LINE # 417
+	MOV  	A,cale_moon_day
+	XRL  	A,#03H
+	JNZ  	?C0206
+	MOV  	R5,#06H
+	LCALL	L?0317
+?C0206:
+; 			if(cale_moon_day==0x4){lcd_ch_display(3,6,"初四");}
+			; SOURCE LINE # 418
+	MOV  	A,cale_moon_day
+	XRL  	A,#04H
+	JNZ  	?C0207
+	MOV  	R5,#06H
+	LCALL	L?0318
+?C0207:
+; 			if(cale_moon_day==0x5){lcd_ch_display(3,6,"初五");}
+			; SOURCE LINE # 419
+	MOV  	A,cale_moon_day
+	XRL  	A,#05H
+	JNZ  	?C0208
+	MOV  	R5,#06H
+	LCALL	L?0319
+?C0208:
+; 			if(cale_moon_day==0x6){lcd_ch_display(3,6,"初六");}
+			; SOURCE LINE # 420
+	MOV  	A,cale_moon_day
+	XRL  	A,#06H
+	JNZ  	?C0209
+	MOV  	R5,#06H
+	LCALL	L?0320
+?C0209:
+; 			if(cale_moon_day==0x7){lcd_ch_display(3,6,"初七");}
+			; SOURCE LINE # 421
+	MOV  	A,cale_moon_day
+	XRL  	A,#07H
+	JNZ  	?C0210
+	MOV  	R5,#06H
+	LCALL	L?0321
+?C0210:
+; 			if(cale_moon_day==0x8){lcd_ch_display(3,6,"初八");}
+			; SOURCE LINE # 422
+	MOV  	A,cale_moon_day
+	XRL  	A,#08H
+	JNZ  	?C0211
+	MOV  	R5,#06H
+	LCALL	L?0322
+?C0211:
+; 			if(cale_moon_day==0x9){lcd_ch_display(3,6,"初九");}
+			; SOURCE LINE # 423
+	MOV  	A,cale_moon_day
+	XRL  	A,#09H
+	JNZ  	?C0212
+	MOV  	R5,#06H
+	LCALL	L?0323
+?C0212:
+; 			if(cale_moon_day==0x10){lcd_ch_display(3,6,"初十");}
+			; SOURCE LINE # 424
+	MOV  	A,cale_moon_day
+	XRL  	A,#010H
+	JNZ  	?C0213
+	MOV  	R5,#06H
+	LCALL	L?0324
+?C0213:
+; 			if(cale_moon_day==0x11){lcd_ch_display(3,6,"十一");}
+			; SOURCE LINE # 425
+	MOV  	A,cale_moon_day
+	XRL  	A,#011H
+	JNZ  	?C0214
+	MOV  	R5,#06H
+	LCALL	L?0325
+?C0214:
+; 			if(cale_moon_day==0x12){lcd_ch_display(3,6,"十二");}
+			; SOURCE LINE # 426
+	MOV  	A,cale_moon_day
+	XRL  	A,#012H
+	JNZ  	?C0215
+	MOV  	R5,#06H
+	LCALL	L?0326
+?C0215:
+; 			if(cale_moon_day==0x13){lcd_ch_display(3,6,"十\xC8\xFD");}
+			; SOURCE LINE # 427
+	MOV  	A,cale_moon_day
+	XRL  	A,#013H
+	JNZ  	?C0216
+	MOV  	R5,#06H
+	LCALL	L?0328
+?C0216:
+; 			if(cale_moon_day==0x14){lcd_ch_display(3,6,"十四");}
+			; SOURCE LINE # 428
+	MOV  	A,cale_moon_day
+	XRL  	A,#014H
+	JNZ  	?C0217
+	MOV  	R5,#06H
+	LCALL	L?0329
+?C0217:
+; 			if(cale_moon_day==0x15){lcd_ch_display(3,6,"十五");}
+			; SOURCE LINE # 429
+	MOV  	A,cale_moon_day
+	XRL  	A,#015H
+	JNZ  	?C0218
+	MOV  	R5,#06H
+	LCALL	L?0335
+?C0218:
+; 			if(cale_moon_day==0x16){lcd_ch_display(3,6,"十六");}
+			; SOURCE LINE # 430
+	MOV  	A,cale_moon_day
+	XRL  	A,#016H
+	JNZ  	?C0219
+	MOV  	R5,#06H
+	LCALL	L?0336
+?C0219:
+; 			if(cale_moon_day==0x17){lcd_ch_display(3,6,"十七");}
+			; SOURCE LINE # 431
+	MOV  	A,cale_moon_day
+	XRL  	A,#017H
+	JNZ  	?C0220
+	MOV  	R5,#06H
+	LCALL	L?0337
+?C0220:
+; 			if(cale_moon_day==0x18){lcd_ch_display(3,6,"十八");}
+			; SOURCE LINE # 432
+	MOV  	A,cale_moon_day
+	XRL  	A,#018H
+	JNZ  	?C0221
+	MOV  	R5,#06H
+	LCALL	L?0338
+?C0221:
+; 			if(cale_moon_day==0x19){lcd_ch_display(3,6,"十九");}
+			; SOURCE LINE # 433
+	MOV  	A,cale_moon_day
+	XRL  	A,#019H
+	JNZ  	?C0222
+	MOV  	R5,#06H
+	LCALL	L?0339
+?C0222:
+; 			if(cale_moon_day==0x20){lcd_ch_display(3,6,"二十");}
+			; SOURCE LINE # 434
+	MOV  	A,cale_moon_day
+	XRL  	A,#020H
+	JNZ  	?C0223
+	MOV  	R5,#06H
+	LCALL	L?0340
+?C0223:
+; 			if(cale_moon_day==0x21){lcd_ch_display(3,6,"廿一");}
+			; SOURCE LINE # 435
+	MOV  	A,cale_moon_day
+	XRL  	A,#021H
+	JNZ  	?C0224
+	MOV  	R5,#06H
+	LCALL	L?0341
+?C0224:
+; 			if(cale_moon_day==0x22){lcd_ch_display(3,6,"廿二");}
+			; SOURCE LINE # 436
+	MOV  	A,cale_moon_day
+	XRL  	A,#022H
+	JNZ  	?C0225
+	MOV  	R5,#06H
+	LCALL	L?0342
+?C0225:
+; 			if(cale_moon_day==0x23){lcd_ch_display(3,6,"廿\xC8\xFD");}
+			; SOURCE LINE # 437
+	MOV  	A,cale_moon_day
+	XRL  	A,#023H
+	JNZ  	?C0226
+	MOV  	R5,#06H
+	LCALL	L?0343
+?C0226:
+; 			if(cale_moon_day==0x24){lcd_ch_display(3,6,"廿四");}
+			; SOURCE LINE # 438
+	MOV  	A,cale_moon_day
+	XRL  	A,#024H
+	JNZ  	?C0227
+	MOV  	R5,#06H
+	LCALL	L?0345
+?C0227:
+; 			if(cale_moon_day==0x25){lcd_ch_display(3,6,"廿五");}
+			; SOURCE LINE # 439
+	MOV  	A,cale_moon_day
+	XRL  	A,#025H
+	JNZ  	?C0228
+	MOV  	R5,#06H
+	LCALL	L?0347
+?C0228:
+; 			if(cale_moon_day==0x26){lcd_ch_display(3,6,"廿六");}
+			; SOURCE LINE # 440
+	MOV  	A,cale_moon_day
+	XRL  	A,#026H
+	JNZ  	?C0229
+	MOV  	R5,#06H
+	LCALL	L?0349
+?C0229:
+; 			if(cale_moon_day==0x27){lcd_ch_display(3,6,"廿七");}
+			; SOURCE LINE # 441
+	MOV  	A,cale_moon_day
+	XRL  	A,#027H
+	JNZ  	?C0230
+	MOV  	R5,#06H
+	LCALL	L?0351
+?C0230:
+; 			if(cale_moon_day==0x28){lcd_ch_display(3,6,"廿八");}
+			; SOURCE LINE # 442
+	MOV  	A,cale_moon_day
+	XRL  	A,#028H
+	JNZ  	?C0231
+	MOV  	R5,#06H
+	LCALL	L?0353
+?C0231:
+; 			if(cale_moon_day==0x29){lcd_ch_display(3,6,"廿九");}
+			; SOURCE LINE # 443
+	MOV  	A,cale_moon_day
+	XRL  	A,#029H
+	JNZ  	?C0232
+	MOV  	R5,#06H
+	LCALL	L?0355
+?C0232:
+; 			if(cale_moon_day==0x30){lcd_ch_display(3,6,"\xC8\xFD十");}
+			; SOURCE LINE # 444
+	MOV  	A,cale_moon_day
+	XRL  	A,#030H
+	JNZ  	?C0233
+	MOV  	R5,#06H
+	LCALL	L?0357
+?C0233:
+; 			
+; 			if((OptionCode_old[1]!=OptionCode[1])||Option_count==0)
+			; SOURCE LINE # 446
+	MOV  	R0,#LOW (OptionCode+01H)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (OptionCode_old+01H)
+	MOVX 	A,@R0
+	CJNE 	A,AR7,?C0235
+	MOV  	R0,#LOW (Option_count)
+	MOVX 	A,@R0
+	JZ   	$ + 5H
+	LJMP 	?C0262
+?C0235:
+; 			{
+			; SOURCE LINE # 447
+; 				lcd_Draw_PM_dat2(1,0,5,64,0x00,0x00);
+			; SOURCE LINE # 448
+	LCALL	L?0439
+	LCALL	L?0459
+; 				Option_count=1;
+			; SOURCE LINE # 449
+	MOV  	R0,#LOW (Option_count)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+; 				switch(OptionCode[1])
+			; SOURCE LINE # 450
+	MOV  	R0,#LOW (OptionCode+01H)
+	MOVX 	A,@R0
+	DEC  	A
+	JZ   	?C0238
+	DEC  	A
+	JZ   	?C0239
+	DEC  	A
+	JZ   	?C0240
+	DEC  	A
+	JZ   	?C0241
+	DEC  	A
+	JZ   	?C0242
+	ADD  	A,#05H
+	JNZ  	?C0236
+; 				{
+			; SOURCE LINE # 451
+; 					case 0:lcd_Draw_PM_dat2(1,0,1,16,0xff,0xff);break;
+			; SOURCE LINE # 452
+?C0237:
+	LCALL	L?0394
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#01H
+	LJMP 	?C0303
+; 					case 1:lcd_Draw_PM_dat2(2,0,1,16,0x00,0xff);lcd_Draw_PM_dat2(3,0,1,16,0xff,0x00);break;
+			; SOURCE LINE # 453
+?C0238:
+	MOV  	A,#010H
+	LCALL	L?0441
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#02H
+	LCALL	L?0451
+	MOV  	R5,A
+	MOV  	R7,#03H
+?C0299:
+	SJMP 	?C0303
+; 					case 2:lcd_Draw_PM_dat2(4,0,1,16,0xff,0xff);break;
+			; SOURCE LINE # 454
+?C0239:
+	LCALL	L?0395
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#04H
+?C0300:
+	SJMP 	?C0303
+; 					case 3:lcd_Draw_PM_dat2(2,16,1,16,0xff,0xff);break;
+			; SOURCE LINE # 455
+?C0240:
+	LCALL	L?0395
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#010H
+	MOV  	R7,#02H
+?C0301:
+	SJMP 	?C0303
+; 					case 4:lcd_Draw_PM_dat2(3,16,1,16,0x00,0xff);lcd_Draw_PM_dat2(4,16,1,16,0xff,0x00);break;
+			; SOURCE LINE # 456
+?C0241:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#010H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#010H
+	MOV  	R7,#03H
+	LCALL	L?0451
+	MOV  	R5,#010H
+	MOV  	R7,#04H
+?C0302:
+	SJMP 	?C0303
+; 					case 5:lcd_Draw_PM_dat2(5,16,1,16,0xff,0xff);break;
+			; SOURCE LINE # 457
+?C0242:
+	LCALL	L?0395
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#010H
+	MOV  	R7,#05H
+?C0303:
+	LCALL	_lcd_Draw_PM_dat2
+; 				}
+			; SOURCE LINE # 458
+?C0236:
+; 				OptionCode_old[1]=OptionCode[1];
+			; SOURCE LINE # 459
+	MOV  	R0,#LOW (OptionCode+01H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (OptionCode_old+01H)
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 460
+; 			break;
+			; SOURCE LINE # 461
+	RET  	
+; 		}
+			; SOURCE LINE # 462
+; 		case 100:
+			; SOURCE LINE # 463
+?C0243:
+; 		{
+			; SOURCE LINE # 464
+; 			if(menuRefreshSign!=menuCode){lcd_clr_DDram	();lcd_clr_GD ();menuRefreshSign=menuCode;}
+			; SOURCE LINE # 465
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0244
+	LCALL	L?0446
+?C0244:
+; 			lcd_ch_display(1,0,"时间发生变动！！");
+			; SOURCE LINE # 466
+	MOV  	R2,#HIGH (?SC_446)
+	MOV  	R1,#LOW (?SC_446)
+; 			lcd_ch_display(2,0,"是否确认更改？");
+			; SOURCE LINE # 467
+	LCALL	L?0420
+	MOV  	R2,#HIGH (?SC_463)
+	MOV  	R1,#LOW (?SC_463)
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#02H
+?C0298:
+	LJMP 	_lcd_ch_display
+; 			break;
+			; SOURCE LINE # 468
+; 		}
+			; SOURCE LINE # 469
+; 		case 11:
+			; SOURCE LINE # 470
+?C0245:
+; 		{if(menuRefreshSign!=menuCode){lcd_clr_DDram	();lcd_clr_GD ();menuRefreshSign=menuCode;
+			; SOURCE LINE # 471
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOVX 	A,@R0
+	XRL  	A,menuCode
+	JZ   	?C0246
+	LCALL	lcd_clr_DDram
+	LCALL	lcd_clr_GD
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOV  	A,menuCode
+	MOVX 	@R0,A
+; 			
+; 			lcd_Draw_PM_dat2(3,0,1,64,0x00,0x01);
+			; SOURCE LINE # 473
+; 			lcd_Draw_PM_dat2(5,0,1,48,0x00,0x01);
+			; SOURCE LINE # 474
+; 			lcd_Draw_PM_dat2(7,0,1,64,0x00,0x01);
+			; SOURCE LINE # 475
+; 			lcd_Draw_PM_dat2(4,48,4,1,0xff,0xff);
+			; SOURCE LINE # 476
+	LCALL	L?0375
+	LCALL	L?0464
+; 		
+; 		}
+			; SOURCE LINE # 478
+?C0246:
+; 			//lcd_ch_display(0,0,"功能子菜单");lcd_Draw_PM_dat(0,0,10,16,0xff);
+; 			lcd_ch_display(0,0,"传");
+			; SOURCE LINE # 480
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_478)
+	MOV  	R1,#LOW (?SC_478)
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_lcd_ch_display
+; 			lcd_ch_display(1,0,"感");
+			; SOURCE LINE # 481
+	MOV  	R2,#HIGH (?SC_481)
+	MOV  	R1,#LOW (?SC_481)
+; 			lcd_ch_display(2,0,"器");
+			; SOURCE LINE # 482
+	LCALL	L?0434
+	MOV  	R2,#HIGH (?SC_484)
+	MOV  	R1,#LOW (?SC_484)
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+; 			lcd_Draw_PM_dat2(0,0,1,48,0xff,0xfe);
+			; SOURCE LINE # 483
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#030H
+	LCALL	L?0397
+	DEC  	A
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM_dat2
+; 		
+; 	/*		lcd_Draw_PM_dat2(1,0,5,64,0x00,0x00);
+; 			lcd_Draw_PM_dat2(3,0,1,64,0x00,0x01);
+; 			lcd_Draw_PM_dat2(5,0,1,48,0x00,0x01);
+; 			lcd_Draw_PM_dat2(7,0,1,64,0x00,0x01);
+; 			lcd_Draw_PM_dat2(4,48,4,1,0xff,0xff);*/
+; 			lcd_ch_display(0,4,"温度");lcd_ch_display(0,6,"湿度");
+			; SOURCE LINE # 490
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_487)
+	MOV  	R1,#LOW (?SC_487)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_lcd_ch_display
+	MOV  	R2,#HIGH (?SC_492)
+	MOV  	R1,#LOW (?SC_492)
+	LCALL	L?0443
+; 			lcd_ch_display(1,2,"开关");
+			; SOURCE LINE # 491
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_497)
+	MOV  	R1,#LOW (?SC_497)
+	MOV  	R5,#02H
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+; 			lcd_ch_display(2,2,"刷新");
+			; SOURCE LINE # 492
+	MOV  	R2,#HIGH (?SC_502)
+	MOV  	R1,#LOW (?SC_502)
+	MOV  	R5,#02H
+	LCALL	L?0455
+; 			lcd_ch_display(3,2,"切换");
+			; SOURCE LINE # 493
+	MOV  	R2,#HIGH (?SC_507)
+	MOV  	R1,#LOW (?SC_507)
+	MOV  	R5,#02H
+	LCALL	L?0435
+; 			if(Sensor_switch[0])lcd_ch_display(1,4,"YES");else lcd_ch_display(1,4,"NO");
+			; SOURCE LINE # 494
+	MOV  	R0,#LOW (Sensor_switch)
+	MOVX 	A,@R0
+	MOV  	R3,#0FFH
+	JZ   	?C0247
+	MOV  	R2,#HIGH (?SC_512)
+	MOV  	R1,#LOW (?SC_512)
+	SJMP 	?C0293
+?C0247:
+	MOV  	R2,#HIGH (?SC_516)
+	MOV  	R1,#LOW (?SC_516)
+?C0293:
+	MOV  	R5,#04H
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+?C0248:
+; 			if(Sensor_switch[1])lcd_ch_display(1,6,"YES");else lcd_ch_display(1,6,"NO");
+			; SOURCE LINE # 495
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	MOV  	R3,#0FFH
+	JZ   	?C0249
+	MOV  	R2,#HIGH (?SC_512)
+	MOV  	R1,#LOW (?SC_512)
+	SJMP 	?C0294
+?C0249:
+	MOV  	R2,#HIGH (?SC_516)
+	MOV  	R1,#LOW (?SC_516)
+?C0294:
+	MOV  	R5,#06H
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+?C0250:
+; 			lcd_wcmd(0x30);lcd_wcmd(0x8c);
+			; SOURCE LINE # 496
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+	MOV  	R7,#08CH
+	LCALL	_lcd_wcmd
+; 			lcd_wdat((uchar)(rot_taskFrequency[0]/1000%10+48));lcd_wdat((uchar)(rot_taskFrequency[0]/100%10+48));lcd_ch_display(2,5,"秒");
+			; SOURCE LINE # 497
+	MOV  	R0,#LOW (rot_taskFrequency)
+	LCALL	L?0373
+	MOV  	R0,#LOW (rot_taskFrequency)
+	LCALL	L?0379
+	MOV  	R5,#05H
+	LCALL	L?0421
+; 			lcd_wdat((uchar)(rot_taskFrequency[1]/1000%10+48));lcd_wdat((uchar)(rot_taskFrequency[1]/100%10+48));lcd_ch_display(2,7,"秒");
+			; SOURCE LINE # 498
+	MOV  	R0,#LOW (rot_taskFrequency+02H)
+	LCALL	L?0373
+	MOV  	R0,#LOW (rot_taskFrequency+02H)
+	MOV  	R4,#00H
+	MOV  	R5,#064H
+	LCALL	L?0415
+	MOV  	R5,#07H
+	LCALL	L?0421
+; 			if(Sensor_switch[0])lcd_ch_display(1,4,"YES");else lcd_ch_display(1,4,"NO ");
+			; SOURCE LINE # 499
+	MOV  	R0,#LOW (Sensor_switch)
+	MOVX 	A,@R0
+	MOV  	R3,#0FFH
+	JZ   	?C0251
+	MOV  	R2,#HIGH (?SC_512)
+	MOV  	R1,#LOW (?SC_512)
+	SJMP 	?C0295
+?C0251:
+	MOV  	R2,#HIGH (?SC_522)
+	MOV  	R1,#LOW (?SC_522)
+?C0295:
+	MOV  	R5,#04H
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+?C0252:
+; 			if(Sensor_switch[1])lcd_ch_display(1,6,"YES");else lcd_ch_display(1,6,"NO ");
+			; SOURCE LINE # 500
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	MOV  	R3,#0FFH
+	JZ   	?C0253
+	MOV  	R2,#HIGH (?SC_512)
+	MOV  	R1,#LOW (?SC_512)
+	SJMP 	?C0296
+?C0253:
+	MOV  	R2,#HIGH (?SC_522)
+	MOV  	R1,#LOW (?SC_522)
+?C0296:
+	MOV  	R5,#06H
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+?C0254:
+; 			lcd_wcmd(0x9d);lcd_wdat((uchar)(Sensor_display_switchingSpeed/1000%10+48));lcd_wdat((uchar)(Sensor_display_switchingSpeed/100%10+48));lcd_ch_display(3,6,"秒");
+			; SOURCE LINE # 501
+	MOV  	R7,#09DH
+	LCALL	_lcd_wcmd
+	MOV  	R0,#LOW (Sensor_display_switchingSpeed)
+	MOV  	R4,#03H
+	MOV  	R5,#0E8H
+	LCALL	L?0415
+	MOV  	R0,#LOW (Sensor_display_switchingSpeed)
+	LCALL	L?0379
+	MOV  	R2,#HIGH (?SC_519)
+	MOV  	R1,#LOW (?SC_519)
+	LCALL	L?0308
+; 			if((OptionCode_old[2]!=OptionCode[2]))
+			; SOURCE LINE # 502
+	MOV  	R0,#LOW (OptionCode+02H)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (OptionCode_old+02H)
+	MOVX 	A,@R0
+	XRL  	A,R7
+	JNZ  	$ + 5H
+	LJMP 	?C0262
+; 			{
+			; SOURCE LINE # 503
+; 				lcd_Draw_PM_dat2(1,0,7,64,0x00,0x00);
+			; SOURCE LINE # 504
+	LCALL	L?0440
+	MOVX 	@R0,A
+	MOV  	R3,#07H
+	MOV  	R5,A
+	MOV  	R7,#01H
+	LCALL	_lcd_Draw_PM_dat2
+; 				lcd_Draw_PM_dat2(3,0,1,64,0x00,0x01);
+			; SOURCE LINE # 505
+; 				lcd_Draw_PM_dat2(5,0,1,48,0x00,0x01);
+			; SOURCE LINE # 506
+; 				lcd_Draw_PM_dat2(7,0,1,64,0x00,0x01);
+			; SOURCE LINE # 507
+; 				lcd_Draw_PM_dat2(4,48,4,1,0xff,0xff);
+			; SOURCE LINE # 508
+	LCALL	L?0375
+	LCALL	L?0464
+; 				//Option_count=1;
+; 				switch(OptionCode[2])
+			; SOURCE LINE # 510
+	MOV  	R0,#LOW (OptionCode+02H)
+	MOVX 	A,@R0
+	DEC  	A
+	JZ   	?C0258
+	DEC  	A
+	JZ   	?C0259
+	DEC  	A
+	JZ   	?C0260
+	DEC  	A
+	JZ   	?C0261
+	ADD  	A,#04H
+	JNZ  	?C0256
+; 				{
+			; SOURCE LINE # 511
+; 					case 0:lcd_Draw_PM_dat2(4,17,1,14,0xff,0xff);lcd_Draw_PM_dat2(5,17,1,14,0xff,0x01);break;
+			; SOURCE LINE # 512
+?C0257:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	LCALL	L?0397
+	MOVX 	@R0,A
+	MOV  	R7,#04H
+	LCALL	L?0390
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	MOV  	R3,A
+	MOV  	R5,#011H
+	SJMP 	?C0304
+; 					case 1:lcd_Draw_PM_dat2(6,17,1,14,0xff,0xff);lcd_Draw_PM_dat2(7,17,1,14,0xff,0x01);break;
+			; SOURCE LINE # 513
+?C0258:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	LCALL	L?0397
+	MOVX 	@R0,A
+	MOV  	R7,#06H
+	LCALL	L?0390
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	MOV  	R3,A
+	MOV  	R5,#011H
+	MOV  	R7,#07H
+	SJMP 	?C0307
+; 					case 2:lcd_Draw_PM_dat2(4,33,1,14,0xff,0xff);break;
+			; SOURCE LINE # 514
+?C0259:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	LCALL	L?0397
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#021H
+	MOV  	R7,#04H
+?C0305:
+	SJMP 	?C0307
+; 					case 3:lcd_Draw_PM_dat2(6,33,1,14,0xff,0xff);break;
+			; SOURCE LINE # 515
+?C0260:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	LCALL	L?0397
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#021H
+	MOV  	R7,#06H
+?C0306:
+	SJMP 	?C0307
+; 					case 4:lcd_Draw_PM_dat2(5,49,1,14,0xff,0xff);break;
+			; SOURCE LINE # 516
+?C0261:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	LCALL	L?0397
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	MOV  	R5,#031H
+?C0304:
+	MOV  	R7,#05H
+?C0307:
+	LCALL	_lcd_Draw_PM_dat2
+; 				}
+			; SOURCE LINE # 517
+?C0256:
+; 				OptionCode_old[2]=OptionCode[2];
+			; SOURCE LINE # 518
+	MOV  	R0,#LOW (OptionCode+02H)
+	MOVX 	A,@R0
+	MOV  	R0,#LOW (OptionCode_old+02H)
+	MOVX 	@R0,A
+; 			}
+			; SOURCE LINE # 519
+; 		break;
+			; SOURCE LINE # 520
+; 		}
+			; SOURCE LINE # 521
+; //		case 12:
+; 	}
+			; SOURCE LINE # 523
+; 	
+; 	
+; 		
+; }
+			; SOURCE LINE # 527
+?C0262:
+	RET  	
+L?0308:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0309:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0310:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0311:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0312:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0313:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0314:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_332)
+	MOV  	R1,#LOW (?SC_332)
+	LCALL	_lcd_ch_display
+	RET  	
+L?0315:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_74)
+	MOV  	R1,#LOW (?SC_74)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0316:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_79)
+	MOV  	R1,#LOW (?SC_79)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0317:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_84)
+	MOV  	R1,#LOW (?SC_84)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0318:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_89)
+	MOV  	R1,#LOW (?SC_89)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0319:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_94)
+	MOV  	R1,#LOW (?SC_94)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0320:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_99)
+	MOV  	R1,#LOW (?SC_99)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0321:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_104)
+	MOV  	R1,#LOW (?SC_104)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0322:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_109)
+	MOV  	R1,#LOW (?SC_109)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0323:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_114)
+	MOV  	R1,#LOW (?SC_114)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0324:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_119)
+	MOV  	R1,#LOW (?SC_119)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0325:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_124)
+	MOV  	R1,#LOW (?SC_124)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0326:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_129)
+	MOV  	R1,#LOW (?SC_129)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0327:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat?BYTE+03H)
+	MOV  	A,#010H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#08H
+	MOV  	R5,#030H
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM_dat
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_224)
+	MOV  	R1,#LOW (?SC_224)
+	MOV  	R5,#04H
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0328:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_134)
+	MOV  	R1,#LOW (?SC_134)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0329:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_139)
+	MOV  	R1,#LOW (?SC_139)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0335:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_144)
+	MOV  	R1,#LOW (?SC_144)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0336:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_149)
+	MOV  	R1,#LOW (?SC_149)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0337:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_154)
+	MOV  	R1,#LOW (?SC_154)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0338:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_159)
+	MOV  	R1,#LOW (?SC_159)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0339:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_164)
+	MOV  	R1,#LOW (?SC_164)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0340:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_169)
+	MOV  	R1,#LOW (?SC_169)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0341:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_174)
+	MOV  	R1,#LOW (?SC_174)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0342:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_179)
+	MOV  	R1,#LOW (?SC_179)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0343:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_184)
+	MOV  	R1,#LOW (?SC_184)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0344:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_71)
+	MOV  	R1,#LOW (?SC_71)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0345:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_189)
+	MOV  	R1,#LOW (?SC_189)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0346:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_233)
+	MOV  	R1,#LOW (?SC_233)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0347:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_194)
+	MOV  	R1,#LOW (?SC_194)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0348:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_236)
+	MOV  	R1,#LOW (?SC_236)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0349:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_199)
+	MOV  	R1,#LOW (?SC_199)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0350:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_239)
+	MOV  	R1,#LOW (?SC_239)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0351:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_204)
+	MOV  	R1,#LOW (?SC_204)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0352:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_242)
+	MOV  	R1,#LOW (?SC_242)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0353:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_209)
+	MOV  	R1,#LOW (?SC_209)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0354:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_245)
+	MOV  	R1,#LOW (?SC_245)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0355:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_214)
+	MOV  	R1,#LOW (?SC_214)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0356:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_248)
+	MOV  	R1,#LOW (?SC_248)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0357:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_219)
+	MOV  	R1,#LOW (?SC_219)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0358:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_251)
+	MOV  	R1,#LOW (?SC_251)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0359:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_254)
+	MOV  	R1,#LOW (?SC_254)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0360:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_257)
+	MOV  	R1,#LOW (?SC_257)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0361:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_260)
+	MOV  	R1,#LOW (?SC_260)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0362:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_263)
+	MOV  	R1,#LOW (?SC_263)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0363:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_266)
+	MOV  	R1,#LOW (?SC_266)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0364:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_269)
+	MOV  	R1,#LOW (?SC_269)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0365:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_272)
+	MOV  	R1,#LOW (?SC_272)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0366:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_275)
+	MOV  	R1,#LOW (?SC_275)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0367:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_35)
+	MOV  	R1,#LOW (?SC_35)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0368:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_278)
+	MOV  	R1,#LOW (?SC_278)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0372:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_38)
+	MOV  	R1,#LOW (?SC_38)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0373:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R4,#03H
+	MOV  	R5,#0E8H
+	LCALL	?C?UIDIV
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0374:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_281)
+	MOV  	R1,#LOW (?SC_281)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0375:
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#040H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	INC  	R0
+	INC  	A
+	MOVX 	@R0,A
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#03H
+	LCALL	_lcd_Draw_PM_dat2
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#030H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	INC  	R0
+	INC  	A
+	MOVX 	@R0,A
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#05H
+	LCALL	_lcd_Draw_PM_dat2
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#040H
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	INC  	R0
+	INC  	A
+	MOVX 	@R0,A
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#07H
+	LCALL	_lcd_Draw_PM_dat2
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0376:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_41)
+	MOV  	R1,#LOW (?SC_41)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0377:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_284)
+	MOV  	R1,#LOW (?SC_284)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0378:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_44)
+	MOV  	R1,#LOW (?SC_44)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0379:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R4,#00H
+	MOV  	R5,#064H
+	LCALL	?C?UIDIV
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0380:
+	MOV  	R7,#01H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#020H
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0381:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_287)
+	MOV  	R1,#LOW (?SC_287)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0382:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0383:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_47)
+	MOV  	R1,#LOW (?SC_47)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0384:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_0)
+	MOV  	R1,#LOW (?SC_0)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0385:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_290)
+	MOV  	R1,#LOW (?SC_290)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0386:
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#020H
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0387:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0388:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_5)
+	MOV  	R1,#LOW (?SC_5)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0389:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_50)
+	MOV  	R1,#LOW (?SC_50)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0390:
+	MOV  	R3,#01H
+	MOV  	R5,#011H
+	LCALL	_lcd_Draw_PM_dat2
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#0EH
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	RET  	
+L?0391:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0392:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_10)
+	MOV  	R1,#LOW (?SC_10)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0393:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_293)
+	MOV  	R1,#LOW (?SC_293)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0401:
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#010H
+	MOV  	R7,#02H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0402:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_53)
+	MOV  	R1,#LOW (?SC_53)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0403:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0404:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_15)
+	MOV  	R1,#LOW (?SC_15)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0405:
+	MOV  	R3,#0FFH
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0406:
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#010H
+	MOV  	R7,#05H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time)
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0407:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_56)
+	MOV  	R1,#LOW (?SC_56)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0408:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0409:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_296)
+	MOV  	R1,#LOW (?SC_296)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0410:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_20)
+	MOV  	R1,#LOW (?SC_20)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0411:
+	MOV  	R3,#0FFH
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0412:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0413:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_59)
+	MOV  	R1,#LOW (?SC_59)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0414:
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0415:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	?C?UIDIV
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0416:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_62)
+	MOV  	R1,#LOW (?SC_62)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0417:
+	MOV  	R3,#0FFH
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0418:
+	MOV  	R7,#03H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0419:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0420:
+	MOV  	R3,#0FFH
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+	MOV  	R3,#0FFH
+	RET  	
+L?0421:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_519)
+	MOV  	R1,#LOW (?SC_519)
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0422:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_65)
+	MOV  	R1,#LOW (?SC_65)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0423:
+	MOV  	R7,#06H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time)
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	MOV  	B,#040H
+	MUL  	AB
+	RET  	
+L?0427:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_68)
+	MOV  	R1,#LOW (?SC_68)
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0428:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0429:
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_25)
+	MOV  	R1,#LOW (?SC_25)
+	MOV  	R5,#06H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0430:
+	LCALL	lcd_clr_DDram
+	LCALL	lcd_clr_GD
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOV  	A,menuCode
+	MOVX 	@R0,A
+	RET  	
+L?0431:
+	MOV  	R3,#0FFH
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0434:
+	MOV  	R3,#0FFH
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#01H
+	LCALL	_lcd_ch_display
+	MOV  	R3,#0FFH
+	RET  	
+L?0435:
+	MOV  	R3,#0FFH
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0436:
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0442:
+	MOV  	R3,#0FFH
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0443:
+	MOV  	R3,#0FFH
+	MOV  	R5,#06H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_lcd_ch_display
+	RET  	
+L?0444:
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0445:
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#010H
+	MOV  	R7,#02H
+	LCALL	_lcd_Draw_PM
+	RET  	
+L?0446:
+	LCALL	lcd_clr_DDram
+	LCALL	lcd_clr_GD
+	MOV  	R0,#LOW (menuRefreshSign)
+	MOV  	A,menuCode
+	MOVX 	@R0,A
+	RET  	
+L?0449:
+	MOV  	R7,#01H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#020H
+	RET  	
+L?0450:
+	DEC  	A
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM_dat2
+	RET  	
+L?0451:
+	LCALL	_lcd_Draw_PM_dat2
+	MOV  	R0,#LOW (?_lcd_Draw_PM_dat2?BYTE+03H)
+	MOV  	A,#010H
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	CLR  	A
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#01H
+	RET  	
+L?0452:
+	MOV  	R3,#0FFH
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_lcd_ch_display
+	RET  	
+L?0453:
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0454:
+	MOV  	R3,#0FFH
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0455:
+	MOV  	R3,#0FFH
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0456:
+	LCALL	_lcd_wcmd
+	MOV  	R7,#032H
+	LCALL	_lcd_wdat
+	MOV  	R7,#030H
+	LCALL	_lcd_wdat
+	RET  	
+L?0457:
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#010H
+	MOV  	R7,#05H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (ds_dat_time)
+	RET  	
+L?0459:
+	MOVX 	@R0,A
+	MOV  	R3,#05H
+	MOV  	R5,A
+	MOV  	R7,#01H
+	LCALL	_lcd_Draw_PM_dat2
+	RET  	
+L?0460:
+	INC  	R0
+	MOVX 	@R0,A
+	MOV  	R3,#02H
+	MOV  	R5,#030H
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM
+	RET  	
+L?0461:
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#02H
+	LCALL	_lcd_ch_display
+	RET  	
+L?0464:
+	MOVX 	@R0,A
+	MOV  	R3,#04H
+	MOV  	R5,#030H
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM_dat2
+	RET  	
+L?0469:
+	MOV  	R7,#04H
+	LCALL	_lcd_Draw_PM
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#020H
+	RET  	
+L?0470:
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0471:
+	MOV  	R3,#0FFH
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#03H
+	LCALL	_lcd_ch_display
+	RET  	
+; END OF screenOutput
+
+; 
+; //This is for test!
+; //{
+; //	uchar i,j;
+; //	lcd_init();
+; 
+; //		
+; //		lcd_wcmd(0x80);
+; //		lcd_wdat((ds_dat_time[2]>>4)+48);lcd_wdat((ds_dat_time[2]&0x0f)+48);//时
+; //		lcd_wdat('/');
+; //		lcd_wdat((ds_dat_time[1]>>4)+48);lcd_wdat((ds_dat_time[1]&0x0f)+48);//分
+; //		lcd_wdat('/');
+; //		lcd_wdat(((ds_dat_time[0])>>4)+48);lcd_wdat((ds_dat_time[0]&0x0f)+48);//秒
+; //	
+; //		lcd_wcmd(0x84);
+; //		lcd_wdat((moon_year>>4)+48);lcd_wdat((moon_year&0x0f)+48);//阴历
+; //		lcd_wdat('/');
+; //		lcd_wdat((moon_month>>4)+48);lcd_wdat((moon_month&0x0f)+48);
+; //		lcd_wdat('/');
+; //		lcd_wdat(((moon_day)>>4)+48);lcd_wdat((moon_day&0x0f)+48);
+; //		
+; //		lcd_wcmd(0x94);
+; //		lcd_wdat((ds_dat_time[6]>>4)+48);lcd_wdat((ds_dat_time[6]&0x0f)+48);//阳历
+; //		lcd_wdat('/');
+; //		lcd_wdat((ds_dat_time[4]>>4)+48);lcd_wdat((ds_dat_time[4]&0x0f)+48);
+; //		lcd_wdat('/');
+; //		lcd_wdat(((ds_dat_time[3])>>4)+48);lcd_wdat((ds_dat_time[3]&0x0f)+48);
+; //		
+; //		//i=CalculateWeek(20,((ds_dat_time[6]>>4)+(ds_dat_time[6]&0x0f)),((ds_dat_time[4]>>4)+(ds_dat_time[4]&0x0f)), ((ds_dat_time[3]>>4)+(ds_dat_time[3]&0x0f)));
+; //		i=CalculateWeek(century,ds_dat_time[6],ds_dat_time[4],ds_dat_time[3]);
+; //		lcd_wcmd(0x90);
+; //		lcd_wdat(i+48);lcd_wdat(' ');
+; ////		lcd_wcmd(0x94);
+; ////		lcd_wdat(Double_Press_counter[0]/10/100+48);
+; ////		lcd_wdat(Double_Press_counter[0]/100%10+48);
+; ////		lcd_wdat(Double_Press_counter[0]/10%10+48);
+; ////		lcd_wdat(Double_Press_counter[0]%10+48);
+; //	
+; //	for(i=0;i<4;i++)
+; //		{
+; //			lcd_wcmd((0x88+i*4)*(i<2)+(0x98+(i-2)*4)*(i>=2));
+; //			for(j=0;j<4;j++)
+; //				lcd_wdat(ver_key[i][j]);
+; //			lcd_wdat(' ');
+; //			switch(Instruction_code_key[i])
+; //			{
+; //				case 0x80:lcd_wdat('0');break;
+; //				case 0x81:lcd_wdat('1');break;
+; //				case 0x82:if(Double_Press_counter[i]>2)lcd_wdat('2');else lcd_wdat('0');break;
+; //				case 0x83:if(Double_Press_counter[i]>2)lcd_wdat('3');else lcd_wdat('1');break;
+; //				default  :lcd_wdat('4');break;
+; //			}
+; //			lcd_wdat(' ');lcd_wdat(' ');
+; //		}
+; //}
+; 
+; uchar rot_task0()
+
+	RSEG  ?PR?rot_task0?ROT
+rot_task0:
+	USING	0
+			; SOURCE LINE # 584
+; {
+			; SOURCE LINE # 585
+; 	 if(task0_operating_status==0){EA=0;Ds18b20_ChangTemp();task0_operating_status=1;EA=1;}
+			; SOURCE LINE # 586
+	MOV  	R0,#LOW (task0_operating_status)
+	MOVX 	A,@R0
+	JNZ  	?C0263
+	CLR  	EA
+	LCALL	Ds18b20_ChangTemp
+	MOV  	R0,#LOW (task0_operating_status)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	SETB 	EA
+?C0263:
+; 	 if(task0_operating_status==2){EA=0;Ds18b20_rTemp();temp_data_collation();task0_operating_status=0;EA=1;}
+			; SOURCE LINE # 587
+	MOV  	R0,#LOW (task0_operating_status)
+	MOVX 	A,@R0
+	XRL  	A,#02H
+	JNZ  	?C0264
+	CLR  	EA
+	LCALL	Ds18b20_rTemp
+	LCALL	temp_data_collation
+	CLR  	A
+	MOV  	R0,#LOW (task0_operating_status)
+	MOVX 	@R0,A
+	SETB 	EA
+?C0264:
+; 	//Ds18b20_ChangTemp();Ds18b20_rTemp();temp_data_collation();
+; 	return 0;
+			; SOURCE LINE # 589
+	MOV  	R7,#00H
+; }
+			; SOURCE LINE # 590
+	RET  	
+; END OF rot_task0
+
+; void 	rot_task1(){if(Sensor_switch[1]){EA=0;dht_rdat();EA=1;}}
+
+	RSEG  ?PR?rot_task1?ROT
+rot_task1:
+	USING	0
+			; SOURCE LINE # 591
+	MOV  	R0,#LOW (Sensor_switch+01H)
+	MOVX 	A,@R0
+	JZ   	?C0267
+	CLR  	EA
+	LCALL	dht_rdat
+	SETB 	EA
+?C0267:
+	RET  	
+; END OF rot_task1
+
+; void 	rot_task2(){Ds1302_Read_time();	}
+
+	RSEG  ?PR?rot_task2?ROT
+rot_task2:
+	USING	0
+			; SOURCE LINE # 592
+	LJMP 	Ds1302_Read_time
+; END OF rot_task2
+
+; void 	rot_task3(){if(Sensor_switch[0])Calculation();}
+
+	RSEG  ?PR?rot_task3?ROT
+rot_task3:
+	USING	0
+			; SOURCE LINE # 593
+	MOV  	R0,#LOW (Sensor_switch)
+	MOVX 	A,@R0
+	JZ   	?C0270
+	LCALL	Calculation
+?C0270:
+	RET  	
+; END OF rot_task3
+
+; void	rot_task4(){screenOutput();}
+
+	RSEG  ?PR?rot_task4?ROT
+rot_task4:
+	USING	0
+			; SOURCE LINE # 594
+	LJMP 	screenOutput
+; END OF rot_task4
+
+; 
+; void rot_taskSchedule()
+
+	RSEG  ?PR?rot_taskSchedule?ROT
+rot_taskSchedule:
+	USING	0
+			; SOURCE LINE # 596
+; {
+			; SOURCE LINE # 597
+; 	if(rot_taskTrigger[0]){rot_taskTrigger[0]=rot_task0();}//rot_taskTrigger[0]=rot_task0();程序可连续执行
+			; SOURCE LINE # 598
+	MOV  	R0,#LOW (rot_taskTrigger)
+	MOVX 	A,@R0
+	JZ   	?C0272
+	LCALL	rot_task0
+	MOV  	R0,#LOW (rot_taskTrigger)
+	MOV  	A,R7
+	MOVX 	@R0,A
+?C0272:
+; 	if(rot_taskTrigger[1]){rot_task1();rot_taskTrigger[1]=0;}
+			; SOURCE LINE # 599
+	MOV  	R0,#LOW (rot_taskTrigger+01H)
+	MOVX 	A,@R0
+	JZ   	?C0273
+	LCALL	rot_task1
+	CLR  	A
+	MOV  	R0,#LOW (rot_taskTrigger+01H)
+	MOVX 	@R0,A
+?C0273:
+; 	if(rot_taskTrigger[2]){rot_task2();rot_taskTrigger[2]=0;}
+			; SOURCE LINE # 600
+	MOV  	R0,#LOW (rot_taskTrigger+02H)
+	MOVX 	A,@R0
+	JZ   	?C0274
+	LCALL	rot_task2
+	CLR  	A
+	MOV  	R0,#LOW (rot_taskTrigger+02H)
+	MOVX 	@R0,A
+?C0274:
+; 	if(rot_taskTrigger[3]){rot_task3();rot_taskTrigger[3]=0;}
+			; SOURCE LINE # 601
+	MOV  	R0,#LOW (rot_taskTrigger+03H)
+	MOVX 	A,@R0
+	JZ   	?C0275
+	LCALL	rot_task3
+	CLR  	A
+	MOV  	R0,#LOW (rot_taskTrigger+03H)
+	MOVX 	@R0,A
+?C0275:
+; 	if(rot_taskTrigger[4]){rot_task4();rot_taskTrigger[4]=0;}
+			; SOURCE LINE # 602
+	MOV  	R0,#LOW (rot_taskTrigger+04H)
+	MOVX 	A,@R0
+	JZ   	?C0277
+	LCALL	rot_task4
+	CLR  	A
+	MOV  	R0,#LOW (rot_taskTrigger+04H)
+	MOVX 	@R0,A
+; }
+			; SOURCE LINE # 603
+?C0277:
+	RET  	
+; END OF rot_taskSchedule
+
+CSEG	AT	0000BH
+	LJMP	rot_T0_time
+
+; void rot_T0_time() interrupt 1
+
+	RSEG  ?PR?rot_T0_time?ROT
+	USING	0
+rot_T0_time:
+	PUSH 	ACC
+	PUSH 	B
+	PUSH 	DPH
+	PUSH 	DPL
+	PUSH 	PSW
+	MOV  	PSW,#00H
+	PUSH 	AR0
+	PUSH 	AR1
+	PUSH 	AR2
+	PUSH 	AR3
+	PUSH 	AR4
+	PUSH 	AR5
+	PUSH 	AR6
+	PUSH 	AR7
+	USING	0
+			; SOURCE LINE # 604
+; {
+; 	uchar data i;
+;   //TMOD=0x01;
+;   TH0=0xDC;
+			; SOURCE LINE # 608
+	MOV  	TH0,#0DCH
+; 	TL0=0x00;
+			; SOURCE LINE # 609
+	MOV  	TL0,#00H
+;   if((rot_timeBase++)>10000)	rot_timeBase=1;//时基，10ms
+			; SOURCE LINE # 610
+	MOV  	R0,#LOW (rot_timeBase)
+	LCALL	L?0458
+	SETB 	C
+	MOV  	A,R7
+	SUBB 	A,#010H
+	MOV  	A,R6
+	SUBB 	A,#027H
+	JC   	?C0278
+	CLR  	A
+	MOVX 	@R0,A
+	INC  	R0
+	INC  	A
+	MOVX 	@R0,A
+?C0278:
+; 	if(!(rot_timeBase%10))		recognition_key();
+			; SOURCE LINE # 611
+	MOV  	R0,#LOW (rot_timeBase)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ORL  	A,R4
+	JNZ  	?C0279
+	LCALL	recognition_key
+?C0279:
+; 	for(i=0;i<tasksTotalNum;i++)if(rot_taskTrigger[i]==0)if((rot_taskCounter[i]++)>rot_taskFrequency[i]){rot_taskCounter[i]=0;rot_taskTrigger[i]=1;}
+			; SOURCE LINE # 612
+	MOV  	i?1040,#00H
+?C0280:
+	CLR  	C
+	MOV  	A,i?1040
+	SUBB 	A,#05H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0281
+	MOV  	A,#LOW (rot_taskTrigger)
+	ADD  	A,i?1040
+	MOV  	R0,A
+	MOVX 	A,@R0
+	JNZ  	?C0282
+	MOV  	A,i?1040
+	ADD  	A,ACC
+	ADD  	A,#LOW (rot_taskFrequency+01H)
+	MOV  	R1,A
+	MOV  	A,i?1040
+	ADD  	A,ACC
+	ADD  	A,#LOW (rot_taskCounter)
+	MOV  	R0,A
+	LCALL	L?0458
+	CLR  	C
+	MOVX 	A,@R1
+	SUBB 	A,R7
+	DEC  	R1
+	MOVX 	A,@R1
+	SUBB 	A,R6
+	JNC  	?C0282
+	MOV  	A,i?1040
+	ADD  	A,ACC
+	ADD  	A,#LOW (rot_taskCounter)
+	MOV  	R0,A
+	CLR  	A
+	MOVX 	@R0,A
+	INC  	R0
+	LCALL	L?0468
+?C0282:
+	INC  	i?1040
+	SJMP 	?C0280
+?C0281:
+; 	//if((task0_operating_status>0)&&(task0_operating_status<15))task0_operating_status++;else task0_operating_status=0;
+; 
+; 	if(task0_operating_status==1){
+			; SOURCE LINE # 615
+	MOV  	R0,#LOW (task0_operating_status)
+	MOVX 	A,@R0
+	XRL  	A,#01H
+	JNZ  	?C0285
+; 		if((task0_operating_status_timing++)<10);
+			; SOURCE LINE # 616
+	MOV  	R0,#LOW (task0_operating_status_timing)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	INC  	A
+	MOVX 	@R0,A
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#0AH
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JC   	?C0285
+; 		else {task0_operating_status_timing=0;task0_operating_status=2;rot_taskTrigger[i]=1;}
+			; SOURCE LINE # 617
+	CLR  	A
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (task0_operating_status)
+	MOV  	A,#02H
+	LCALL	L?0468
+; 		}
+			; SOURCE LINE # 618
+?C0285:
+; 	if(!(rot_timeBase%Sensor_display_switchingSpeed))		if(SwitchFlag[0]<1)SwitchFlag[0]++;else SwitchFlag[0]=0;
+			; SOURCE LINE # 619
+	MOV  	R0,#LOW (Sensor_display_switchingSpeed)
+	MOVX 	A,@R0
+	MOV  	R4,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R5,A
+	MOV  	R0,#LOW (rot_timeBase)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ORL  	A,R4
+	JNZ  	?C0291
+	MOV  	R0,#LOW (SwitchFlag)
+	MOVX 	A,@R0
+	CLR  	C
+	SUBB 	A,#01H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0289
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+	SJMP 	?C0291
+?C0289:
+	MOV  	R0,#LOW (SwitchFlag)
+	CLR  	A
+	MOVX 	@R0,A
+; 	//if(!(rot_timeBase%400))		if(SwitchFlag[1]<1)SwitchFlag[1]++;else SwitchFlag[1]=0;
+; }
+			; SOURCE LINE # 621
+?C0291:
+	POP  	AR7
+	POP  	AR6
+	POP  	AR5
+	POP  	AR4
+	POP  	AR3
+	POP  	AR2
+	POP  	AR1
+	POP  	AR0
+	POP  	PSW
+	POP  	DPL
+	POP  	DPH
+	POP  	B
+	POP  	ACC
+	RETI 	
+; END OF rot_T0_time
+
+; 
+; void rot_os()
+
+	RSEG  ?PR?rot_os?ROT
+rot_os:
+			; SOURCE LINE # 623
+; {
+			; SOURCE LINE # 624
+; 	
+; }			; SOURCE LINE # 626
+	RET  	
+; END OF rot_os
+
+	END

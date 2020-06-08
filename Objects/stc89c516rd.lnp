@@ -1,0 +1,19 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\rot.obj",
+".\Objects\test.obj",
+".\Objects\zk.obj",
+".\Objects\bmp.obj",
+".\Objects\uart.obj",
+".\Objects\delay.obj",
+".\Objects\button.obj",
+".\Objects\dht11.obj",
+".\Objects\ds1302.obj",
+".\Objects\lcd12864.obj",
+".\Objects\temps.obj",
+".\Objects\calendar.obj",
+".\Objects\jq8900.obj",
+".\Objects\game.obj" 
+TO ".\Objects\stc89c516rd" 
+
+PRINT(".\Listings\stc89c516rd.map") REMOVEUNUSED 

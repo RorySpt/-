@@ -1,0 +1,377 @@
+; .\Objects\uart.SRC generated from: uart.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE uart.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\uart.lst) TABS(2) SRC(.\Objects\uart.SRC)
+
+$NOMOD51
+
+NAME	UART
+
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?_UartPutStr?UART SEGMENT CODE 
+?PR?Uart_TRX_ISR?UART                    SEGMENT CODE 
+?PR?Uart_Init?UART   SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?PD?UART             SEGMENT XDATA INPAGE 
+	EXTRN	CODE (?C?CLDPTR)
+	PUBLIC	Ti_Str
+	PUBLIC	Ti_Len
+	PUBLIC	Ri_Adr
+	PUBLIC	Receive_buffer
+	PUBLIC	Uart_Init
+	PUBLIC	Uart_TRX_ISR
+	PUBLIC	_UartPutStr
+
+	RSEG  ?PD?UART
+ Receive_buffer:   DS   16
+         Ri_Adr:   DS   1
+         Ti_Len:   DS   1
+         Ti_Str:   DS   3
+
+	RSEG  ?C_INITSEG
+	DB	083H
+	DB	LOW (Ti_Str)
+	DB	000H,000H,000H	; ptr3
+
+	DB	081H
+	DB	LOW (Ri_Adr)
+	DB	000H
+
+; #include "Uart.h "
+; 
+; uchar *Ti_Str=0;
+; uchar Ti_Len;
+; uchar Ri_Adr=0;
+; uchar Receive_buffer[16];
+; 
+; void UartPutStr ( uchar *Uc_Str,uchar Uc_Len )
+
+	RSEG  ?PR?_UartPutStr?UART
+_UartPutStr:
+	USING	0
+			; SOURCE LINE # 8
+;---- Variable 'Uc_Len?041' assigned to Register 'R5' ----
+;---- Variable 'Uc_Str?040' assigned to Register 'R1/R2/R3' ----
+; {
+			; SOURCE LINE # 9
+; 	Ti_Str=Uc_Str;	//传递指针
+			; SOURCE LINE # 10
+	MOV  	R0,#LOW (Ti_Str)
+	MOV  	A,R3
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R2
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,R1
+	MOVX 	@R0,A
+; 	Ti_Len=Uc_Len;
+			; SOURCE LINE # 11
+	MOV  	R0,#LOW (Ti_Len)
+	MOV  	A,R5
+	MOVX 	@R0,A
+; 	//ES=1;						//开串口中断
+; 	TI=1;						//触发中断.发送第一个数据
+			; SOURCE LINE # 13
+	SETB 	TI
+; 
+; }
+			; SOURCE LINE # 15
+	RET  	
+; END OF _UartPutStr
+
+CSEG	AT	00023H
+	LJMP	Uart_TRX_ISR
+
+; 
+; 
+; void Uart_TRX_ISR ( void ) interrupt 4
+
+	RSEG  ?PR?Uart_TRX_ISR?UART
+	USING	0
+Uart_TRX_ISR:
+	PUSH 	ACC
+	PUSH 	DPH
+	PUSH 	DPL
+	PUSH 	PSW
+	MOV  	PSW,#00H
+	PUSH 	AR0
+	PUSH 	AR1
+	PUSH 	AR2
+	PUSH 	AR3
+	PUSH 	AR7
+	USING	0
+			; SOURCE LINE # 18
+; {
+; 		
+; 	if(TI)
+			; SOURCE LINE # 21
+	JNB  	TI,?C0002
+; 	{
+			; SOURCE LINE # 22
+; 		if(Ti_Len){SBUF=*Ti_Str;Ti_Str++;Ti_Len--;}//*Ti_Str的下一个数据=0xAA时结束
+			; SOURCE LINE # 23
+	MOV  	R0,#LOW (Ti_Len)
+	MOVX 	A,@R0
+	JZ   	?C0003
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R3,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R2,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R1,A
+	LCALL	?C?CLDPTR
+	MOV  	SBUF,A
+	MOVX 	A,@R0
+	ADD  	A,#01H
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADDC 	A,#00H
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (Ti_Len)
+	MOVX 	A,@R0
+	DEC  	A
+	MOVX 	@R0,A
+?C0003:
+; 		TI=0;
+			; SOURCE LINE # 24
+	CLR  	TI
+; 	}
+			; SOURCE LINE # 25
+?C0002:
+; 	
+;   if ( RI )
+			; SOURCE LINE # 27
+	JNB  	RI,?C0006
+;   {
+			; SOURCE LINE # 28
+;     if ( SBUF == Message_StartCode ) Ri_Adr= 0;
+			; SOURCE LINE # 29
+	MOV  	R7,SBUF
+	MOV  	A,R7
+	XRL  	A,#0AAH
+	JNZ  	?C0005
+	MOV  	R0,#LOW (Ri_Adr)
+	MOVX 	@R0,A
+?C0005:
+; 		Receive_buffer[Ri_Adr++]=SBUF;
+			; SOURCE LINE # 30
+	MOV  	R0,#LOW (Ri_Adr)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	INC  	A
+	MOVX 	@R0,A
+	MOV  	A,#LOW (Receive_buffer)
+	ADD  	A,R7
+	MOV  	R0,A
+	MOV  	A,SBUF
+	MOVX 	@R0,A
+; 		//Ri_Adr++;
+;     RI  = 0;
+			; SOURCE LINE # 32
+	CLR  	RI
+;   }
+			; SOURCE LINE # 33
+; }
+			; SOURCE LINE # 34
+?C0006:
+	POP  	AR7
+	POP  	AR3
+	POP  	AR2
+	POP  	AR1
+	POP  	AR0
+	POP  	PSW
+	POP  	DPL
+	POP  	DPH
+	POP  	ACC
+	RETI 	
+; END OF Uart_TRX_ISR
+
+; /*****************************************************************************
+;  函 数 名  : UartInit
+;  功能描述  : 串口初使化
+;  输入参数  : void
+;  输出参数  : 无
+;  返 回 值  :
+;  调用函数  :
+;  被调函数  :
+; 
+;  修改历史      :
+;   1.日    期   : 2012年3月22日
+;     作    者   : Blueice
+;     修改内容   : 新生成函数
+; 
+; *****************************************************************************/
+; void Uart_Init ( void )
+
+	RSEG  ?PR?Uart_Init?UART
+Uart_Init:
+			; SOURCE LINE # 50
+; {
+			; SOURCE LINE # 51
+;     PCON |= 0x80;                   /*UART0 Double Rate Enable  */
+			; SOURCE LINE # 52
+	ORL  	PCON,#080H
+;     SCON = 0x50;                    /*UART0 set as 8bit , UART0 RX enable  */
+			; SOURCE LINE # 53
+	MOV  	SCON,#050H
+; 		TMOD&= 0x2f;											//Timer1 Working method 2
+			; SOURCE LINE # 54
+	ANL  	TMOD,#02FH
+; //    TMOD &= ~ ( 1 << 6 );           /*Timer1 Set as Timer*/
+; //    TMOD &= 0x0f;
+; //    TMOD |= 0x20;                   /*Timer1 set as 8 bits auto relaod  */
+;     
+; 	TH1 = Uart_Timer1_Reload ;           /*Load the timer  */
+			; SOURCE LINE # 59
+	MOV  	TH1,#0FAH
+;   TR1 = 1;
+			; SOURCE LINE # 60
+	SETB 	TR1
+; 	ES  = 1;
+			; SOURCE LINE # 61
+	SETB 	ES
+; }
+			; SOURCE LINE # 62
+	RET  	
+; END OF Uart_Init
+
+	END

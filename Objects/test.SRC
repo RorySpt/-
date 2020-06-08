@@ -1,0 +1,1907 @@
+; .\Objects\test.SRC generated from: test.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE test.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\test.lst) TABS(2) SRC(.\Objects\test.SRC)
+
+$NOMOD51
+
+NAME	TEST
+
+DS_CE	BIT	0A0H.0
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+DS_IO	BIT	0A0H.1
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+KEY0	BIT	0B0H.1
+KEY1	BIT	0B0H.0
+RI	BIT	098H.0
+BZ	BIT	090H.5
+KEY2	BIT	0B0H.2
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+KEY3	BIT	0B0H.3
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+DS_SCLK	BIT	0A0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+TEMP_IO	BIT	0B0H.7
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+DHT_IO	BIT	0A0H.3
+LCD_RS	BIT	0A0H.7
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+LCD_RW	BIT	0A0H.6
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+LCD_E	BIT	0A0H.5
+PSW	DATA	0D0H
+?PR?test_BZ?TEST     SEGMENT CODE 
+?PD?test_BZ?TEST     SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?test_buttons?TEST                    SEGMENT CODE 
+?PD?test_buttons?TEST                    SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?test_display_temps?TEST              SEGMENT CODE 
+?PD?test_display_temps?TEST              SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?test_lcd12864_displayPM1?TEST        SEGMENT CODE 
+?PD?test_lcd12864_displayPM1?TEST        SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?test_lcd12864_displayPM0?TEST        SEGMENT CODE 
+?PR?test_ds1302?TEST SEGMENT CODE 
+?PD?test_ds1302?TEST SEGMENT XDATA INPAGE OVERLAYABLE 
+?PR?test_dht?TEST    SEGMENT CODE 
+?PD?test_dht?TEST    SEGMENT XDATA INPAGE OVERLAYABLE 
+?C_INITSEG           SEGMENT CODE 
+?CO?TEST             SEGMENT CODE 
+?PD?TEST             SEGMENT XDATA INPAGE 
+?PR?TEST             SEGMENT CODE 
+	EXTRN	CODE (lcd_clr_DDram)
+	EXTRN	XDATA (ds_dat_time)
+	EXTRN	XDATA (temp_data_Decimal_r)
+	EXTRN	CODE (_lcd_Draw_PM)
+	EXTRN	XDATA (?_lcd_Draw_PM?BYTE)
+	EXTRN	XDATA (error)
+	EXTRN	XDATA (Dht_error)
+	EXTRN	DATA (Double_Press_counter)
+	EXTRN	CODE (d_100ms)
+	EXTRN	XDATA (Dht_RhData)
+	EXTRN	CODE (_lcd_wcmd)
+	EXTRN	CODE (lcd_clr_GD)
+	EXTRN	CODE (Ds18b20_ChangTemp)
+	EXTRN	CODE (_lcd_wdat)
+	EXTRN	XDATA (temp_data_sign)
+	EXTRN	CODE (lcd_init)
+	EXTRN	CODE (dht_rdat)
+	EXTRN	CODE (Ds18b20_rTemp)
+	EXTRN	DATA (Instruction_code_key)
+	EXTRN	CODE (recognition_key)
+	EXTRN	CODE (zhu)
+	EXTRN	CODE (Ds18b20_Init)
+	EXTRN	CODE (temp_data_collation)
+	EXTRN	XDATA (temp_data_Integer)
+	EXTRN	CODE (d_1s)
+	EXTRN	CODE (Ds1302_Read_time)
+	EXTRN	CODE (_d_n_ms)
+	EXTRN	CODE (?C?UIDIV)
+	PUBLIC	ver_key
+	PUBLIC	c?
+	PUBLIC	BZ_Forbiddenbit
+	PUBLIC	time_clock
+	PUBLIC	init_ds_dat_time
+	PUBLIC	test_key_ver_0
+	PUBLIC	test_ds1302_ver_0
+	PUBLIC	test_dht
+	PUBLIC	test_ds1302
+	PUBLIC	test_lcd12864_displayPM0
+	PUBLIC	test_lcd12864_displayPM1
+	PUBLIC	test_display_temps
+	PUBLIC	test_buttons
+	PUBLIC	test_BZ
+
+	RSEG  ?PD?test_lcd12864_displayPM1?TEST
+?test_lcd12864_displayPM1?BYTE:
+          i?344:   DS   2
+	ORG  2
+          j?345:   DS   2
+
+	RSEG  ?PD?test_display_temps?TEST
+?test_display_temps?BYTE:
+          i?243:   DS   2
+
+	RSEG  ?PD?test_buttons?TEST
+?test_buttons?BYTE:
+          i?141:   DS   2
+	ORG  2
+          j?142:   DS   2
+
+	RSEG  ?PD?test_BZ?TEST
+?test_BZ?BYTE:
+          n?040:   DS   2
+
+	RSEG  ?PD?test_ds1302?TEST
+?test_ds1302?BYTE:
+          i?546:   DS   1
+
+	RSEG  ?PD?test_dht?TEST
+?test_dht?BYTE:
+          k?647:   DS   1
+	ORG  1
+          i?648:   DS   1
+
+	RSEG  ?PD?TEST
+init_ds_dat_time:   DS   7
+     time_clock:   DS   1
+BZ_Forbiddenbit:   DS   4
+             c?:   DS   3
+        ver_key:   DS   32
+
+	RSEG  ?CO?TEST
+test_ds1302_ver_0:
+	DB  'l' ,'c' ,'d' ,'.' ,'t' ,'e' ,'s' ,'t' ,':' ,'v' 
+	DB  'e' ,'r' ,'s' ,'i' ,'o' ,'n' ,' ' ,'1' ,'.' ,'0' 
+	DB  000H
+
+
+test_key_ver_0:
+	DB  'k' ,'e' ,'y' ,'.' ,'t' ,'e' ,'s' ,'t' ,':' ,' ' 
+	DB  ' ' ,'v' ,'e' ,'r' ,' ' ,'0' ,'d' ,'a' ,'t' ,'a' 
+	DB  ':' ,' ' ,' ' ,' ' ,'2' ,'0' ,'2' ,'0' ,'/' ,'2' 
+	DB  '/' ,'7' ,000H
+
+
+
+	RSEG  ?C_INITSEG
+	DB	083H
+	DB	LOW (c?)
+	DB  0A1H,0E6H,000H
+
+
+	DB	087H
+	DB	LOW (init_ds_dat_time)
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	023H
+	DB	001H
+	DB	004H
+	DB	020H
+
+	DB	081H
+	DB	LOW (time_clock)
+	DB	000H
+
+	DB	0A0H
+	DB	020H
+	DB	LOW (ver_key)
+	DB  'k' ,'e' ,'y' ,'0' ,000H
+
+	DB  000H,000H,000H
+
+	DB  'k' ,'e' ,'y' ,'1' ,000H
+
+	DB  000H,000H,000H
+
+	DB  'k' ,'e' ,'y' ,'2' ,000H
+
+	DB  000H,000H,000H
+
+	DB  'k' ,'e' ,'y' ,'3' ,000H
+
+	DB  000H,000H,000H
+
+
+	DB	084H
+	DB	LOW (BZ_Forbiddenbit)
+	DB	000H
+	DB  000H,000H,000H
+
+
+; #include "test.h"
+; #include "habit.h"
+; #include "lcd.h"
+; #include "temps.h"
+; #include "bmp.h"
+; #include "ds1302.h"
+; #include "button.h"
+; #include "dht11.h"
+; /****temp******/
+; uchar c[]={"℃"};
+; 
+; /****DS1302****/
+; uchar init_ds_dat_time[7]={0x00,0x00,0x00,0x23,0x01,0x04,0x20};
+; uchar code test_ds1302_ver_0[]={"lcd.test:version 1.0"};
+; uchar time_clock=0;
+; 
+; /****key*******/
+; //uchar code test_key_ver_0[]={"key0~3.test:version 0"};
+; uchar code test_key_ver_0[]={"key.test:  ver 0data:   2020/2/7"};
+; uchar ver_key[4][8]={"key0","key1","key2","key3"};
+; 
+; /****BZ********/
+; sbit BZ=P1^5;
+; uchar BZ_Forbiddenbit[4]=0;
+; 
+
+	RSEG  ?PR?TEST
+Com006A:
+L?0107:
+	USING	0
+	MOV  	R5,#064H
+L?0108:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R4,#00H
+L?0109:
+	LCALL	?C?UIDIV
+L?0110:
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?UIDIV
+	MOV  	A,R5
+	ADD  	A,#030H
+	MOV  	R7,A
+	RET  	
+L?0115:
+	USING	0
+L?0116:
+	MOV  	R0,#LOW (i?141+01H)
+L?0117:
+	MOVX 	A,@R0
+	ADD  	A,#01H
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADDC 	A,#00H
+	MOVX 	@R0,A
+	RET  	
+L?0118:
+	USING	0
+	MOV  	B,#0AH
+L?0119:
+	MOVX 	A,@R0
+	DIV  	AB
+L?0120:
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	RET  	
+L?0127:
+	USING	0
+	MOV  	R0,#LOW (i?141)
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,ACC
+	ADD  	A,#LOW (Double_Press_counter)
+	MOV  	R0,A
+	MOV  	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOV  	A,@R0
+	SETB 	C
+	SUBB 	A,#0AH
+	MOV  	A,R6
+	SUBB 	A,#00H
+	RET  	
+L?0129:
+	USING	0
+L?0130:
+	MOV  	R0,#LOW (j?345)
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R0,#LOW (i?344)
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,R7
+	RET  	
+L?0132:
+	USING	0
+	MOV  	R0,#LOW (i?141)
+L?0133:
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	RET  	
+L?0135:
+	USING	0
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	?C?UIDIV
+	MOV  	A,R7
+	ADD  	A,#030H
+	MOV  	R7,A
+	RET  	
+L?0136:
+	USING	0
+	SETB 	C
+	MOV  	R0,#LOW (n?040+01H)
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	RET  	
+L?0137:
+	USING	0
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,#0FFH
+	MOVX 	@R0,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADDC 	A,#0FFH
+	MOVX 	@R0,A
+	RET  	
+L?0138:
+	USING	0
+	MOV  	R0,#LOW (n?040+01H)
+	MOVX 	A,@R0
+	SUBB 	A,#0E8H
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#03H
+	RET  	
+L?0139:
+	USING	0
+	MOV  	R0,#LOW (n?040)
+	MOV  	A,#03H
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0E8H
+	MOVX 	@R0,A
+	RET  	
+; END OF Com006A
+
+; void test_BZ()
+
+	RSEG  ?PR?test_BZ?TEST
+test_BZ:
+	USING	0
+			; SOURCE LINE # 26
+; {
+			; SOURCE LINE # 27
+; 	uint n=1;
+			; SOURCE LINE # 28
+	MOV  	R0,#LOW (n?040)
+	CLR  	A
+	MOVX 	@R0,A
+	INC  	R0
+	INC  	A
+	MOVX 	@R0,A
+; 	lcd_init();
+			; SOURCE LINE # 29
+	LCALL	lcd_init
+?C0001:
+; 	while(1)
+			; SOURCE LINE # 30
+; 	{
+			; SOURCE LINE # 31
+; 		recognition_key();lcd_wcmd(0x80);lcd_wdat((n/1000)+48);lcd_wdat((n/100)%10+48);lcd_wdat((n/10)%10+48);lcd_wdat(n%10+48);
+			; SOURCE LINE # 32
+	LCALL	recognition_key
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+	MOV  	R0,#LOW (n?040)
+	MOV  	R4,#03H
+	MOV  	R5,#0E8H
+	LCALL	L?0135
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (n?040)
+	LCALL	L?0107
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (n?040)
+	MOV  	R5,#0AH
+	LCALL	L?0108
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (n?040)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	L?0110
+	LCALL	_lcd_wdat
+; 		if(Instruction_code_key[0]==0x80&&BZ_Forbiddenbit[0]==0){if(n<1000)n++;else n=0;BZ_Forbiddenbit[0]=1;}
+			; SOURCE LINE # 33
+	MOV  	R7,Instruction_code_key
+	MOV  	R6,#00H
+	MOV  	A,R7
+	XRL  	A,#080H
+	JNZ  	?C0003
+	MOV  	R0,#LOW (BZ_Forbiddenbit)
+	MOVX 	A,@R0
+	JNZ  	?C0003
+	CLR  	C
+	LCALL	L?0138
+	JNC  	?C0004
+	INC  	R0
+	LCALL	L?0117
+	SJMP 	?C0005
+?C0004:
+	CLR  	A
+	MOV  	R0,#LOW (n?040)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0005:
+	MOV  	R0,#LOW (BZ_Forbiddenbit)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	SJMP 	?C0006
+?C0003:
+; 		else {BZ_Forbiddenbit[0]=0;if(Instruction_code_key[0]==0x82&&Double_Press_counter[0]>10){if(n<1000)n++;else n=0;Double_Press_counter[0]=0;}}
+			; SOURCE LINE # 34
+	CLR  	A
+	MOV  	R0,#LOW (BZ_Forbiddenbit)
+	MOVX 	@R0,A
+	MOV  	A,R7
+	XRL  	A,#082H
+	ORL  	A,R6
+	JNZ  	?C0006
+	SETB 	C
+	MOV  	A,Double_Press_counter+01H
+	SUBB 	A,#0AH
+	MOV  	A,Double_Press_counter
+	SUBB 	A,#00H
+	JC   	?C0006
+	LCALL	L?0138
+	JNC  	?C0008
+	INC  	R0
+	LCALL	L?0117
+	SJMP 	?C0009
+?C0008:
+	CLR  	A
+	MOV  	R0,#LOW (n?040)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0009:
+	CLR  	A
+	MOV  	Double_Press_counter,A
+	MOV  	Double_Press_counter+01H,A
+?C0006:
+; 		if(Instruction_code_key[1]==0x80&&BZ_Forbiddenbit[1]==0){if(n>0)n--;else n=1000;BZ_Forbiddenbit[1]=1;}
+			; SOURCE LINE # 35
+	MOV  	R7,Instruction_code_key+01H
+	MOV  	R6,#00H
+	MOV  	A,R7
+	XRL  	A,#080H
+	JNZ  	?C0010
+	MOV  	R0,#LOW (BZ_Forbiddenbit+01H)
+	MOVX 	A,@R0
+	JNZ  	?C0010
+	LCALL	L?0136
+	JC   	?C0011
+	LCALL	L?0137
+	SJMP 	?C0012
+?C0011:
+	LCALL	L?0139
+?C0012:
+	MOV  	R0,#LOW (BZ_Forbiddenbit+01H)
+	MOV  	A,#01H
+	MOVX 	@R0,A
+	SJMP 	?C0013
+?C0010:
+; 		else {BZ_Forbiddenbit[1]=0;if(Instruction_code_key[1]==0x82&&Double_Press_counter[1]>10){if(n>0)n--;else n=1000;Double_Press_counter[1]=0;}}
+			; SOURCE LINE # 36
+	CLR  	A
+	MOV  	R0,#LOW (BZ_Forbiddenbit+01H)
+	MOVX 	@R0,A
+	MOV  	A,R7
+	XRL  	A,#082H
+	ORL  	A,R6
+	JNZ  	?C0013
+	SETB 	C
+	MOV  	A,Double_Press_counter+03H
+	SUBB 	A,#0AH
+	MOV  	A,Double_Press_counter+02H
+	SUBB 	A,#00H
+	JC   	?C0013
+	LCALL	L?0136
+	JC   	?C0015
+	LCALL	L?0137
+	SJMP 	?C0016
+?C0015:
+	LCALL	L?0139
+?C0016:
+	CLR  	A
+	MOV  	Double_Press_counter+02H,A
+	MOV  	Double_Press_counter+03H,A
+?C0013:
+; 		BZ=1;d_n_ms(n);BZ=0;
+			; SOURCE LINE # 37
+	SETB 	BZ
+	MOV  	R0,#LOW (n?040)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	_d_n_ms
+	CLR  	BZ
+; 	}
+			; SOURCE LINE # 38
+	LJMP 	?C0001
+; END OF test_BZ
+
+; }
+; void test_buttons()
+
+	RSEG  ?PR?test_buttons?TEST
+test_buttons:
+	USING	0
+			; SOURCE LINE # 40
+; {
+			; SOURCE LINE # 41
+; 	uint i,j;
+; 	lcd_init();
+			; SOURCE LINE # 43
+	LCALL	lcd_init
+; 	//while(1)test_display_temps();
+; 	lcd_wcmd(0x80);
+			; SOURCE LINE # 45
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+; 	for(i=0;i<16;i++)
+			; SOURCE LINE # 46
+	CLR  	A
+	MOV  	R0,#LOW (i?141)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0018:
+	LCALL	L?0132
+	SUBB 	A,#010H
+	MOV  	A,R6
+	SUBB 	A,#00H
+	JNC  	?C0019
+; 	{
+			; SOURCE LINE # 47
+; 		lcd_wdat(test_key_ver_0[i]);
+			; SOURCE LINE # 48
+	LCALL	L?0131
+; 	}
+			; SOURCE LINE # 49
+	LCALL	L?0115
+	SJMP 	?C0018
+?C0019:
+; 	lcd_wcmd(0x90);
+			; SOURCE LINE # 50
+	MOV  	R7,#090H
+	LCALL	_lcd_wcmd
+; 	for(;i<32;i++)
+			; SOURCE LINE # 51
+?C0021:
+	LCALL	L?0132
+	SUBB 	A,#020H
+	MOV  	A,R6
+	SUBB 	A,#00H
+	JNC  	?C0024
+; 	{
+			; SOURCE LINE # 52
+; 		lcd_wdat(test_key_ver_0[i]);
+			; SOURCE LINE # 53
+	LCALL	L?0131
+; 	}
+			; SOURCE LINE # 54
+	LCALL	L?0115
+	SJMP 	?C0021
+?C0024:
+; 	
+; 	while(1)
+			; SOURCE LINE # 56
+; 	{
+			; SOURCE LINE # 57
+; 		
+; 		//DS_IO=0;
+; 		//test_display_temps();
+; 		recognition_key();
+			; SOURCE LINE # 61
+	LCALL	recognition_key
+; 		for(i=0;i<4;i++)
+			; SOURCE LINE # 62
+	CLR  	A
+	MOV  	R0,#LOW (i?141)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0026:
+; 		{
+			; SOURCE LINE # 63
+; 			lcd_wcmd((0x88+i*4)*(i<2)+(0x98+(i-2)*4)*(i>=2));
+			; SOURCE LINE # 64
+	MOV  	R0,#LOW (i?141)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	MOV  	R5,A
+	ADD  	A,ACC
+	ADD  	A,ACC
+	ADD  	A,#090H
+	MOV  	R4,A
+	CLR  	C
+	MOV  	A,R7
+	SUBB 	A,#02H
+	MOV  	A,R6
+	SUBB 	A,#00H
+	JC   	?C0029
+	MOV  	R7,#01H
+	SJMP 	?C0030
+?C0029:
+	MOV  	R7,#00H
+?C0030:
+	MOV  	A,R4
+	MOV  	B,R7
+	MUL  	AB
+	MOV  	R7,A
+	MOV  	A,R5
+	ADD  	A,ACC
+	ADD  	A,ACC
+	ADD  	A,#088H
+	MOV  	R6,A
+	CLR  	C
+	MOV  	R0,#LOW (i?141+01H)
+	MOVX 	A,@R0
+	SUBB 	A,#02H
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	JNC  	?C0031
+	MOV  	R5,#01H
+	SJMP 	?C0032
+?C0031:
+	MOV  	R5,#00H
+?C0032:
+	MOV  	A,R6
+	MOV  	B,R5
+	MUL  	AB
+	ADD  	A,R7
+	MOV  	R7,A
+	LCALL	_lcd_wcmd
+; 			for(j=0;j<4;j++)
+			; SOURCE LINE # 65
+	CLR  	A
+	MOV  	R0,#LOW (j?142)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0033:
+	MOV  	R0,#LOW (j?142)
+	LCALL	L?0133
+	SUBB 	A,#04H
+	MOV  	A,R6
+	SUBB 	A,#00H
+	JNC  	?C0034
+; 				lcd_wdat(ver_key[i][j]);
+			; SOURCE LINE # 66
+	MOV  	R0,#LOW (i?141)
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	B,#08H
+	MUL  	AB
+	ADD  	A,#LOW (ver_key)
+	ADD  	A,R7
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (j?142+01H)
+	LCALL	L?0117
+	SJMP 	?C0033
+?C0034:
+; 			lcd_wdat(' ');
+			; SOURCE LINE # 67
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+; 			switch(Instruction_code_key[i])
+			; SOURCE LINE # 68
+	MOV  	R0,#LOW (i?141)
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,#LOW (Instruction_code_key)
+	MOV  	R0,A
+	MOV  	A,@R0
+	ADD  	A,#07FH
+	JZ   	?C0038
+	DEC  	A
+	JZ   	?C0039
+	DEC  	A
+	JZ   	?C0042
+	ADD  	A,#03H
+	JNZ  	?C0045
+; 			{
+			; SOURCE LINE # 69
+; 				case 0x80:lcd_wdat('0');break;
+			; SOURCE LINE # 70
+?C0037:
+	SJMP 	?C0093
+; 				case 0x81:lcd_wdat('1');break;
+			; SOURCE LINE # 71
+?C0038:
+	SJMP 	?C0094
+; 				case 0x82:if(Double_Press_counter[i]>10)lcd_wdat('2');else lcd_wdat('0');break;
+			; SOURCE LINE # 72
+?C0039:
+	LCALL	L?0127
+	JC   	?C0040
+	MOV  	R7,#032H
+	SJMP 	?C0098
+?C0040:
+?C0093:
+	MOV  	R7,#030H
+?C0095:
+	SJMP 	?C0098
+; 				case 0x83:if(Double_Press_counter[i]>10)lcd_wdat('3');else lcd_wdat('1');break;
+			; SOURCE LINE # 73
+?C0042:
+	LCALL	L?0127
+	JC   	?C0043
+	MOV  	R7,#033H
+?C0096:
+	SJMP 	?C0098
+?C0043:
+?C0094:
+	MOV  	R7,#031H
+?C0097:
+	SJMP 	?C0098
+; 				default  :lcd_wdat('4');break;
+			; SOURCE LINE # 74
+?C0045:
+	MOV  	R7,#034H
+?C0098:
+	LCALL	_lcd_wdat
+; 			}
+			; SOURCE LINE # 75
+?C0036:
+; 			lcd_wdat(' ');lcd_wdat(' ');
+			; SOURCE LINE # 76
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+; 		}
+			; SOURCE LINE # 77
+	LCALL	L?0116
+	CLR  	C
+	INC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#04H
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	JNC  	$ + 5H
+	LJMP 	?C0026
+?C0027:
+; 		d_100ms();
+			; SOURCE LINE # 78
+	LCALL	d_100ms
+; 	} 
+			; SOURCE LINE # 79
+	LJMP 	?C0024
+; }
+			; SOURCE LINE # 80
+L?0131:
+	MOV  	A,#LOW (test_key_ver_0)
+	ADD  	A,R7
+	MOV  	DPL,A
+	MOV  	A,#HIGH (test_key_ver_0)
+	ADDC 	A,R6
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+; END OF test_buttons
+
+; 
+; void test_display_temps()
+
+	RSEG  ?PR?test_display_temps?TEST
+test_display_temps:
+	USING	0
+			; SOURCE LINE # 82
+; {
+			; SOURCE LINE # 83
+; 	uint i=0;
+			; SOURCE LINE # 84
+	CLR  	A
+	MOV  	R0,#LOW (i?243)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+; 	lcd_init();
+			; SOURCE LINE # 85
+	LCALL	lcd_init
+?C0047:
+; 	while(1)
+			; SOURCE LINE # 86
+; 	{
+			; SOURCE LINE # 87
+; 		Ds18b20_ChangTemp();
+			; SOURCE LINE # 88
+	LCALL	Ds18b20_ChangTemp
+; 		d_100ms();
+			; SOURCE LINE # 89
+	LCALL	d_100ms
+; 		Ds18b20_rTemp();
+			; SOURCE LINE # 90
+	LCALL	Ds18b20_rTemp
+; 		
+; 		temp_data_collation();
+			; SOURCE LINE # 92
+	LCALL	temp_data_collation
+; 		//LCD_cmd_functionSet_Basic;//使用基本指令集
+; 		lcd_wcmd(0x80);
+			; SOURCE LINE # 94
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+; 		/*	if(temp_data_sign)lcd_wdat('-');
+; 		lcd_wdat((uchar)(temp_data_Integer/100%10+48));
+; 		lcd_wdat(temp_data_Integer/10%10+48);
+; 		lcd_wdat(temp_data_Integer%10+48);
+; 		lcd_wdat('.');
+; 		lcd_wdat((temp_data_Decimal_r/100)+48);
+; 		lcd_wdat((temp_data_Decimal_r/10%10)+48);
+; 		lcd_wdat(c[0]);lcd_wdat(c[1]);
+; 		lcd_wdat(' ');
+; 		if(temp_data_sign)lcd_wdat('-');
+; 		if(temp_data_Integer/100%10)lcd_wdat((uchar)(temp_data_Integer/100%10+48));*/
+; 		lcd_wdat(temp_data_Integer/10%10+48);
+			; SOURCE LINE # 106
+	MOV  	R0,#LOW (temp_data_Integer)
+	LCALL	L?0118
+	LCALL	_lcd_wdat
+; 		lcd_wdat(temp_data_Integer%10+48);
+			; SOURCE LINE # 107
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	LCALL	L?0120
+	LCALL	_lcd_wdat
+; 		lcd_wdat('.');
+			; SOURCE LINE # 108
+	MOV  	R7,#02EH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((temp_data_Decimal_r/10%10)+48);
+			; SOURCE LINE # 109
+	MOV  	R0,#LOW (temp_data_Decimal_r)
+	LCALL	L?0118
+	LCALL	_lcd_wdat
+; 		lcd_wdat((temp_data_Decimal_r%10)+48);
+			; SOURCE LINE # 110
+	MOV  	R0,#LOW (temp_data_Decimal_r)
+	MOVX 	A,@R0
+	LCALL	L?0120
+	LCALL	_lcd_wdat
+; 		if(!temp_data_sign)lcd_wdat(' ');
+			; SOURCE LINE # 111
+	MOV  	R0,#LOW (temp_data_sign)
+	MOVX 	A,@R0
+	JNZ  	?C0049
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+?C0049:
+; 		if(!(temp_data_Integer/100%10))lcd_wdat(' ');	
+			; SOURCE LINE # 112
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	JNZ  	?C0050
+	MOV  	R7,#020H
+	LCALL	_lcd_wdat
+?C0050:
+; 		
+; 		lcd_wcmd(0x88);
+			; SOURCE LINE # 114
+	MOV  	R7,#088H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat(i/10000+48);
+			; SOURCE LINE # 115
+	MOV  	R0,#LOW (i?243)
+	MOV  	R4,#027H
+	MOV  	R5,#010H
+	LCALL	L?0135
+; 		lcd_wdat(i/1000%10+48);	
+			; SOURCE LINE # 116
+	LCALL	L?0126
+	MOV  	R4,#03H
+	MOV  	R5,#0E8H
+	LCALL	L?0109
+	LCALL	_lcd_wdat
+; 		lcd_wdat(i/100%10+48);	
+			; SOURCE LINE # 117
+	MOV  	R0,#LOW (i?243)
+	LCALL	L?0107
+; 		lcd_wdat(i/10%10+48);	
+			; SOURCE LINE # 118
+	LCALL	L?0126
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	L?0109
+	LCALL	_lcd_wdat
+; 		lcd_wdat(i%10+48);	
+			; SOURCE LINE # 119
+	MOV  	R0,#LOW (i?243)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	LCALL	L?0110
+	LCALL	_lcd_wdat
+; 		i++;
+			; SOURCE LINE # 120
+	MOV  	R0,#LOW (i?243+01H)
+	LCALL	L?0117
+; 		lcd_wcmd(0x8f);
+			; SOURCE LINE # 121
+	MOV  	R7,#08FH
+	LCALL	_lcd_wcmd
+; 		lcd_wdat(error+48);
+			; SOURCE LINE # 122
+	MOV  	R0,#LOW (error)
+	MOVX 	A,@R0
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+; 		//lcd_wcmd(0x98);
+; 		/*for(j=0;j<8;j++)
+; 		{
+; 			lcd_wdat((uchar)(bit)((temp_High<<j)&0x80)+48);
+; 		}
+; 		for(j=0;j<8;j++)
+; 		{
+; 			lcd_wdat((uchar)(bit)((temp_Low<<j)&0x80)+48);
+; 		}*/
+; }
+			; SOURCE LINE # 132
+	LJMP 	?C0047
+; 	
+; }
+			; SOURCE LINE # 134
+L?0126:
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (i?243)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	INC  	R0
+	MOVX 	A,@R0
+	MOV  	R7,A
+	RET  	
+; END OF test_display_temps
+
+; void test_lcd12864_displayPM1()
+
+	RSEG  ?PR?test_lcd12864_displayPM1?TEST
+test_lcd12864_displayPM1:
+	USING	0
+			; SOURCE LINE # 135
+; {
+			; SOURCE LINE # 136
+; 		uint i,j;
+; 	lcd_wcmd(0x30);
+			; SOURCE LINE # 138
+	MOV  	R7,#030H
+	LCALL	_lcd_wcmd
+; for(i=0;i<1;i++)
+			; SOURCE LINE # 139
+	CLR  	A
+	MOV  	R0,#LOW (i?344)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0052:
+; 		{
+			; SOURCE LINE # 140
+; 			lcd_wcmd(0x80);
+			; SOURCE LINE # 141
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+; 			for(j=0;j<64;j++)
+			; SOURCE LINE # 142
+	CLR  	A
+	MOV  	R0,#LOW (j?345)
+	MOVX 	@R0,A
+	INC  	R0
+	MOVX 	@R0,A
+?C0055:
+	MOV  	R0,#LOW (j?345)
+	LCALL	L?0133
+	SUBB 	A,#040H
+	MOV  	A,R6
+	SUBB 	A,#00H
+	JNC  	?C0054
+; 			{
+			; SOURCE LINE # 143
+; 				switch(j/16)
+			; SOURCE LINE # 144
+	MOV  	A,R6
+	SWAP 	A
+	MOV  	R0,A
+	ANL  	A,#0F0H
+	XCH  	A,R0
+	XRL  	A,R0
+	MOV  	R6,A
+	MOV  	A,R7
+	SWAP 	A
+	ANL  	A,#0FH
+	ORL  	A,R0
+	MOV  	R7,A
+	MOV  	A,R6
+	JNZ  	?C0057
+	MOV  	A,R7
+	DEC  	A
+	JZ   	?C0060
+	DEC  	A
+	JZ   	?C0061
+	DEC  	A
+	JZ   	?C0059
+	ADD  	A,#03H
+	JNZ  	?C0057
+; 				{
+			; SOURCE LINE # 145
+; 					case 0:lcd_wdat(i+j);break;	
+			; SOURCE LINE # 146
+?C0059:
+	SJMP 	?C0099
+; 					case 1:lcd_wdat(i+j+16);break;
+			; SOURCE LINE # 147
+?C0060:
+	LCALL	L?0129
+	ADD  	A,#010H
+	SJMP 	?C0101
+; 					case 2:lcd_wdat(i+j-16);break;
+			; SOURCE LINE # 148
+?C0061:
+	LCALL	L?0129
+	ADD  	A,#0F0H
+?C0100:
+	SJMP 	?C0101
+; 					case 3:lcd_wdat(i+j);break;
+			; SOURCE LINE # 149
+?C0099:
+	LCALL	L?0130
+?C0101:
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+; 				}
+			; SOURCE LINE # 150
+; 			}
+			; SOURCE LINE # 151
+?C0057:
+	MOV  	R0,#LOW (j?345+01H)
+	LCALL	L?0117
+	SJMP 	?C0055
+; 		}
+			; SOURCE LINE # 152
+?C0054:
+	MOV  	R0,#LOW (i?344+01H)
+	LCALL	L?0117
+	CLR  	C
+	INC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#01H
+	DEC  	R0
+	MOVX 	A,@R0
+	SUBB 	A,#00H
+	JC   	?C0052
+; }
+			; SOURCE LINE # 153
+?C0063:
+	RET  	
+; END OF test_lcd12864_displayPM1
+
+; void test_lcd12864_displayPM0()
+
+	RSEG  ?PR?test_lcd12864_displayPM0?TEST
+test_lcd12864_displayPM0:
+	USING	0
+			; SOURCE LINE # 154
+; {
+			; SOURCE LINE # 155
+; 
+; 	lcd_init();
+			; SOURCE LINE # 157
+	LCALL	lcd_init
+?C0064:
+; 
+; 	while(1)
+			; SOURCE LINE # 159
+; 	{
+			; SOURCE LINE # 160
+; 		
+; 		test_lcd12864_displayPM1();
+			; SOURCE LINE # 162
+	LCALL	test_lcd12864_displayPM1
+; 		d_1s();
+			; SOURCE LINE # 163
+	LCALL	d_1s
+; 		lcd_Draw_PM(0,0,16,63,zhu);
+			; SOURCE LINE # 164
+	MOV  	R0,#LOW (?_lcd_Draw_PM?BYTE+03H)
+	MOV  	A,#03FH
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#0FFH
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#HIGH (zhu)
+	MOVX 	@R0,A
+	INC  	R0
+	MOV  	A,#LOW (zhu)
+	MOVX 	@R0,A
+	MOV  	R3,#010H
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_lcd_Draw_PM
+; 		lcd_wcmd(0x36);
+			; SOURCE LINE # 165
+	MOV  	R7,#036H
+	LCALL	_lcd_wcmd
+; 		d_1s();
+			; SOURCE LINE # 166
+	LCALL	d_1s
+; 		lcd_clr_DDram();lcd_wcmd(0x36);
+			; SOURCE LINE # 167
+	LCALL	lcd_clr_DDram
+	MOV  	R7,#036H
+	LCALL	_lcd_wcmd
+; 		d_1s();
+			; SOURCE LINE # 168
+	LCALL	d_1s
+; 		lcd_clr_GD();
+			; SOURCE LINE # 169
+	LCALL	lcd_clr_GD
+; 		d_1s();
+			; SOURCE LINE # 170
+	LCALL	d_1s
+; 	}
+			; SOURCE LINE # 171
+	SJMP 	?C0064
+; END OF test_lcd12864_displayPM0
+
+; }
+; 
+; void test_ds1302()
+
+	RSEG  ?PR?test_ds1302?TEST
+test_ds1302:
+	USING	0
+			; SOURCE LINE # 174
+; {
+			; SOURCE LINE # 175
+; 	uchar i;
+; 	lcd_init();
+			; SOURCE LINE # 177
+	LCALL	lcd_init
+; 	
+; 	lcd_wcmd(0x88);
+			; SOURCE LINE # 179
+	MOV  	R7,#088H
+	LCALL	_lcd_wcmd
+; 	for(i=0;i<9;i++)lcd_wdat(test_ds1302_ver_0[i]);
+			; SOURCE LINE # 180
+	CLR  	A
+	MOV  	R0,#LOW (i?546)
+	MOVX 	@R0,A
+?C0067:
+	MOV  	R0,#LOW (i?546)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#09H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0068
+	LCALL	L?0134
+	SJMP 	?C0067
+?C0068:
+; 	lcd_wcmd(0x98+2);
+			; SOURCE LINE # 181
+	MOV  	R7,#09AH
+	LCALL	_lcd_wcmd
+; 	for(;i<21;i++)lcd_wdat(test_ds1302_ver_0[i]);
+			; SOURCE LINE # 182
+?C0070:
+	MOV  	R0,#LOW (i?546)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#015H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0071
+	LCALL	L?0134
+	SJMP 	?C0070
+?C0071:
+; 	
+; 	for(i=0;i<7;i++)ds_dat_time[i]=init_ds_dat_time[i];
+			; SOURCE LINE # 184
+	CLR  	A
+	MOV  	R0,#LOW (i?546)
+	MOVX 	@R0,A
+?C0073:
+	MOV  	R0,#LOW (i?546)
+	MOVX 	A,@R0
+	CLR  	C
+	SUBB 	A,#07H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0076
+	MOVX 	A,@R0
+	MOV  	R7,A
+	ADD  	A,#LOW (init_ds_dat_time)
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R6,A
+	MOV  	A,#LOW (ds_dat_time)
+	ADD  	A,R7
+	MOV  	R0,A
+	MOV  	A,R6
+	MOVX 	@R0,A
+	MOV  	R0,#LOW (i?546)
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+	SJMP 	?C0073
+?C0076:
+; 	//Ds1302_Set_time();
+; 
+; 	
+; 
+; 	while(1)
+			; SOURCE LINE # 189
+; 	{
+			; SOURCE LINE # 190
+; 		Ds1302_Read_time();
+			; SOURCE LINE # 191
+	LCALL	Ds1302_Read_time
+; 		
+; 		lcd_wcmd(0x80);
+			; SOURCE LINE # 193
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat((ds_dat_time[2]>>4)+48);lcd_wdat((ds_dat_time[2]&0x0f)+48);//时
+			; SOURCE LINE # 194
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	LCALL	L?0112
+	MOV  	R0,#LOW (ds_dat_time+02H)
+	LCALL	L?0114
+; 		lcd_wdat('/');
+			; SOURCE LINE # 195
+	MOV  	R7,#02FH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((ds_dat_time[1]>>4)+48);lcd_wdat((ds_dat_time[1]&0x0f)+48);//分
+			; SOURCE LINE # 196
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	LCALL	L?0112
+	MOV  	R0,#LOW (ds_dat_time+01H)
+	LCALL	L?0114
+; 		lcd_wdat('/');
+			; SOURCE LINE # 197
+	MOV  	R7,#02FH
+	LCALL	_lcd_wdat
+; 		lcd_wdat(((ds_dat_time[0])>>4)+48);lcd_wdat((ds_dat_time[0]&0x0f)+48);//秒
+			; SOURCE LINE # 198
+	MOV  	R0,#LOW (ds_dat_time)
+	LCALL	L?0121
+	MOV  	R0,#LOW (ds_dat_time)
+	LCALL	L?0122
+; 		lcd_wcmd(0x90);
+			; SOURCE LINE # 199
+	MOV  	R7,#090H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat((ds_dat_time[6]>>4)+48);lcd_wdat((ds_dat_time[6]&0x0f)+48);//年
+			; SOURCE LINE # 200
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	LCALL	L?0121
+	MOV  	R0,#LOW (ds_dat_time+06H)
+	LCALL	L?0122
+; 		lcd_wdat('/');
+			; SOURCE LINE # 201
+	MOV  	R7,#02FH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((ds_dat_time[4]>>4)+48);lcd_wdat((ds_dat_time[4]&0x0f)+48);//月
+			; SOURCE LINE # 202
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	LCALL	L?0124
+	MOV  	R0,#LOW (ds_dat_time+04H)
+	LCALL	L?0128
+; 		lcd_wdat('/');
+			; SOURCE LINE # 203
+	MOV  	R7,#02FH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((ds_dat_time[3]>>4)+48);lcd_wdat((ds_dat_time[3]&0x0f)+48);//日
+			; SOURCE LINE # 204
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	LCALL	L?0124
+	MOV  	R0,#LOW (ds_dat_time+03H)
+	LCALL	L?0128
+; 		lcd_wcmd(0x96);lcd_wdat(0xD6);lcd_wdat(0xDC);
+			; SOURCE LINE # 205
+	MOV  	R7,#096H
+	LCALL	_lcd_wcmd
+	MOV  	R7,#0D6H
+	LCALL	_lcd_wdat
+	MOV  	R7,#0DCH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((ds_dat_time[5]>>16)+48);lcd_wdat((ds_dat_time[5]&0x0f)+48);//周
+			; SOURCE LINE # 206
+	MOV  	R0,#LOW (ds_dat_time+05H)
+	CLR  	A
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (ds_dat_time+05H)
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+; 		//d_100ms();
+; 
+; 	}
+			; SOURCE LINE # 209
+	LJMP 	?C0076
+; /**/
+; }
+			; SOURCE LINE # 211
+L?0112:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0114:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0121:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0122:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0124:
+	MOVX 	A,@R0
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0128:
+	MOVX 	A,@R0
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0134:
+	MOV  	A,R7
+	MOV  	DPTR,#test_ds1302_ver_0
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (i?546)
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+	RET  	
+; END OF test_ds1302
+
+; 
+; void test_dht()//
+
+	RSEG  ?PR?test_dht?TEST
+test_dht:
+	USING	0
+			; SOURCE LINE # 213
+; {
+			; SOURCE LINE # 214
+; 	uchar k=0;
+			; SOURCE LINE # 215
+	CLR  	A
+	MOV  	R0,#LOW (k?647)
+	MOVX 	@R0,A
+; 	uchar i;
+; 	lcd_init();
+			; SOURCE LINE # 217
+	LCALL	lcd_init
+; 	Ds18b20_Init();
+			; SOURCE LINE # 218
+	LCALL	Ds18b20_Init
+; 	for(;;)
+			; SOURCE LINE # 219
+?C0079:
+; 	{
+			; SOURCE LINE # 220
+; 		Ds18b20_ChangTemp();
+			; SOURCE LINE # 221
+	LCALL	Ds18b20_ChangTemp
+; 		d_1s();
+			; SOURCE LINE # 222
+	LCALL	d_1s
+; 		Ds18b20_rTemp();
+			; SOURCE LINE # 223
+	LCALL	Ds18b20_rTemp
+; 		
+; 		temp_data_collation();
+			; SOURCE LINE # 225
+	LCALL	temp_data_collation
+; 		lcd_wcmd(0x94);
+			; SOURCE LINE # 226
+	MOV  	R7,#094H
+	LCALL	_lcd_wcmd
+; 		if(temp_data_sign)lcd_wdat('-');
+			; SOURCE LINE # 227
+	MOV  	R0,#LOW (temp_data_sign)
+	MOVX 	A,@R0
+	JZ   	?C0081
+	MOV  	R7,#02DH
+	LCALL	_lcd_wdat
+?C0081:
+; 		lcd_wdat((uchar)(temp_data_Integer/100%10+48));
+			; SOURCE LINE # 228
+	MOV  	R0,#LOW (temp_data_Integer)
+	MOV  	B,#064H
+	LCALL	L?0119
+	LCALL	_lcd_wdat
+; 		lcd_wdat(temp_data_Integer/10%10+48);
+			; SOURCE LINE # 229
+	MOV  	R0,#LOW (temp_data_Integer)
+	LCALL	L?0103
+; 		lcd_wdat(temp_data_Integer%10+48);
+			; SOURCE LINE # 230
+	MOV  	R0,#LOW (temp_data_Integer)
+	LCALL	L?0111
+; 		lcd_wdat('.');
+			; SOURCE LINE # 231
+	MOV  	R7,#02EH
+	LCALL	_lcd_wdat
+; 		lcd_wdat((temp_data_Decimal_r/10)+48);
+			; SOURCE LINE # 232
+	MOV  	R0,#LOW (temp_data_Decimal_r)
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	LCALL	L?0140
+; 		lcd_wdat((temp_data_Decimal_r%10)+48);
+			; SOURCE LINE # 233
+	MOV  	R0,#LOW (temp_data_Decimal_r)
+	LCALL	L?0111
+; 		
+; 		dht_rdat();
+			; SOURCE LINE # 235
+	LCALL	dht_rdat
+; 		lcd_wcmd(0x80);
+			; SOURCE LINE # 236
+	MOV  	R7,#080H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat(Dht_RhData[0]/100+48);
+			; SOURCE LINE # 237
+	MOV  	R0,#LOW (Dht_RhData)
+	LCALL	L?0123
+; 		lcd_wdat(Dht_RhData[0]/10%10+48);
+			; SOURCE LINE # 238
+	MOV  	R0,#LOW (Dht_RhData)
+	LCALL	L?0103
+; 		lcd_wdat(Dht_RhData[0]%10+48);
+			; SOURCE LINE # 239
+	MOV  	R0,#LOW (Dht_RhData)
+	LCALL	L?0113
+; 		lcd_wdat('.');
+			; SOURCE LINE # 240
+	MOV  	R7,#02EH
+	LCALL	_lcd_wdat
+; 		if(Dht_RhData[1]/100>0)lcd_wdat(Dht_RhData[1]/100+48);
+			; SOURCE LINE # 241
+	MOV  	R0,#LOW (Dht_RhData+01H)
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	MOV  	R7,A
+	SETB 	C
+	SUBB 	A,#00H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JC   	?C0082
+	MOV  	A,R7
+	LCALL	L?0140
+?C0082:
+; 		lcd_wdat(Dht_RhData[1]/10%10+48);
+			; SOURCE LINE # 242
+	MOV  	R0,#LOW (Dht_RhData+01H)
+	LCALL	L?0104
+; 		lcd_wdat(Dht_RhData[1]%10+48);
+			; SOURCE LINE # 243
+	MOV  	R0,#LOW (Dht_RhData+01H)
+	LCALL	L?0113
+; 		lcd_wcmd(0x84);
+			; SOURCE LINE # 244
+	MOV  	R7,#084H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat(Dht_RhData[2]/100+48);
+			; SOURCE LINE # 245
+	MOV  	R0,#LOW (Dht_RhData+02H)
+	LCALL	L?0123
+; 		lcd_wdat(Dht_RhData[2]/10%10+48);
+			; SOURCE LINE # 246
+	MOV  	R0,#LOW (Dht_RhData+02H)
+	LCALL	L?0104
+; 		lcd_wdat(Dht_RhData[2]%10+48);
+			; SOURCE LINE # 247
+	MOV  	R0,#LOW (Dht_RhData+02H)
+	MOVX 	A,@R0
+	LCALL	L?0120
+	LCALL	_lcd_wdat
+; 		lcd_wdat('.');
+			; SOURCE LINE # 248
+	MOV  	R7,#02EH
+	LCALL	_lcd_wdat
+; 		if(Dht_RhData[3]/100>0)lcd_wdat(Dht_RhData[1]/100+48);
+			; SOURCE LINE # 249
+	MOV  	R0,#LOW (Dht_RhData+03H)
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	SETB 	C
+	SUBB 	A,#00H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JC   	?C0083
+	MOV  	R0,#LOW (Dht_RhData+01H)
+	LCALL	L?0125
+?C0083:
+; 		lcd_wdat(Dht_RhData[3]/10%10+48);
+			; SOURCE LINE # 250
+	MOV  	R0,#LOW (Dht_RhData+03H)
+	LCALL	L?0105
+; 		lcd_wdat(Dht_RhData[3]%10+48);
+			; SOURCE LINE # 251
+	MOV  	R0,#LOW (Dht_RhData+03H)
+	MOVX 	A,@R0
+	LCALL	L?0120
+	LCALL	_lcd_wdat
+; 		/*m=(uint)Dht_RhData[1];
+; 		m=m*39;
+; 		lcd_wdat(m/10000+48);
+; 		lcd_wdat(m/1000%10+48);*/
+; 		lcd_wcmd(0x90);
+			; SOURCE LINE # 256
+	MOV  	R7,#090H
+	LCALL	_lcd_wcmd
+; 		lcd_wdat(Dht_error/100+48);
+			; SOURCE LINE # 257
+	MOV  	R0,#LOW (Dht_error)
+	LCALL	L?0125
+; 		lcd_wdat(Dht_error/10%10+48);
+			; SOURCE LINE # 258
+	MOV  	R0,#LOW (Dht_error)
+	LCALL	L?0105
+; 		lcd_wdat(Dht_error%10+48);
+			; SOURCE LINE # 259
+	MOV  	R0,#LOW (Dht_error)
+	MOVX 	A,@R0
+	LCALL	L?0120
+	LCALL	_lcd_wdat
+; 		lcd_wcmd(0x88);
+			; SOURCE LINE # 260
+	MOV  	R7,#088H
+	LCALL	_lcd_wcmd
+; 		for(i=0;i<7;i++)lcd_wdat(((Dht_RhData[4]>>(7-i))&0x01)+48);
+			; SOURCE LINE # 261
+	CLR  	A
+	MOV  	R0,#LOW (i?648)
+	MOVX 	@R0,A
+?C0084:
+	MOV  	R0,#LOW (i?648)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#07H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	JNC  	?C0085
+	CLR  	C
+	MOV  	A,#07H
+	SUBB 	A,R7
+	MOV  	R7,A
+	MOV  	R0,#LOW (Dht_RhData+04H)
+	MOVX 	A,@R0
+	MOV  	R6,A
+	MOV  	R0,AR7
+	INC  	R0
+	SJMP 	?C0091
+?C0090:
+	CLR  	C
+	RRC  	A
+?C0091:
+	DJNZ 	R0,?C0090
+	ANL  	A,#01H
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	MOV  	R0,#LOW (i?648)
+	MOVX 	A,@R0
+	INC  	A
+	MOVX 	@R0,A
+	SJMP 	?C0084
+?C0085:
+; 		lcd_wcmd(0x98);
+			; SOURCE LINE # 262
+	MOV  	R7,#098H
+	LCALL	_lcd_wcmd
+; 		if((Dht_RhData[3]+Dht_RhData[2]+Dht_RhData[1]+Dht_RhData[0])==Dht_RhData[4])lcd_wdat('0');
+			; SOURCE LINE # 263
+	MOV  	R0,#LOW (Dht_RhData+02H)
+	MOVX 	A,@R0
+	MOV  	R7,A
+	INC  	R0
+	MOVX 	A,@R0
+	ADD  	A,R7
+	MOV  	R7,A
+	CLR  	A
+	RLC  	A
+	MOV  	R6,A
+	MOV  	R0,#LOW (Dht_RhData+01H)
+	MOVX 	A,@R0
+	MOV  	R4,#00H
+	ADD  	A,R7
+	MOV  	R7,A
+	MOV  	A,R4
+	ADDC 	A,R6
+	MOV  	R6,A
+	DEC  	R0
+	MOVX 	A,@R0
+	ADD  	A,R7
+	MOV  	R7,A
+	MOV  	A,R4
+	ADDC 	A,R6
+	MOV  	R6,A
+	MOV  	R0,#LOW (Dht_RhData+04H)
+	MOVX 	A,@R0
+	CJNE 	A,AR7,?C0087
+	MOV  	A,R4
+	CJNE 	A,AR6,?C0087
+	MOV  	R7,#030H
+	SJMP 	?C0102
+?C0087:
+; 		else lcd_wdat('1');
+			; SOURCE LINE # 264
+	MOV  	R7,#031H
+?C0102:
+	LCALL	_lcd_wdat
+?C0088:
+; 		d_1s();//d_1s();
+			; SOURCE LINE # 265
+	LCALL	d_1s
+; 	}
+			; SOURCE LINE # 266
+	LJMP 	?C0079
+; }
+			; SOURCE LINE # 267
+L?0103:
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0104:
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0105:
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0111:
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0113:
+	MOVX 	A,@R0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0123:
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0125:
+	MOVX 	A,@R0
+	MOV  	B,#064H
+	DIV  	AB
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+L?0140:
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_lcd_wdat
+	RET  	
+; END OF test_dht
+
+	END

@@ -1,0 +1,444 @@
+; .\Objects\delay.SRC generated from: delay.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE delay.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\delay.lst) TABS(2) SRC(.\Objects\delay.SRC)
+
+$NOMOD51
+
+NAME	DELAY
+
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?d_10us?DELAY     SEGMENT CODE 
+?PR?d_100us?DELAY    SEGMENT CODE 
+?PR?d_100ms?DELAY    SEGMENT CODE 
+?PR?d_1s?DELAY       SEGMENT CODE 
+?PR?d_1ms?DELAY      SEGMENT CODE 
+?PR?_d_n_ms?DELAY    SEGMENT CODE 
+?DT?_d_n_ms?DELAY    SEGMENT DATA OVERLAYABLE 
+?PR?DELAY            SEGMENT CODE 
+	PUBLIC	_d_n_ms
+	PUBLIC	d_1ms
+	PUBLIC	d_1s
+	PUBLIC	d_100ms
+	PUBLIC	d_100us
+	PUBLIC	d_10us
+
+	RSEG  ?DT?_d_n_ms?DELAY
+          z?552:   DS   2
+
+	RSEG  ?DT?_d_n_ms?DELAY
+          x?553:   DS   2
+; #include "delay.h"
+; 
+
+	RSEG  ?PR?DELAY
+Com0031:
+L?0050:
+	USING	0
+L?0051:
+	MOV  	A,R7
+L?0052:
+	SETB 	C
+	SUBB 	A,#00H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+; END OF Com0031
+
+; void d_10us()
+
+	RSEG  ?PR?d_10us?DELAY
+d_10us:
+	USING	0
+			; SOURCE LINE # 3
+; {
+			; SOURCE LINE # 4
+; 	    unsigned char a;
+;     for(a=2;a>0;a--);
+			; SOURCE LINE # 6
+;---- Variable 'a?040' assigned to Register 'R7' ----
+	MOV  	R7,#02H
+?C0001:
+	LCALL	L?0050
+	JC   	?C0004
+	DEC  	R7
+	SJMP 	?C0001
+; }
+			; SOURCE LINE # 7
+?C0004:
+	RET  	
+; END OF d_10us
+
+; void d_100us()
+
+	RSEG  ?PR?d_100us?DELAY
+d_100us:
+	USING	0
+			; SOURCE LINE # 8
+; {
+			; SOURCE LINE # 9
+;     unsigned char a,b;
+;     for(b=3;b>0;b--)
+			; SOURCE LINE # 11
+;---- Variable 'b?142' assigned to Register 'R7' ----
+	MOV  	R7,#03H
+?C0005:
+	LCALL	L?0050
+	JC   	?C0011
+;         for(a=13;a>0;a--);
+			; SOURCE LINE # 12
+;---- Variable 'a?141' assigned to Register 'R6' ----
+	MOV  	R6,#0DH
+?C0008:
+	MOV  	A,R6
+	LCALL	L?0052
+	JC   	?C0007
+	DEC  	R6
+	SJMP 	?C0008
+?C0007:
+	DEC  	R7
+	SJMP 	?C0005
+; }
+			; SOURCE LINE # 13
+?C0011:
+	RET  	
+; END OF d_100us
+
+; void d_100ms()
+
+	RSEG  ?PR?d_100ms?DELAY
+d_100ms:
+	USING	0
+			; SOURCE LINE # 14
+; {
+			; SOURCE LINE # 15
+;     unsigned char a,b,c;
+;     for(c=35;c>0;c--)
+			; SOURCE LINE # 17
+;---- Variable 'c?245' assigned to Register 'R7' ----
+	MOV  	R7,#023H
+?C0012:
+	LCALL	L?0051
+	JC   	?C0021
+;         for(b=10;b>0;b--)
+			; SOURCE LINE # 18
+;---- Variable 'b?244' assigned to Register 'R6' ----
+	MOV  	R6,#0AH
+?C0015:
+	MOV  	A,R6
+	LCALL	L?0052
+	JC   	?C0014
+;             for(a=130;a>0;a--);
+			; SOURCE LINE # 19
+;---- Variable 'a?243' assigned to Register 'R5' ----
+	MOV  	R5,#082H
+?C0018:
+	MOV  	A,R5
+	LCALL	L?0052
+	JC   	?C0017
+	DEC  	R5
+	SJMP 	?C0018
+?C0017:
+	DEC  	R6
+	SJMP 	?C0015
+?C0014:
+	DEC  	R7
+	SJMP 	?C0012
+; }
+			; SOURCE LINE # 20
+?C0021:
+	RET  	
+; END OF d_100ms
+
+; void d_1s()
+
+	RSEG  ?PR?d_1s?DELAY
+d_1s:
+	USING	0
+			; SOURCE LINE # 21
+; {
+			; SOURCE LINE # 22
+;     unsigned char a,b,c;
+;     for(c=95;c>0;c--)
+			; SOURCE LINE # 24
+;---- Variable 'c?348' assigned to Register 'R7' ----
+	MOV  	R7,#05FH
+?C0022:
+	LCALL	L?0051
+	JC   	?C0031
+;         for(b=26;b>0;b--)
+			; SOURCE LINE # 25
+;---- Variable 'b?347' assigned to Register 'R6' ----
+	MOV  	R6,#01AH
+?C0025:
+	MOV  	A,R6
+	LCALL	L?0052
+	JC   	?C0024
+;             for(a=185;a>0;a--);
+			; SOURCE LINE # 26
+;---- Variable 'a?346' assigned to Register 'R5' ----
+	MOV  	R5,#0B9H
+?C0028:
+	MOV  	A,R5
+	LCALL	L?0052
+	JC   	?C0027
+	DEC  	R5
+	SJMP 	?C0028
+?C0027:
+	DEC  	R6
+	SJMP 	?C0025
+?C0024:
+	DEC  	R7
+	SJMP 	?C0022
+; }
+			; SOURCE LINE # 27
+?C0031:
+	RET  	
+; END OF d_1s
+
+; 
+; void d_1ms()
+
+	RSEG  ?PR?d_1ms?DELAY
+d_1ms:
+	USING	0
+			; SOURCE LINE # 29
+; {
+			; SOURCE LINE # 30
+;     unsigned char a,b;
+;     for(b=4;b>0;b--)
+			; SOURCE LINE # 32
+;---- Variable 'b?450' assigned to Register 'R7' ----
+	MOV  	R7,#04H
+?C0032:
+	LCALL	L?0051
+	JC   	?C0038
+;         for(a=113;a>0;a--);
+			; SOURCE LINE # 33
+;---- Variable 'a?449' assigned to Register 'R6' ----
+	MOV  	R6,#071H
+?C0035:
+	MOV  	A,R6
+	LCALL	L?0052
+	JC   	?C0034
+	DEC  	R6
+	SJMP 	?C0035
+?C0034:
+	DEC  	R7
+	SJMP 	?C0032
+; }
+			; SOURCE LINE # 34
+?C0038:
+	RET  	
+; END OF d_1ms
+
+; 
+; void d_n_ms(uint n)
+
+	RSEG  ?PR?_d_n_ms?DELAY
+_d_n_ms:
+	USING	0
+			; SOURCE LINE # 36
+;---- Variable 'n?551' assigned to Register 'R4/R5' ----
+	MOV  	R5,AR7
+	MOV  	R4,AR6
+; {
+			; SOURCE LINE # 37
+?C0039:
+; 	uint data z,x;
+; 	while(n--)
+			; SOURCE LINE # 39
+	MOV  	A,R5
+	DEC  	R5
+	MOV  	R6,AR4
+	JNZ  	?C0046
+	DEC  	R4
+?C0046:
+	ORL  	A,R6
+	JZ   	?C0045
+; 	{
+			; SOURCE LINE # 40
+; 		z=8,x=9;
+			; SOURCE LINE # 41
+	MOV  	z?552,#00H
+	MOV  	z?552+01H,#08H
+	MOV  	x?553,#00H
+	MOV  	x?553+01H,#09H
+?C0041:
+; 		while(z--)d_100us();
+			; SOURCE LINE # 42
+	MOV  	A,z?552+01H
+	DEC  	z?552+01H
+	MOV  	R6,z?552
+	JNZ  	?C0047
+	DEC  	z?552
+?C0047:
+	ORL  	A,R6
+	JZ   	?C0043
+	LCALL	d_100us
+	SJMP 	?C0041
+?C0043:
+; 		while(x--);
+			; SOURCE LINE # 43
+	MOV  	A,x?553+01H
+	DEC  	x?553+01H
+	MOV  	R6,x?553
+	JNZ  	?C0048
+	DEC  	x?553
+?C0048:
+	ORL  	A,R6
+	JNZ  	?C0043
+; 		_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();_nop_();//_nop_();_nop_();_nop_();
+			; SOURCE LINE # 44
+	NOP  	
+	NOP  	
+	NOP  	
+	NOP  	
+	NOP  	
+	NOP  	
+	NOP  	
+; 	}
+			; SOURCE LINE # 45
+	SJMP 	?C0039
+; 	
+; }
+			; SOURCE LINE # 47
+?C0045:
+	RET  	
+; END OF _d_n_ms
+
+	END

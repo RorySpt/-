@@ -1,0 +1,696 @@
+; .\Objects\ds1302.SRC generated from: ds1302.c
+; COMPILER INVOKED BY:
+;        D:\Eng-Software\Keil_v5\core\C51\BIN\C51.EXE ds1302.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ds1302.lst) TABS(2) SRC(.\Objects\ds1302.SRC)
+
+$NOMOD51
+
+NAME	DS1302
+
+DS_CE	BIT	0A0H.0
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+XICON	DATA	0C0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P4	DATA	0E8H
+T1	BIT	0B0H.5
+ISP_TRIG	DATA	0E6H
+T2	BIT	090H.0
+EA	BIT	0A8H.7
+EC	BIT	0A8H.6
+FE	BIT	098H.7
+IE	DATA	0A8H
+DS_IO	BIT	0A0H.1
+EXF2	BIT	0C8H.6
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+RCAP2H	DATA	0CBH
+ISP_CMD	DATA	0E5H
+PS	BIT	0B8H.4
+SP	DATA	081H
+T2EX	BIT	090H.1
+OV	BIT	0D0H.2
+DS_SCLK	BIT	0A0H.2
+RCAP2L	DATA	0CAH
+C_T2	BIT	0C8H.1
+WR	BIT	0B0H.6
+RCLK	BIT	0C8H.5
+TCLK	BIT	0C8H.4
+P00	BIT	080H.0
+SBUF	DATA	099H
+PCON	DATA	087H
+P10	BIT	090H.0
+P01	BIT	080H.1
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0E3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+SCON	DATA	098H
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+P40	BIT	0E8H.0
+TMOD	DATA	089H
+TCON	DATA	088H
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+P41	BIT	0E8H.1
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0E4H
+P42	BIT	0E8H.2
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P43	BIT	0E8H.3
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P44	BIT	0E8H.4
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P45	BIT	0E8H.5
+P37	BIT	0B0H.7
+P46	BIT	0E8H.6
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+AUXR	DATA	08EH
+B	DATA	0F0H
+CP_RL2	BIT	0C8H.0
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0E7H
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0E1H
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+IPH	DATA	0B7H
+EXEN2	BIT	0C8H.3
+REN	BIT	098H.4
+T2MOD	DATA	0C9H
+T2CON	DATA	0C8H
+ISP_DATA	DATA	0E2H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+AUXR1	DATA	0A2H
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?_Ds1302_wByte?DS1302                 SEGMENT CODE 
+?PR?_Ds1302_rByte?DS1302                 SEGMENT CODE 
+?PR?Ds1302_init?DS1302                   SEGMENT CODE 
+?PR?Ds1302_Set_time?DS1302               SEGMENT CODE 
+?PR?Ds1302_Read_time?DS1302              SEGMENT CODE 
+?PR?_Ds1302_time_Copy?DS1302             SEGMENT CODE 
+?C_INITSEG           SEGMENT CODE 
+?CO?DS1302           SEGMENT CODE 
+?PD?DS1302           SEGMENT XDATA INPAGE 
+?PR?DS1302           SEGMENT CODE 
+	PUBLIC	ds_dat_time_set
+	PUBLIC	ds_dat_time_set16
+	PUBLIC	ds_dat_time
+	PUBLIC	WRITE_RTC_ADDR
+	PUBLIC	READ_RTC_ADDR
+	PUBLIC	_Ds1302_time_Copy
+	PUBLIC	Ds1302_Read_time
+	PUBLIC	Ds1302_Set_time
+	PUBLIC	Ds1302_init
+	PUBLIC	_Ds1302_rByte
+	PUBLIC	_Ds1302_wByte
+
+	RSEG  ?PD?DS1302
+    ds_dat_time:   DS   7
+ds_dat_time_set16:   DS   7
+ds_dat_time_set:   DS   7
+
+	RSEG  ?CO?DS1302
+READ_RTC_ADDR:
+	DB	081H
+	DB	083H
+	DB	085H
+	DB	087H
+	DB	089H
+	DB	08BH
+	DB	08DH
+
+WRITE_RTC_ADDR:
+	DB	080H
+	DB	082H
+	DB	084H
+	DB	086H
+	DB	088H
+	DB	08AH
+	DB	08CH
+
+
+	RSEG  ?C_INITSEG
+	DB	087H
+	DB	LOW (ds_dat_time_set)
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	00AH
+	DB	003H
+	DB	001H
+	DB	014H
+
+	DB	087H
+	DB	LOW (ds_dat_time_set16)
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	000H
+	DB	000H
+
+; #include "ds1302.h"
+; 
+; uchar ds_dat_time[7];
+; uchar ds_dat_time_set[7]={0,0,0,10,3,1,20};
+; uchar ds_dat_time_set16[7]={0,0,0,0,0,0,0};
+; //---DS1302写入和读取时分秒的地址命令---//
+; //---秒分时日月周年 最低位读写位;-------//
+; uchar code READ_RTC_ADDR[7] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d}; 
+; uchar code WRITE_RTC_ADDR[7] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+; 
+
+	RSEG  ?PR?DS1302
+Com001F:
+L?0032:
+	USING	0
+	MOV  	A,R6
+L?0033:
+	CLR  	C
+	SUBB 	A,#08H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+L?0034:
+	USING	0
+	MOV  	A,R4
+L?0035:
+	CLR  	C
+	SUBB 	A,#07H
+	MOV  	A,#080H
+	SUBB 	A,#080H
+	RET  	
+L?0036:
+	USING	0
+	MOV  	A,R7
+	RRC  	A
+	MOV  	DS_IO,C
+	MOV  	A,R7
+	CLR  	C
+	RRC  	A
+	MOV  	R7,A
+	SETB 	DS_SCLK
+	RET  	
+; END OF Com001F
+
+; void Ds1302_wByte(uchar addr, uchar dat)
+
+	RSEG  ?PR?_Ds1302_wByte?DS1302
+_Ds1302_wByte:
+	USING	0
+			; SOURCE LINE # 11
+;---- Variable 'dat?041' assigned to Register 'R5' ----
+;---- Variable 'addr?040' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 12
+; 	uchar n;
+; 	EA=0;
+			; SOURCE LINE # 14
+	CLR  	EA
+; 	DS_CE = 0;		_nop_();
+			; SOURCE LINE # 15
+	CLR  	DS_CE
+	NOP  	
+; 	DS_SCLK = 0;	_nop_();
+			; SOURCE LINE # 16
+	CLR  	DS_SCLK
+	NOP  	
+; 	DS_CE = 1;		_nop_();
+			; SOURCE LINE # 17
+	SETB 	DS_CE
+	NOP  	
+; 	for (n=0; n<8; n++)			//开始传送八位地址命令
+			; SOURCE LINE # 18
+;---- Variable 'n?042' assigned to Register 'R6' ----
+	CLR  	A
+	MOV  	R6,A
+?C0001:
+	LCALL	L?0032
+	JNC  	?C0002
+; 	{
+			; SOURCE LINE # 19
+; 		DS_IO = addr & 0x01;	//数据从低位开始传送
+			; SOURCE LINE # 20
+; 		addr >>= 1;
+			; SOURCE LINE # 21
+; 		DS_SCLK = 1;	_nop_();//数据在上升沿时，DS1302读取数据
+			; SOURCE LINE # 22
+	LCALL	L?0036
+	NOP  	
+; 		DS_SCLK = 0;	_nop_();
+			; SOURCE LINE # 23
+	CLR  	DS_SCLK
+	NOP  	
+; 	}
+			; SOURCE LINE # 24
+	INC  	R6
+	SJMP 	?C0001
+?C0002:
+; 	for (n=0; n<8; n++)			//写入8位数据
+			; SOURCE LINE # 25
+	CLR  	A
+	MOV  	R6,A
+?C0004:
+	LCALL	L?0032
+	JNC  	?C0005
+; 	{
+			; SOURCE LINE # 26
+; 		DS_IO = dat & 0x01;
+			; SOURCE LINE # 27
+	MOV  	A,R5
+	RRC  	A
+	MOV  	DS_IO,C
+; 		dat >>= 1;
+			; SOURCE LINE # 28
+	MOV  	A,R5
+	CLR  	C
+	RRC  	A
+	MOV  	R5,A
+; 		DS_SCLK = 1;	_nop_();//数据在上升沿时，DS1302读取数据		
+			; SOURCE LINE # 29
+	SETB 	DS_SCLK
+	NOP  	
+; 		DS_SCLK = 0;	_nop_();			
+			; SOURCE LINE # 30
+	CLR  	DS_SCLK
+	NOP  	
+; 	}	
+			; SOURCE LINE # 31
+	INC  	R6
+	SJMP 	?C0004
+?C0005:
+; 		 
+; 	DS_CE = 0;	_nop_();		//传送数据结束
+			; SOURCE LINE # 33
+	CLR  	DS_CE
+	NOP  	
+; 	EA=1;
+			; SOURCE LINE # 34
+	SETB 	EA
+; 	
+; }
+			; SOURCE LINE # 36
+	RET  	
+; END OF _Ds1302_wByte
+
+; 
+; uchar Ds1302_rByte(uchar addr)
+
+	RSEG  ?PR?_Ds1302_rByte?DS1302
+_Ds1302_rByte:
+	USING	0
+			; SOURCE LINE # 38
+;---- Variable 'dat?145' assigned to Register 'R6' ----
+;---- Variable 'addr?143' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 39
+; 	uchar n,dat;
+; 	EA=0;
+			; SOURCE LINE # 41
+	CLR  	EA
+; 	DS_CE = 0;		_nop_();
+			; SOURCE LINE # 42
+	CLR  	DS_CE
+	NOP  	
+; 	DS_SCLK = 0;	_nop_();
+			; SOURCE LINE # 43
+	CLR  	DS_SCLK
+	NOP  	
+; 	DS_CE = 1;		_nop_();
+			; SOURCE LINE # 44
+	SETB 	DS_CE
+	NOP  	
+; 	for (n=0; n<8; n++)		//传送地址
+			; SOURCE LINE # 45
+;---- Variable 'n?144' assigned to Register 'R5' ----
+	CLR  	A
+	MOV  	R5,A
+?C0008:
+	MOV  	A,R5
+	LCALL	L?0033
+	JNC  	?C0009
+; 	{
+			; SOURCE LINE # 46
+; 		DS_IO = addr & 0x01;	
+			; SOURCE LINE # 47
+; 		addr >>= 1;
+			; SOURCE LINE # 48
+; 		DS_SCLK = 1;	_nop_();
+			; SOURCE LINE # 49
+	LCALL	L?0036
+	NOP  	
+; 		DS_SCLK = 0;	_nop_();
+			; SOURCE LINE # 50
+	CLR  	DS_SCLK
+	NOP  	
+; 	}
+			; SOURCE LINE # 51
+	INC  	R5
+	SJMP 	?C0008
+?C0009:
+; 	for (n=0; n<8; n++)			//读取8位数据
+			; SOURCE LINE # 52
+	CLR  	A
+	MOV  	R5,A
+?C0011:
+	MOV  	A,R5
+	LCALL	L?0033
+	JNC  	?C0012
+; 	{
+			; SOURCE LINE # 53
+; 		dat=(dat>>1)|((uchar)DS_IO<<7);
+			; SOURCE LINE # 54
+	MOV  	C,DS_IO
+	CLR  	A
+	RLC  	A
+	SWAP 	A
+	RLC  	A
+	RLC  	A
+	RLC  	A
+	ANL  	A,#080H
+	MOV  	R7,A
+	MOV  	A,R6
+	CLR  	C
+	RRC  	A
+	ORL  	A,R7
+	MOV  	R6,A
+; 		DS_SCLK = 1;	_nop_();//数据在上升沿时，DS1302读取数据		
+			; SOURCE LINE # 55
+	SETB 	DS_SCLK
+	NOP  	
+; 		DS_SCLK = 0;	_nop_();			
+			; SOURCE LINE # 56
+	CLR  	DS_SCLK
+	NOP  	
+; 	}	
+			; SOURCE LINE # 57
+	INC  	R5
+	SJMP 	?C0011
+?C0012:
+; 		 
+; 	DS_CE = 0;			_nop_();		//传送数据结束
+			; SOURCE LINE # 59
+	CLR  	DS_CE
+	NOP  	
+; 	DS_SCLK = 1;		_nop_();
+			; SOURCE LINE # 60
+	SETB 	DS_SCLK
+	NOP  	
+; 	DS_IO = 0;			_nop_();
+			; SOURCE LINE # 61
+	CLR  	DS_IO
+	NOP  	
+; 	DS_IO = 1;			_nop_();
+			; SOURCE LINE # 62
+	SETB 	DS_IO
+	NOP  	
+; 	EA=1;
+			; SOURCE LINE # 63
+	SETB 	EA
+; 	return dat;	
+			; SOURCE LINE # 64
+	MOV  	R7,AR6
+; 	
+; }
+			; SOURCE LINE # 66
+	RET  	
+; END OF _Ds1302_rByte
+
+; void Ds1302_init() 
+
+	RSEG  ?PR?Ds1302_init?DS1302
+Ds1302_init:
+			; SOURCE LINE # 67
+; {
+			; SOURCE LINE # 68
+; 	DS_CE=0;			//RST脚置低
+			; SOURCE LINE # 69
+	CLR  	DS_CE
+; 	DS_SCLK=0;			//SCK脚置低
+			; SOURCE LINE # 70
+	CLR  	DS_SCLK
+; }
+			; SOURCE LINE # 71
+	RET  	
+; END OF Ds1302_init
+
+; void Ds1302_Set_time()
+
+	RSEG  ?PR?Ds1302_Set_time?DS1302
+Ds1302_Set_time:
+	USING	0
+			; SOURCE LINE # 72
+; {
+			; SOURCE LINE # 73
+; 	uchar n;
+; 	Ds1302_wByte(0x8E,0X00);		 //禁止写保护，就是关闭写保护功能
+			; SOURCE LINE # 75
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,#08EH
+	LCALL	_Ds1302_wByte
+; 	for (n=0; n<7; n++)//写入7个字节的时钟信号：分秒时日月周年
+			; SOURCE LINE # 76
+;---- Variable 'n?346' assigned to Register 'R4' ----
+	CLR  	A
+	MOV  	R4,A
+?C0016:
+	LCALL	L?0034
+	JNC  	?C0017
+; 	{
+			; SOURCE LINE # 77
+; 		Ds1302_wByte(WRITE_RTC_ADDR[n],ds_dat_time_set[n]);	
+			; SOURCE LINE # 78
+	MOV  	A,R4
+	MOV  	DPTR,#WRITE_RTC_ADDR
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	MOV  	A,#LOW (ds_dat_time_set)
+	ADD  	A,R4
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R5,A
+	LCALL	_Ds1302_wByte
+; 	}
+			; SOURCE LINE # 79
+	INC  	R4
+	SJMP 	?C0016
+?C0017:
+; 	Ds1302_wByte(0x8E,0x80);		 //打开写保护功能
+			; SOURCE LINE # 80
+	MOV  	R5,#080H
+	MOV  	R7,#08EH
+	LJMP 	_Ds1302_wByte
+; END OF Ds1302_Set_time
+
+; }
+; 
+; void Ds1302_Read_time()
+
+	RSEG  ?PR?Ds1302_Read_time?DS1302
+Ds1302_Read_time:
+	USING	0
+			; SOURCE LINE # 83
+; {
+			; SOURCE LINE # 84
+; 	uchar n;
+; 	for (n=0; n<7; n++)//读取7个字节的时钟信号：分秒时日月周年
+			; SOURCE LINE # 86
+;---- Variable 'n?447' assigned to Register 'R4' ----
+	CLR  	A
+	MOV  	R4,A
+?C0020:
+	LCALL	L?0034
+	JNC  	?C0023
+; 	{
+			; SOURCE LINE # 87
+; 		ds_dat_time[n] = Ds1302_rByte(READ_RTC_ADDR[n]);
+			; SOURCE LINE # 88
+	MOV  	A,R4
+	MOV  	DPTR,#READ_RTC_ADDR
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	LCALL	_Ds1302_rByte
+	MOV  	A,#LOW (ds_dat_time)
+	ADD  	A,R4
+	MOV  	R0,A
+	MOV  	A,R7
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 89
+	INC  	R4
+	SJMP 	?C0020
+; 	//Ds1302_tDat_BCD();
+; 		
+; }
+			; SOURCE LINE # 92
+?C0023:
+	RET  	
+; END OF Ds1302_Read_time
+
+; void Ds1302_time_Copy(uchar sign)//复制时间信息
+
+	RSEG  ?PR?_Ds1302_time_Copy?DS1302
+_Ds1302_time_Copy:
+	USING	0
+			; SOURCE LINE # 93
+;---- Variable 'sign?548' assigned to Register 'R7' ----
+; {
+			; SOURCE LINE # 94
+; 	uchar n;
+; 	for (n=0; n<7; n++)
+			; SOURCE LINE # 96
+;---- Variable 'n?549' assigned to Register 'R6' ----
+	CLR  	A
+	MOV  	R6,A
+?C0024:
+	MOV  	A,R6
+	LCALL	L?0035
+	JNC  	?C0030
+; 	{
+			; SOURCE LINE # 97
+; 		if(sign==0)ds_dat_time_set[n]=ds_dat_time[n];
+			; SOURCE LINE # 98
+	MOV  	A,R7
+	MOV  	R5,A
+	MOV  	R4,#00H
+	JNZ  	?C0027
+	MOV  	A,#LOW (ds_dat_time)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R3,A
+	MOV  	A,#LOW (ds_dat_time_set)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOV  	A,R3
+	MOVX 	@R0,A
+?C0027:
+; 		if(sign==1)ds_dat_time_set16[n]=(ds_dat_time_set[n]>>4)*10+(ds_dat_time_set[n]&0x0f);
+			; SOURCE LINE # 99
+	MOV  	A,R5
+	XRL  	A,#01H
+	ORL  	A,R4
+	JNZ  	?C0028
+	MOV  	A,#LOW (ds_dat_time_set)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R5,A
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	B,#0AH
+	MUL  	AB
+	MOV  	R4,A
+	MOV  	A,R5
+	ANL  	A,#0FH
+	ADD  	A,R4
+	MOV  	R5,A
+	MOV  	A,#LOW (ds_dat_time_set16)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOV  	A,R5
+	MOVX 	@R0,A
+?C0028:
+; 		if(sign==2)ds_dat_time_set[n]=ds_dat_time_set16[n]/10*16+ds_dat_time_set16[n]%10;
+			; SOURCE LINE # 100
+	MOV  	A,R7
+	XRL  	A,#02H
+	JNZ  	?C0026
+	MOV  	A,#LOW (ds_dat_time_set16)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOVX 	A,@R0
+	MOV  	R5,A
+	MOV  	B,#0AH
+	DIV  	AB
+	SWAP 	A
+	ANL  	A,#0F0H
+	MOV  	R4,A
+	MOV  	A,R5
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,R4
+	ADD  	A,B
+	MOV  	R5,A
+	MOV  	A,#LOW (ds_dat_time_set)
+	ADD  	A,R6
+	MOV  	R0,A
+	MOV  	A,R5
+	MOVX 	@R0,A
+; 	}
+			; SOURCE LINE # 101
+?C0026:
+	INC  	R6
+	SJMP 	?C0024
+; }
+			; SOURCE LINE # 102
+?C0030:
+	RET  	
+; END OF _Ds1302_time_Copy
+
+	END
